@@ -1,0 +1,107 @@
+/* FlowButton.css */
+.flow-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    overflow: hidden;
+    border-radius: 100px;
+    border: 1.5px solid rgba(17, 17, 17, 0.4);
+    /* #111 with opacity */
+    background: transparent;
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111111;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-sizing: border-box;
+    /* Optional: ensure it behaves well in flex containers */
+    flex-shrink: 0;
+}
+
+/* Hover state for the button container */
+.flow-btn:hover {
+    border-color: transparent;
+    color: white;
+    border-radius: 12px;
+}
+
+.flow-btn:active {
+    transform: scale(0.95);
+}
+
+/* Icons */
+.flow-icon {
+    width: 1rem;
+    height: 1rem;
+    stroke: #111;
+    fill: none;
+    position: absolute;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flow-icon-left {
+    left: -25%;
+}
+
+.flow-icon-right {
+    right: 1rem;
+}
+
+/* Hover States for Icons */
+.flow-btn:hover .flow-icon {
+    stroke: white;
+}
+
+.flow-btn:hover .flow-icon-left {
+    left: 1rem;
+}
+
+.flow-btn:hover .flow-icon-right {
+    right: -25%;
+}
+
+/* Text Container */
+.flow-text {
+    position: relative;
+    z-index: 10;
+    transform: translateX(-0.75rem);
+    transition: all 0.8s ease-out;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.flow-btn:hover .flow-text {
+    transform: translateX(0.75rem);
+    color: white;
+}
+
+/* Expanding Circle Background */
+.flow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: #111111;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.flow-btn:hover .flow-circle {
+    width: 300px;
+    /* Large enough to cover */
+    height: 300px;
+    opacity: 1;
+}
+
+/* Dark Mode Support (Optional override if parent expects it) */
+/* .dark .flow-btn { border-color: rgba(255,255,255,0.4); color: white; } */

@@ -1,0 +1,224 @@
+/* ProductAccordions.css */
+
+.product-accordions-section {
+    width: 100%;
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #E5E5E5;
+    background: #fff;
+    overflow: hidden;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+    /* Optional: remove last border if desired, but user said "each row to separate them", so usually last one might not need it or keep it. I'll keep it for consistency or remove if it looks better. Let's keep it. */
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    /* Slightly more vertical padding */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    /* Not bolded */
+    color: #1A1A1A;
+    text-align: left;
+}
+
+.accordion-icon {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Smoother bezier */
+}
+
+.accordion-icon.rotated {
+    transform: rotate(45deg);
+    /* Plus becomes X */
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.6s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.6s ease-out;
+    /* Slower, luxurious smooth curve */
+    background: #fff;
+    visibility: hidden;
+    /* Ensure it's not clickable/visible when closed */
+}
+
+.accordion-item.open .accordion-content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+}
+
+.accordion-content-inner {
+    overflow: hidden;
+    min-height: 0;
+    /* Critical for grid animation */
+    padding: 10px 0 30px 0;
+    text-align: left;
+    /* Left align text */
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    /* Increased line height */
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Clinical Studies specific spacing */
+.cs-headline,
+.cs-quote,
+.cs-text,
+.cs-subhead,
+.cs-ticks,
+.video-wrapper {
+    margin-bottom: 2rem;
+    /* Increased spacing between elements */
+}
+
+/* Clinical Studies specific */
+.cs-headline {
+    font-size: 1.1rem;
+    font-weight: 800;
+    /* Bolded and slightly bigger */
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.video-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+.cs-video {
+    width: 100%;
+    display: block;
+}
+
+.cs-quote {
+    font-style: italic;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+.cs-quote footer {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.cs-text {
+    margin-bottom: 1.5rem;
+}
+
+.cs-subhead {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.cs-ticks,
+.cs-ticks-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    /* Align ticks left */
+    margin-bottom: 1.5rem;
+    text-align: left;
+    /* The text of the tick itself reads better left-aligned relative to the icon, but the block is centered? */
+}
+
+.tick-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    /* Keep individual list items left aligned for readability while block is centered */
+    width: 100%;
+}
+
+.tick-icon {
+    color: #000;
+    /* Or brand color */
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* Includes */
+.includes-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.supply-text {
+    font-style: italic;
+    color: #666;
+}
+
+/* How To Use */
+.use-steps {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    /* Instructions are better left aligned usually, but if user demanded centered... */
+    max-width: 100%;
+    /* Allow full width */
+    margin: 0;
+    /* Remove auto margin centering */
+}
+
+/* Overriding text-align for step readability if desired, but user said "text there too" centered. 
+   I will center the container but let's see. Centered long text is hard to read.
+   I'll center the block but maybe left align text lines if they are long? 
+   User instruction: "I want the dropdown menus to be centered. The text there too." -> implies text-align: center. 
+   I will follow this strictly for now.
+*/
+.use-steps li {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    /* Strict left align */
+}
+
+/* Ingredients */
+.ingredients-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ingredient-item {
+    text-align: left;
+    /* Strict left align */
+}

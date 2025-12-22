@@ -1,0 +1,67 @@
+/* AllySection.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.ally-section {
+    background-color: #E0E0E0;
+    /* Light warm gray/taupe */
+    padding: 60px 1rem;
+    width: 100%;
+}
+
+.ally-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    /* Centers the heading/content block generally */
+}
+
+.ally-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    /* Approx 28-32px */
+    color: #000000;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.ally-content {
+    text-align: left;
+    /* Keep body text readable */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Space between paragraphs */
+}
+
+.ally-content p {
+    font-family: 'Montserrat', sans-serif;
+    /* Global font requirement */
+    font-size: 18px;
+    /* Approx 16-18px */
+    line-height: 1.6;
+    color: #1A1A1A;
+    font-weight: 400;
+    margin: 0;
+}
+
+.ally-content strong {
+    font-weight: 700;
+    color: #000000;
+    /* Ensure bold stands out */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .ally-section {
+        padding: 40px 1rem;
+    }
+
+    .ally-heading {
+        font-size: 24px;
+    }
+
+    .ally-content p {
+        font-size: 16px;
+    }
+}

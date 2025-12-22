@@ -1,0 +1,72 @@
+.usp-bar {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    padding: 0.6rem 0;
+    margin-top: 0;
+    /* Natural flow with sticky header */
+    /* Clear fixed countdown */
+    position: relative;
+    z-index: 40;
+}
+
+.usp-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.usp-arrow {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.usp-arrow:hover {
+    opacity: 1;
+}
+
+.usp-content {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.usp-text {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    animation: fadeIn 0.3s ease-out;
+    white-space: nowrap;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(2px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .usp-bar {
+        margin-top: 0 !important;
+        /* Reset margin on mobile */
+    }
+}

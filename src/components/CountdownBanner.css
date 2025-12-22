@@ -1,0 +1,99 @@
+.countdown-banner {
+    background-color: #d82a11;
+    color: #ffffff;
+    width: 100%;
+    padding: 0;
+    position: sticky;
+    /* Sticky on desktop as requested */
+    top: 0;
+    left: 0;
+    z-index: 2002;
+    /* Ensure on top */
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .countdown-banner {
+        position: relative !important;
+        /* Unstick on mobile */
+        height: auto !important;
+        /* Allow wrapping */
+        padding: 10px 0;
+    }
+}
+
+.countdown-text,
+.countdown-simple-time {
+    color: #ffffff;
+}
+
+/* Adjust container if needed */
+.countdown-banner .container {
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 1440px;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.countdown-text {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+.countdown-simple-time {
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+}
+
+/* Responsive Labels */
+.desktop-label {
+    display: inline;
+}
+
+.mobile-label {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .countdown-container {
+        gap: 0.5rem;
+        flex-direction: row !important;
+        /* Force row */
+        flex-wrap: nowrap !important;
+        /* Prevent wrapping */
+    }
+
+    .desktop-label {
+        display: none;
+    }
+
+    .mobile-label {
+        display: inline;
+    }
+
+    .countdown-text {
+        font-size: 0.75rem;
+        /* Smaller text */
+        white-space: nowrap;
+        /* Prevent wrap */
+    }
+
+    .countdown-simple-time {
+        font-size: 0.85rem;
+        white-space: nowrap;
+        /* Prevent wrap */
+    }
+}

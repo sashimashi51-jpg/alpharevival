@@ -1,0 +1,115 @@
+/* ResultsSection.css */
+.results-section {
+    background-color: #ffffff;
+    padding: 4rem 1rem;
+    width: 100%;
+}
+
+.results-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.results-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #1A1A1A;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    /* Generous vertical spacing */
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.circular-chart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-svg {
+    transform: rotate(-90deg);
+    /* Start from top */
+    width: 100%;
+    height: 100%;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #f3f3f3;
+    /* Very light gray */
+    stroke-width: 8;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: #000000;
+    /* Solid Black */
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+.percentage-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    /* Or modern sans-serif requested */
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #000000;
+}
+
+.result-description {
+    font-family: 'Inter', system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333333;
+    font-weight: 400;
+}
+
+@media (max-width: 600px) {
+    .result-row {
+        gap: 1.5rem;
+    }
+
+    .results-title {
+        font-size: 1.75rem;
+    }
+
+    .chart-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .percentage-text {
+        font-size: 1.1rem;
+    }
+
+    .result-description {
+        font-size: 1rem;
+    }
+}

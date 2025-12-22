@@ -1,0 +1,162 @@
+.stories-section {
+    padding: 4rem 0;
+    background: #ffffff !important;
+    overflow: hidden;
+    /* Prevent horizontal scrollbar on body */
+}
+
+.stories-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.stories-slider-wrapper {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    /* Create a fade/shadow effect on the right to imply depth */
+    mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+}
+
+.stories-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(var(--slider-transform, 0));
+}
+
+@media (max-width: 1023px) {
+    .stories-track {
+        transform: none !important;
+        /* Disable JS slider on tablet/mobile */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+    }
+}
+
+.story-card {
+    flex: 0 0 calc(100%);
+    /* Mobile: 1 card */
+    background: #ffffff;
+    border: 2px solid #000000;
+    /* Solid Black Border */
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Desktop: 4 Cards Visible */
+@media (min-width: 1024px) {
+    .story-card {
+        flex: 0 0 calc((100% - 4.5rem) / 4);
+        /* 100% - 3 gaps (1.5rem * 3) / 4 */
+    }
+}
+
+.story-image-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    /* Or standard photo ratio */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.story-stars {
+    color: #fbbf24;
+    /* Amber-400 */
+    display: flex;
+    gap: 2px;
+}
+
+.story-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #334155;
+    flex-grow: 1;
+    /* Push name to bottom */
+}
+
+.story-author {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0f172a;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+    margin-top: auto;
+}
+
+.story-author span {
+    display: block;
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* Navigation Arrow */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    /* Adjust as needed */
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.slider-arrow:hover {
+    background: #f8fafc;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.slider-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .slider-arrow {
+        display: none;
+        /* Usually swipe on mobile, or keep if requested */
+    }
+
+    .stories-track {
+        overflow-x: auto;
+        /* Allow native scroll on mobile */
+        scroll-snap-type: x mandatory;
+        padding-bottom: 1rem;
+        /* Space for scrollbar */
+    }
+
+    .story-card {
+        scroll-snap-align: center;
+        flex: 0 0 85%;
+        /* Peek effect on mobile */
+    }
+}

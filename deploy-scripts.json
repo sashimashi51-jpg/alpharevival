@@ -1,0 +1,10 @@
+{
+    "name": "deploy-frontend",
+    "version": "1.0.0",
+    "scripts": {
+        "deploy:vercel": "vercel --prod",
+        "deploy:netlify": "netlify deploy --prod",
+        "build": "npm run build",
+        "preview": "npm run preview"
+    }
+}
