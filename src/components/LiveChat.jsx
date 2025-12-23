@@ -29,14 +29,17 @@ const FakeLiveChat = () => {
 
         forever: "For best results, use long-term (like brushing teeth). But once follicles reactivate, you can often reduce to once weekly for maintenance.",
 
-        default: "I can help with questions about:\n• Pricing & packages\n• How it works\n• Safety & side effects\n• Money-back guarantee\n• Shipping & delivery\n• Results timeline\n\nWhat would you like to know?"
+        default: "I'm here to help! Please click one of the buttons below to get an instant answer, or type your question if it's not listed. 👇"
     };
 
     const quickButtons = [
-        { text: "How does it work?", keyword: "works" },
-        { text: "Is it safe?", keyword: "safe" },
-        { text: "Pricing?", keyword: "price" },
-        { text: "Money-back guarantee?", keyword: "guarantee" }
+        { text: "Pricing & Packages 💰", keyword: "price" },
+        { text: "How does it work? ⚙️", keyword: "works" },
+        { text: "Is it safe? 🛡️", keyword: "safe" },
+        { text: "Money-back guarantee 💯", keyword: "guarantee" },
+        { text: "Shipping & Delivery 🚚", keyword: "shipping" },
+        { text: "Results Timeline 📅", keyword: "results" },
+        { text: "Side Effects? 💊", keyword: "sideeffects" }
     ];
 
     const scrollToBottom = () => {
