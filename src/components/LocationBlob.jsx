@@ -4,8 +4,8 @@ const LocationBlob = () => {
     const [location, setLocation] = useState(null);
 
     useEffect(() => {
-        // Using ip-api.com as an alternative/complementary source
-        fetch('http://ip-api.com/json/')
+        // Using https://ipapi.co/json/ for HTTPS support
+        fetch('https://ipapi.co/json/')
             .then(res => res.json())
             .then(data => {
                 if (data.status === 'success') {

@@ -60,19 +60,13 @@ app.post('/create-payment-intent', async (req, res) => {
             currency: 'usd',
             automatic_payment_methods: {
                 enabled: true,
-                allow_redirects: 'always'
             },
             metadata: {
                 customer_email: email || 'guest@alpharevive.com',
                 items: JSON.stringify(items?.map(i => ({ id: i.id, qty: i.quantity })) || [])
             },
-            payment_method_types: [
-                'card',
-                'klarna',
-                'afterpay_clearpay',
-                'paypal',
-                'us_bank_account'
-            ],
+            // Remove explicit payment_method_types to avoid 500 errors if methods aren't enabled in Stripe Dashboard
+            // payment_method_types: [...] <--- Removed
         });
 
         res.send({
