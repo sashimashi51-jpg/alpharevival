@@ -10,6 +10,7 @@ import AllySection from '../components/AllySection';
 import TimelineDemo from '../components/TimelineDemo';
 import FaqSection from '../components/FaqSection';
 import { StaggerTestimonials } from '../components/StaggerTestimonials';
+import CountdownTimer from '../components/CountdownTimer';
 import './ProductPage.css';
 
 const productImages = [
@@ -167,6 +168,10 @@ export default function ProductPage() {
 
                     <div className="guarantee-text">
                         REGROW YOUR HAIR IN 120 DAYS OR GET YOUR MONEY BACK
+                    </div>
+
+                    <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+                        <CountdownTimer hours={48} label="⚡ LIMITED TIME OFFER ENDS IN:" />
                     </div>
 
                     <ul className="checklist">

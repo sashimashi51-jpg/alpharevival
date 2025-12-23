@@ -25,6 +25,8 @@ import CartDrawer from './components/CartDrawer';
 
 import CheckoutPage from './pages/CheckoutPage';
 import SuccessPage from './pages/SuccessPage';
+import Analytics from './components/Analytics';
+import LiveChat from './components/LiveChat';
 
 function AppContent() {
   const location = useLocation();
@@ -67,6 +69,8 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <Wrapper>
+          <Analytics />
+          <LiveChat />
           <AppContent />
         </Wrapper>
       </BrowserRouter>
