@@ -11,6 +11,7 @@ import TimelineDemo from '../components/TimelineDemo';
 import FaqSection from '../components/FaqSection';
 import { StaggerTestimonials } from '../components/StaggerTestimonials';
 import CountdownTimer from '../components/CountdownTimer';
+import TrustBadges from '../components/TrustBadges';
 import './ProductPage.css';
 
 const productImages = [
@@ -232,6 +233,7 @@ export default function ProductPage() {
                         ADD TO CART - {offers[selectedOffer].price}
                     </button>
 
+                    <TrustBadges />
 
                     <div className="guarantee-box">
                         <div className="guarantee-header">
