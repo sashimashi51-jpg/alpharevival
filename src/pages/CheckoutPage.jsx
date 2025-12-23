@@ -84,8 +84,10 @@ const CheckoutForm = ({ clientSecret }) => {
                     id="payment-element"
                     options={{
                         layout: {
-                            type: 'tabs',
+                            type: 'accordion',
                             defaultCollapsed: false,
+                            radios: true,
+                            spacedAccordionItems: true
                         }
                     }}
                 />
@@ -164,58 +166,38 @@ export default function CheckoutPage() {
             colorPrimary: '#000000',
             colorBackground: '#ffffff',
             colorText: '#1f2937',
-            borderRadius: '12px',
+            borderRadius: '8px',
             fontFamily: 'Inter, system-ui, sans-serif',
             fontSizeBase: '16px',
-            spacingUnit: '6px',
+            spacingUnit: '4px',
+            spacingGridRow: '16px'
         },
         rules: {
             '.Tab': {
-                border: '2px solid #d1d5db',
-                borderRadius: '12px',
-                padding: '16px',
-                marginBottom: '8px',
-                boxShadow: 'none',
-                transition: 'all 0.2s ease',
+                border: '1px solid #e5e7eb',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
             },
             '.Tab:hover': {
                 borderColor: '#000000',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
             },
             '.Tab--selected': {
                 borderColor: '#000000',
-                backgroundColor: '#f9fafb',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                backgroundColor: '#ffffff',
+                borderWidth: '2px',
             },
             '.Input': {
-                border: '2px solid #d1d5db',
-                borderRadius: '10px',
-                padding: '14px',
-                fontSize: '16px',
-                boxShadow: 'none',
-                backgroundColor: '#ffffff',
-            },
-            '.Input:hover': {
-                borderColor: '#9ca3af',
+                border: '1px solid #d1d5db',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                padding: '12px'
             },
             '.Input:focus': {
-                borderColor: '#000000',
-                boxShadow: '0 0 0 3px rgba(0,0,0,0.05)',
-                outline: 'none',
+                border: '2px solid #000000',
+                boxShadow: 'none',
             },
             '.Label': {
-                fontSize: '14px',
                 fontWeight: '600',
-                marginBottom: '8px',
                 color: '#374151',
-            },
-            '.TabLabel': {
-                fontSize: '15px',
-                fontWeight: '600',
-            },
-            '.TabIcon': {
-                width: '24px',
-                height: '24px',
+                marginBottom: '6px'
             }
         }
     };
@@ -223,7 +205,6 @@ export default function CheckoutPage() {
     const options = {
         clientSecret,
         appearance,
-        paymentMethodOrder: ['card', 'apple_pay', 'google_pay', 'klarna', 'afterpay_clearpay', 'paypal'],
     };
 
     return (
