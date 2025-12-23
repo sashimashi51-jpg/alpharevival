@@ -17,7 +17,7 @@ const GIFT_ITEM = {
     price: 0,
     originalPrice: 15,
     quantity: 1,
-    image: '/assets/needle_head.png',
+    image: '/assets/nial.png',
     isGift: true
 };
 

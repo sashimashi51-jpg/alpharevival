@@ -212,7 +212,7 @@ export default function CartDrawer() {
                                 {/* Gift Item - Dynamic State */}
                                 <div className={`border rounded-lg p-3 flex items-center gap-3 ${cartTotal >= THRESHOLDS.GIFT ? 'bg-orange-50 border-orange-200' : 'bg-gray-50 border-gray-200 opacity-60'}`}>
                                     <div className="w-12 h-12 bg-white rounded flex items-center justify-center border border-gray-100 flex-shrink-0">
-                                        <img src="/assets/needle_head.png" alt="Gift" className="w-8 h-8 object-contain" />
+                                        <img src="/assets/nial.png" alt="Gift" className="w-8 h-8 object-contain" />
                                     </div>
                                     <div className="flex-1">
                                         <p className={`text-sm font-bold ${cartTotal >= THRESHOLDS.GIFT ? 'text-orange-700' : 'text-gray-500'}`}>
