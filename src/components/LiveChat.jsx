@@ -111,7 +111,7 @@ const FakeLiveChat = () => {
             {!isOpen && (
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="fixed bottom-6 right-6 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-50 group"
+                    className="fixed bottom-36 right-6 md:bottom-6 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-50 group"
                     style={{ width: '64px', height: '64px' }}
                 >
                     <MessageCircle size={32} className="group-hover:animate-bounce" />
@@ -121,7 +121,7 @@ const FakeLiveChat = () => {
 
             {/* Chat Window */}
             {isOpen && (
-                <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border border-gray-200">
+                <div className="fixed bottom-36 right-6 md:bottom-6 w-80 md:w-96 h-[500px] md:h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border border-gray-200">
                     {/* Header */}
                     <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-4 flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -143,7 +143,7 @@ const FakeLiveChat = () => {
                     <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
                         {messages.map((msg, idx) => (
                             <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                <div className={`max-w-[80%] p-3 rounded-2xl ${msg.sender === 'user'
+                                <div className={`max-w-[85%] p-3 rounded-2xl ${msg.sender === 'user'
                                     ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white'
                                     : 'bg-white border border-gray-200 text-gray-800'
                                     }`}>
