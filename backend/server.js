@@ -58,9 +58,10 @@ app.post('/create-payment-intent', async (req, res) => {
         const paymentIntent = await stripe.paymentIntents.create({
             amount: orderAmount,
             currency: 'usd',
-            automatic_payment_methods: {
-                enabled: true,
-            },
+            // automatic_payment_methods: {
+            //     enabled: true,
+            // },
+            payment_method_types: ['card'], // Fallback to explicit 'card' to fix 500 error
             metadata: {
                 customer_email: email || 'guest@alpharevive.com',
                 items: JSON.stringify(items?.map(i => ({ id: i.id, qty: i.quantity })) || [])
