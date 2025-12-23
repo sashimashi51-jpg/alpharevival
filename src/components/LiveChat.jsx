@@ -141,8 +141,8 @@ const FakeLiveChat = () => {
                         {messages.map((msg, idx) => (
                             <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                                 <div className={`max-w-[80%] p-3 rounded-2xl ${msg.sender === 'user'
-                                        ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white'
-                                        : 'bg-white border border-gray-200 text-gray-800'
+                                    ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white'
+                                    : 'bg-white border border-gray-200 text-gray-800'
                                     }`}>
                                     <div className="text-sm whitespace-pre-line">{msg.text}</div>
                                 </div>
@@ -162,7 +162,7 @@ const FakeLiveChat = () => {
                     </div>
 
                     {/* Quick Buttons */}
-                    {messages.length > 0 && messages.length < 3 && (
+                    {messages.length > 0 && (
                         <div className="p-3 bg-white border-t border-gray-200 flex flex-wrap gap-2">
                             {quickButtons.map((btn, idx) => (
                                 <button
