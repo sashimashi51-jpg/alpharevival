@@ -298,16 +298,7 @@ export default function CheckoutPage() {
                                     <span className="font-bold text-green-600">FREE</span>
                                 </label>
 
-                                <label className="flex items-center justify-between p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-black transition-colors">
-                                    <div className="flex items-center gap-3">
-                                        <input type="radio" name="shipping" className="w-5 h-5 text-black" />
-                                        <div>
-                                            <div className="font-semibold text-gray-900">Express Shipping</div>
-                                            <div className="text-sm text-gray-500">1-2 business days</div>
-                                        </div>
-                                    </div>
-                                    <span className="font-bold text-gray-900">$9.99</span>
-                                </label>
+
                             </div>
                         </div>
 

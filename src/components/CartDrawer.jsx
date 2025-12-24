@@ -228,7 +228,7 @@ export default function CartDrawer() {
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 max-h-[80px]"
+                                    className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300"
                                 >
                                     {/* Left: eBook Thumbnail */}
                                     <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden border border-amber-300 shadow-sm">
