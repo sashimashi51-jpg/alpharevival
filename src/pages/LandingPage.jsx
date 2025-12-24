@@ -8,6 +8,7 @@ import FaqSection from '../components/FaqSection';
 import { FlowButton } from '../components/FlowButton';
 import SuccessStories from '../components/SuccessStories';
 import FeaturedProduct from '../components/FeaturedProduct';
+import EbookSection from '../components/EbookSection';
 
 import './LandingPage.css';
 
@@ -238,6 +239,9 @@ export default function LandingPage() {
 
             {/* Testimonials Section (New Animated) */}
             <TestimonialsColumns />
+
+            {/* Lead Magnet - Ebook Section */}
+            <EbookSection />
 
             {/* Featured Product Section */}
             <FeaturedProduct />

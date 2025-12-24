@@ -12,6 +12,7 @@ import FaqSection from '../components/FaqSection';
 import { StaggerTestimonials } from '../components/StaggerTestimonials';
 import CountdownTimer from '../components/CountdownTimer';
 import TrustBadges from '../components/TrustBadges';
+import EbookSection from '../components/EbookSection';
 import './ProductPage.css';
 
 const productImages = [
@@ -267,6 +268,10 @@ export default function ProductPage() {
 
             <ProductAccordions />
             <SuccessStories />
+
+            {/* Free Guide Lead Magnet */}
+            <EbookSection />
+
             <ResultsSection />
             <AllySection />
             <TimelineDemo />
