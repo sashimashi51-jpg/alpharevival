@@ -1,0 +1,69 @@
+.bannerContainer {
+    position: relative;
+    /* Changed from fixed to relative */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    /* Reduced z-index since it's no longer fixed */
+    background: linear-gradient(135deg, #D32F2F 0%, #C62828 100%);
+    padding: 0.25rem 1rem;
+    /* Ultra-slim padding */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    /* Ensure full width */
+}
+
+.bannerContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    /* Reduced gap */
+}
+
+.urgencyIcon {
+    font-size: 1rem;
+    /* Smaller icon */
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.timerWrapper {
+    color: white;
+    font-weight: 600;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .bannerContainer {
+        padding: 0.2rem 0.75rem;
+        /* Ultra-slim mobile */
+    }
+
+    .urgencyIcon {
+        font-size: 0.875rem;
+        /* Even smaller on mobile */
+    }
+
+    /* Make timer text smaller on mobile */
+    .timerWrapper {
+        font-size: 0.75rem;
+        /* Extra small on mobile */
+    }
+}

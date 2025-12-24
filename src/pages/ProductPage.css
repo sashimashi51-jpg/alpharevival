@@ -690,31 +690,157 @@
     }
 }
 
+/* Hide mobile gallery navigation on desktop */
+.mobile-gallery-nav,
+.gallery-arrow {
+    display: none;
+}
+
 /* --- MOBILE FIXES --- */
 @media (max-width: 768px) {
 
     /* 1. Prevent the Sticky Bar from covering content */
-    /* This adds extra empty space at the very bottom of the page */
     .product-page {
         padding-bottom: 140px !important;
-        /* Increased from 6rem to ensure clearance */
+        overflow-x: hidden;
+        /* Prevent horizontal scroll */
     }
 
-    /* 2. Make the Main Image fit the screen perfectly */
-    /* Prevents the image from being so tall that the header/footer covers it */
-    .main-image {
-        max-height: 50vh;
-        /* Limits image to 50% of screen height */
+    /* 2. Full-width, edge-to-edge main image display - TRUE EDGE-TO-EDGE */
+    .product-gallery {
+        width: 100vw;
+        /* Full viewport width */
+        position: relative;
+        left: 50%;
+        /* Move to center */
+        right: 50%;
+        margin-left: -50vw;
+        /* Pull back to left edge */
+        margin-right: -50vw;
+        /* Pull back to right edge */
+        overflow-x: hidden;
+        /* Prevent any horizontal scroll within gallery */
+    }
+
+    .main-image-wrapper {
+        border: none;
+        border-radius: 0;
+        /* No rounded corners for full-bleed effect */
+        background: #fff;
+        padding: 0;
+        /* Remove all padding */
+        margin-bottom: 0;
+        min-height: auto;
+        height: auto;
         width: 100%;
-        object-fit: contain;
-        /* Ensures the whole image is visible */
+        position: relative;
     }
 
-    /* 3. Fix Thumbnail "Clipping" at the bottom */
+    .main-image {
+        width: 100%;
+        height: auto;
+        max-height: none !important;
+        object-fit: contain !important;
+        display: block;
+        padding: 2.5rem 1.5rem;
+        /* More vertical padding to match reference */
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+            transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Buttery smooth cloud-like transitions */
+    }
+
+    /* 3. HIDE Thumbnails on Mobile - Will use dots/arrows instead */
     .gallery-thumbnails {
-        padding-bottom: 15px;
-        /* Adds space for the active border/shadow so it's not cut off */
-        padding-top: 10px;
-        margin-top: 20px;
+        display: none !important;
+        /* Hide thumbnail grid on mobile */
+    }
+
+    .gallery-thumbnail {
+        flex-shrink: 0;
+        width: 65px;
+        height: 65px;
+        border: 2px solid #e5e5e5;
+        border-radius: 6px;
+        padding: 5px;
+        background: #fff;
+    }
+
+    .gallery-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain !important;
+    }
+
+    .gallery-thumbnail.active {
+        border: 3px solid #000;
+    }
+
+    /* Mobile-specific: Bring product content closer */
+    .product-content {
+        margin-top: 0;
+    }
+
+    /* Remove extra spacing on mobile */
+    .product-grid {
+        gap: 0.5rem;
+    }
+
+    /* Mobile Gallery Navigation - Dots and Arrows */
+    .mobile-gallery-nav {
+        display: flex;
+        /* Show on mobile */
+        position: absolute;
+        bottom: 0.75rem;
+        /* Moved lower */
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 8px;
+        z-index: 10;
+    }
+
+    .gallery-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .gallery-dot.active {
+        background: #000;
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    .gallery-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-arrow:hover {
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-arrow.prev {
+        left: 1rem;
+    }
+
+    .gallery-arrow.next {
+        right: 1rem;
     }
 }

@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
 import Navbar from './components/Navbar';
 import FooterNew from './components/FooterNew';
+import TimerBanner from './components/TimerBanner';
 
 // Scroll to top wrapper
 const Wrapper = ({ children }) => {
@@ -33,6 +34,7 @@ function AppContent() {
 
   return (
     <>
+      <TimerBanner />
       <UspCarousel />
       <Navbar />
       <AnimatePresence mode="wait">

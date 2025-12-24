@@ -10,7 +10,6 @@ import AllySection from '../components/AllySection';
 import TimelineDemo from '../components/TimelineDemo';
 import FaqSection from '../components/FaqSection';
 import { StaggerTestimonials } from '../components/StaggerTestimonials';
-import CountdownTimer from '../components/CountdownTimer';
 import TrustBadges from '../components/TrustBadges';
 import EbookSection from '../components/EbookSection';
 import './ProductPage.css';
@@ -65,6 +64,7 @@ export default function ProductPage() {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
     const { addToCart } = useCart();
     const [showSuccess, setShowSuccess] = useState(false);
+    const [isFading, setIsFading] = useState(false); // For buttery smooth transitions
 
     const handleAddToCart = () => {
         const offer = offers[selectedOffer];
@@ -114,14 +114,25 @@ export default function ProductPage() {
         }
     ];
 
+    // Smooth cloud-like image transitions with crossfade
+    const changeImage = (newIndex) => {
+        setIsFading(true);
+        setTimeout(() => {
+            setActiveImage(newIndex);
+            setIsFading(false);
+        }, 300); // Crossfade timing
+    };
+
     // Lightbox handlers
     const nextImage = (e) => {
         e.stopPropagation();
-        setActiveImage((prev) => (prev + 1) % productImages.length);
+        const newIndex = (activeImage + 1) % productImages.length;
+        changeImage(newIndex);
     };
     const prevImage = (e) => {
         e.stopPropagation();
-        setActiveImage((prev) => (prev - 1 + productImages.length) % productImages.length);
+        const newIndex = (activeImage - 1 + productImages.length) % productImages.length;
+        changeImage(newIndex);
     };
 
     return (
@@ -138,7 +149,36 @@ export default function ProductPage() {
                             src={productImages[activeImage] || 'https://placehold.co/600x600?text=Product+Image'}
                             alt="AlphaInfuse System"
                             className="main-image"
+                            style={{ opacity: isFading ? 0 : 1 }}
                         />
+
+                        {/* Mobile Navigation - Arrows */}
+                        <button
+                            className="gallery-arrow prev"
+                            onClick={(e) => { e.stopPropagation(); prevImage(e); }}
+                            aria-label="Previous image"
+                        >
+                            <ChevronLeft size={24} />
+                        </button>
+                        <button
+                            className="gallery-arrow next"
+                            onClick={(e) => { e.stopPropagation(); nextImage(e); }}
+                            aria-label="Next image"
+                        >
+                            <ChevronRight size={24} />
+                        </button>
+
+                        {/* Mobile Navigation - Dots */}
+                        <div className="mobile-gallery-nav">
+                            {productImages.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    className={`gallery-dot ${activeImage === idx ? 'active' : ''}`}
+                                    onClick={(e) => { e.stopPropagation(); changeImage(idx); }}
+                                    aria-label={`View image ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
                     </div>
                     {/* Thumbnail Gallery Navigation */}
                     <div className="gallery-thumbnails">
@@ -172,9 +212,6 @@ export default function ProductPage() {
                         REGROW YOUR HAIR IN 120 DAYS OR GET YOUR MONEY BACK
                     </div>
 
-                    <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-                        <CountdownTimer hours={48} label="⚡ LIMITED TIME OFFER ENDS IN:" />
-                    </div>
 
                     <ul className="checklist">
                         <li><Check size={20} className="check-icon" /><span>Perfect for all hair types and hair loss areas</span></li>
