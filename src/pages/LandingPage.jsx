@@ -69,7 +69,7 @@ export default function LandingPage() {
         },
         {
             question: "I’ve seen scams – how do I know this is legit?",
-            answer: "We offer a 180-Day Money-Back Guarantee. If you show us you used it and didn't see results, we refund you. We take all the risk."
+            answer: "We offer a 120-Day Money-Back Guarantee. If you show us you used it and didn't see results, we refund you. We take all the risk."
         },
         {
             question: "I want to see actual hair regrowth – even a little.",
@@ -106,7 +106,7 @@ export default function LandingPage() {
                             </div>
                             <FlowButton to="/product" text="Shop Now" />
                             <div className="guarantee-text">
-                                <ShieldCheck size={16} /> 180-Day Money-Back Guarantee
+                                <ShieldCheck size={16} /> 120-Day Money-Back Guarantee
                             </div>
                         </div>
                         <div className="hero-social-proof">

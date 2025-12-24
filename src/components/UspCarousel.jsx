@@ -4,7 +4,7 @@ import './UspCarousel.css';
 
 const USPs = [
     "FREE SHIPPING IN THE US",
-    "180-DAY MONEY BACK GUARANTEE",
+    "120-DAY MONEY BACK GUARANTEE",
     "DERMATOLOGIST APPROVED",
     "100% DRUG-FREE FORMULA"
 ];

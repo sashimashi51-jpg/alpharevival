@@ -57,9 +57,9 @@ export default function FooterNew() {
                         <h3 className="footer-subheading">Contact Us</h3>
                         <address className="footer-address">
                             <p>AlphaRevival HQ</p>
-                            <p>123 Innovation Street, Tech City</p>
-                            <p>Phone: (555) 123-4567</p>
-                            <p>Email: support@alpharevival.com</p>
+                            <p>452 Saratoga Ave #103, San Jose, CA, United States, California</p>
+                            <p>Phone-support: +359883987033</p>
+                            <p>Email-us: support@alpharevive.com</p>
                         </address>
                     </div>
 
@@ -70,14 +70,8 @@ export default function FooterNew() {
                             <button className="footer-icon-btn" title="Facebook">
                                 <Facebook size={16} />
                             </button>
-                            <button className="footer-icon-btn" title="Twitter">
-                                <Twitter size={16} />
-                            </button>
                             <button className="footer-icon-btn" title="Instagram">
                                 <Instagram size={16} />
-                            </button>
-                            <button className="footer-icon-btn" title="LinkedIn">
-                                <Linkedin size={16} />
                             </button>
                         </div>
 
@@ -104,6 +98,7 @@ export default function FooterNew() {
                         <Link to="/privacy" className="footer-link">Privacy Policy</Link>
                         <Link to="/terms" className="footer-link">Terms of Service</Link>
                         <Link to="/shipping" className="footer-link">Shipping & Returns</Link>
+                        <Link to="/return-refund" className="footer-link">Return and Refund Policy</Link>
                     </nav>
                 </div>
             </div>

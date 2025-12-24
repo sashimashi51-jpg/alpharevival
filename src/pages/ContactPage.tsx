@@ -5,8 +5,8 @@ const ContactPage = () => {
         <Contact2
             title="Contact Us"
             description="We are available for questions, feedback, or collaboration opportunities. Let us know how we can help!"
-            phone="(123) 34567890"
-            email="email@example.com"
+            phone="+359883987033"
+            email="support@alpharevive.com"
             web={{ label: "shadcnblocks.com", url: "https://shadcnblocks.com" }}
         />
     );
