@@ -10,6 +10,8 @@ const THRESHOLDS = {
     GIFT: 116    // Free gift
 };
 
+const SHIPPING_COST = 6.95;
+
 const GIFT_ITEM = {
     id: 'free-gift-needle',
     title: 'Sterile Needle Head',
@@ -146,6 +148,7 @@ export const CartProvider = ({ children }) => {
             shippingProtection,
             setShippingProtection,
             THRESHOLDS,
+            SHIPPING_COST,
             currencySymbol
         }}>
             {children}

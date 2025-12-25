@@ -18,6 +18,7 @@ export default function CartDrawer() {
         shippingProtection,
         setShippingProtection,
         THRESHOLDS,
+        SHIPPING_COST,
         currencySymbol
     } = useCart();
 
@@ -224,53 +225,62 @@ export default function CartDrawer() {
                             )}
 
                             {/* COMPACT GAP-FILLER UPSELL - Horizontal Layout */}
-                            {(cartTotal < THRESHOLDS.GIFT && (THRESHOLDS.GIFT - cartTotal) >= 5 && (THRESHOLDS.GIFT - cartTotal) <= 25) && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300"
-                                >
-                                    {/* Left: eBook Thumbnail */}
-                                    <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden border border-amber-300 shadow-sm">
-                                        <img
-                                            src="/assets/product-upscaled.png"
-                                            alt="eBook Cover"
-                                            className="w-full h-full object-cover"
-                                            onError={(e) => {
-                                                e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Crect fill="%23f59e0b" width="64" height="64"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="24" fill="white"%3E📖%3C/text%3E%3C/svg%3E';
-                                            }}
-                                        />
-                                    </div>
+                            {(() => {
+                                const isCloseToShipping = cartTotal < THRESHOLDS.SHIPPING && (THRESHOLDS.SHIPPING - cartTotal) <= 20;
+                                const isCloseToGift = cartTotal < THRESHOLDS.GIFT && (THRESHOLDS.GIFT - cartTotal) >= 5 && (THRESHOLDS.GIFT - cartTotal) <= 25;
 
-                                    {/* Center: Text Content */}
-                                    <div className="flex-1 min-w-0">
-                                        <h4 className="font-bold text-sm text-gray-900 leading-tight">
-                                            Unlock your Free Gift!
-                                        </h4>
-                                        <p className="text-xs text-[#333333] mt-0.5">
-                                            Add the Ultimate Hair Guide ({currencySymbol}20)
-                                        </p>
-                                    </div>
+                                if (!isCloseToShipping && !isCloseToGift) return null;
 
-                                    {/* Right: Compact Button */}
-                                    <button
-                                        onClick={() => {
-                                            addToCart({
-                                                id: 'ebook-upsell',
-                                                name: 'Ultimate Hair Growth Guide (eBook)',
-                                                title: 'Ultimate Hair Growth Guide',
-                                                subtitle: 'Digital PDF Download',
-                                                price: 20,
-                                                quantity: 1,
-                                                image: '/assets/product-upscaled.png'
-                                            });
-                                        }}
-                                        className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
+                                const headline = isCloseToShipping ? "Unlock Free Shipping!" : "Unlock your Free Gift!";
+
+                                return (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300"
                                     >
-                                        Add - {currencySymbol}20
-                                    </button>
-                                </motion.div>
-                            )}
+                                        {/* Left: eBook Thumbnail */}
+                                        <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden border border-amber-300 shadow-sm">
+                                            <img
+                                                src="/assets/product-upscaled.png"
+                                                alt="eBook Cover"
+                                                className="w-full h-full object-cover"
+                                                onError={(e) => {
+                                                    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Crect fill="%23f59e0b" width="64" height="64"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="24" fill="white"%3E📖%3C/text%3E%3C/svg%3E';
+                                                }}
+                                            />
+                                        </div>
+
+                                        {/* Center: Text Content */}
+                                        <div className="flex-1 min-w-0">
+                                            <h4 className="font-bold text-sm text-gray-900 leading-tight">
+                                                {headline}
+                                            </h4>
+                                            <p className="text-xs text-[#333333] mt-0.5">
+                                                Add the Ultimate Hair Guide ({currencySymbol}20)
+                                            </p>
+                                        </div>
+
+                                        {/* Right: Compact Button */}
+                                        <button
+                                            onClick={() => {
+                                                addToCart({
+                                                    id: 'ebook-upsell',
+                                                    name: 'Ultimate Hair Growth Guide (eBook)',
+                                                    title: 'Ultimate Hair Growth Guide',
+                                                    subtitle: 'Digital PDF Download',
+                                                    price: 20,
+                                                    quantity: 1,
+                                                    image: '/assets/product-upscaled.png'
+                                                });
+                                            }}
+                                            className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
+                                        >
+                                            Add - {currencySymbol}20
+                                        </button>
+                                    </motion.div>
+                                );
+                            })()}
 
                             {/* Modern Toggle Switch Shipping Protection */}
                             <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setShippingProtection(!shippingProtection)}>
@@ -286,12 +296,20 @@ export default function CartDrawer() {
                                 </div>
                             </div>
 
+                            {/* Shipping Cost */}
+                            <div className="flex justify-between items-center text-sm">
+                                <span className="text-gray-500">Shipping</span>
+                                <span className={`font-semibold ${cartTotal >= THRESHOLDS.SHIPPING ? 'text-green-600' : 'text-gray-900'}`}>
+                                    {cartTotal >= THRESHOLDS.SHIPPING ? 'FREE' : `${currencySymbol}${SHIPPING_COST.toFixed(2)}`}
+                                </span>
+                            </div>
+
                             {/* Subtotal Row */}
                             <div className="flex justify-between items-end border-t border-gray-100 pt-4">
                                 <span className="text-base text-gray-500 font-medium">Subtotal</span>
                                 <div className="text-right">
                                     <span className="text-2xl font-black text-gray-900">
-                                        {currencySymbol}{(cartTotal + (shippingProtection ? 2.97 : 0)).toFixed(2)}
+                                        {currencySymbol}{(cartTotal + (shippingProtection ? 2.97 : 0) + (cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST)).toFixed(2)}
                                     </span>
                                 </div>
                             </div>

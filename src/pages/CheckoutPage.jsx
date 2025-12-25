@@ -133,10 +133,11 @@ const CheckoutForm = ({ clientSecret }) => {
 };
 
 export default function CheckoutPage() {
-    const { cartItems, cartTotal, shippingProtection, currencySymbol, THRESHOLDS } = useCart();
+    const { cartItems, cartTotal, shippingProtection, currencySymbol, THRESHOLDS, SHIPPING_COST } = useCart();
     const [clientSecret, setClientSecret] = useState("");
 
-    const totalAmount = cartTotal + (shippingProtection ? 2.97 : 0);
+    const currentShippingCost = cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST;
+    const totalAmount = cartTotal + (shippingProtection ? 2.97 : 0) + currentShippingCost;
     const savedTotal = cartItems.reduce((acc, item) => {
         const original = item.originalPrice || item.price;
         if (original > item.price) {
@@ -295,7 +296,9 @@ export default function CheckoutPage() {
                                             <div className="text-sm text-gray-500">3-5 business days</div>
                                         </div>
                                     </div>
-                                    <span className="font-bold text-green-600">FREE</span>
+                                    <span className={`font-bold ${currentShippingCost === 0 ? 'text-green-600' : 'text-gray-900'}`}>
+                                        {currentShippingCost === 0 ? 'FREE' : `${currencySymbol}${currentShippingCost.toFixed(2)}`}
+                                    </span>
                                 </label>
 
 
@@ -397,7 +400,9 @@ export default function CheckoutPage() {
 
                                 <div className="flex justify-between text-gray-700">
                                     <span>Shipping</span>
-                                    <span className="font-semibold text-green-600">FREE</span>
+                                    <span className={`font-semibold ${currentShippingCost === 0 ? 'text-green-600' : 'text-gray-700'}`}>
+                                        {currentShippingCost === 0 ? 'FREE' : `${currencySymbol}${currentShippingCost.toFixed(2)}`}
+                                    </span>
                                 </div>
 
                                 {shippingProtection && (

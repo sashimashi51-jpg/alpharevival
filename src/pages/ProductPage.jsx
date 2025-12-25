@@ -227,7 +227,7 @@ export default function ProductPage() {
 
                     <div className="divider-section">
                         <div className="divider-line"></div>
-                        <span className="divider-text">FREE SHIPPING INCLUDED</span>
+                        <span className="divider-text">FREE SHIPPING ON ORDERS OVER $80</span>
                         <div className="divider-line"></div>
                     </div>
 
