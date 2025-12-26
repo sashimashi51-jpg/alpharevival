@@ -3,9 +3,14 @@ import { Plus, Check } from 'lucide-react';
 import './ProductAccordions.css';
 
 const AccordionItem = ({ title, isOpen, onClick, children }) => {
+    const handleClick = (e) => {
+        e.preventDefault();
+        onClick();
+    };
+
     return (
         <div className={`accordion-item ${isOpen ? 'open' : ''}`}>
-            <button className="accordion-header" onClick={onClick}>
+            <button className="accordion-header" onClick={handleClick} type="button">
                 <span className="accordion-title">{title}</span>
                 <Plus size={20} className={`accordion-icon ${isOpen ? 'rotated' : ''}`} />
             </button>
@@ -46,7 +51,7 @@ export default function ProductAccordions() {
 
                         <blockquote className="cs-quote">
                             "It doesn't matter how strong your formula is if it never reaches the problem."
-                            <footer>– Dr. James Carter, a world-renowned trichologist specializing in hair loss research.</footer>
+                            <footer>– Blane Schilling, a world-renowned trichologist specializing in hair loss research.</footer>
                         </blockquote>
 
                         <p className="cs-text">
@@ -80,7 +85,7 @@ export default function ProductAccordions() {
                         <p>One box includes:</p>
                         <ul className="includes-list">
                             <li>(1) Hair Regrowth Micro-Infusion Device</li>
-                            <li>(4) AlphaInfuse Hair Regrowth Serums</li>
+                            <li>(4) AlphaRevival Hair Regrowth Serums</li>
                         </ul>
                         <p className="supply-text">1-month supply.</p>
                     </div>

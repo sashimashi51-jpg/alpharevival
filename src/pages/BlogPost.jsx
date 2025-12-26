@@ -185,7 +185,7 @@ export default function BlogPost() {
                                 <div className="bg-white p-6 rounded-xl border border-gray-200">
                                     <img
                                         src="/assets/product-upscaled.png"
-                                        alt="AlphaInfuse Clinical System"
+                                        alt="AlphaRevival Clinical System"
                                         className="w-full h-auto object-contain"
                                     />
                                 </div>

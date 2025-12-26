@@ -17,7 +17,7 @@ export const blogPosts = [
       <p>Here is the truth most brands won't tell you: You might lose a little hair first. This is called "Telogen Shedding." When you stimulate the scalp, weak hairs are pushed out to make room for new, stronger shafts. <strong>Do not panic.</strong> This is a sign the treatment is working.</p>
 
       <h2>Phase 2: The "Fuzz" (Month 2-3)</h2>
-      <p>This is where the magic happens. Users of the AlphaInfuse system typically report colorless, thin hairs (vellus hairs) appearing along the hairline. They look like peach fuzz. This is your dormant follicles waking up.</p>
+      <p>This is where the magic happens. Users of the AlphaRevival system typically report colorless, thin hairs (vellus hairs) appearing along the hairline. They look like peach fuzz. This is your dormant follicles waking up.</p>
 
       <h2>Phase 3: Density (Month 4-6)</h2>
       <p>The fuzz turns terminal (thick and dark). This is when friends start asking if you got a haircut or a transplant. Consistency is key here—missing sessions resets the clock.</p>
@@ -39,7 +39,7 @@ export const blogPosts = [
       <p>Classic Derma Rollers are wheels covered in needles. As the wheel rolls, the needles enter the skin at an angle and exit at an angle. This creates a "tearing" motion (like a pizza cutter) rather than a clean puncture.</p>
       
       <h2>The Vertical Advantage</h2>
-      <p>Devices like the AlphaInfuse use vertical oscillation. The needles go straight in and straight out. This means:</p>
+      <p>Devices like the AlphaRevival use vertical oscillation. The needles go straight in and straight out. This means:</p>
       <ul>
         <li>Less pain</li>
         <li>Faster healing (24 hours vs 3 days)</li>
@@ -68,7 +68,7 @@ export const blogPosts = [
       <h2>The "Bridge" Strategy</h2>
       <p>Here is the protocol recommended by trichologists:</p>
       <ol>
-        <li><strong>Day 1 (Needling Day):</strong> Use the device. Apply <em>only</em> a sterile, peptide-based serum (like the AlphaInfuse Serum) designed for open skin.</li>
+        <li><strong>Day 1 (Needling Day):</strong> Use the device. Apply <em>only</em> a sterile, peptide-based serum (like the AlphaRevival Serum) designed for open skin.</li>
         <li><strong>Day 2 (Recovery):</strong> Wait 24 hours.</li>
         <li><strong>Day 3:</strong> Resume Minoxidil application.</li>
       </ol>

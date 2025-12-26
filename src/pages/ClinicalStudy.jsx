@@ -141,14 +141,14 @@ export default function ClinicalStudy() {
 
                 {/* The Solution */}
                 <div className="advertorial-section">
-                    <h2 className="advertorial-subhead">Enter AlphaInfuse: The First At-Home Micro-Infusion System</h2>
+                    <h2 className="advertorial-subhead">Enter AlphaRevival: The First At-Home Micro-Infusion System</h2>
 
                     <p className="advertorial-p">
                         His friend didn't sell Michael anything that day. But he did show him a photo on his phone—a device that looked clinical but simple.
                     </p>
 
                     <p className="advertorial-p">
-                        <strong>AlphaInfuse Hair Regrowth System.</strong>
+                        <strong>AlphaRevival Hair Regrowth System.</strong>
                     </p>
 
                     <p className="advertorial-p">
@@ -229,7 +229,7 @@ export default function ClinicalStudy() {
 
 
                     <div className="key-benefits">
-                        <h3 className="advertorial-small-head">Why Men Choose AlphaInfuse Over Pills or Surgery</h3>
+                        <h3 className="advertorial-small-head">Why Men Choose AlphaRevival Over Pills or Surgery</h3>
                         <ul className="benefit-list">
                             <li><Check size={20} className="check-icon" /> <strong>Drug-Free:</strong> No finasteride. No minoxidil. No sexual side effects.</li>
                             <li><Check size={20} className="check-icon" /> <strong>Painless:</strong> Feels like a light tingle. Not a tattoo gun.</li>
@@ -285,7 +285,7 @@ export default function ClinicalStudy() {
                     <div className="scarcity-notice">
                         <h3 className="scarcity-title">⚠️ Limited Manufacturing Run</h3>
                         <p className="scarcity-text">
-                            Because AlphaInfuse is a <strong>medical-grade device</strong>, production runs are limited. Each batch must meet strict quality control standards, and our current inventory is almost sold out. Once this batch is gone, the next shipment won't arrive for 6-8 weeks.
+                            Because AlphaRevival is a <strong>medical-grade device</strong>, production runs are limited. Each batch must meet strict quality control standards, and our current inventory is almost sold out. Once this batch is gone, the next shipment won't arrive for 6-8 weeks.
                         </p>
                     </div>
                 </div>

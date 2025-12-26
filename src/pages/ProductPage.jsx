@@ -97,7 +97,7 @@ export default function ProductPage() {
 
         addToCart({
             id: offer.id,
-            title: "AlphaInfuse™ Hair Regrowth System",
+            title: "AlphaRevival™ Hair Regrowth System",
             subtitle: offer.title,
             price: priceNumber,
             originalPrice: refPriceNumber,
@@ -171,7 +171,7 @@ export default function ProductPage() {
                     >
                         <img
                             src={mainImage || tierMainImages[selectedOffer]}
-                            alt="AlphaInfuse System"
+                            alt="AlphaRevival System"
                             className="main-image"
                             style={{ opacity: isFading ? 0 : 1 }}
                         />
@@ -221,7 +221,7 @@ export default function ProductPage() {
                 {/* Right Column: Content */}
                 <div className="product-content">
                     <div className="header-section">
-                        <h1>AlphaInfuse™ Hair Regrowth System</h1>
+                        <h1>AlphaRevival™ Hair Regrowth System</h1>
                         <div className="reviews-row">
                             <div className="stars">
                                 {[...Array(5)].map((_, i) => (
@@ -315,7 +315,7 @@ export default function ProductPage() {
                         <p className="guarantee-body">
                             Our 120-day money-back guarantee is designed to cover the full results period. So, if it somehow doesn’t work, you get a full refund.
                         </p>
-                        <a href="#" className="guarantee-link">More Details</a>
+                        <a href="/shipping-and-guarantee" className="guarantee-link">More Details</a>
                     </div>
                 </div>
             </div>

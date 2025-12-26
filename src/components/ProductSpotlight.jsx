@@ -14,7 +14,7 @@ export default function ProductSpotlight() {
                 <div className="flex-1">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to start?</h3>
                     <p className="text-gray-700 leading-relaxed">
-                        Get the <strong>AlphaInfuse System + Free Growth Serum</strong>. Everything you need to begin your hair regrowth journey, backed by our 90-day guarantee.
+                        Get the <strong>AlphaRevival System + Free Growth Serum</strong>. Everything you need to begin your hair regrowth journey, backed by our 90-day guarantee.
                     </p>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export default function ProductSpotlight() {
             </button>
 
             <p className="text-xs text-gray-500 text-center mt-3">
-                Over 10,000 men using AlphaInfuse daily
+                Over 10,000 men using AlphaRevival daily
             </p>
         </div>
     );

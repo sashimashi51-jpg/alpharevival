@@ -70,7 +70,7 @@ export default function SuccessPage() {
     const handleContactSupport = (e) => {
         e.preventDefault();
         // Navigate to contact page or open email
-        window.location.href = 'mailto:support@alpharevival.com?subject=Order ' + orderNumber;
+        window.location.href = 'mailto:support@alpharevive.shop?subject=Order ' + orderNumber;
     };
 
     const handleDownloadReceipt = () => {

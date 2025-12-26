@@ -79,7 +79,7 @@ export default function BlogIndex() {
                             {/* Dynamic Featured Image - Changes with Category */}
                             <div className="h-64 lg:h-auto overflow-hidden">
                                 <img
-                                    src={featuredPost.image}
+                                    src={activeCategory === 'ALL' ? '/assets/featured-banner.png' : featuredPost.image}
                                     alt={featuredPost.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />

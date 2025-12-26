@@ -16,14 +16,14 @@ export default function StickyProductCard() {
             <div className="bg-gray-50 rounded-xl p-4">
                 <img
                     src="/assets/product-upscaled.png"
-                    alt="AlphaInfuse System"
+                    alt="AlphaRevival System"
                     className="w-full h-auto object-contain"
                 />
             </div>
 
             {/* Product Info */}
             <div className="space-y-2">
-                <h3 className="font-bold text-lg text-gray-900">AlphaInfuse™ Hair Regrowth System</h3>
+                <h3 className="font-bold text-lg text-gray-900">AlphaRevival™ Hair Regrowth System</h3>
                 <p className="text-sm text-gray-600">Complete 3-Phase Microneedling Kit</p>
 
                 {/* Price */}
