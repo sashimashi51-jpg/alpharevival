@@ -45,15 +45,27 @@ export default async function handler(req, res) {
             })
         });
 
+        let profileId;
+
         if (!response.ok) {
             const errorData = await response.json();
-            console.error('❌ Klaviyo Profile Creation Error:', JSON.stringify(errorData, null, 2));
-            return res.status(500).json({ error: 'Failed to subscribe' });
-        }
 
-        const profileData = await response.json();
-        const profileId = profileData.data.id;
-        console.log('✅ Profile created:', profileId);
+            // Check if it's a duplicate profile error (409)
+            if (response.status === 409 && errorData.errors?.[0]?.code === 'duplicate_profile') {
+                // Profile already exists - get the existing profile ID
+                profileId = errorData.errors[0].meta.duplicate_profile_id;
+                console.log('✅ Profile already exists, using existing ID:', profileId);
+            } else {
+                // Other error - fail
+                console.error('❌ Klaviyo Profile Creation Error:', JSON.stringify(errorData, null, 2));
+                return res.status(500).json({ error: 'Failed to subscribe' });
+            }
+        } else {
+            // New profile created successfully
+            const profileData = await response.json();
+            profileId = profileData.data.id;
+            console.log('✅ Profile created:', profileId);
+        }
 
         // Add to list
         console.log('🔄 Adding to list:', process.env.KLAVIYO_LIST_ID);
