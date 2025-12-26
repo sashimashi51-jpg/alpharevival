@@ -1,0 +1,106 @@
+/* Clinical Article Typography Styles */
+
+/* Unified Serif Headings - Same font as body, lighter weight */
+.article-content h2 {
+    font-family: 'Merriweather', Georgia, serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+    margin-top: 3rem !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.4 !important;
+}
+
+.article-content h3 {
+    font-family: 'Merriweather', Georgia, serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.4 !important;
+}
+
+/* Body Paragraphs - Generous Line Height */
+.article-content p {
+    font-family: 'Merriweather', Georgia, serif !important;
+    font-size: 19px !important;
+    line-height: 1.85 !important;
+    color: #333333 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Lists - Serif with good spacing */
+.article-content ul,
+.article-content ol {
+    font-family: 'Merriweather', Georgia, serif !important;
+    font-size: 19px !important;
+    line-height: 1.85 !important;
+    color: #333333 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.article-content li {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Strong/Bold Text */
+.article-content strong {
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+}
+
+/* Emphasized Text */
+.article-content em {
+    font-style: italic !important;
+}
+
+/* Remove default prose styling conflicts */
+.article-content {
+    max-width: none !important;
+}
+
+/* Newsletter Signup Section Styles */
+.newsletter-signup-section {
+    position: relative;
+}
+
+.avatar-circle img {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 3px solid white !important;
+}
+
+.integrated-action-bar input::placeholder {
+    color: #9ca3af;
+}
+
+.integrated-action-bar input:focus {
+    outline: none;
+}
+
+/* Ensure seamless integration on mobile */
+@media (max-width: 640px) {
+    .integrated-action-bar .flex-col {
+        border-radius: 0.5rem;
+    }
+
+    .integrated-action-bar input {
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .integrated-action-bar button {
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+}
+
+/* Ensure seamless integration on desktop */
+@media (min-width: 640px) {
+    .integrated-action-bar input {
+        border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .integrated-action-bar button {
+        border-radius: 0 0.5rem 0.5rem 0;
+    }
+}

@@ -66,8 +66,8 @@ export default function Navbar() {
             Contact Us
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link to="/#about-us" className="relative py-2 text-slate-700 hover:text-orange-600 transition-colors group">
-            About Us
+          <Link to="/journal" className="relative py-2 text-slate-700 hover:text-orange-600 transition-colors group">
+            Journal
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
@@ -161,11 +161,11 @@ export default function Navbar() {
                 Contact Us
               </Link>
               <Link
-                to="/#about-us"
+                to="/journal"
                 className="flex items-center justify-between text-xl font-semibold text-slate-800 p-4 rounded-2xl hover:bg-slate-50 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                About Us
+                Journal
               </Link>
 
               {/* Collapsible Information Section */}

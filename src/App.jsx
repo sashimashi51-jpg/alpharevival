@@ -6,6 +6,8 @@ import ProductPage from './pages/ProductPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
 import ClinicalStudy from './pages/ClinicalStudy';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 import Navbar from './components/Navbar';
 import FooterNew from './components/FooterNew';
 import TimerBanner from './components/TimerBanner';
@@ -50,6 +52,8 @@ function AppContent() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/product" element={<ProductPage />} />
             <Route path="/clinical-study" element={<ClinicalStudy />} />
+            <Route path="/journal" element={<BlogIndex />} />
+            <Route path="/journal/:slug" element={<BlogPost />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/success" element={<SuccessPage />} />
             <Route path="/contact" element={<ContactPage />} />
