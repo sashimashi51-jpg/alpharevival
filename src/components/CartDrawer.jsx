@@ -192,23 +192,13 @@ export default function CartDrawer() {
                             </div>
 
                             {/* Active Rewards - Only show unlocked */}
-                            {(cartTotal >= THRESHOLDS.SHIPPING || cartTotal >= THRESHOLDS.GIFT) && (
+                            {cartTotal >= THRESHOLDS.GIFT && (
                                 <div className="px-6 pb-4 space-y-2">
-                                    {/* Free Shipping Badge */}
-                                    {cartTotal >= THRESHOLDS.SHIPPING && (
-                                        <div className="bg-green-50 border border-green-200 rounded-lg p-3 flex items-center gap-2">
-                                            <Check size={16} className="text-green-600" />
-                                            <span className="text-sm font-medium text-green-800">Free Shipping Applied</span>
-                                        </div>
-                                    )}
-
                                     {/* Free Gift Badge */}
-                                    {cartTotal >= THRESHOLDS.GIFT && (
-                                        <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 flex items-center gap-2">
-                                            <Check size={16} className="text-orange-600" />
-                                            <span className="text-sm font-medium text-orange-800">Free Sterile Needle Head Added</span>
-                                        </div>
-                                    )}
+                                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 flex items-center gap-2">
+                                        <Check size={16} className="text-orange-600" />
+                                        <span className="text-sm font-medium text-orange-800">Free Sterile Needle Head Added</span>
+                                    </div>
                                 </div>
                             )}
                         </div>

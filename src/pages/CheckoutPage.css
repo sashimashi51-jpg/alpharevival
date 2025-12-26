@@ -1,0 +1,77 @@
+/* Checkout Page - Horizontal Overflow Fix */
+
+/* CRITICAL: Force box-sizing on all form elements */
+input,
+select,
+textarea,
+button {
+    box-sizing: border-box !important;
+    max-width: 100%;
+}
+
+/* Ensure inputs never exceed viewport */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    /* Allow shrinking below default size */
+}
+
+/* Prevent grid overflow */
+.grid {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Ensure containers don't exceed viewport */
+.max-w-7xl {
+    max-width: 100% !important;
+}
+
+/* Sticky Order Summary - Cart Items Scrollbar */
+.lg\:max-h-\[40vh\]::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lg\:max-h-\[40vh\]::-webkit-scrollbar-track {
+    background: #f9fafb;
+    border-radius: 10px;
+}
+
+.lg\:max-h-\[40vh\]::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+}
+
+.lg\:max-h-\[40vh\]::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 640px) {
+
+    /* Stack all 2-column grids on mobile */
+    .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Reduce padding on small screens */
+    .p-6 {
+        padding: 1rem !important;
+    }
+
+    .lg\:p-8 {
+        padding: 1rem !important;
+    }
+
+    /* Ensure all containers fit */
+    .rounded-2xl,
+    .rounded-xl {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}

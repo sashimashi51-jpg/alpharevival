@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, PaymentElement, ExpressCheckoutElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { Check, ShieldCheck, Lock, CreditCard, Smartphone, Wallet } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import './CheckoutPage.css';
 
 // Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
@@ -224,7 +225,7 @@ export default function CheckoutPage() {
                     <div className="space-y-6">
 
                         {/* Step 1: Delivery Information */}
-                        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 lg:p-8">
+                        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
                                 <h2 className="text-xl font-bold text-gray-900">Delivery Information</h2>
@@ -235,53 +236,53 @@ export default function CheckoutPage() {
                                     <input
                                         type="text"
                                         placeholder="First Name"
-                                        className="col-span-2 sm:col-span-1 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
+                                        className="col-span-2 sm:col-span-1 w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                         required
                                     />
                                     <input
                                         type="text"
                                         placeholder="Last Name"
-                                        className="col-span-2 sm:col-span-1 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
+                                        className="col-span-2 sm:col-span-1 w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                         required
                                     />
                                 </div>
                                 <input
                                     type="email"
                                     placeholder="Email Address"
-                                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
+                                    className="w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                     required
                                 />
                                 <input
                                     type="text"
                                     placeholder="Street Address"
-                                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
+                                    className="w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                     required
                                 />
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <input
                                         type="text"
                                         placeholder="City"
-                                        className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
+                                        className="w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                         required
                                     />
                                     <input
                                         type="text"
                                         placeholder="State"
-                                        className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
+                                        className="w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                         required
                                     />
                                 </div>
                                 <input
                                     type="text"
                                     placeholder="ZIP Code"
-                                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
+                                    className="w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                     required
                                 />
                             </div>
                         </div>
 
                         {/* Step 2: Shipping Method */}
-                        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 lg:p-8">
+                        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
                                 <h2 className="text-xl font-bold text-gray-900">Shipping Method</h2>
@@ -306,7 +307,7 @@ export default function CheckoutPage() {
                         </div>
 
                         {/* Step 3: Payment Method */}
-                        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 lg:p-8">
+                        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
                                 <h2 className="text-xl font-bold text-gray-900">Payment Method</h2>
@@ -364,12 +365,12 @@ export default function CheckoutPage() {
                     </div>
 
                     {/* Right Column: Order Summary */}
-                    <div className="lg:sticky lg:top-8 h-fit">
-                        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 lg:p-8">
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
+                    <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
+                        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 lg:p-8 flex flex-col h-full">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex-shrink-0">Order Summary</h2>
 
-                            {/* Cart Items */}
-                            <div className="space-y-4 mb-6 max-h-64 overflow-y-auto">
+                            {/* Cart Items - Scrollable Section */}
+                            <div className="space-y-4 mb-6 lg:max-h-[40vh] lg:overflow-y-auto flex-shrink min-h-0">
                                 {cartItems.length === 0 ? (
                                     <p className="text-gray-500 text-center py-8">Your cart is empty.</p>
                                 ) : (
@@ -391,8 +392,8 @@ export default function CheckoutPage() {
                                 )}
                             </div>
 
-                            {/* Pricing Breakdown */}
-                            <div className="border-t border-gray-200 pt-4 space-y-3">
+                            {/* Pricing Breakdown - Always Visible */}
+                            <div className="border-t border-gray-200 pt-4 space-y-3 flex-shrink-0">
                                 <div className="flex justify-between text-gray-700">
                                     <span>Subtotal</span>
                                     <span className="font-semibold">{currencySymbol}{cartTotal.toFixed(2)}</span>
@@ -425,8 +426,8 @@ export default function CheckoutPage() {
                                 </div>
                             </div>
 
-                            {/* Trust Badges */}
-                            <div className="mt-6 pt-6 border-t border-gray-200">
+                            {/* Trust Badges - Always Visible */}
+                            <div className="mt-6 pt-6 border-t border-gray-200 flex-shrink-0">
                                 <div className="grid grid-cols-2 gap-3 text-xs">
                                     <div className="flex items-center gap-2 text-gray-600">
                                         <Check size={16} className="text-green-600 flex-shrink-0" />

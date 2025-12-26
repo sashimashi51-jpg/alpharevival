@@ -10,9 +10,15 @@
 
 .ebookGrid {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: minmax(300px, 400px) 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .ebookGrid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .ebookImageWrapper {

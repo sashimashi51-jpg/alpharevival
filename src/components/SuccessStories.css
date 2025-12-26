@@ -38,8 +38,9 @@
 }
 
 .story-card {
-    flex: 0 0 calc(100%);
-    /* Mobile: 1 card */
+    flex: 0 0 min(100%, calc(100vw - 2rem));
+    /* Mobile: 1 card, never exceed viewport */
+    max-width: 100%;
     background: #ffffff;
     border: 2px solid #000000;
     /* Solid Black Border */
@@ -56,6 +57,7 @@
     .story-card {
         flex: 0 0 calc((100% - 4.5rem) / 4);
         /* 100% - 3 gaps (1.5rem * 3) / 4 */
+        max-width: calc((100% - 4.5rem) / 4);
     }
 }
 

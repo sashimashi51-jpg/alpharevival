@@ -15,13 +15,16 @@
 }
 
 .bannerContent {
-    max-width: 1400px;
+    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     /* Reduced gap */
+    padding: 0 0.5rem;
+    box-sizing: border-box;
 }
 
 .urgencyIcon {
