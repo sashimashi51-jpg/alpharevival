@@ -23,36 +23,52 @@ const productImages = [
     '/assets/product_7.png',
 ];
 
+// Tier-specific main images for dynamic switching
+const tierMainImages = {
+    0: '/assets/product_1.jpg',  // 1-month: single kit
+    1: '/assets/product_1.jpg',  // 3-month: single kit
+    2: '/assets/product_6month.png',  // 6-month: multiple boxes
+};
+
 const offers = [
     {
         id: '1-month',
         title: '1-MONTH SUPPLY',
         badge: 'STARTUP',
         price: '$69.00',
+        pricePerDay: '$2.30/day',
         refPrice: '$99.00',
         footer: 'INCLUDES: 1x Infusion system + 4 serums',
         popular: false,
         bestValue: false,
+        hasGuarantee: false,
+        bonusGuide: false,
     },
     {
         id: '3-month',
         title: '3-MONTH SUPPLY',
-        badge: 'SAVE $100', // Approx save based on unit price logic or just marketing
+        badge: 'SAVE $100',
         price: '$109.00',
+        pricePerDay: '$1.21/day',
         refPrice: '$209.00',
-        footer: 'INCLUDES: 3x Infusion system + 12 serums',
+        footer: 'INCLUDES: 3-Month Treatment Supply (+ 12 Serums)',
         popular: true,
         bestValue: false,
+        hasGuarantee: false,
+        bonusGuide: false,
     },
     {
         id: '6-month',
         title: '6-MONTH SUPPLY',
-        badge: 'SAVE $200',
-        price: '$189.00',
+        badge: 'SAVE $212',
+        price: '$177.00',
+        pricePerDay: '$0.98/day',
         refPrice: '$389.00',
-        footer: 'INCLUDES: 6x Infusion system + 24 serums',
+        footer: 'INCLUDES: 6-Month Treatment Supply (+ 24 Serums)',
         popular: false,
         bestValue: true,
+        hasGuarantee: true,
+        bonusGuide: true,
     }
 ];
 
@@ -65,6 +81,14 @@ export default function ProductPage() {
     const { addToCart } = useCart();
     const [showSuccess, setShowSuccess] = useState(false);
     const [isFading, setIsFading] = useState(false); // For buttery smooth transitions
+    const [mainImage, setMainImage] = useState(tierMainImages[1]); // Default to 3-month
+
+    // Update main image when tier selection changes
+    const handleOfferChange = (index) => {
+        setSelectedOffer(index);
+        setMainImage(tierMainImages[index]);
+        setActiveImage(0); // Reset to first image
+    };
 
     const handleAddToCart = () => {
         const offer = offers[selectedOffer];
@@ -146,7 +170,7 @@ export default function ProductPage() {
                         style={{ cursor: 'zoom-in' }}
                     >
                         <img
-                            src={productImages[activeImage] || 'https://placehold.co/600x600?text=Product+Image'}
+                            src={mainImage || tierMainImages[selectedOffer]}
                             alt="AlphaInfuse System"
                             className="main-image"
                             style={{ opacity: isFading ? 0 : 1 }}
@@ -218,7 +242,6 @@ export default function ProductPage() {
                         <li><Check size={20} className="check-icon" /><span>Painless, quick and simple</span></li>
                         <li><Check size={20} className="check-icon" /><span>No side effects, no marks or scars. No costly surgery</span></li>
                         <li><Check size={20} className="check-icon" /><span>100% secure checkout</span></li>
-                        <li><Check size={20} className="check-icon" /><span>120-days Money back guarantee</span></li>
                     </ul>
 
                     <div className="feature-image-container">
@@ -237,7 +260,7 @@ export default function ProductPage() {
                             <div
                                 key={offer.id}
                                 className={`offer-card ${selectedOffer === index ? 'selected' : ''} `}
-                                onClick={() => setSelectedOffer(index)}
+                                onClick={() => handleOfferChange(index)}
                             >
                                 {offer.popular && <div className="floating-badge popular">MOST POPULAR</div>}
                                 {offer.bestValue && <div className="floating-badge best-value">✦ BEST VALUE ✦</div>}
@@ -254,11 +277,22 @@ export default function ProductPage() {
                                     </div>
                                     <div className="offer-pricing">
                                         <div className="price-primary">{offer.price}</div>
+                                        <div className="price-per-day">{offer.pricePerDay}</div>
                                         <div className="price-ref">{offer.refPrice}</div>
                                     </div>
                                 </div>
                                 <div className="offer-footer">
-                                    {offer.footer}
+                                    <div>{offer.footer}</div>
+                                    {offer.hasGuarantee && (
+                                        <div className="guarantee-badge">
+                                            🛡️ Protected by the 120-Day Growth Guarantee
+                                        </div>
+                                    )}
+                                    {offer.bonusGuide && (
+                                        <div className="bonus-guide">
+                                            + FREE "Hair CPR" Clinical Guide ($49 Value)
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}

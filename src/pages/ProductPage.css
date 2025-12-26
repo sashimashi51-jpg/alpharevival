@@ -347,9 +347,16 @@
 }
 
 .price-primary {
-    color: #D32F2F;
+    color: #10b981;
     font-weight: 800;
     font-size: 1.15rem;
+}
+
+.price-per-day {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-top: 2px;
 }
 
 .price-ref {
@@ -371,11 +378,34 @@
     /* slightly less than parent */
     border-bottom-right-radius: 6px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.guarantee-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #10b981;
+    background: #d1fae5;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.bonus-guide {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #059669;
+    margin-top: 0.25rem;
 }
 
 /* Add to Cart Btn */
 .add-to-cart-btn {
-    background: #D32F2F !important;
+    background: #10b981 !important;
     color: white !important;
     border-radius: 6px !important;
     padding: 1rem !important;
@@ -390,8 +420,8 @@
 }
 
 .add-to-cart-btn:hover {
-    background: #b71c1c !important;
-    /* switch to darker red */
+    background: #059669 !important;
+    /* darker emerald green */
     transform: translateY(-1px);
 }
 
@@ -425,11 +455,11 @@
 .sticky-price {
     font-size: 1.1rem;
     font-weight: 800;
-    color: #D32F2F;
+    color: #10b981;
 }
 
 .compact-btn {
-    background: #D32F2F !important;
+    background: #10b981 !important;
     color: white;
     padding: 0.75rem 1.5rem !important;
     font-weight: 700;
