@@ -315,7 +315,7 @@ export default function ProductPage() {
                         <p className="guarantee-body">
                             Our 120-day money-back guarantee is designed to cover the full results period. So, if it somehow doesn’t work, you get a full refund.
                         </p>
-                        <a href="/shipping-and-guarantee" className="guarantee-link">More Details</a>
+                        <a href="/return-refund" className="guarantee-link">More Details</a>
                     </div>
                 </div>
             </div>
