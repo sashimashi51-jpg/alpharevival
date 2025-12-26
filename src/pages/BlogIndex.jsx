@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { blogPosts } from '../data/blogData';
-import { ArrowRight, Clock, CheckCircle } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 
 export default function BlogIndex() {
     const navigate = useNavigate();
@@ -15,6 +15,22 @@ export default function BlogIndex() {
         'James T.': '/assets/author-avatar-2.png',
         'Editorial Team': '/assets/author-avatar-3.png'
     };
+
+    // Verified Badge Component - Social Media Style
+    const VerifiedBadge = ({ size = 16 }) => (
+        <div
+            className="inline-flex items-center justify-center rounded-full bg-blue-500"
+            style={{ width: size, height: size, minWidth: size, minHeight: size }}
+        >
+            <svg
+                viewBox="0 0 24 24"
+                fill="white"
+                style={{ width: size * 0.6, height: size * 0.6 }}
+            >
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+            </svg>
+        </div>
+    );
 
     const filteredPosts = activeCategory === 'ALL'
         ? blogPosts
@@ -60,10 +76,10 @@ export default function BlogIndex() {
                 {featuredPost && (
                     <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 group hover:-translate-y-1">
                         <div className="grid lg:grid-cols-[40%_60%] gap-0">
-                            {/* Featured Banner Image */}
+                            {/* Dynamic Featured Image - Changes with Category */}
                             <div className="h-64 lg:h-auto overflow-hidden">
                                 <img
-                                    src="/assets/featured-banner.png"
+                                    src={featuredPost.image}
                                     alt={featuredPost.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
@@ -99,7 +115,7 @@ export default function BlogIndex() {
                                         />
                                         <div className="flex items-center gap-2 text-sm text-gray-600">
                                             <span className="font-semibold text-gray-900">{featuredPost.author}</span>
-                                            <CheckCircle size={16} className="text-blue-500" fill="currentColor" />
+                                            <VerifiedBadge size={16} />
                                             <span>•</span>
                                             <div className="flex items-center gap-1">
                                                 <Clock size={14} />
@@ -217,7 +233,7 @@ export default function BlogIndex() {
                                         />
                                         <div className="flex items-center gap-1.5">
                                             <span className="text-sm font-semibold text-gray-700">{post.author}</span>
-                                            <CheckCircle size={14} className="text-blue-500" fill="currentColor" />
+                                            <VerifiedBadge size={14} />
                                         </div>
                                     </div>
                                 </div>
