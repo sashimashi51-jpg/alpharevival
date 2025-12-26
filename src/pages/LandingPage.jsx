@@ -9,6 +9,7 @@ import { FlowButton } from '../components/FlowButton';
 import SuccessStories from '../components/SuccessStories';
 import FeaturedProduct from '../components/FeaturedProduct';
 import EbookSection from '../components/EbookSection';
+import { StarButton } from '../components/ui/StarButton';
 
 import './LandingPage.css';
 
@@ -20,6 +21,18 @@ const fadeInUp = {
 export default function LandingPage() {
     const [activeAccordion, setActiveAccordion] = React.useState(null);
     const [timeLeft, setTimeLeft] = React.useState({ hours: 0, minutes: 0, seconds: 0 });
+    const [showStickyButton, setShowStickyButton] = React.useState(false);
+
+    // Scroll detection for sticky button
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            setShowStickyButton(scrollPosition > 800);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     // Countdown Timer
     React.useEffect(() => {
@@ -92,11 +105,18 @@ export default function LandingPage() {
                         variants={fadeInUp}
                         transition={{ duration: 0.6 }}
                     >
+                        {/* Social Proof - Moved Above Headline */}
+                        <div className="hero-social-proof" style={{ marginBottom: '1rem' }}>
+                            <div className="stars">
+                                {[1, 2, 3, 4, 5].map(i => <Star key={i} fill="#f59e0b" color="#f59e0b" size={18} />)}
+                            </div>
+                            <span style={{ fontWeight: '600', fontSize: '0.95rem' }}>1,700+ 5-Star Reviews</span>
+                        </div>
+
                         <div className="badge">New Mechanism</div>
-                        <h1 style={{ color: '#000000' }}>Regrow Thicker Hair Without Drugs or Shedding</h1>
+                        <h1 style={{ color: '#000000' }}>Reactivate Dormant Follicles — Regrow Thicker Hair Drug-Free</h1>
                         <p className="hero-sub">
-                            Our science-backed system reactivates dormant follicles using precision microneedling and peptides.
-                            The most effective drug-free method to trigger regrowth.
+                            The first at-home system to combine clinical-strength microneedling with peptide therapy. See visible, thicker regrowth in as little as 90 days—without prescriptions or side effects.
                         </p>
                         <div className="hero-cta-group">
                             <div className="scarcity-bar-container">
@@ -105,16 +125,39 @@ export default function LandingPage() {
                                 </p>
                                 <div className="progress-bar"><div className="progress-fill" style={{ width: '96%', background: '#dc2626' }}></div></div>
                             </div>
-                            <FlowButton to="/product" text="Shop Now" />
+                            {/* Solid Green CTA Button */}
+                            <Link
+                                to="/product"
+                                style={{
+                                    display: 'inline-block',
+                                    width: '100%',
+                                    maxWidth: '400px',
+                                    background: 'linear-gradient(to right, #16a34a, #15803d)',
+                                    color: 'white',
+                                    padding: '1rem 2rem',
+                                    borderRadius: '0.75rem',
+                                    fontWeight: '700',
+                                    fontSize: '1.125rem',
+                                    textAlign: 'center',
+                                    textDecoration: 'none',
+                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                    transition: 'all 0.2s',
+                                    cursor: 'pointer'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.background = 'linear-gradient(to right, #15803d, #166534)';
+                                    e.target.style.boxShadow = '0 10px 15px rgba(0, 0, 0, 0.15)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.background = 'linear-gradient(to right, #16a34a, #15803d)';
+                                    e.target.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                                }}
+                            >
+                                Shop Now
+                            </Link>
                             <div className="guarantee-text">
                                 <ShieldCheck size={16} /> 120-Day Money-Back Guarantee
                             </div>
-                        </div>
-                        <div className="hero-social-proof">
-                            <div className="stars">
-                                {[1, 2, 3, 4, 5].map(i => <Star key={i} fill="#f59e0b" color="#f59e0b" size={16} />)}
-                            </div>
-                            <span>4.9/5 based on 1,700+ reviews</span>
                         </div>
                     </motion.div>
                     <motion.div
@@ -123,7 +166,15 @@ export default function LandingPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <img src="/assets/landing_hero_model.jpg" alt="AlphaRevival Results" />
+                        <video
+                            src="/assets/hero-gif.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }}
+                            alt="AlphaRevival Results"
+                        />
                     </motion.div>
                 </div>
             </div>
@@ -140,6 +191,40 @@ export default function LandingPage() {
                     </p>
                 </div>
             </section>
+
+            {/* View Clinical Study CTA Section */}
+            <section style={{ padding: '4rem 0', backgroundColor: '#ffffff' }}>
+                <div className="container" style={{ textAlign: 'center' }}>
+                    <Link
+                        to="/clinical-study"
+                        style={{
+                            display: 'inline-block',
+                            width: '100%',
+                            maxWidth: '600px',
+                            background: 'transparent',
+                            color: '#000',
+                            padding: '1.25rem 3rem',
+                            borderRadius: '0.75rem',
+                            fontWeight: '700',
+                            fontSize: '1.25rem',
+                            textAlign: 'center',
+                            textDecoration: 'none',
+                            border: '2px solid #000',
+                            transition: 'all 0.2s',
+                            cursor: 'pointer'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.background = '#f9fafb';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.background = 'transparent';
+                        }}
+                    >
+                        View Clinical Study
+                    </Link>
+                </div>
+            </section>
+
 
             {/* Social Proof / Trusted By - Infinite Carousel */}
             <section className="proof-bar">
@@ -271,7 +356,7 @@ export default function LandingPage() {
 
 
             <SalesPopup />
-            <div className="mobile-sticky-bar">
+            <div className="mobile-sticky-bar" data-visible={showStickyButton}>
                 <FlowButton to="/product" text="Shop Now" className="w-full" />
             </div>
         </div>

@@ -340,6 +340,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.mobile-sticky-bar[data-visible="true"] {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .mobile-sticky-bar .btn {
@@ -937,5 +945,15 @@
 .benefits-grid {
   background-color: #ffffff;
 }
+
 /* Force White Backgrounds on All Sections */
-.solution-section, .benefits-grid, .stories-section, .featured-product-section, .section, .comparison, .testimonials-section, .faq-section { background-color: #ffffff !important; }
+.solution-section,
+.benefits-grid,
+.stories-section,
+.featured-product-section,
+.section,
+.comparison,
+.testimonials-section,
+.faq-section {
+  background-color: #ffffff !important;
+}

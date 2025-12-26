@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import ProductPage from './pages/ProductPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
+import ClinicalStudy from './pages/ClinicalStudy';
 import Navbar from './components/Navbar';
 import FooterNew from './components/FooterNew';
 import TimerBanner from './components/TimerBanner';
@@ -48,6 +49,7 @@ function AppContent() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<LandingPage />} />
             <Route path="/product" element={<ProductPage />} />
+            <Route path="/clinical-study" element={<ClinicalStudy />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/success" element={<SuccessPage />} />
             <Route path="/contact" element={<ContactPage />} />

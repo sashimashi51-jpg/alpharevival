@@ -1,0 +1,612 @@
+/* Clinical Study Advertorial Styles */
+
+.clinical-study-page {
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.advertorial-headline {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #000;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .advertorial-headline {
+        font-size: 1.75rem;
+    }
+}
+
+.advertorial-section {
+    margin-bottom: 3rem;
+}
+
+/* Optimized Reading Typography */
+.advertorial-p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #374151;
+    margin-bottom: 28px;
+}
+
+/* Editorial Drop Cap - First Paragraph */
+.advertorial-section .advertorial-p:first-child::first-letter {
+    float: left;
+    font-size: 3.5rem;
+    line-height: 0.8;
+    font-weight: bold;
+    padding-right: 12px;
+    color: #16a34a;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.advertorial-subhead {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.advertorial-small-head {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.image-placeholder {
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #666;
+    font-weight: 600;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+}
+
+/* Editorial Quote Block with Large Quotation Marks */
+.editorial-quote {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 4rem;
+    background: transparent;
+    border: none;
+}
+
+.editorial-quote p {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.9rem;
+    line-height: 1.6;
+    color: #333333;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Opening Quotation Mark */
+.editorial-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Georgia', serif;
+    font-size: 10rem;
+    color: rgba(144, 174, 144, 0.5);
+    line-height: 1;
+}
+
+/* Closing Quotation Mark */
+.editorial-quote::after {
+    content: "\201D";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: 'Georgia', serif;
+    font-size: 10rem;
+    color: rgba(144, 174, 144, 0.5);
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .editorial-quote {
+        padding: 3rem 2rem;
+    }
+
+    .editorial-quote p {
+        font-size: 1.4rem;
+    }
+
+    .editorial-quote::before,
+    .editorial-quote::after {
+        font-size: 6rem;
+    }
+}
+
+
+/* Luxury Clinical - Minimalist Numbered List */
+.advertorial-list {
+    list-style: none;
+    padding: 0;
+    margin: 3rem 0;
+    background: transparent;
+    border: none;
+}
+
+.advertorial-list li {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2.5rem;
+    padding-left: 0;
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.advertorial-list li::before {
+    content: "";
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.advertorial-list li:nth-child(1)::before {
+    content: "01";
+}
+
+.advertorial-list li:nth-child(2)::before {
+    content: "02";
+}
+
+.advertorial-list li:nth-child(3)::before {
+    content: "03";
+}
+
+.advertorial-list li strong {
+    color: #000;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+}
+
+/* Luxury Clinical - Clean Grid (No Timeline) */
+.mechanism-steps {
+    margin: 3rem 0;
+    position: relative;
+    padding-left: 0;
+}
+
+/* Remove Timeline Connector */
+.mechanism-steps::before {
+    display: none;
+}
+
+.step-box {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    border-left: none;
+    position: relative;
+    align-items: start;
+}
+
+/* Luxury Clinical - Invisible Grid Timeline */
+.step-number {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: none;
+}
+
+.step-content {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.step-content h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.step-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+/* Scientific Diagram Container */
+.step-diagram {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+.step-diagram svg {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%) contrast(1.2);
+}
+
+@media (max-width: 768px) {
+    .mechanism-steps::before {
+        left: 32px;
+    }
+
+    .step-box {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .step-number {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .step-diagram {
+        display: none;
+    }
+}
+
+/* Luxury Clinical - Clean Benefits Container */
+.key-benefits {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+}
+
+.key-benefits::before {
+    display: none;
+}
+
+.key-benefits .advertorial-small-head {
+    color: #1a1a1a !important;
+    margin-top: 0 !important;
+    margin-bottom: 2rem !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: #6b7280;
+}
+
+.benefit-list li:last-child {
+    margin-bottom: 0;
+}
+
+.benefit-list li .check-icon {
+    color: #16a34a;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    font-size: 1.25rem;
+}
+
+.benefit-list li strong {
+    color: #1a1a1a;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.check-icon {
+    color: #16a34a;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.social-proof-section {
+    background: #fafafa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+/* Luxury Clinical - Clean Review Cards */
+.testimonial-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.testimonial-stars {
+    color: #fbbf24;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 3px;
+}
+
+.testimonial-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #333;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    font-size: 0.95rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 500;
+    background: #f3f4f6;
+    padding: 0.25rem 0.65rem;
+    border-radius: 12px;
+}
+
+.verified-badge::before {
+    content: "✓";
+    color: #16a34a;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.guarantee-highlight {
+    background: linear-gradient(135deg, #15803d, #166534);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.guarantee-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.guarantee-highlight p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.offer-section {
+    background: #fffbeb;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 3px solid #f59e0b;
+    margin-top: 3rem;
+}
+
+.offer-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.offer-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.pricing-highlight {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.original-price {
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.sale-price {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #16a34a;
+    margin: 0.5rem 0;
+}
+
+.savings {
+    font-size: 1.25rem;
+    color: #dc2626;
+    font-weight: 700;
+}
+
+.urgency-text {
+    color: #dc2626;
+    font-weight: 700;
+    text-align: center;
+    background: #fef2f2;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.cta-section {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #f9fafb 0%, #fff 100%);
+    border-radius: 12px;
+}
+
+.final-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #16a34a, #15803d);
+    color: white;
+    padding: 1.25rem 3rem;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 16px rgba(22, 163, 74, 0.3);
+    transition: all 0.2s;
+}
+
+.final-cta-button:hover {
+    background: linear-gradient(to right, #15803d, #166534);
+    box-shadow: 0 12px 24px rgba(22, 163, 74, 0.4);
+    transform: translateY(-2px);
+}
+
+.cta-subtext {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.footer-note {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 2rem;
+}
+
+/* Product Page Style Guarantee Box */
+.guarantee-box {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.guarantee-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.guarantee-header .guarantee-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.guarantee-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #545454;
+    margin-bottom: 1rem;
+}
+
+.guarantee-link {
+    font-size: 0.95rem;
+    color: #1A1A1A;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.guarantee-link:hover {
+    color: #16a34a;
+}
+
+/* Manufacturing Scarcity Notice */
+.scarcity-notice {
+    background: #fef3c7;
+    border: 2px solid #f59e0b;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.scarcity-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 1rem;
+}
+
+.scarcity-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #78350f;
+}
+
+/* Testimonial Carousel Swipe Instruction */
+.swipe-instruction {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
