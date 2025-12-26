@@ -52,7 +52,18 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled shadow-md' : 'shadow-sm'} sticky top-0 left-0 w-full h-20 z-[1000] bg-white/95 backdrop-blur-md flex items-center transition-all duration-300`}>
       <div className="container mx-auto px-6 flex items-center justify-between max-w-[1440px]">
         {/* Logo */}
-        <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+        <Link
+          to="/"
+          className="flex items-center"
+          onClick={(e) => {
+            setIsOpen(false);
+            // If already on homepage, scroll to top
+            if (window.location.pathname === '/') {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+        >
           <img src="/assets/logo_alpharevive.png" alt="AlphaRevival" className="h-10 md:h-12 w-auto mt-2" />
         </Link>
 
