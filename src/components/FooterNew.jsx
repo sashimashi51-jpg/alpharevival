@@ -59,7 +59,7 @@ export default function FooterNew() {
                             <p>AlphaRevival HQ</p>
                             <p>452 Saratoga Ave #103, San Jose, CA, United States, California</p>
                             <p>Phone-support: +359883987033</p>
-                            <p>Email-us: support@alpharevive.com</p>
+                            <p>Email-us: support@alpharevive.shop</p>
                         </address>
                     </div>
 
