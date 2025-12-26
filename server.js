@@ -199,7 +199,7 @@ app.post('/create-payment-intent', async (req, res) => {
         const paymentIntent = await stripe.paymentIntents.create({
             amount: orderAmount,
             currency: 'usd',
-            // Enable all payment methods
+            // Enable all payment methods automatically
             automatic_payment_methods: {
                 enabled: true,
                 allow_redirects: 'always'
@@ -208,15 +208,7 @@ app.post('/create-payment-intent', async (req, res) => {
             metadata: {
                 customer_email: email || 'guest@alpharevive.com',
                 items: JSON.stringify(items?.map(i => ({ id: i.id, qty: i.quantity })) || [])
-            },
-            // Enable specific payment methods
-            payment_method_types: [
-                'card',
-                'klarna',
-                'afterpay_clearpay',
-                'paypal',
-                'us_bank_account'
-            ],
+            }
         });
 
         res.send({

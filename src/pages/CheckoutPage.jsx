@@ -160,15 +160,15 @@ export default function CheckoutPage() {
                 .then((data) => setClientSecret(data.clientSecret))
                 .catch((err) => console.error("Payment intent error:", err));
         }
-    }, [totalAmount, cartItems]);
+    }, []); // Load immediately on mount, not on every cart change
 
     const appearance = {
         theme: 'stripe',
         variables: {
-            colorPrimary: '#000000',
+            colorPrimary: '#059669', // Brand Green
             colorBackground: '#ffffff',
-            colorText: '#1f2937',
-            borderRadius: '8px',
+            colorText: '#374151',
+            borderRadius: '12px',
             fontFamily: 'Inter, system-ui, sans-serif',
             fontSizeBase: '16px',
             spacingUnit: '4px',
@@ -180,10 +180,10 @@ export default function CheckoutPage() {
                 boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
             },
             '.Tab:hover': {
-                borderColor: '#000000',
+                borderColor: '#059669',
             },
             '.Tab--selected': {
-                borderColor: '#000000',
+                borderColor: '#059669',
                 backgroundColor: '#ffffff',
                 borderWidth: '2px',
             },
@@ -193,7 +193,7 @@ export default function CheckoutPage() {
                 padding: '12px'
             },
             '.Input:focus': {
-                border: '2px solid #000000',
+                border: '2px solid #059669',
                 boxShadow: 'none',
             },
             '.Label': {
@@ -311,40 +311,6 @@ export default function CheckoutPage() {
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
                                 <h2 className="text-xl font-bold text-gray-900">Payment Method</h2>
-                            </div>
-
-                            {/* Payment Options Info */}
-                            <div className="mb-6 p-5 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-100 rounded-2xl shadow-sm">
-                                <p className="text-sm font-bold text-blue-900 mb-4 flex items-center gap-2">
-                                    <ShieldCheck size={18} className="text-blue-600" />
-                                    We accept multiple payment methods:
-                                </p>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                                    <div className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-blue-100 shadow-sm">
-                                        <CreditCard size={18} className="text-blue-600" />
-                                        <span className="text-xs font-semibold text-gray-700">Cards</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-blue-100 shadow-sm">
-                                        <Smartphone size={18} className="text-gray-800" />
-                                        <span className="text-xs font-semibold text-gray-700">Apple Pay</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-blue-100 shadow-sm">
-                                        <Smartphone size={18} className="text-blue-600" />
-                                        <span className="text-xs font-semibold text-gray-700">Google Pay</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-blue-100 shadow-sm">
-                                        <Wallet size={18} className="text-blue-600" />
-                                        <span className="text-xs font-semibold text-gray-700">PayPal</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-blue-100 shadow-sm">
-                                        <Wallet size={18} className="text-pink-500" />
-                                        <span className="text-xs font-semibold text-gray-700">Klarna</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-blue-100 shadow-sm">
-                                        <Wallet size={18} className="text-teal-500" />
-                                        <span className="text-xs font-semibold text-gray-700">Afterpay</span>
-                                    </div>
-                                </div>
                             </div>
 
                             {/* Stripe Payment Element */}
