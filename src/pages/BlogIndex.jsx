@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { blogPosts } from '../data/blogData';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock, CheckCircle } from 'lucide-react';
 
 export default function BlogIndex() {
     const navigate = useNavigate();
     const [activeCategory, setActiveCategory] = useState('ALL');
 
     const categories = ['ALL', 'SCIENCE', 'EQUIPMENT', 'ROUTINE', 'MISTAKES'];
+
+    // Author avatar mapping
+    const authorAvatars = {
+        'Dr. Harry Ellison': '/assets/advertorial-reporter.png',
+        'James T.': '/assets/author-avatar-2.png',
+        'Editorial Team': '/assets/author-avatar-3.png'
+    };
 
     const filteredPosts = activeCategory === 'ALL'
         ? blogPosts
@@ -28,10 +35,10 @@ export default function BlogIndex() {
                 </div>
             </div>
 
-            {/* Category Filter Pills */}
+            {/* Category Filter Pills - Centered on Desktop */}
             <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex gap-2 overflow-x-auto py-4 no-scrollbar">
+                    <div className="flex justify-center lg:justify-center gap-2 overflow-x-auto py-4 no-scrollbar">
                         {categories.map(category => (
                             <button
                                 key={category}
@@ -51,12 +58,12 @@ export default function BlogIndex() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
                 {/* Featured Hero */}
                 {featuredPost && (
-                    <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden transition-shadow duration-300 group">
+                    <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 group hover:-translate-y-1">
                         <div className="grid lg:grid-cols-[40%_60%] gap-0">
-                            {/* Image with Zoom Effect */}
+                            {/* Featured Banner Image */}
                             <div className="h-64 lg:h-auto overflow-hidden">
                                 <img
-                                    src={featuredPost.image}
+                                    src="/assets/featured-banner.png"
                                     alt={featuredPost.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
@@ -64,10 +71,10 @@ export default function BlogIndex() {
 
                             {/* Content with Better Spacing */}
                             <div className="p-10 lg:p-16 flex flex-col justify-center">
-                                {/* Elegant Badge */}
+                                {/* Improved Badge - Uppercase, Bolder, Deeper Green */}
                                 <div className="inline-block mb-6">
-                                    <span className="text-[10px] font-bold tracking-widest text-green-700 bg-green-50 px-4 py-1.5 rounded-sm uppercase">
-                                        Featured Story
+                                    <span className="text-xs font-extrabold tracking-widest text-green-800 bg-green-100 px-4 py-2 rounded-sm uppercase">
+                                        FEATURED STORY
                                     </span>
                                 </div>
 
@@ -76,25 +83,34 @@ export default function BlogIndex() {
                                     {featuredPost.title}
                                 </h2>
 
-                                {/* Lighter Description */}
-                                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                                {/* Description with Increased Line Height (1.7) */}
+                                <p className="text-gray-600 text-lg mb-8" style={{ lineHeight: '1.7' }}>
                                     {featuredPost.summary}
                                 </p>
 
                                 {/* Unified Footer: Meta + Button */}
                                 <div className="flex items-center justify-between gap-6">
-                                    <div className="flex items-center gap-4 text-sm text-gray-500">
-                                        <span className="font-medium">{featuredPost.author}</span>
-                                        <span>•</span>
-                                        <div className="flex items-center gap-1">
-                                            <Clock size={14} />
-                                            <span>{featuredPost.readTime}</span>
+                                    {/* Author with Avatar and Verification Badge */}
+                                    <div className="flex items-center gap-3">
+                                        <img
+                                            src={authorAvatars[featuredPost.author]}
+                                            alt={featuredPost.author}
+                                            className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
+                                        />
+                                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                                            <span className="font-semibold text-gray-900">{featuredPost.author}</span>
+                                            <CheckCircle size={16} className="text-blue-500" fill="currentColor" />
+                                            <span>•</span>
+                                            <div className="flex items-center gap-1">
+                                                <Clock size={14} />
+                                                <span>{featuredPost.readTime}</span>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <button
                                         onClick={() => navigate(`/journal/${featuredPost.slug}`)}
-                                        className="bg-black hover:bg-gray-900 text-white font-bold py-3.5 px-7 rounded-xl transition-all inline-flex items-center gap-2 group/btn shadow-md hover:shadow-lg"
+                                        className="bg-black hover:bg-gray-800 text-white font-bold py-3.5 px-7 rounded-xl transition-all inline-flex items-center gap-2 group/btn shadow-md hover:shadow-xl hover:-translate-y-0.5"
                                     >
                                         <span>Read Story</span>
                                         <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -147,49 +163,62 @@ export default function BlogIndex() {
                                 Join
                             </button>
                         </div>
-                        <p className="text-gray-400 text-xs mt-4">
-                            We respect your privacy. Unsubscribe anytime.
+                        {/* Improved Privacy Note - More Legible */}
+                        <p className="text-gray-300 text-sm mt-4">
+                            🔒 We respect your privacy. Unsubscribe anytime.
                         </p>
                     </div>
                 </div>
 
-                {/* Article Grid */}
+                {/* Article Grid - Premium Cards */}
                 {gridPosts.length > 0 && (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {gridPosts.map(post => (
                             <article
                                 key={post.id}
                                 onClick={() => navigate(`/journal/${post.slug}`)}
-                                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer group"
+                                className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer group hover:-translate-y-2"
                             >
-                                <div className="h-48 overflow-hidden">
+                                {/* Consistent Aspect Ratio Image (16:9) */}
+                                <div className="aspect-[16/9] overflow-hidden">
                                     <img
                                         src={post.image}
                                         alt={post.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                 </div>
                                 <div className="p-6">
+                                    {/* Subtle Category Tag */}
                                     <div className="flex items-center gap-3 mb-3">
-                                        <span className="text-xs font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full">
+                                        <span className="text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2.5 py-1 rounded">
                                             {post.category}
                                         </span>
-                                        <div className="flex items-center gap-1 text-xs text-gray-500">
+                                        <div className="flex items-center gap-1 text-xs text-gray-400">
                                             <Clock size={12} />
                                             <span>{post.readTime}</span>
                                         </div>
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-green-600 transition-colors">
+                                    {/* Prominent Title - Bold & Larger */}
+                                    <h3 className="text-xl font-extrabold text-gray-900 mb-3 leading-snug group-hover:text-green-700 transition-colors">
                                         {post.title}
                                     </h3>
 
-                                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                                    <p className="text-gray-600 text-sm mb-4 line-clamp-3" style={{ lineHeight: '1.6' }}>
                                         {post.summary}
                                     </p>
 
-                                    <div className="text-sm text-gray-500">
-                                        {post.author}
+                                    {/* Author with Avatar and Verification */}
+                                    <div className="flex items-center gap-2">
+                                        <img
+                                            src={authorAvatars[post.author]}
+                                            alt={post.author}
+                                            className="w-8 h-8 rounded-full object-cover border-2 border-gray-200"
+                                        />
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="text-sm font-semibold text-gray-700">{post.author}</span>
+                                            <CheckCircle size={14} className="text-blue-500" fill="currentColor" />
+                                        </div>
                                     </div>
                                 </div>
                             </article>
