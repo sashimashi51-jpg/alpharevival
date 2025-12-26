@@ -101,7 +101,15 @@ export const CartProvider = ({ children }) => {
     };
 
     const removeFromCart = (id) => {
-        setCartItems(prev => prev.filter(item => item.id !== id));
+        setCartItems(prev => {
+            const newCart = prev.filter(item => item.id !== id);
+            // Auto-close cart if it becomes empty (excluding gift items)
+            const hasNonGiftItems = newCart.some(item => !item.isGift);
+            if (!hasNonGiftItems) {
+                setIsCartOpen(false);
+            }
+            return newCart;
+        });
     };
 
     const updateQuantity = (id, delta) => {
