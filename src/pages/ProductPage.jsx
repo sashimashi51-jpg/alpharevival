@@ -15,19 +15,22 @@ import EbookSection from '../components/EbookSection';
 import './ProductPage.css';
 
 const productImages = [
-    '/assets/product_1.jpg',
-    '/assets/product_2.jpg',
-    '/assets/product_3.jpg',
-    '/assets/product_4.png',
-    '/assets/product_5.png',
-    '/assets/product_7.png',
+    '/assets/product_photos_final/first_photo.png',
+    '/assets/product_photos_final/second_photo.png',
+    '/assets/product_photos_final/third_photo.png',
+    '/assets/product_photos_final/fourth_photo.png',
+    '/assets/product_photos_final/fifth_photo.png',
+    '/assets/product_photos_final/sixth_photo.png',
+    '/assets/product_photos_final/seventh_photo.png',
+    '/assets/product_photos_final/eighth_photo.png',
+    '/assets/product_photos_final/ninth_photo.png',
 ];
 
 // Tier-specific main images for dynamic switching
 const tierMainImages = {
-    0: '/assets/product_1.jpg',  // 1-month: single kit
-    1: '/assets/product_1.jpg',  // 3-month: single kit
-    2: '/assets/product_6month.png',  // 6-month: multiple boxes
+    0: '/assets/product_photos_final/first_photo.png',  // 1-month: single kit
+    1: '/assets/product_photos_final/first_photo.png',  // 3-month: single kit
+    2: '/assets/product_photos_final/first_photo.png',  // 6-month: multiple boxes
 };
 
 const offers = [

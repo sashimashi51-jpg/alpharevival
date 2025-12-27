@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, PaymentElement, ExpressCheckoutElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { Check, ShieldCheck, Lock, CreditCard, Smartphone, Wallet } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import './CheckoutPage.css';
 
-// Initialize Stripe
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
-
 const CheckoutForm = ({ clientSecret }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [showExpressCheckout, setShowExpressCheckout] = useState(false);
+
+    // Defer Express Checkout loading for faster initial render
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowExpressCheckout(true);
+        }, 500); // Load express checkout 500ms after main payment element
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,42 +48,46 @@ const CheckoutForm = ({ clientSecret }) => {
     return (
         <form id="payment-form" onSubmit={handleSubmit} className="space-y-6">
 
-            {/* Express Checkout Buttons (Apple Pay, Google Pay, Link) */}
-            <div className="space-y-4">
-                <div className="bg-white rounded-xl border-2 border-gray-200 p-4">
-                    <ExpressCheckoutElement
-                        onConfirm={async (event) => {
-                            if (!stripe || !elements) return;
+            {/* Express Checkout Buttons (Apple Pay, Google Pay, Link) - Deferred */}
+            {showExpressCheckout && (
+                <>
+                    <div className="space-y-4">
+                        <div className="bg-white rounded-xl border-2 border-gray-200 p-4">
+                            <ExpressCheckoutElement
+                                onConfirm={async (event) => {
+                                    if (!stripe || !elements) return;
 
-                            const { error } = await stripe.confirmPayment({
-                                elements,
-                                confirmParams: {
-                                    return_url: `${window.location.origin}/success`,
-                                },
-                                redirect: 'if_required',
-                            });
+                                    const { error } = await stripe.confirmPayment({
+                                        elements,
+                                        confirmParams: {
+                                            return_url: `${window.location.origin}/success`,
+                                        },
+                                        redirect: 'if_required',
+                                    });
 
-                            if (error) {
-                                setMessage(error.message);
-                            }
-                        }}
-                        options={{
-                            buttonType: {
-                                applePay: 'buy',
-                                googlePay: 'buy',
-                            },
-                            buttonHeight: 48,
-                        }}
-                    />
-                </div>
+                                    if (error) {
+                                        setMessage(error.message);
+                                    }
+                                }}
+                                options={{
+                                    buttonType: {
+                                        applePay: 'buy',
+                                        googlePay: 'buy',
+                                    },
+                                    buttonHeight: 48,
+                                }}
+                            />
+                        </div>
 
-                {/* OR Divider */}
-                <div className="relative flex items-center">
-                    <div className="flex-grow border-t border-gray-300"></div>
-                    <span className="flex-shrink mx-4 text-gray-500 font-medium text-sm">OR</span>
-                    <div className="flex-grow border-t border-gray-300"></div>
-                </div>
-            </div>
+                        {/* OR Divider */}
+                        <div className="relative flex items-center">
+                            <div className="flex-grow border-t border-gray-300"></div>
+                            <span className="flex-shrink mx-4 text-gray-500 font-medium text-sm">OR</span>
+                            <div className="flex-grow border-t border-gray-300"></div>
+                        </div>
+                    </div>
+                </>
+            )}
 
             {/* Regular Payment Element (Card, etc.) */}
             <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden">
@@ -136,6 +146,9 @@ const CheckoutForm = ({ clientSecret }) => {
 export default function CheckoutPage() {
     const { cartItems, cartTotal, shippingProtection, currencySymbol, THRESHOLDS, SHIPPING_COST } = useCart();
     const [clientSecret, setClientSecret] = useState("");
+    const [isPaymentVisible, setIsPaymentVisible] = useState(false);
+    const [isLoadingIntent, setIsLoadingIntent] = useState(false);
+    const paymentSectionRef = useRef(null);
 
     const currentShippingCost = cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST;
     const totalAmount = cartTotal + (shippingProtection ? 2.97 : 0) + currentShippingCost;
@@ -147,9 +160,36 @@ export default function CheckoutPage() {
         return acc;
     }, 0);
 
+    // Lazy load Stripe only when needed
+    const stripePromise = useMemo(() => {
+        if (isPaymentVisible) {
+            return loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+        }
+        return null;
+    }, [isPaymentVisible]);
 
+    // Intersection Observer to detect when payment section becomes visible
     useEffect(() => {
-        if (totalAmount > 0) {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsPaymentVisible(true);
+                }
+            },
+            { threshold: 0.1, rootMargin: '50px' } // Start loading slightly before visible
+        );
+
+        if (paymentSectionRef.current) {
+            observer.observe(paymentSectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    // Only create payment intent when payment section is visible
+    useEffect(() => {
+        if (isPaymentVisible && totalAmount > 0 && !clientSecret && !isLoadingIntent) {
+            setIsLoadingIntent(true);
             const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:4242';
             fetch(`${apiUrl}/create-payment-intent`, {
                 method: "POST",
@@ -157,10 +197,16 @@ export default function CheckoutPage() {
                 body: JSON.stringify({ items: cartItems, amount: totalAmount }),
             })
                 .then((res) => res.json())
-                .then((data) => setClientSecret(data.clientSecret))
-                .catch((err) => console.error("Payment intent error:", err));
+                .then((data) => {
+                    setClientSecret(data.clientSecret);
+                    setIsLoadingIntent(false);
+                })
+                .catch((err) => {
+                    console.error("Payment intent error:", err);
+                    setIsLoadingIntent(false);
+                });
         }
-    }, []); // Load immediately on mount, not on every cart change
+    }, [isPaymentVisible, totalAmount]); // Only depend on visibility and amount
 
     const appearance = {
         theme: 'stripe',
@@ -307,24 +353,33 @@ export default function CheckoutPage() {
                         </div>
 
                         {/* Step 3: Payment Method */}
-                        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
+                        <div ref={paymentSectionRef} className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
                                 <h2 className="text-xl font-bold text-gray-900">Payment Method</h2>
                             </div>
 
                             {/* Stripe Payment Element */}
-                            {clientSecret ? (
+                            {clientSecret && stripePromise ? (
                                 <Elements options={options} stripe={stripePromise}>
                                     <CheckoutForm clientSecret={clientSecret} />
                                 </Elements>
                             ) : (
                                 <div className="p-8 text-center bg-gray-50 rounded-xl border-2 border-gray-200">
-                                    <div className="animate-pulse flex flex-col items-center gap-3">
+                                    <div className="animate-pulse flex flex-col items-center gap-4">
                                         <div className="h-12 w-12 bg-gray-300 rounded-full"></div>
-                                        <div className="h-4 bg-gray-300 rounded w-48"></div>
+                                        <div className="space-y-2 w-full">
+                                            <div className="h-4 bg-gray-300 rounded w-3/4 mx-auto"></div>
+                                            <div className="h-4 bg-gray-300 rounded w-1/2 mx-auto"></div>
+                                        </div>
+                                        <div className="mt-4 space-y-3 w-full">
+                                            <div className="h-12 bg-gray-200 rounded-xl w-full"></div>
+                                            <div className="h-12 bg-gray-200 rounded-xl w-full"></div>
+                                        </div>
                                     </div>
-                                    <p className="text-sm text-gray-500 mt-3">Loading secure payment options...</p>
+                                    <p className="text-sm text-gray-500 mt-4">
+                                        {isLoadingIntent ? 'Initializing secure payment...' : 'Loading payment options...'}
+                                    </p>
                                 </div>
                             )}
                         </div>

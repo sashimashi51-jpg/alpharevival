@@ -250,15 +250,15 @@ ul {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-urgent));
+  background: linear-gradient(to right, #059669, #047857);
   color: white;
-  box-shadow: 0 4px 14px 0 rgba(255, 87, 34, 0.5);
+  box-shadow: 0 4px 14px 0 rgba(5, 150, 105, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--color-urgent), var(--color-brand-primary));
+  background: linear-gradient(to right, #047857, #065f46);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px 0 rgba(255, 87, 34, 0.6);
+  box-shadow: 0 6px 20px 0 rgba(5, 150, 105, 0.4);
 }
 
 .btn-large {

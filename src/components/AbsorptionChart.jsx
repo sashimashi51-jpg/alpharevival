@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 const AbsorptionChart = () => {
     const data = [
         {
-            name: 'Topical Application',
+            name: 'Other Solutions',
             absorption: 4,
         },
         {
