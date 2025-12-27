@@ -167,7 +167,8 @@ export default function CheckoutPage() {
     useEffect(() => {
         if (totalAmount > 0 && !clientSecret && !isLoadingIntent) {
             setIsLoadingIntent(true);
-            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:4242';
+            // If VITE_API_URL is set (e.g. locally), use it. Otherwise, assume same-origin (Vercel) relative path /api
+            const apiUrl = import.meta.env.VITE_API_URL || '/api';
             fetch(`${apiUrl}/create-payment-intent`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
