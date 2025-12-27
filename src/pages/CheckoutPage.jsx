@@ -137,15 +137,19 @@ const CheckoutForm = ({ clientSecret }) => {
     );
 };
 
+// Initialize Stripe singleton outside component for maximum speed
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
 export default function CheckoutPage() {
     const { cartItems, cartTotal, shippingProtection, currencySymbol, THRESHOLDS, SHIPPING_COST } = useCart();
     const [clientSecret, setClientSecret] = useState("");
-    const [isPaymentVisible, setIsPaymentVisible] = useState(false);
     const [isLoadingIntent, setIsLoadingIntent] = useState(false);
-    const paymentSectionRef = useRef(null);
 
     const currentShippingCost = cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST;
     const totalAmount = cartTotal + (shippingProtection ? 2.97 : 0) + currentShippingCost;
+    // Stripe expects amount in cents
+    const amountInCents = Math.round(totalAmount * 100);
+
     const savedTotal = cartItems.reduce((acc, item) => {
         const original = item.originalPrice || item.price;
         if (original > item.price) {
@@ -153,9 +157,6 @@ export default function CheckoutPage() {
         }
         return acc;
     }, 0);
-
-    // Initialize Stripe immediately
-    const stripePromise = useMemo(() => loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY), []);
 
     // Create payment intent immediately on mount
     useEffect(() => {
@@ -177,7 +178,7 @@ export default function CheckoutPage() {
                     setIsLoadingIntent(false);
                 });
         }
-    }, [totalAmount]); // Only depend on amount
+    }, [totalAmount]);
 
     const appearance = {
         theme: 'stripe',
@@ -221,8 +222,11 @@ export default function CheckoutPage() {
         }
     };
 
+    // Use Deferred Intent (mode: 'payment') for instant loading
     const options = {
-        clientSecret,
+        mode: 'payment',
+        amount: amountInCents,
+        currency: 'usd',
         appearance,
     };
 
@@ -330,8 +334,8 @@ export default function CheckoutPage() {
                                 <h2 className="text-xl font-bold text-gray-900">Payment Method</h2>
                             </div>
 
-                            {/* Stripe Payment Element */}
-                            {clientSecret && stripePromise ? (
+                            {/* Stripe Payment Element - Mounts instantly with Deferred Intent */}
+                            {stripePromise ? (
                                 <Elements options={options} stripe={stripePromise}>
                                     <CheckoutForm clientSecret={clientSecret} />
                                 </Elements>
@@ -349,7 +353,7 @@ export default function CheckoutPage() {
                                         </div>
                                     </div>
                                     <p className="text-sm text-gray-500 mt-4">
-                                        {isLoadingIntent ? 'Initializing secure payment...' : 'Loading payment options...'}
+                                        Initializing secure payment...
                                     </p>
                                 </div>
                             )}

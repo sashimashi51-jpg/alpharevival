@@ -6,7 +6,7 @@ const ContactPage = () => {
             title="Contact Us"
             description="We are available for questions, feedback, or collaboration opportunities. Let us know how we can help!"
             phone="+359883987033"
-            email="support@alpharevive.com"
+            email="support@alpharevive.shop"
         />
     );
 };
