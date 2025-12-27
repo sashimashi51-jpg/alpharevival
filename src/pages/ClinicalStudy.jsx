@@ -34,8 +34,6 @@ export default function ClinicalStudy() {
                 publishDate="Dec 27, 2024"
                 readTime="10 Min Read"
                 authorImage="/assets/advertorial-reporter.png"
-                heroImage="/assets/advertorial-photo.png"
-                heroImageAlt="Millions of men are treating the surface, ignoring the dormant life beneath"
                 onImageClick={handleImageClick}
             />
 
@@ -256,8 +254,8 @@ export default function ClinicalStudy() {
                                         <span><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</span>
                                     </li>
                                 </ul>
-                                <p style={{ marginTop: '1rem' }}>These travel through the channels you created, reaching follicles with reactivated energy, in concentrations that actually matter.</p>
-                                <p style={{ marginTop: '1rem', fontWeight: '600' }}>
+                                <p>These travel through the channels you created, reaching follicles with reactivated energy, in concentrations that actually matter.</p>
+                                <p style={{ fontWeight: '600' }}>
                                     For the first time, all three barriers are solved:<br />
                                     Penetration achieved → Energy reactivated → Growth factors delivered
                                 </p>
@@ -338,6 +336,23 @@ export default function ClinicalStudy() {
                     <p className="advertorial-p" style={{ fontSize: '1.1rem', fontWeight: '600' }}>
                         Your follicles are dormant, not dead.
                     </p>
+                </div>
+            </div>
+
+            {/* As Seen In - Carousel */}
+            <div className="proof-bar" style={{ borderTop: 'none', borderBottom: 'none', padding: '3rem 0 1rem 0', margin: '0' }}>
+                <p className="text-center proof-bar-title" style={{ textAlign: 'center' }}>As seen in</p>
+                <div className="logo-carousel">
+                    <div className="logo-track">
+                        {[...Array(8)].map((_, setIndex) => (
+                            <React.Fragment key={setIndex}>
+                                <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
+                                <img src="/assets/as_seen_in_style.png" alt="Style" />
+                                <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
+                                <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                            </React.Fragment>
+                        ))}
+                    </div>
                 </div>
             </div>
 

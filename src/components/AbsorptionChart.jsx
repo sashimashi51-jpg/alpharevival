@@ -18,7 +18,7 @@ const AbsorptionChart = () => {
     return (
         <div className="w-full bg-white flex items-center justify-center p-8">
             <div className="w-full max-w-4xl">
-                <h1 className="text-3xl font-bold text-gray-800 text-center mb-8">
+                <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
                     Active Serum Absorption Rates
                 </h1>
 
