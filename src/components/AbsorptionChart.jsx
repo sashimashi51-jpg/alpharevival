@@ -8,7 +8,7 @@ const AbsorptionChart = () => {
             absorption: 4,
         },
         {
-            name: 'Micro-Channel Delivery',
+            name: 'Ours',
             absorption: 45,
         }
     ];

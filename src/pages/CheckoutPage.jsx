@@ -10,15 +10,9 @@ const CheckoutForm = ({ clientSecret }) => {
     const elements = useElements();
     const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [showExpressCheckout, setShowExpressCheckout] = useState(false);
+    const [showExpressCheckout, setShowExpressCheckout] = useState(true);
 
-    // Defer Express Checkout loading for faster initial render
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowExpressCheckout(true);
-        }, 500); // Load express checkout 500ms after main payment element
-        return () => clearTimeout(timer);
-    }, []);
+    // Express Checkout buttons are now shown immediately without delay
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -160,35 +154,12 @@ export default function CheckoutPage() {
         return acc;
     }, 0);
 
-    // Lazy load Stripe only when needed
-    const stripePromise = useMemo(() => {
-        if (isPaymentVisible) {
-            return loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
-        }
-        return null;
-    }, [isPaymentVisible]);
+    // Initialize Stripe immediately
+    const stripePromise = useMemo(() => loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY), []);
 
-    // Intersection Observer to detect when payment section becomes visible
+    // Create payment intent immediately on mount
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsPaymentVisible(true);
-                }
-            },
-            { threshold: 0.1, rootMargin: '50px' } // Start loading slightly before visible
-        );
-
-        if (paymentSectionRef.current) {
-            observer.observe(paymentSectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
-    // Only create payment intent when payment section is visible
-    useEffect(() => {
-        if (isPaymentVisible && totalAmount > 0 && !clientSecret && !isLoadingIntent) {
+        if (totalAmount > 0 && !clientSecret && !isLoadingIntent) {
             setIsLoadingIntent(true);
             const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:4242';
             fetch(`${apiUrl}/create-payment-intent`, {
@@ -206,7 +177,7 @@ export default function CheckoutPage() {
                     setIsLoadingIntent(false);
                 });
         }
-    }, [isPaymentVisible, totalAmount]); // Only depend on visibility and amount
+    }, [totalAmount]); // Only depend on amount
 
     const appearance = {
         theme: 'stripe',

@@ -149,6 +149,32 @@ export default function ClinicalStudy() {
                     <p className="advertorial-p">
                         <strong>Here's the truth they don't tell you: Your follicles have been starving for oxygen, energy, and growth factors - sometimes for years. The treatments failed because they couldn't solve all three barriers. Not because your follicles are dead. Not because it's too late. But because no one had built a delivery system that actually works.</strong>
                     </p>
+
+                    {/* Dormant vs Normal Follicle Image */}
+                    <div className="dormant-follicle-wrapper" style={{
+                        textAlign: 'center',
+                        margin: '3rem 0'
+                    }}>
+                        <img
+                            src="/assets/dormanyt.webp"
+                            alt="Comparison between dormant and normal hair follicle"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                borderRadius: '8px',
+                                cursor: 'pointer'
+                            }}
+                            onClick={() => handleImageClick('/assets/dormanyt.webp', 'Comparison between dormant and normal hair follicle')}
+                        />
+                        <p style={{
+                            color: '#666',
+                            fontSize: '0.85rem',
+                            marginTop: '0.75rem',
+                            fontStyle: 'italic'
+                        }}>
+                            Dormant follicle (left) vs. normal follicle (right)
+                        </p>
+                    </div>
                 </div>
 
                 {/* SECTION 3: The Solution (The Pivot) */}
@@ -254,11 +280,6 @@ export default function ClinicalStudy() {
                                         <span><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</span>
                                     </li>
                                 </ul>
-                                <p>These travel through the channels you created, reaching follicles with reactivated energy, in concentrations that actually matter.</p>
-                                <p style={{ fontWeight: '600' }}>
-                                    For the first time, all three barriers are solved:<br />
-                                    Penetration achieved → Energy reactivated → Growth factors delivered
-                                </p>
                             </div>
                             <div className="step-diagram">
                                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,6 +292,14 @@ export default function ClinicalStudy() {
                             </div>
                         </div>
                     </div>
+
+                    <p className="advertorial-p">
+                        These travel through the channels you created, reaching follicles with reactivated energy, in concentrations that actually matter.
+                    </p>
+                    <p className="advertorial-p" style={{ fontWeight: '600' }}>
+                        For the first time, all three barriers are solved:<br />
+                        Penetration achieved → Energy reactivated → Growth factors delivered
+                    </p>
 
                     {/* Before/After Image */}
                     <div className="before-after-wrapper" style={{

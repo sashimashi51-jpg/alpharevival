@@ -54,14 +54,14 @@ export default function BlogIndex() {
             {/* Category Navigation - Underline Tabs */}
             <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-center lg:justify-center gap-8 overflow-x-auto py-4 no-scrollbar">
+                    <div className="flex justify-start md:justify-center gap-6 sm:gap-8 overflow-x-auto py-4 no-scrollbar px-2 sm:px-0">
                         {categories.map(category => (
                             <button
                                 key={category}
                                 onClick={() => setActiveCategory(category)}
                                 className={`px-2 py-2 text-sm whitespace-nowrap transition-all border-b-2 ${activeCategory === category
-                                        ? 'border-emerald-600 font-bold text-gray-900'
-                                        : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+                                    ? 'border-emerald-600 font-bold text-gray-900'
+                                    : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
                                     }`}
                             >
                                 {category}
@@ -76,8 +76,8 @@ export default function BlogIndex() {
                 {featuredPost && (
                     <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 group hover:-translate-y-1">
                         <div className="grid lg:grid-cols-[40%_60%] gap-0">
-                            {/* Dynamic Featured Image - Changes with Category */}
-                            <div className="h-64 lg:h-auto overflow-hidden">
+                            {/* Dynamic Featured Image - Centered and Responsive */}
+                            <div className="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden flex items-center justify-center bg-gray-100">
                                 <img
                                     src={activeCategory === 'ALL' ? '/assets/featured-banner.png' : featuredPost.image}
                                     alt={featuredPost.title}
@@ -85,27 +85,27 @@ export default function BlogIndex() {
                                 />
                             </div>
 
-                            {/* Content with Better Spacing */}
-                            <div className="p-10 lg:p-16 flex flex-col justify-center">
-                                {/* Improved Badge - Uppercase, Bolder, Deeper Green */}
-                                <div className="inline-block mb-6">
-                                    <span className="text-xs font-extrabold tracking-widest text-green-800 bg-green-100 px-4 py-2 rounded-sm uppercase">
+                            {/* Content with Improved Mobile Readability */}
+                            <div className="p-6 sm:p-10 lg:p-16 flex flex-col justify-center">
+                                {/* Improved Badge */}
+                                <div className="inline-block mb-4 sm:mb-6">
+                                    <span className="text-[10px] sm:text-xs font-extrabold tracking-widest text-green-800 bg-green-100 px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm uppercase">
                                         FEATURED STORY
                                     </span>
                                 </div>
 
-                                {/* Headline with Tighter Spacing */}
-                                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight" style={{ fontFamily: 'Merriweather, serif' }}>
+                                {/* Headline */}
+                                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight" style={{ fontFamily: 'Merriweather, serif' }}>
                                     {featuredPost.title}
                                 </h2>
 
-                                {/* Description with Increased Line Height (1.7) */}
-                                <p className="text-gray-600 text-lg mb-8" style={{ lineHeight: '1.7' }}>
+                                {/* Description */}
+                                <p className="text-gray-600 text-base sm:text-lg mb-8" style={{ lineHeight: '1.7' }}>
                                     {featuredPost.summary}
                                 </p>
 
-                                {/* Unified Footer: Meta + Button */}
-                                <div className="flex items-center justify-between gap-6">
+                                {/* Responsive Footer: Meta + Button */}
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                                     {/* Author with Avatar and Verification Badge */}
                                     <div className="flex items-center gap-3">
                                         <img
@@ -113,10 +113,12 @@ export default function BlogIndex() {
                                             alt={featuredPost.author}
                                             className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
                                         />
-                                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                                            <span className="font-semibold text-gray-900">{featuredPost.author}</span>
-                                            <VerifiedBadge size={16} />
-                                            <span>•</span>
+                                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm text-gray-600">
+                                            <div className="flex items-center gap-2">
+                                                <span className="font-semibold text-gray-900">{featuredPost.author}</span>
+                                                <VerifiedBadge size={16} />
+                                            </div>
+                                            <span className="hidden sm:inline">•</span>
                                             <div className="flex items-center gap-1">
                                                 <Clock size={14} />
                                                 <span>{featuredPost.readTime}</span>
@@ -126,7 +128,7 @@ export default function BlogIndex() {
 
                                     <button
                                         onClick={() => navigate(`/journal/${featuredPost.slug}`)}
-                                        className="bg-black hover:bg-gray-800 text-white font-bold py-3.5 px-7 rounded-xl transition-all inline-flex items-center gap-2 group/btn shadow-md hover:shadow-xl hover:-translate-y-0.5"
+                                        className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold py-3.5 px-7 rounded-xl transition-all inline-flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-xl hover:-translate-y-0.5"
                                     >
                                         <span>Read Story</span>
                                         <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />

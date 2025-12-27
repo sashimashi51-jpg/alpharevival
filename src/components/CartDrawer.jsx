@@ -310,17 +310,13 @@ export default function CartDrawer() {
                                     setIsCartOpen(false);
                                     navigate('/checkout');
                                 }}
-                                className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg hover:from-green-700 hover:to-green-800 transition-all flex items-center justify-center gap-2 group shadow-md"
+                                className="btn btn-primary btn-large w-full py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg transition-all flex items-center justify-center gap-2 group shadow-md"
                             >
                                 <ShieldCheck size={22} className="group-hover:scale-110 transition-transform" />
                                 <span className="group-hover:translate-x-[-2px] transition-transform">SECURE CHECKOUT</span>
                                 <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
                             </button>
 
-                            {/* Trust Footer - Payment Icons */}
-                            <div className="mt-4 flex justify-center opacity-70 grayscale">
-                                <img src="/assets/payment_icons_grayscale.png" alt="Payment Methods" className="h-5 object-contain" />
-                            </div>
                         </div>
 
                     </motion.div>
