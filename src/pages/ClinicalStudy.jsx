@@ -5,6 +5,7 @@ import FeaturedProduct from '../components/FeaturedProduct';
 import { TestimonialCarousel } from '../components/ui/testimonial';
 import EditorialHeader from '../components/EditorialHeader';
 import ImageLightbox from '../components/ImageLightbox';
+import AbsorptionChart from '../components/AbsorptionChart';
 import './ClinicalStudy.css';
 
 export default function ClinicalStudy() {
@@ -28,7 +29,7 @@ export default function ClinicalStudy() {
             <EditorialHeader
                 headline="Why Everything You've Tried For Hair Loss Has Failed (And What Finally Works)"
                 subheadline="The minoxidil didn't work. The finasteride didn't work. And now you know why: your follicles are suffocating behind a delivery system that's been broken from day one."
-                authorName="Medical Research Team"
+                authorName="Harry Ellison"
                 authorTitle="Medical Researcher"
                 publishDate="Dec 27, 2024"
                 readTime="10 Min Read"
@@ -42,20 +43,29 @@ export default function ClinicalStudy() {
 
                 {/* SECTION 1: The Hook & The "Aha" Moment */}
                 <div className="advertorial-section">
-                    {/* Hero Image Placeholder */}
-                    <div className="hero-image-placeholder" style={{
+                    {/* Hero Image */}
+                    <div className="hero-image-wrapper" style={{
                         textAlign: 'center',
-                        margin: '2rem 0',
-                        padding: '3rem 2rem',
-                        background: '#f5f5f5',
-                        borderRadius: '8px',
-                        border: '2px dashed #ccc'
+                        margin: '2rem 0'
                     }}>
-                        <p style={{ color: '#666', fontStyle: 'italic' }}>
-                            [IMAGE 1: Hero Image - High-quality photo of man (mid-30s) looking in mirror touching thinning hairline, or 3D render of dormant hair follicle bulb]
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                            Caption: "Millions of men are treating the surface, ignoring the dormant life beneath."
+                        <img
+                            src="/assets/advertorial-photo.png"
+                            alt="Millions of men are treating the surface, ignoring the dormant life beneath"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                borderRadius: '8px',
+                                cursor: 'pointer'
+                            }}
+                            onClick={() => handleImageClick('/assets/advertorial-photo.png', 'Millions of men are treating the surface, ignoring the dormant life beneath')}
+                        />
+                        <p style={{
+                            color: '#666',
+                            fontSize: '0.85rem',
+                            marginTop: '0.75rem',
+                            fontStyle: 'italic'
+                        }}>
+                            Millions of men are treating the surface, ignoring the dormant life beneath.
                         </p>
                     </div>
 
@@ -93,25 +103,11 @@ export default function ClinicalStudy() {
                         For years, you've been told that once hair loss starts, it's irreversible - which is absolutely false. What is true, however, is that conventional treatments can't bypass these three barriers. So they fail no matter how many times you try or how much time you spend using them. And then you start to blame yourself, your genetics, or "starting too late. But the real problem was never you, rather a system that made you have hope built on lies.
                     </p>
 
-                    {/* Barriers Infographic Placeholder */}
-                    <div className="infographic-placeholder" style={{
-                        textAlign: 'center',
-                        margin: '3rem 0',
-                        padding: '3rem 2rem',
-                        background: '#f5f5f5',
-                        borderRadius: '8px',
-                        border: '2px dashed #ccc'
+                    {/* Absorption Chart */}
+                    <div className="absorption-chart-wrapper" style={{
+                        margin: '3rem 0'
                     }}>
-                        <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
-                            [IMAGE 2: The "Barriers" Infographic - Split Diagram]
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem' }}>
-                            Left Side: Minoxidil foam sitting on Stratum Corneum with Red "X" marks<br />
-                            Right Side: Follicle 3mm deep, looking shriveled/dormant
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                            Caption: "Why topical foams fail: They cannot penetrate the stratum corneum to reach the follicle 3mm deep."
-                        </p>
+                        <AbsorptionChart />
                     </div>
 
                     <h2 className="advertorial-subhead">Why Everything You've Tried Couldn't Reach Your Follicles</h2>
@@ -165,24 +161,30 @@ export default function ClinicalStudy() {
                         While you've been told your hair loss is permanent, a small group of men discovered something different. A 3-phase system that doesn't just treat symptoms—it rebuilds the entire delivery system your follicles need. They're seeing new hair growth in places that have been bald for years. Hairlines filling back in. Crowns thickening. Actual new hair where there was only scalp. Not because of some miracle or magic, but because they found the first system that actually reaches the dormant follicles everyone said were "dead."
                     </p>
 
-                    {/* Mechanism Image Placeholder */}
-                    <div className="mechanism-image-placeholder" style={{
+                    {/* Mechanism Video */}
+                    <div className="mechanism-video-wrapper" style={{
                         textAlign: 'center',
-                        margin: '3rem 0',
-                        padding: '3rem 2rem',
-                        background: '#f5f5f5',
-                        borderRadius: '8px',
-                        border: '2px dashed #ccc'
+                        margin: '3rem 0'
                     }}>
-                        <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
-                            [IMAGE 3: The Mechanism of Action]
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem' }}>
-                            Close-up, clean, medical-style shot of AlphaRevive device (microneedles or red light emitting)<br />
-                            Should look like premium medical tool
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                            Caption: "The first system designed to bypass the skin barrier and activate mitochondrial energy."
+                        <video
+                            src="/assets/hero-gif.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                borderRadius: '8px'
+                            }}
+                        />
+                        <p style={{
+                            color: '#666',
+                            fontSize: '0.85rem',
+                            marginTop: '0.75rem',
+                            fontStyle: 'italic'
+                        }}>
+                            The mechanism behind the follicle restoration
                         </p>
                     </div>
                 </div>
@@ -240,10 +242,19 @@ export default function ClinicalStudy() {
                             <div className="step-content">
                                 <h4>Phase 3: Deliver Growth Factors Directly Where They're Needed</h4>
                                 <p>With channels open and energy restored, the system delivers a serum containing:</p>
-                                <ul style={{ marginLeft: '1.5rem', marginTop: '1rem' }}>
-                                    <li><strong>Copper peptides (GHK-Cu):</strong> Signal dormant follicles to enter the growth phase</li>
-                                    <li><strong>Vasodilators:</strong> Restore blood flow locally to bring oxygen back to your follicles</li>
-                                    <li><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</li>
+                                <ul style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
+                                    <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                                        <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
+                                        <span><strong>Copper peptides (GHK-Cu):</strong> Signal dormant follicles to enter the growth phase</span>
+                                    </li>
+                                    <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                                        <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
+                                        <span><strong>Vasodilators:</strong> Restore blood flow locally to bring oxygen back to your follicles</span>
+                                    </li>
+                                    <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                                        <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
+                                        <span><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</span>
+                                    </li>
                                 </ul>
                                 <p style={{ marginTop: '1rem' }}>These travel through the channels you created, reaching follicles with reactivated energy, in concentrations that actually matter.</p>
                                 <p style={{ marginTop: '1rem', fontWeight: '600' }}>
@@ -263,25 +274,29 @@ export default function ClinicalStudy() {
                         </div>
                     </div>
 
-                    {/* Before/After Image Placeholder */}
-                    <div className="before-after-placeholder" style={{
+                    {/* Before/After Image */}
+                    <div className="before-after-wrapper" style={{
                         textAlign: 'center',
-                        margin: '3rem 0',
-                        padding: '3rem 2rem',
-                        background: '#f5f5f5',
-                        borderRadius: '8px',
-                        border: '2px dashed #ccc'
+                        margin: '3rem 0'
                     }}>
-                        <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
-                            [IMAGE 4: Before & After Split]
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem' }}>
-                            Genuine user-submitted style photo<br />
-                            Left: Thinning crown | Right: 4 months later, significant density increase<br />
-                            Overlay: "Week 0" vs "Week 16"
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                            Caption: "Users report visible fill-in at the crown by the third month."
+                        <img
+                            src="/assets/georgi.webp"
+                            alt="User transformation using AlphaRevive for 10 weeks"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                borderRadius: '8px',
+                                cursor: 'pointer'
+                            }}
+                            onClick={() => handleImageClick('/assets/georgi.webp', 'User transformation using AlphaRevive for 10 weeks')}
+                        />
+                        <p style={{
+                            color: '#666',
+                            fontSize: '0.85rem',
+                            marginTop: '0.75rem',
+                            fontStyle: 'italic'
+                        }}>
+                            User's transformation using our product for only 10 weeks
                         </p>
                     </div>
                 </div>
