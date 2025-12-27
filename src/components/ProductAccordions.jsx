@@ -28,7 +28,15 @@ export default function ProductAccordions() {
     const [openIndex, setOpenIndex] = useState(0);
 
     const toggleAccordion = (index) => {
-        setOpenIndex(openIndex === index ? -1 : index); // Allow closing or switching
+        // Lock scroll position before changing accordion state
+        const scrollY = window.scrollY;
+
+        setOpenIndex(openIndex === index ? -1 : index);
+
+        // Restore scroll position after state change
+        requestAnimationFrame(() => {
+            window.scrollTo(0, scrollY);
+        });
     };
 
     return (
