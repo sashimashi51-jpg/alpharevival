@@ -75,18 +75,9 @@ export default function ClinicalStudy() {
                         What's actually happened is much simpler—and much more fixable than you've been led to believe. The hair follicles in your scalp right now—the ones that used to produce thick, healthy hair—are still there. Still alive. Still capable of producing hair again. They just can't reach the oxygen, energy, and growth factors they need to wake up.
                     </p>
 
-                    {/* Pull Quote / Highlight Box */}
-                    <blockquote className="editorial-quote highlight-box" style={{
-                        background: '#f9f9f9',
-                        borderLeft: '4px solid #10b981',
-                        padding: '1.5rem',
-                        margin: '2rem 0',
-                        fontStyle: 'normal'
-                    }}>
-                        <p style={{ margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>
-                            The hair follicles in your scalp right now... are still there. Still alive. They just can't reach the oxygen.
-                        </p>
-                    </blockquote>
+                    <p className="advertorial-p">
+                        <strong>The hair follicles in your scalp right now... are still there. Still alive. They just can't reach the oxygen.</strong>
+                    </p>
 
                     <p className="advertorial-p">
                         And here's why the treatments you've tried all failed: they were never designed to reach your follicles in the first place. Not because you did something wrong, neither because you started too late. They were made to trap you as a customer by design.
@@ -161,33 +152,13 @@ export default function ClinicalStudy() {
                         So even when you do everything right, the growth factors never reach where they need to go.
                     </p>
 
-                    <blockquote className="editorial-quote" style={{ margin: '2rem 0' }}>
-                        <p>
-                            <strong>Here's the truth they don't tell you:</strong> Your follicles have been starving for oxygen, energy, and growth factors - sometimes for years. The treatments failed because they couldn't solve all three barriers. Not because your follicles are dead. Not because it's too late. But because no one had built a delivery system that actually works.
-                        </p>
-                    </blockquote>
-
-                    {/* Text Link CTA */}
-                    <p style={{ textAlign: 'center', margin: '2rem 0' }}>
-                        <Link
-                            to="/product"
-                            style={{
-                                color: '#10b981',
-                                textDecoration: 'underline',
-                                fontSize: '1rem',
-                                fontWeight: '600'
-                            }}
-                        >
-                            See the science behind bypassing the 3 Scalp Barriers »
-                        </Link>
+                    <p className="advertorial-p">
+                        <strong>Here's the truth they don't tell you: Your follicles have been starving for oxygen, energy, and growth factors - sometimes for years. The treatments failed because they couldn't solve all three barriers. Not because your follicles are dead. Not because it's too late. But because no one had built a delivery system that actually works.</strong>
                     </p>
                 </div>
 
                 {/* SECTION 3: The Solution (The Pivot) */}
                 <div className="advertorial-section">
-                    <p className="advertorial-p" style={{ fontSize: '1.1rem', fontWeight: '600' }}>
-                        Until now.
-                    </p>
 
                     <h2 className="advertorial-subhead">The First System That Solves All Three Barriers</h2>
                     <p className="advertorial-p">
@@ -355,150 +326,49 @@ export default function ClinicalStudy() {
                 </div>
             </div>
 
-            {/* SECTION 6: Product Showcase (The Offer Box) - Full Width */}
-            <div className="product-showcase-section" style={{
-                background: 'linear-gradient(to bottom, #f0f9ff, #e0f2fe)',
-                padding: '4rem 0',
-                margin: '3rem 0 0 0'
-            }}>
-                <div className="container" style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1rem' }}>
-                    <div className="offer-box" style={{
-                        background: 'white',
-                        border: '3px solid #10b981',
-                        borderRadius: '12px',
-                        padding: '3rem 2rem',
-                        boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
-                    }}>
-                        {/* Product Bundle Image Placeholder */}
-                        <div className="product-image-placeholder" style={{
-                            textAlign: 'center',
-                            margin: '0 0 2rem 0',
-                            padding: '3rem 2rem',
-                            background: '#f5f5f5',
-                            borderRadius: '8px',
-                            border: '2px dashed #ccc'
-                        }}>
-                            <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
-                                [IMAGE 5: Product Bundle Shot]
-                            </p>
-                            <p style={{ color: '#888', fontSize: '0.9rem' }}>
-                                AlphaRevive device, serum bottle, and packaging arranged neatly<br />
-                                High-end lighting
-                            </p>
+            {/* SECTION 6: Product Showcase */}
+            <div style={{ padding: '0 1rem', margin: '3rem 0' }}>
+                <FeaturedProduct />
+
+                {/* Reviews Block */}
+                <div className="container" style={{ maxWidth: '900px', margin: '3rem auto 0', padding: '0 1rem' }}>
+                    <TestimonialCarousel
+                        testimonials={[
+                            {
+                                id: 1,
+                                name: "James T.",
+                                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
+                                description: "I was skeptical. But after 3 weeks, I saw fuzz where there was nothing. By month 3, my barber asked if I got a transplant."
+                            },
+                            {
+                                id: 2,
+                                name: "David M.",
+                                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
+                                description: "No more greasy foam. No pill side effects. Just results. My wife noticed before I did."
+                            },
+                            {
+                                id: 3,
+                                name: "Marcus L.",
+                                avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
+                                description: "I've tried everything—this is the only thing that actually worked. The 120-day guarantee sealed the deal."
+                            }
+                        ]}
+                        className="my-8"
+                    />
+                    <p className="swipe-instruction" style={{ textAlign: 'center', color: '#666' }}>
+                        *Swipe to see all reviews
+                    </p>
+
+                    {/* Guarantee Box */}
+                    <div className="guarantee-box" style={{ marginTop: '2.5rem' }}>
+                        <div className="guarantee-header">
+                            <Undo2 size={20} color="#1A1A1A" strokeWidth={2} />
+                            <span className="guarantee-title">120-Day Money Back Guarantee</span>
                         </div>
-
-                        <h2 style={{
-                            fontFamily: 'Merriweather, serif',
-                            fontSize: '2rem',
-                            textAlign: 'center',
-                            marginBottom: '1.5rem'
-                        }}>
-                            The AlphaRevive Microneedling Hair Regrowth System
-                        </h2>
-
-                        {/* Feature Summary with Checkmarks */}
-                        <ul className="benefit-list" style={{
-                            listStyle: 'none',
-                            padding: '0',
-                            marginBottom: '2rem'
-                        }}>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
-                                <span><strong>Medical-grade 0.5mm Microneedling Technology</strong></span>
-                            </li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
-                                <span><strong>Calibrated 650nm Red Light Therapy</strong></span>
-                            </li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
-                                <span><strong>GHK-Cu Copper Peptide Serum Included</strong></span>
-                            </li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
-                                <span><strong>120-Day Money-Back Growth Guarantee</strong></span>
-                            </li>
-                        </ul>
-
-                        {/* Large CTA Button */}
-                        <div style={{ textAlign: 'center' }}>
-                            <Link
-                                to="/product"
-                                style={{
-                                    display: 'inline-block',
-                                    background: '#10b981',
-                                    color: 'white',
-                                    padding: '1.25rem 3rem',
-                                    fontSize: '1.25rem',
-                                    fontWeight: 'bold',
-                                    borderRadius: '8px',
-                                    textDecoration: 'none',
-                                    boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)',
-                                    transition: 'all 0.3s ease'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.target.style.background = '#059669';
-                                    e.target.style.transform = 'translateY(-2px)';
-                                    e.target.style.boxShadow = '0 6px 20px rgba(16, 185, 129, 0.5)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.target.style.background = '#10b981';
-                                    e.target.style.transform = 'translateY(0)';
-                                    e.target.style.boxShadow = '0 4px 14px rgba(16, 185, 129, 0.4)';
-                                }}
-                            >
-                                Check Availability Now »
-                            </Link>
-                            <p style={{
-                                marginTop: '1rem',
-                                color: '#666',
-                                fontSize: '0.9rem'
-                            }}>
-                                Due to high demand, shipping dates may vary.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Reviews Block - Keep Existing TestimonialCarousel */}
-                    <div className="reviews-section" style={{ marginTop: '3rem' }}>
-                        <TestimonialCarousel
-                            testimonials={[
-                                {
-                                    id: 1,
-                                    name: "James T.",
-                                    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
-                                    description: "I was skeptical. But after 3 weeks, I saw fuzz where there was nothing. By month 3, my barber asked if I got a transplant."
-                                },
-                                {
-                                    id: 2,
-                                    name: "David M.",
-                                    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
-                                    description: "No more greasy foam. No pill side effects. Just results. My wife noticed before I did."
-                                },
-                                {
-                                    id: 3,
-                                    name: "Marcus L.",
-                                    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
-                                    description: "I've tried everything—this is the only thing that actually worked. The 120-day guarantee sealed the deal."
-                                }
-                            ]}
-                            className="my-8"
-                        />
-                        <p className="swipe-instruction" style={{ textAlign: 'center', color: '#666' }}>
-                            *Swipe to see all reviews
+                        <p className="guarantee-body">
+                            Our 120-day money-back guarantee is designed to cover the full results period. So, if it somehow doesn't work, you get a full refund.
                         </p>
-
-                        {/* Guarantee Box */}
-                        <div className="guarantee-box" style={{ marginTop: '2.5rem' }}>
-                            <div className="guarantee-header">
-                                <Undo2 size={20} color="#1A1A1A" strokeWidth={2} />
-                                <span className="guarantee-title">120-Day Money Back Guarantee</span>
-                            </div>
-                            <p className="guarantee-body">
-                                Our 120-day money-back guarantee is designed to cover the full results period. So, if it somehow doesn't work, you get a full refund.
-                            </p>
-                            <Link to="/return-refund" className="guarantee-link">More Details</Link>
-                        </div>
+                        <Link to="/return-refund" className="guarantee-link">More Details</Link>
                     </div>
                 </div>
             </div>
