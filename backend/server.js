@@ -82,6 +82,51 @@ app.post('/create-payment-intent', async (req, res) => {
     }
 });
 
+const trackKlaviyoEvent = async (eventName, customerEmail, properties) => {
+    if (!process.env.KLAVIYO_PRIVATE_KEY) return;
+
+    try {
+        const response = await fetch('https://a.klaviyo.com/api/events/', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_PRIVATE_KEY.trim()}`,
+                'accept': 'application/vnd.api+json',
+                'content-type': 'application/vnd.api+json',
+                'revision': '2024-10-15'
+            },
+            body: JSON.stringify({
+                data: {
+                    type: 'event',
+                    attributes: {
+                        properties: properties,
+                        metric: {
+                            data: {
+                                type: 'metric',
+                                attributes: { name: eventName }
+                            }
+                        },
+                        profile: {
+                            data: {
+                                type: 'profile',
+                                attributes: { email: customerEmail }
+                            }
+                        }
+                    }
+                }
+            })
+        });
+
+        if (!response.ok) {
+            const errBody = await response.text();
+            console.error('Klaviyo event error:', errBody);
+        } else {
+            console.log(`✅ Klaviyo event "${eventName}" tracked for ${customerEmail}`);
+        }
+    } catch (error) {
+        console.error('Klaviyo tracker exception:', error);
+    }
+};
+
 app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
     const sig = req.headers['stripe-signature'];
     let event;
@@ -98,6 +143,17 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         case 'payment_intent.succeeded':
             const paymentIntent = event.data.object;
             console.log('✅ PaymentIntent was successful!', paymentIntent.id);
+
+            // Trigger Klaviyo Order Confirmation
+            const email = paymentIntent.metadata?.customer_email;
+            if (email && email !== 'guest@alpharevive.com') {
+                await trackKlaviyoEvent('Placed Order', email, {
+                    'order_id': paymentIntent.id,
+                    'value': paymentIntent.amount / 100,
+                    'currency': paymentIntent.currency.toUpperCase(),
+                    'items': JSON.parse(paymentIntent.metadata?.items || '[]')
+                });
+            }
             break;
         case 'payment_intent.payment_failed':
             console.log('❌ Payment failed:', event.data.object.id);

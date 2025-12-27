@@ -97,6 +97,18 @@ export const CartProvider = ({ children }) => {
             }
             return [...prev, { ...product, quantity: 1, isGift: false }];
         });
+
+        // Klaviyo Abandoned Cart Tracking
+        if (window.klaviyo) {
+            window.klaviyo.push(['track', 'Added to Cart', {
+                'ProductName': product.title,
+                'ProductID': product.id,
+                'Price': product.price,
+                'Currency': 'USD',
+                'ImageURL': window.location.origin + (product.image || '/assets/placeholder.png')
+            }]);
+        }
+
         setIsCartOpen(true);
     };
 

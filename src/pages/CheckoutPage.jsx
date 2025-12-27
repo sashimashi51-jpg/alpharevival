@@ -5,7 +5,7 @@ import { Check, ShieldCheck, Lock, CreditCard, Smartphone, Wallet } from 'lucide
 import { useCart } from '../context/CartContext';
 import './CheckoutPage.css';
 
-const CheckoutForm = ({ clientSecret }) => {
+const CheckoutForm = ({ clientSecret, email }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [message, setMessage] = useState(null);
@@ -23,8 +23,10 @@ const CheckoutForm = ({ clientSecret }) => {
 
         const { error } = await stripe.confirmPayment({
             elements,
+            clientSecret,
             confirmParams: {
                 return_url: `${window.location.origin}/success`,
+                receipt_email: email,
             },
         });
 
@@ -53,6 +55,7 @@ const CheckoutForm = ({ clientSecret }) => {
 
                                     const { error } = await stripe.confirmPayment({
                                         elements,
+                                        clientSecret,
                                         confirmParams: {
                                             return_url: `${window.location.origin}/success`,
                                         },
@@ -144,6 +147,8 @@ export default function CheckoutPage() {
     const { cartItems, cartTotal, shippingProtection, currencySymbol, THRESHOLDS, SHIPPING_COST } = useCart();
     const [clientSecret, setClientSecret] = useState("");
     const [isLoadingIntent, setIsLoadingIntent] = useState(false);
+    const [email, setEmail] = useState("");
+    const paymentSectionRef = useRef(null);
 
     const currentShippingCost = cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST;
     const totalAmount = cartTotal + (shippingProtection ? 2.97 : 0) + currentShippingCost;
@@ -270,6 +275,21 @@ export default function CheckoutPage() {
                                 <input
                                     type="email"
                                     placeholder="Email Address"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    onBlur={(e) => {
+                                        const emailVal = e.target.value;
+                                        if (emailVal && emailVal.includes('@') && window.klaviyo) {
+                                            // Identify the user
+                                            window.klaviyo.push(['identify', { '$email': emailVal }]);
+                                            // Track Started Checkout
+                                            window.klaviyo.push(['track', 'Started Checkout', {
+                                                'Items': cartItems.map(i => i.title),
+                                                'CheckoutTotal': totalAmount,
+                                                'Currency': 'USD'
+                                            }]);
+                                        }
+                                    }}
                                     className="w-full min-w-0 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors text-base"
                                     required
                                 />
@@ -337,7 +357,7 @@ export default function CheckoutPage() {
                             {/* Stripe Payment Element - Mounts instantly with Deferred Intent */}
                             {stripePromise ? (
                                 <Elements options={options} stripe={stripePromise}>
-                                    <CheckoutForm clientSecret={clientSecret} />
+                                    <CheckoutForm clientSecret={clientSecret} email={email} />
                                 </Elements>
                             ) : (
                                 <div className="p-8 text-center bg-gray-50 rounded-xl border-2 border-gray-200">
