@@ -3,9 +3,11 @@ import { Check } from 'lucide-react';
 
 const EditorialHeader = ({
     headline,
+    subheadline,
     authorName = "Harry Ellison",
     authorTitle = "Senior Health Editor",
     publishDate = "Oct 24, 2025",
+    readTime,
     authorImage = "/assets/advertorial-reporter.png",
     heroImage,
     heroImageAlt = "Article hero image",
@@ -23,6 +25,14 @@ const EditorialHeader = ({
             fontWeight: '700',
             lineHeight: '1.2',
             color: '#111827',
+            marginBottom: '16px',
+            fontFamily: "'Georgia', 'Merriweather', serif"
+        },
+        subheadline: {
+            fontSize: '1.25rem',
+            fontWeight: '400',
+            lineHeight: '1.5',
+            color: '#4B5563',
             marginBottom: '24px',
             fontFamily: "'Georgia', 'Merriweather', serif"
         },
@@ -94,6 +104,13 @@ const EditorialHeader = ({
                 {headline}
             </h1>
 
+            {/* Subheadline */}
+            {subheadline && (
+                <p style={styles.subheadline}>
+                    {subheadline}
+                </p>
+            )}
+
             {/* Author Byline */}
             <div style={styles.bylineWrapper}>
                 <img
@@ -109,7 +126,7 @@ const EditorialHeader = ({
                         </span>
                     </div>
                     <div style={styles.credentialsText}>
-                        {authorTitle} • Updated {publishDate}
+                        {authorTitle} • Updated {publishDate}{readTime && ` • ${readTime}`}
                     </div>
                 </div>
             </div>

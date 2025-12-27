@@ -51,17 +51,17 @@ export default function BlogIndex() {
                 </div>
             </div>
 
-            {/* Category Filter Pills - Centered on Desktop */}
+            {/* Category Navigation - Underline Tabs */}
             <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-center lg:justify-center gap-2 overflow-x-auto py-4 no-scrollbar">
+                    <div className="flex justify-center lg:justify-center gap-8 overflow-x-auto py-4 no-scrollbar">
                         {categories.map(category => (
                             <button
                                 key={category}
                                 onClick={() => setActiveCategory(category)}
-                                className={`px-6 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all ${activeCategory === category
-                                    ? 'bg-black text-white'
-                                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-gray-400'
+                                className={`px-2 py-2 text-sm whitespace-nowrap transition-all border-b-2 ${activeCategory === category
+                                        ? 'border-emerald-600 font-bold text-gray-900'
+                                        : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
                                     }`}
                             >
                                 {category}
@@ -174,8 +174,8 @@ export default function BlogIndex() {
                                 placeholder="Enter your email address"
                                 className="flex-1 px-6 py-4 bg-white text-gray-900 placeholder-gray-500 focus:outline-none text-base"
                             />
-                            {/* Green Button (30%) */}
-                            <button className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 transition-all whitespace-nowrap">
+                            {/* Emerald Green Button (30%) */}
+                            <button className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 transition-all whitespace-nowrap">
                                 Join
                             </button>
                         </div>
@@ -215,14 +215,21 @@ export default function BlogIndex() {
                                         </div>
                                     </div>
 
-                                    {/* Prominent Title - Bold & Larger */}
-                                    <h3 className="text-xl font-extrabold text-gray-900 mb-3 leading-snug group-hover:text-green-700 transition-colors">
+                                    {/* Prominent Title - Serif for Academic Feel */}
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3 leading-snug group-hover:text-emerald-700 transition-colors" style={{ fontFamily: 'Merriweather, serif' }}>
                                         {post.title}
                                     </h3>
 
                                     <p className="text-gray-600 text-sm mb-4 line-clamp-3" style={{ lineHeight: '1.6' }}>
                                         {post.summary}
                                     </p>
+
+                                    {/* Read Protocol Link */}
+                                    <div className="mb-3">
+                                        <span className="text-xs font-bold uppercase tracking-wide text-gray-800 hover:text-emerald-600 transition-colors">
+                                            READ PROTOCOL ›
+                                        </span>
+                                    </div>
 
                                     {/* Author with Avatar and Verification */}
                                     <div className="flex items-center gap-2">

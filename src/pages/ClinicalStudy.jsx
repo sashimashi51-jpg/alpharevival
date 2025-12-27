@@ -21,160 +21,220 @@ export default function ClinicalStudy() {
     const closeLightbox = () => {
         setIsLightboxOpen(false);
     };
+
     return (
         <div className="clinical-study-page">
-            {/* Editorial Header with Author Byline */}
+            {/* Editorial Header with Updated Content */}
             <EditorialHeader
-                headline="Why 90% of Hair Serums Fail (And The 'Micro-Channel' Fix That Changes Everything)"
-                authorName="Harry Ellison"
-                authorTitle="Senior Health Editor"
-                publishDate="Oct 24, 2025"
+                headline="Why Everything You've Tried For Hair Loss Has Failed (And What Finally Works)"
+                subheadline="The minoxidil didn't work. The finasteride didn't work. And now you know why: your follicles are suffocating behind a delivery system that's been broken from day one."
+                authorName="Medical Research Team"
+                authorTitle="Medical Researcher"
+                publishDate="Dec 27, 2024"
+                readTime="10 Min Read"
                 authorImage="/assets/advertorial-reporter.png"
                 heroImage="/assets/advertorial-photo.png"
-                heroImageAlt="Man noticing hair thinning in mirror"
+                heroImageAlt="Millions of men are treating the surface, ignoring the dormant life beneath"
                 onImageClick={handleImageClick}
             />
 
             <div className="container" style={{ maxWidth: '680px', margin: '0 auto', padding: '0 1rem 2rem' }}>
 
-                {/* The Lead - Michael's Story */}
+                {/* SECTION 1: The Hook & The "Aha" Moment */}
                 <div className="advertorial-section">
-                    <p className="advertorial-p">
-                        Michael noticed it one morning in the shower.
-                    </p>
-                    <p className="advertorial-p">
-                        More hair than usual circling the drain. Then a few days later, his girlfriend casually mentioned his "expanding forehead."
-                    </p>
-                    <p className="advertorial-p">
-                        He wasn't even 35 yet.
-                    </p>
-                    <p className="advertorial-p">
-                        Like most guys, Michael tried everything. The <strong>foam that made his hair look greasy</strong>. The <strong>"miracle shampoo"</strong> that cost $60 and did nothing. Then came the pills.
-                    </p>
-                    <p className="advertorial-p">
-                        His doctor said finasteride was "safe." But within weeks, Michael's libido crashed. His energy tanked. He felt like a shell of himself.
-                    </p>
-                    <p className="advertorial-p">
-                        <strong>The choice was clear: Keep your hair or keep your manhood.</strong>
-                    </p>
-                    <p className="advertorial-p">
-                        Frustrated, Michael started researching hair transplants. $10,000 to $15,000. Surgical scars. Weeks of recovery. No guarantees.
-                    </p>
-                    <p className="advertorial-p">
-                        He was about to book the consultation when he ran into an old friend from college—a dermatologist.
-                    </p>
-                </div>
-
-                {/* The Aha Moment */}
-                <div className="advertorial-section">
-                    <h2 className="advertorial-subhead">The Conversation That Changed Everything</h2>
+                    {/* Hero Image Placeholder */}
+                    <div className="hero-image-placeholder" style={{
+                        textAlign: 'center',
+                        margin: '2rem 0',
+                        padding: '3rem 2rem',
+                        background: '#f5f5f5',
+                        borderRadius: '8px',
+                        border: '2px dashed #ccc'
+                    }}>
+                        <p style={{ color: '#666', fontStyle: 'italic' }}>
+                            [IMAGE 1: Hero Image - High-quality photo of man (mid-30s) looking in mirror touching thinning hairline, or 3D render of dormant hair follicle bulb]
+                        </p>
+                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+                            Caption: "Millions of men are treating the surface, ignoring the dormant life beneath."
+                        </p>
+                    </div>
 
                     <p className="advertorial-p">
-                        "Your follicles aren't dead," his friend said over coffee. "They're just dormant. But here's the problem most guys don't understand:"
+                        <strong>Your hair follicles aren't dead.</strong>
+                    </p>
+                    <p className="advertorial-p">
+                        Let me say that again, because it's the most important thing you need to understand: your follicles aren't dead.
+                    </p>
+                    <p className="advertorial-p">
+                        They're dormant. Asleep. Waiting - and that changes everything.
+                    </p>
+                    <p className="advertorial-p">
+                        Because it means you haven't "lost" your hair permanently. You haven't passed some point of no return. Your genetics haven't won.
+                    </p>
+                    <p className="advertorial-p">
+                        What's actually happened is much simpler—and much more fixable than you've been led to believe. The hair follicles in your scalp right now—the ones that used to produce thick, healthy hair—are still there. Still alive. Still capable of producing hair again. They just can't reach the oxygen, energy, and growth factors they need to wake up.
                     </p>
 
-                    <blockquote className="editorial-quote">
-                        <p>Your scalp is designed to keep things OUT. It's a barrier. Rubbing foam or serum on your head is like trying to water a plant through plastic wrap.</p>
+                    {/* Pull Quote / Highlight Box */}
+                    <blockquote className="editorial-quote highlight-box" style={{
+                        background: '#f9f9f9',
+                        borderLeft: '4px solid #10b981',
+                        padding: '1.5rem',
+                        margin: '2rem 0',
+                        fontStyle: 'normal'
+                    }}>
+                        <p style={{ margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>
+                            The hair follicles in your scalp right now... are still there. Still alive. They just can't reach the oxygen.
+                        </p>
                     </blockquote>
 
-
                     <p className="advertorial-p">
-                        That's when he explained the science behind <strong>Micro-Infusion Technology</strong>.
+                        And here's why the treatments you've tried all failed: they were never designed to reach your follicles in the first place. Not because you did something wrong, neither because you started too late. They were made to trap you as a customer by design.
+                    </p>
+                </div>
+
+                {/* SECTION 2: The Problem (The 3 Barriers) */}
+                <div className="advertorial-section">
+                    <p className="advertorial-p">
+                        But because of three biological barriers that exist between your scalp surface and your follicles—barriers that foam can't penetrate, pills can't activate, and supplements can't deliver through. And this is where science, not magic made on empty promises, comes in.
+                    </p>
+                    <p className="advertorial-p">
+                        For years, you've been told that once hair loss starts, it's irreversible - which is absolutely false. What is true, however, is that conventional treatments can't bypass these three barriers. So they fail no matter how many times you try or how much time you spend using them. And then you start to blame yourself, your genetics, or "starting too late. But the real problem was never you, rather a system that made you have hope built on lies.
                     </p>
 
-                    <p className="advertorial-p">
-                        The concept is simple but powerful:
-                    </p>
-
-
-                    <div
-                        style={{ textAlign: 'center', margin: '2rem 0', cursor: 'pointer' }}
-                        onClick={() => handleImageClick('/assets/advertorial-concept.png', 'Micro-Infusion Mechanism')}
-                    >
-                        <img
-                            src="/assets/advertorial-concept.png"
-                            alt="Micro-Infusion Mechanism"
-                            style={{
-                                maxWidth: '100%',
-                                height: 'auto',
-                                display: 'inline-block',
-                                borderRadius: '8px',
-                                transition: 'transform 0.2s ease'
-                            }}
-                            onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-                        />
+                    {/* Barriers Infographic Placeholder */}
+                    <div className="infographic-placeholder" style={{
+                        textAlign: 'center',
+                        margin: '3rem 0',
+                        padding: '3rem 2rem',
+                        background: '#f5f5f5',
+                        borderRadius: '8px',
+                        border: '2px dashed #ccc'
+                    }}>
+                        <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
+                            [IMAGE 2: The "Barriers" Infographic - Split Diagram]
+                        </p>
+                        <p style={{ color: '#888', fontSize: '0.9rem' }}>
+                            Left Side: Minoxidil foam sitting on Stratum Corneum with Red "X" marks<br />
+                            Right Side: Follicle 3mm deep, looking shriveled/dormant
+                        </p>
+                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+                            Caption: "Why topical foams fail: They cannot penetrate the stratum corneum to reach the follicle 3mm deep."
+                        </p>
                     </div>
 
-
+                    <h2 className="advertorial-subhead">Why Everything You've Tried Couldn't Reach Your Follicles</h2>
                     <p className="advertorial-p">
-                        "It's not about what you apply," his friend said. "It's about <strong>absorption</strong>."
+                        Here's what's really happening beneath your scalp—and why understanding this changes everything about your ability to regrow hair:
                     </p>
 
-                    {/* Before/After Transformation Video */}
-                    <div
-                        style={{ margin: '3rem 0', textAlign: 'center', cursor: 'pointer' }}
-                        onClick={() => handleImageClick('/assets/hero-gif.mp4', '90-Day Hair Transformation')}
-                    >
-                        <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
+                    <h3 className="advertorial-small-head">The First Barrier: Your Skin Won't Let Anything Through</h3>
+                    <p className="advertorial-p">
+                        When you apply minoxidil foam, here's what actually happens - the protective layer your scalp has (the stratum corneum) allows a tiny bit of the active ingredients through. That is its job to begin with. It's made to keep foreign substances out of your body. The other 95% of them? Sits on the surface, evaporates and never reaches the follicles that really need it.
+                    </p>
+                    <p className="advertorial-p">
+                        Your follicles are three millimeters below the surface—and they never receive what you're applying. It's not you that's the problem, again, it's the delivery system.
+                    </p>
+
+                    <h3 className="advertorial-small-head">The Second Barrier: Your Follicles' Energy Source Shut Down</h3>
+                    <p className="advertorial-p">
+                        Even if ingredients could reach your follicles, there's a second problem:
+                    </p>
+                    <p className="advertorial-p">
+                        Your follicles need energy to produce hair. That energy comes from tiny power plants inside each follicle called mitochondria. When bloodflow to your scalp gradually decreases over time, the mitochondria go into hibernation mode to conserve resources - energy.
+                    </p>
+                    <p className="advertorial-p">
+                        That's when your follicles enter a "resting phase" called telogen effuvium. They're not dead. They're not gone. They are just asleep.
+                    </p>
+                    <p className="advertorial-p">
+                        Waiting for the signal to wake up. But foams and pills cannot send that signal. They can't flip the switch that reactivates your follicles' energy production. So they stay asleep - even though they're fully capable of producing hair again.
+                    </p>
+
+                    <h3 className="advertorial-small-head">The Third Barrier: There's No Direct Path to Deliver Growth Factors</h3>
+                    <p className="advertorial-p">
+                        Let's say you could somehow get ingredients through your skin barrier. And let's say you could somehow reactivate your follicles' energy production.
+                    </p>
+                    <p className="advertorial-p">
+                        You'd still need to deliver growth factors directly to the follicle matrix—where new hair actually forms. The biotin supplements you take? They get distributed through your entire body. The dermaroller? It creates holes, but there's no system to actually deliver growth factors through those holes to your follicles.
+                    </p>
+                    <p className="advertorial-p">
+                        So even when you do everything right, the growth factors never reach where they need to go.
+                    </p>
+
+                    <blockquote className="editorial-quote" style={{ margin: '2rem 0' }}>
+                        <p>
+                            <strong>Here's the truth they don't tell you:</strong> Your follicles have been starving for oxygen, energy, and growth factors - sometimes for years. The treatments failed because they couldn't solve all three barriers. Not because your follicles are dead. Not because it's too late. But because no one had built a delivery system that actually works.
+                        </p>
+                    </blockquote>
+
+                    {/* Text Link CTA */}
+                    <p style={{ textAlign: 'center', margin: '2rem 0' }}>
+                        <Link
+                            to="/product"
                             style={{
-                                width: '100%',
-                                maxWidth: '800px',
-                                height: 'auto',
-                                borderRadius: '12px',
-                                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                                transition: 'transform 0.2s ease'
+                                color: '#10b981',
+                                textDecoration: 'underline',
+                                fontSize: '1rem',
+                                fontWeight: '600'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                         >
-                            <source src="/assets/hero-gif.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                            See the science behind bypassing the 3 Scalp Barriers »
+                        </Link>
+                    </p>
+                </div>
+
+                {/* SECTION 3: The Solution (The Pivot) */}
+                <div className="advertorial-section">
+                    <p className="advertorial-p" style={{ fontSize: '1.1rem', fontWeight: '600' }}>
+                        Until now.
+                    </p>
+
+                    <h2 className="advertorial-subhead">The First System That Solves All Three Barriers</h2>
+                    <p className="advertorial-p">
+                        While you've been told your hair loss is permanent, a small group of men discovered something different. A 3-phase system that doesn't just treat symptoms—it rebuilds the entire delivery system your follicles need. They're seeing new hair growth in places that have been bald for years. Hairlines filling back in. Crowns thickening. Actual new hair where there was only scalp. Not because of some miracle or magic, but because they found the first system that actually reaches the dormant follicles everyone said were "dead."
+                    </p>
+
+                    {/* Mechanism Image Placeholder */}
+                    <div className="mechanism-image-placeholder" style={{
+                        textAlign: 'center',
+                        margin: '3rem 0',
+                        padding: '3rem 2rem',
+                        background: '#f5f5f5',
+                        borderRadius: '8px',
+                        border: '2px dashed #ccc'
+                    }}>
+                        <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
+                            [IMAGE 3: The Mechanism of Action]
+                        </p>
+                        <p style={{ color: '#888', fontSize: '0.9rem' }}>
+                            Close-up, clean, medical-style shot of AlphaRevive device (microneedles or red light emitting)<br />
+                            Should look like premium medical tool
+                        </p>
+                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+                            Caption: "The first system designed to bypass the skin barrier and activate mitochondrial energy."
+                        </p>
                     </div>
                 </div>
 
-
-                {/* The Solution */}
+                {/* SECTION 4: How It Works (The 3 Phases) */}
                 <div className="advertorial-section">
-                    <h2 className="advertorial-subhead">Enter AlphaRevival: The First At-Home Micro-Infusion System</h2>
-
-                    <p className="advertorial-p">
-                        His friend didn't sell Michael anything that day. But he did show him a photo on his phone—a device that looked clinical but simple.
-                    </p>
-
-                    <p className="advertorial-p">
-                        <strong>AlphaRevival Hair Regrowth System.</strong>
-                    </p>
-
-                    <p className="advertorial-p">
-                        It combines <strong>clinical-strength microneedling</strong> with a proprietary peptide serum. The kind of treatment you'd pay $300 per session for at a dermatologist's office—now available at home.
-                    </p>
-
-
                     <h3 className="advertorial-small-head">How It Works (The 3-Phase Mechanism)</h3>
 
                     <div className="mechanism-steps">
                         <div className="step-box">
                             <div className="step-number">1</div>
                             <div className="step-content">
-                                <h4>Micro-Stimulation</h4>
-                                <p>The dermal stimulator creates thousands of micro-channels. This "controlled damage" signals your body to send nutrient-rich blood to the scalp.</p>
+                                <h4>Phase 1: Create Direct Pathways to Your Follicles</h4>
+                                <p>Medical-grade microneedling creates thousands of microscopic channels in your scalp. Each channel is precisely 0.5mm deep—the exact depth that reaches your follicles without causing damage.</p>
+                                <p>This isn't about "better absorption." This is about bypassing the skin barrier entirely. Creating direct highways to your dormant follicles so that growth factors can finally reach them at 60-80% efficiency instead of 2-5%. The barrier that's been blocking every treatment you've tried? Gone.</p>
                             </div>
                             <div className="step-diagram">
                                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* Simplified skin layers */}
                                     <line x1="10" y1="45" x2="90" y2="45" stroke="#000" strokeWidth="2" />
                                     <line x1="10" y1="55" x2="90" y2="55" stroke="#000" strokeWidth="1.5" />
-                                    {/* Micro-needles */}
                                     <line x1="30" y1="20" x2="30" y2="50" stroke="#000" strokeWidth="1.5" />
                                     <line x1="50" y1="15" x2="50" y2="50" stroke="#000" strokeWidth="1.5" />
                                     <line x1="70" y1="22" x2="70" y2="50" stroke="#000" strokeWidth="1.5" />
-                                    {/* Penetration points */}
                                     <circle cx="30" cy="50" r="2" stroke="#000" strokeWidth="1" fill="none" />
                                     <circle cx="50" cy="50" r="2" stroke="#000" strokeWidth="1" fill="none" />
                                     <circle cx="70" cy="50" r="2" stroke="#000" strokeWidth="1" fill="none" />
@@ -185,19 +245,18 @@ export default function ClinicalStudy() {
                         <div className="step-box">
                             <div className="step-number">2</div>
                             <div className="step-content">
-                                <h4>Deep Peptide Infusion</h4>
-                                <p>Bioactive peptides (Copper Tripeptide-1, Procapil, etc.) flood directly into the follicle—no barrier, no waste.</p>
+                                <h4>Phase 2: Wake Up Your Follicles' Energy Production</h4>
+                                <p>The system uses targeted red light therapy at 650 nanometers wavelength. That specific frequency penetrates to the follicle level and activates the mitochondria—your follicles' energy factories.</p>
+                                <p>At 650nm, light literally flips the switch on dormant mitochondria. Follicles that have been asleep for years restart their growth cycle.</p>
+                                <p>Not from chemicals, and not from some hormones. But from light activating your own cellular machinery at the exact frequency that turns it back on.</p>
                             </div>
                             <div className="step-diagram">
                                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* Hair follicle outline */}
                                     <ellipse cx="50" cy="70" rx="18" ry="22" stroke="#000" strokeWidth="1.5" fill="none" />
                                     <line x1="50" y1="30" x2="50" y2="48" stroke="#000" strokeWidth="2" />
-                                    {/* Peptide droplets - simple circles */}
                                     <circle cx="35" cy="20" r="2.5" stroke="#000" strokeWidth="1" fill="none" />
                                     <circle cx="50" cy="15" r="2.5" stroke="#000" strokeWidth="1" fill="none" />
                                     <circle cx="65" cy="22" r="2.5" stroke="#000" strokeWidth="1" fill="none" />
-                                    {/* Simple downward arrows */}
                                     <line x1="35" y1="25" x2="40" y2="48" stroke="#000" strokeWidth="1" strokeDasharray="2,2" />
                                     <line x1="50" y1="20" x2="50" y2="45" stroke="#000" strokeWidth="1" strokeDasharray="2,2" />
                                     <line x1="65" y1="27" x2="60" y2="48" stroke="#000" strokeWidth="1" strokeDasharray="2,2" />
@@ -208,17 +267,24 @@ export default function ClinicalStudy() {
                         <div className="step-box">
                             <div className="step-number">3</div>
                             <div className="step-content">
-                                <h4>Follicle Reactivation</h4>
-                                <p>Dormant follicles shift back into the growth phase. You see "peach fuzz" within weeks. Real density in 90 days.</p>
+                                <h4>Phase 3: Deliver Growth Factors Directly Where They're Needed</h4>
+                                <p>With channels open and energy restored, the system delivers a serum containing:</p>
+                                <ul style={{ marginLeft: '1.5rem', marginTop: '1rem' }}>
+                                    <li><strong>Copper peptides (GHK-Cu):</strong> Signal dormant follicles to enter the growth phase</li>
+                                    <li><strong>Vasodilators:</strong> Restore blood flow locally to bring oxygen back to your follicles</li>
+                                    <li><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</li>
+                                </ul>
+                                <p style={{ marginTop: '1rem' }}>These travel through the channels you created, reaching follicles with reactivated energy, in concentrations that actually matter.</p>
+                                <p style={{ marginTop: '1rem', fontWeight: '600' }}>
+                                    For the first time, all three barriers are solved:<br />
+                                    Penetration achieved → Energy reactivated → Growth factors delivered
+                                </p>
                             </div>
                             <div className="step-diagram">
                                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* Growing hair shaft - simple line */}
                                     <line x1="50" y1="25" x2="50" y2="70" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-                                    {/* Follicle base - simple circle */}
                                     <ellipse cx="50" cy="72" rx="14" ry="16" stroke="#000" strokeWidth="1.5" fill="none" />
                                     <circle cx="50" cy="75" r="7" stroke="#000" strokeWidth="1" fill="none" />
-                                    {/* Growth indicators - curved lines */}
                                     <path d="M32 75 Q 40 68, 45 72" stroke="#000" strokeWidth="1" fill="none" />
                                     <path d="M68 75 Q 60 68, 55 72" stroke="#000" strokeWidth="1" fill="none" />
                                 </svg>
@@ -226,74 +292,216 @@ export default function ClinicalStudy() {
                         </div>
                     </div>
 
-
-
-                    <div className="key-benefits">
-                        <h3 className="advertorial-small-head">Why Men Choose AlphaRevival Over Pills or Surgery</h3>
-                        <ul className="benefit-list">
-                            <li><Check size={20} className="check-icon" /> <strong>Drug-Free:</strong> No finasteride. No minoxidil. No sexual side effects.</li>
-                            <li><Check size={20} className="check-icon" /> <strong>Painless:</strong> Feels like a light tingle. Not a tattoo gun.</li>
-                            <li><Check size={20} className="check-icon" /> <strong>10 Minutes, Twice a Week:</strong> Less time than scrolling Instagram.</li>
-                            <li><Check size={20} className="check-icon" /> <strong>Clinically Proven Ingredients:</strong> Published studies. Real science.</li>
-                            <li><Check size={20} className="check-icon" /> <strong>120-Day Money-Back Guarantee:</strong> Try it risk-free for 4 months.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Social Proof - Testimonials Carousel */}
-                <div className="advertorial-section social-proof-section">
-                    <TestimonialCarousel
-                        testimonials={[
-                            {
-                                id: 1,
-                                name: "James T.",
-                                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
-                                description: "I was skeptical. But after 3 weeks, I saw fuzz where there was nothing. By month 3, my barber asked if I got a transplant."
-                            },
-                            {
-                                id: 2,
-                                name: "David M.",
-                                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
-                                description: "No more greasy foam. No pill side effects. Just results. My wife noticed before I did."
-                            },
-                            {
-                                id: 3,
-                                name: "Marcus L.",
-                                avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
-                                description: "I've tried everything—this is the only thing that actually worked. The 120-day guarantee sealed the deal."
-                            }
-                        ]}
-                        className="my-8"
-                    />
-                    <p className="swipe-instruction">*Swipe to see all reviews</p>
-
-                    {/* Product Page Style Guarantee Box */}
-                    <div className="guarantee-box" style={{ marginTop: '2.5rem' }}>
-                        <div className="guarantee-header">
-                            <Undo2 size={20} color="#1A1A1A" strokeWidth={2} />
-                            <span className="guarantee-title">120-Day Money Back Guarantee</span>
-                        </div>
-                        <p className="guarantee-body">
-                            Our 120-day money-back guarantee is designed to cover the full results period. So, if it somehow doesn't work, you get a full refund.
+                    {/* Before/After Image Placeholder */}
+                    <div className="before-after-placeholder" style={{
+                        textAlign: 'center',
+                        margin: '3rem 0',
+                        padding: '3rem 2rem',
+                        background: '#f5f5f5',
+                        borderRadius: '8px',
+                        border: '2px dashed #ccc'
+                    }}>
+                        <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
+                            [IMAGE 4: Before & After Split]
                         </p>
-                        <Link to="/return-refund" className="guarantee-link">More Details</Link>
+                        <p style={{ color: '#888', fontSize: '0.9rem' }}>
+                            Genuine user-submitted style photo<br />
+                            Left: Thinning crown | Right: 4 months later, significant density increase<br />
+                            Overlay: "Week 0" vs "Week 16"
+                        </p>
+                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+                            Caption: "Users report visible fill-in at the crown by the third month."
+                        </p>
                     </div>
                 </div>
 
-                {/* Manufacturing Batch Scarcity */}
+                {/* SECTION 5: The Offer & Scarcity */}
                 <div className="advertorial-section">
-                    <div className="scarcity-notice">
-                        <h3 className="scarcity-title">⚠️ Limited Manufacturing Run</h3>
-                        <p className="scarcity-text">
-                            Because AlphaRevival is a <strong>medical-grade device</strong>, production runs are limited. Each batch must meet strict quality control standards, and our current inventory is almost sold out. Once this batch is gone, the next shipment won't arrive for 6-8 weeks.
-                        </p>
-                    </div>
-                </div>
+                    <h2 className="advertorial-subhead">What This Means for You</h2>
+                    <p className="advertorial-p">
+                        It means that your follicles aren't dead and that it's only a matter of time until you restore your appearance.
+                    </p>
+                    <p className="advertorial-p">
+                        First visible new hair growth could be noticed at the week 6 mark. Actual new hair where once was only scalp. By the third month mark you'll have a measurable hairline fill-in which people will notice. The minoxidil couldn't do this because it couldn't penetrate the barrier. The finasteride couldn't do this because it couldn't reactivate your follicles' energy.
+                    </p>
+                    <p className="advertorial-p">
+                        The supplements couldn't do this because they couldn't deliver to the right place.
+                    </p>
+                    <p className="advertorial-p">
+                        But for the first time, there's a system that addresses all three in the correct order to wake up the follicles that have been waiting. You haven't lost your hair permanently. You've just been using treatments that couldn't reach it.
+                    </p>
 
+                    <h3 className="advertorial-small-head">Why This Isn't Available Everywhere</h3>
+                    <p className="advertorial-p">
+                        The AlphaRevive Microneedling Hair Regrowth System isn't available at CVS or on Amazon.
+                    </p>
+                    <p className="advertorial-p">
+                        Each unit requires precision manufacturing—0.5mm microneedling cartridges and red light calibrated to exactly 650nm. Right now, there's a 2-3 week waitlist depending on your region.
+                    </p>
+                    <p className="advertorial-p">
+                        But here's what matters:
+                    </p>
+                    <p className="advertorial-p">
+                        If you've spent thousands on treatments that didn't work...<br />
+                        If you've been told it's "too late" or that your follicles are "dead"...<br />
+                        If you're watching your hairline recede and assuming it's permanent...
+                    </p>
+                    <p className="advertorial-p" style={{ fontSize: '1.1rem', fontWeight: '600' }}>
+                        It's not.
+                    </p>
+                    <p className="advertorial-p" style={{ fontSize: '1.1rem', fontWeight: '600' }}>
+                        Your follicles are dormant, not dead.
+                    </p>
+                </div>
             </div>
 
-            {/* Product Showcase Section - Full Width */}
-            <FeaturedProduct />
+            {/* SECTION 6: Product Showcase (The Offer Box) - Full Width */}
+            <div className="product-showcase-section" style={{
+                background: 'linear-gradient(to bottom, #f0f9ff, #e0f2fe)',
+                padding: '4rem 0',
+                margin: '3rem 0 0 0'
+            }}>
+                <div className="container" style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1rem' }}>
+                    <div className="offer-box" style={{
+                        background: 'white',
+                        border: '3px solid #10b981',
+                        borderRadius: '12px',
+                        padding: '3rem 2rem',
+                        boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
+                    }}>
+                        {/* Product Bundle Image Placeholder */}
+                        <div className="product-image-placeholder" style={{
+                            textAlign: 'center',
+                            margin: '0 0 2rem 0',
+                            padding: '3rem 2rem',
+                            background: '#f5f5f5',
+                            borderRadius: '8px',
+                            border: '2px dashed #ccc'
+                        }}>
+                            <p style={{ color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
+                                [IMAGE 5: Product Bundle Shot]
+                            </p>
+                            <p style={{ color: '#888', fontSize: '0.9rem' }}>
+                                AlphaRevive device, serum bottle, and packaging arranged neatly<br />
+                                High-end lighting
+                            </p>
+                        </div>
+
+                        <h2 style={{
+                            fontFamily: 'Merriweather, serif',
+                            fontSize: '2rem',
+                            textAlign: 'center',
+                            marginBottom: '1.5rem'
+                        }}>
+                            The AlphaRevive Microneedling Hair Regrowth System
+                        </h2>
+
+                        {/* Feature Summary with Checkmarks */}
+                        <ul className="benefit-list" style={{
+                            listStyle: 'none',
+                            padding: '0',
+                            marginBottom: '2rem'
+                        }}>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
+                                <span><strong>Medical-grade 0.5mm Microneedling Technology</strong></span>
+                            </li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
+                                <span><strong>Calibrated 650nm Red Light Therapy</strong></span>
+                            </li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
+                                <span><strong>GHK-Cu Copper Peptide Serum Included</strong></span>
+                            </li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                                <Check size={24} style={{ color: '#10b981', flexShrink: 0 }} />
+                                <span><strong>120-Day Money-Back Growth Guarantee</strong></span>
+                            </li>
+                        </ul>
+
+                        {/* Large CTA Button */}
+                        <div style={{ textAlign: 'center' }}>
+                            <Link
+                                to="/product"
+                                style={{
+                                    display: 'inline-block',
+                                    background: '#10b981',
+                                    color: 'white',
+                                    padding: '1.25rem 3rem',
+                                    fontSize: '1.25rem',
+                                    fontWeight: 'bold',
+                                    borderRadius: '8px',
+                                    textDecoration: 'none',
+                                    boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)',
+                                    transition: 'all 0.3s ease'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.background = '#059669';
+                                    e.target.style.transform = 'translateY(-2px)';
+                                    e.target.style.boxShadow = '0 6px 20px rgba(16, 185, 129, 0.5)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.background = '#10b981';
+                                    e.target.style.transform = 'translateY(0)';
+                                    e.target.style.boxShadow = '0 4px 14px rgba(16, 185, 129, 0.4)';
+                                }}
+                            >
+                                Check Availability Now »
+                            </Link>
+                            <p style={{
+                                marginTop: '1rem',
+                                color: '#666',
+                                fontSize: '0.9rem'
+                            }}>
+                                Due to high demand, shipping dates may vary.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Reviews Block - Keep Existing TestimonialCarousel */}
+                    <div className="reviews-section" style={{ marginTop: '3rem' }}>
+                        <TestimonialCarousel
+                            testimonials={[
+                                {
+                                    id: 1,
+                                    name: "James T.",
+                                    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
+                                    description: "I was skeptical. But after 3 weeks, I saw fuzz where there was nothing. By month 3, my barber asked if I got a transplant."
+                                },
+                                {
+                                    id: 2,
+                                    name: "David M.",
+                                    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
+                                    description: "No more greasy foam. No pill side effects. Just results. My wife noticed before I did."
+                                },
+                                {
+                                    id: 3,
+                                    name: "Marcus L.",
+                                    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
+                                    description: "I've tried everything—this is the only thing that actually worked. The 120-day guarantee sealed the deal."
+                                }
+                            ]}
+                            className="my-8"
+                        />
+                        <p className="swipe-instruction" style={{ textAlign: 'center', color: '#666' }}>
+                            *Swipe to see all reviews
+                        </p>
+
+                        {/* Guarantee Box */}
+                        <div className="guarantee-box" style={{ marginTop: '2.5rem' }}>
+                            <div className="guarantee-header">
+                                <Undo2 size={20} color="#1A1A1A" strokeWidth={2} />
+                                <span className="guarantee-title">120-Day Money Back Guarantee</span>
+                            </div>
+                            <p className="guarantee-body">
+                                Our 120-day money-back guarantee is designed to cover the full results period. So, if it somehow doesn't work, you get a full refund.
+                            </p>
+                            <Link to="/return-refund" className="guarantee-link">More Details</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Image Lightbox Modal */}
             <ImageLightbox
