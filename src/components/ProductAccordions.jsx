@@ -5,6 +5,7 @@ import './ProductAccordions.css';
 const AccordionItem = ({ title, isOpen, onClick, children }) => {
     const handleClick = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         onClick();
     };
 
