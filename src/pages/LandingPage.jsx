@@ -352,15 +352,6 @@ export default function LandingPage() {
             {/* Featured Product Section */}
             <FeaturedProduct />
 
-            {/* Guarantee Banner */}
-            <section className="section guarantee-section" style={{ padding: 0 }}>
-                <img
-                    src="/assets/guaranted.png"
-                    alt="Money Back Guarantee"
-                    className="responsive-img"
-                    style={{ width: '100%', display: 'block' }}
-                />
-            </section>
 
             {/* FAQs (New Animated) */}
             <FaqSection
