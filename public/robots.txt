@@ -1,0 +1,25 @@
+# AlphaRevive Website - Robots.txt
+# www.alpharevive.shop
+
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.alpharevive.shop/sitemap.xml
+
+# Crawl delay (optional - prevents aggressive crawling)
+Crawl-delay: 1
+
+# Disallow admin/backend paths (if any exist in the future)
+Disallow: /admin/
+Disallow: /.env
+Disallow: /config/
+
+# Allow specific important resources
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.webp
