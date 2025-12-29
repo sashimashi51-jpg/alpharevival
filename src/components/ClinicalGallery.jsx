@@ -32,7 +32,7 @@ const ClinicalGallery = () => {
 
             return {
                 id: id,
-                image: `/assets/Subjects/${id}.png`,
+                image: `/assets/Subjects/${id}.jpg`,
                 name: `${firstNames[i % firstNames.length]} ${String.fromCharCode(65 + (id % 26))}.`,
                 age: age,
                 diagnosis: `Norwood Scale ${norwood}`,
