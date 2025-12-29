@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultsSection from '../components/ResultsSection';
+import ClinicalGallery from '../components/ClinicalGallery';
 import SuccessStories from '../components/SuccessStories';
 import FeaturedProduct from '../components/FeaturedProduct';
 import SEO from '../components/SEO';
@@ -25,9 +25,10 @@ export default function ResultsPage() {
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
                     Don't just take our word for it. See the transformations our community has achieved.
                 </p>
-            </div>
 
-            <ResultsSection />
+                {/* Clinical Gallery Replaces old ResultsSection */}
+                <ClinicalGallery />
+            </div>
 
             <div className="bg-gray-50 py-12">
                 <SuccessStories />
