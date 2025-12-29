@@ -10,6 +10,7 @@ import SuccessStories from '../components/SuccessStories';
 import FeaturedProduct from '../components/FeaturedProduct';
 import EbookSection from '../components/EbookSection';
 import { StarButton } from '../components/ui/StarButton';
+import SEO from '../components/SEO';
 
 import './LandingPage.css';
 
@@ -95,6 +96,26 @@ export default function LandingPage() {
 
     return (
         <div className="landing-page">
+            {/* SEO Metadata */}
+            <SEO
+                title="AlphaRevive | Reactivate Dormant Follicles – Regrow Thicker Hair Drug-Free"
+                description="The first at-home system combining clinical-strength microneedling with peptide therapy. See visible hair regrowth in 90 days without prescriptions or side effects. 120-day guarantee."
+                url="https://www.alpharevive.shop"
+                image="https://www.alpharevive.shop/assets/banner_1.png"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "AlphaRevive",
+                    "url": "https://www.alpharevive.shop",
+                    "logo": "https://www.alpharevive.shop/assets/logo.png",
+                    "description": "Revolutionary hair regrowth system using microneedling and peptide therapy to reactivate dormant follicles.",
+                    "sameAs": [
+                        "https://www.facebook.com/alpharevive",
+                        "https://www.instagram.com/alpharevive"
+                    ]
+                }}
+            />
+
             {/* Hero Section */}
             <div className="hero section" style={{ backgroundColor: '#ffffff', marginTop: 0 }}>
                 <div className="container hero-container">

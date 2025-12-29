@@ -19,24 +19,27 @@ const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "AlphaRevive Hair Growth System",
-    "image": "https://alpharevive.vercel.app/assets/banner_1.png",
-    "description": "The 3-phase microneedling system to reactivate dormant hair follicles naturally.",
+    "image": "https://www.alpharevive.shop/assets/banner_1.png",
+    "description": "The 3-phase microneedling system to reactivate dormant hair follicles naturally. Includes medical-grade 0.5mm microneedling, 650nm red light therapy, and bioactive serum delivery.",
     "brand": {
         "@type": "Brand",
         "name": "AlphaRevive"
     },
     "offers": {
         "@type": "AggregateOffer",
-        "url": "https://alpharevive.vercel.app/product",
+        "url": "https://www.alpharevive.shop/product",
         "priceCurrency": "USD",
         "lowPrice": "69.00",
         "highPrice": "189.00",
-        "offerCount": "3"
+        "offerCount": "3",
+        "availability": "https://schema.org/InStock"
     },
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "1250"
+        "reviewCount": "1250",
+        "bestRating": "5",
+        "worstRating": "1"
     }
 };
 

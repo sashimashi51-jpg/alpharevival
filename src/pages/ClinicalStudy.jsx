@@ -6,6 +6,7 @@ import { TestimonialCarousel } from '../components/ui/testimonial';
 import EditorialHeader from '../components/EditorialHeader';
 import ImageLightbox from '../components/ImageLightbox';
 import AbsorptionChart from '../components/AbsorptionChart';
+import SEO from '../components/SEO';
 import './ClinicalStudy.css';
 
 export default function ClinicalStudy() {
@@ -25,10 +26,50 @@ export default function ClinicalStudy() {
 
     return (
         <div className="clinical-study-page">
+            {/* SEO Metadata */}
+            <SEO
+                title="Why 'Male Pattern Baldness' Is The Wrong Diagnosis | AlphaRevive Clinical Study"
+                description="Discover why your hair follicles aren't dead—they're suffocating. Learn about the 3-phase microneedling system that addresses all three barriers to hair regrowth. Science-backed, drug-free solution."
+                url="https://www.alpharevive.shop/clinical-study"
+                image="https://www.alpharevive.shop/assets/advertorial-photo.png"
+                type="article"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "MedicalWebPage",
+                    "headline": "Why 'Male Pattern Baldness' Is The Wrong Diagnosis",
+                    "description": "You aren't losing your hair. You are starving it. Learn the difference between being bald forever and waking up your follicles.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Harry Ellison",
+                        "jobTitle": "Medical Researcher"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "AlphaRevive",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://www.alpharevive.shop/assets/logo.png"
+                        }
+                    },
+                    "datePublished": "2024-12-27",
+                    "dateModified": "2024-12-29",
+                    "image": "https://www.alpharevive.shop/assets/advertorial-photo.png",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://www.alpharevive.shop/clinical-study"
+                    },
+                    "about": {
+                        "@type": "MedicalCondition",
+                        "name": "Hair Loss",
+                        "alternateName": "Male Pattern Baldness"
+                    }
+                }}
+            />
+
             {/* Editorial Header with Updated Content */}
             <EditorialHeader
-                headline="Why Everything You've Tried For Hair Loss Has Failed (And What Finally Works)"
-                subheadline="The minoxidil didn't work. The finasteride didn't work. And now you know why: your follicles are suffocating behind a delivery system that's been broken from day one."
+                headline="Why 'Male Pattern Baldness' Is The Wrong Diagnosis"
+                subheadline="You aren't losing your hair. You are starving it. And the difference between the two is the difference between being bald forever and waking up your follicles."
                 authorName="Harry Ellison"
                 authorTitle="Medical Researcher"
                 publishDate="Dec 27, 2024"
@@ -68,19 +109,16 @@ export default function ClinicalStudy() {
                     </div>
 
                     <p className="advertorial-p">
-                        <strong>Your hair follicles aren't dead.</strong>
+                        <strong>There is no such thing as a "dead" follicle.</strong>
                     </p>
                     <p className="advertorial-p">
-                        Let me say that again, because it's the most important thing you need to understand: your follicles aren't dead.
+                        That is the biological reality the hair loss industry ignores. They sell you foams to treat the surface and pills to treat your hormones. But they ignore the one structural failure that actually matters:
                     </p>
                     <p className="advertorial-p">
-                        They're dormant. Asleep. Waiting - and that changes everything.
+                        <strong>Your follicles are suffocating.</strong>
                     </p>
                     <p className="advertorial-p">
-                        Because it means you haven't "lost" your hair permanently. You haven't passed some point of no return. Your genetics haven't won.
-                    </p>
-                    <p className="advertorial-p">
-                        What's actually happened is much simpler—and much more fixable than you've been led to believe. The hair follicles in your scalp right now—the ones that used to produce thick, healthy hair—are still there. Still alive. Still capable of producing hair again. They just can't reach the oxygen, energy, and growth factors they need to wake up.
+                        The minoxidil didn't work because it couldn't get in. The finasteride didn't work because it couldn't turn the power back on. Here is why your delivery system has been broken from day one...
                     </p>
 
                     <p className="advertorial-p">
@@ -89,6 +127,10 @@ export default function ClinicalStudy() {
 
                     <p className="advertorial-p">
                         And here's why the treatments you've tried all failed: they were never designed to reach your follicles in the first place. Not because you did something wrong, neither because you started too late. They were made to trap you as a customer by design.
+                    </p>
+
+                    <p className="advertorial-p">
+                        Think about the hundreds of dollars you've already spent on foams that sit on your scalp and pills that mess with your hormones. That wasn't just wasted money—it was wasted time. And in the fight against hair loss, time is the one luxury you don't have.
                     </p>
                 </div>
 
@@ -130,6 +172,9 @@ export default function ClinicalStudy() {
                     </p>
                     <p className="advertorial-p">
                         That's when your follicles enter a "resting phase" called telogen effuvium. They're not dead. They're not gone. They are just asleep.
+                    </p>
+                    <p className="advertorial-p">
+                        But here is the clinical reality: <strong>Dormancy has a time limit.</strong> If a follicle stays dormant for too long without energy, it eventually succumbs to 'Fibrosis'—scarring that seals the follicle shut permanently. You aren't dead yet, but the clock is ticking.
                     </p>
                     <p className="advertorial-p">
                         Waiting for the signal to wake up. But foams and pills cannot send that signal. They can't flip the switch that reactivates your follicles' energy production. So they stay asleep - even though they're fully capable of producing hair again.
@@ -280,6 +325,7 @@ export default function ClinicalStudy() {
                                         <span><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</span>
                                     </li>
                                 </ul>
+                                <p>Most men report a distinct 'tingling' sensation during the first week of application. This isn't irritation—it's perfusion. It's the physical sensation of blood rushing back into capillaries that haven't seen proper flow in years, feeding the follicle the first meal it's had in a decade.</p>
 
                                 <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
                                     <p style={{ marginBottom: '1rem', fontStyle: 'italic', fontWeight: '500', color: '#374151' }}>
@@ -358,7 +404,13 @@ export default function ClinicalStudy() {
                         The AlphaRevive Microneedling Hair Regrowth System isn't available at CVS or on Amazon.
                     </p>
                     <p className="advertorial-p">
-                        Each unit requires precision manufacturing—0.5mm microneedling cartridges and red light calibrated to exactly 650nm. Right now, there's a 2-3 week waitlist depending on your region.
+                        Because of the precision required for the 0.5mm cartridges and the 650nm diodes, we can only manufacture limited monthly batches.
+                    </p>
+                    <p className="advertorial-p">
+                        Typically, there is a 3-week waitlist. However, because you are reading this clinical report, we have reserved a portion of this month's allocation specifically for this page.
+                    </p>
+                    <p className="advertorial-p">
+                        <strong>If you can see the "Check Availability" button below, it means there is still stock reserved for readers of this article. If the button is grey, the allocation is gone.</strong>
                     </p>
                     <p className="advertorial-p">
                         But here's what matters:
@@ -374,6 +426,21 @@ export default function ClinicalStudy() {
                     <p className="advertorial-p" style={{ fontSize: '1.1rem', fontWeight: '600' }}>
                         Your follicles are dormant, not dead.
                     </p>
+
+                    <h3 className="advertorial-small-head" style={{ marginTop: '3rem' }}>The 120-Day Growth Protocol</h3>
+                    <p className="advertorial-p">
+                        We don't ask for 'faith.' We ask for adherence to the protocol.
+                    </p>
+                    <p className="advertorial-p">
+                        Use the system for the full growth cycle. If you don't see the reactivated stubble we described above—or if you simply don't like the process—you don't pay. We are so confident in the biology of the 3-Barrier System that we take all the financial risk off your shoulders.
+                    </p>
+                    <p className="advertorial-p">
+                        <strong>You have two options:</strong>
+                    </p>
+                    <ol style={{ paddingLeft: '1.5rem', margin: '1rem 0' }}>
+                        <li className="advertorial-p">Continue with the treatments that have failed you for years while fibrosis slowly sets in.</li>
+                        <li className="advertorial-p">Wake up your follicles risk-free.</li>
+                    </ol>
                 </div>
             </div>
 

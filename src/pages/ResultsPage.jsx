@@ -9,8 +9,22 @@ export default function ResultsPage() {
     return (
         <div className="pt-20">
             <SEO
-                title="Real Results | AlphaRevive Success Stories"
-                description="See real before and after results from men who have used the AlphaRevive Hair Growth System to restore their hair density."
+                title="Real Results | AlphaRevive Clinical Transformation Gallery"
+                description="View verified before-and-after photos from 58 real subjects. See hair regrowth results by week 10-20 using AlphaRevive's 3-phase microneedling system. Filter by age group and Norwood scale."
+                url="https://www.alpharevive.shop/results"
+                image="https://www.alpharevive.shop/assets/banner_1.png"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "CollectionPage",
+                    "name": "Real Results | AlphaRevive Success Stories",
+                    "description": "Clinical transformation gallery showing verified results from the AlphaRevive Hair Regrowth System",
+                    "url": "https://www.alpharevive.shop/results",
+                    "isPartOf": {
+                        "@type": "WebSite",
+                        "name": "AlphaRevive",
+                        "url": "https://www.alpharevive.shop"
+                    }
+                }}
             />
 
             <div className="container mx-auto px-4 py-12 text-center">
