@@ -76,7 +76,7 @@ export default function FeaturedProduct() {
 
                     {/* Details */}
                     <div className="product-details">
-                        <h3 className="product-title">AlphaRevival™ Hair Regrowth System</h3>
+                        <h3 className="product-title">AlphaRevive™ Hair Regrowth System</h3>
                         <div className="product-reviews">
                             <div className="stars">
                                 {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="#000000" stroke="none" />)}

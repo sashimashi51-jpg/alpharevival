@@ -128,7 +128,7 @@ export default function ProductPage() {
 
         addToCart({
             id: offer.id,
-            title: "AlphaRevival™ Hair Regrowth System",
+            title: "AlphaRevive™ Hair Regrowth System",
             subtitle: offer.title,
             price: priceNumber,
             originalPrice: refPriceNumber,
@@ -153,7 +153,7 @@ export default function ProductPage() {
         },
         {
             question: "It’s too expensive – is it worth the money?",
-            answer: "Compared to a $10,000 transplant or $40/month pills for life ($5,000+ over 10 years), AlphaRevival at $189 is a steal. Plus, it's a one-time purchase for the tool."
+            answer: "Compared to a $10,000 transplant or $40/month pills for life ($5,000+ over 10 years), AlphaRevive at $189 is a steal. Plus, it's a one-time purchase for the tool."
         },
         {
             question: "Will I have to use this forever?",
@@ -208,7 +208,7 @@ export default function ProductPage() {
                         >
                             <img
                                 src={productImages[activeImage]}
-                                alt="AlphaRevival System"
+                                alt="AlphaRevive System"
                                 className="main-image"
                                 style={{ opacity: isFading ? 0 : 1 }}
                             />
@@ -258,7 +258,7 @@ export default function ProductPage() {
                     {/* Right Column: Content */}
                     <div className="product-content">
                         <div className="header-section">
-                            <h1>AlphaRevival™ Hair Regrowth System</h1>
+                            <h1>AlphaRevive™ Hair Regrowth System</h1>
                             <div className="reviews-row">
                                 <div className="stars">
                                     {[...Array(5)].map((_, i) => (
@@ -392,7 +392,7 @@ export default function ProductPage() {
                         muted
                         playsInline
                         style={{ width: '100%', height: 'auto', display: 'block' }}
-                        title="AlphaRevival Mechanism Video"
+                        title="AlphaRevive Mechanism Video"
                     />
                 </section>
 

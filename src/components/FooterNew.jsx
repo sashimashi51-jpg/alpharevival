@@ -56,7 +56,7 @@ export default function FooterNew() {
                     <div>
                         <h3 className="footer-subheading">Contact Us</h3>
                         <address className="footer-address">
-                            <p>AlphaRevival HQ</p>
+                            <p>AlphaRevive HQ</p>
                             <p>452 Saratoga Ave #103, San Jose, CA, United States, California</p>
                             <p>Phone-support: +359883987033</p>
                             <p>Email-us: support@alpharevive.shop</p>
@@ -92,7 +92,7 @@ export default function FooterNew() {
 
                 <div className="footer-bottom">
                     <p className="footer-text-muted">
-                        © {new Date().getFullYear()} AlphaRevival. All rights reserved.
+                        © {new Date().getFullYear()} AlphaRevive. All rights reserved.
                     </p>
                     <nav className="footer-bottom-nav">
                         <Link to="/privacy" className="footer-link">Privacy Policy</Link>

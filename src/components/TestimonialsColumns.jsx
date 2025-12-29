@@ -40,7 +40,7 @@ const testimonials = [
         role: "Seattle, WA",
     },
     {
-        text: "I was balding at the crown. It was embarrassing. 4 months of AlphaRevival and the spot is gone. Completely filled in.",
+        text: "I was balding at the crown. It was embarrassing. 4 months of AlphaRevive and the spot is gone. Completely filled in.",
         image: "https://randomuser.me/api/portraits/men/76.jpg",
         name: "Chris M.",
         role: "Boston, MA",

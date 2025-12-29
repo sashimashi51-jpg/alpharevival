@@ -7,7 +7,7 @@ const testimonials = [
     {
         name: "James D.",
         role: "Verified Buyer",
-        content: "I was skeptical about microneedling at home, but AlphaRevival made it so easy. The quality of the roller is top-notch, and the serum doesn't leave my hair greasy. 3 months in and my crown is filling in nicely.",
+        content: "I was skeptical about microneedling at home, but AlphaRevive made it so easy. The quality of the roller is top-notch, and the serum doesn't leave my hair greasy. 3 months in and my crown is filling in nicely.",
         rating: 5,
     },
     {
