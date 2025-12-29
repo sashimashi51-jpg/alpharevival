@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Filter, Check, ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ClinicalGallery = () => {
     const [activeFilter, setActiveFilter] = useState('All');
