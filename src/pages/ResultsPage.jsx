@@ -3,7 +3,6 @@ import SEO from '../components/SEO';
 import ClinicalGallery from '../components/ClinicalGallery';
 import SuccessStories from '../components/SuccessStories';
 import FeaturedProduct from '../components/FeaturedProduct';
-import FAQSection from '../components/FaqSection';
 import { motion } from 'framer-motion';
 
 export default function ResultsPage() {
@@ -36,8 +35,6 @@ export default function ResultsPage() {
             <div className="py-12">
                 <FeaturedProduct />
             </div>
-
-            <FAQSection />
         </div>
     );
 }
