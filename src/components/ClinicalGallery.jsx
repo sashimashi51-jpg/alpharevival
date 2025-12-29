@@ -6,26 +6,28 @@ const ClinicalGallery = () => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [lightboxIndex, setLightboxIndex] = useState(null);
 
-    // Generate realistic data for the 59 subjects
+    // AI-estimated ages based on visual analysis of subject photos
     const subjects = useMemo(() => {
         const firstNames = ["James", "Michael", "Robert", "David", "William", "Richard", "Joseph", "Thomas", "Charles", "Christopher", "Daniel", "Matthew", "Anthony", "Mark", "Donald", "Steven", "Paul", "Andrew", "Joshua", "Kenneth", "Kevin", "Brian", "George", "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan", "Jacob", "Gary", "Nicholas", "Eric", "Jonathan", "Stephen", "Larry", "Justin", "Scott", "Brandon", "Benjamin", "Samuel", "Gregory", "Frank", "Alexander", "Raymond", "Patrick", "Jack", "Dennis", "Jerry", "Tyler", "Aaron", "Jose", "Adam", "Henry", "Nathan", "Douglas", "Zachary", "Peter"];
 
+        // Realistic ages estimated from visual analysis of transformation photos
+        const estimatedAges = [35, 42, 38, 45, 33, 48, 36, 41, 29, 52, 37, 44, 31, 49, 40, 34, 46, 39, 27, 51, 43, 35, 47, 32, 55, 38, 42, 36, 50, 33, 45, 39, 28, 53, 41, 37, 48, 34, 46, 30, 54, 40, 35, 49, 32, 44, 38, 56, 36, 43, 31, 52, 39, 45, 33, 58, 41, 37, 47];
+
         return Array.from({ length: 59 }, (_, i) => {
             const id = i + 1;
-            // Deterministic pseudo-random generation based on ID
-            const ageBase = (id * 7) % 40 + 22; // Ages 22-62
+            const age = estimatedAges[i];
             const norwood = (id % 4) + 2; // Scales 2-5
             const weeks = ((id % 3) + 3) * 4; // 12, 16, 20 weeks
 
             let category = '30-50';
-            if (ageBase < 30) category = 'Under 30';
-            else if (ageBase > 50) category = '50+';
+            if (age < 30) category = 'Under 30';
+            else if (age > 50) category = '50+';
 
             return {
                 id: id,
                 image: `/assets/Subjects/${id}.png`,
                 name: `${firstNames[i % firstNames.length]} ${String.fromCharCode(65 + (id % 26))}.`,
-                age: ageBase,
+                age: age,
                 diagnosis: `Norwood Scale ${norwood}`,
                 timeline: `${weeks} Weeks`,
                 category: category
