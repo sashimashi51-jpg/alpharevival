@@ -1,24 +1,12 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import ClinicalGallery from '../components/ClinicalGallery';
+import React from 'react';
+import SEO from '../components/SEO';
+import ResultsSection from '../components/ResultsSection';
 import SuccessStories from '../components/SuccessStories';
 import FeaturedProduct from '../components/FeaturedProduct';
-import SEO from '../components/SEO';
 import FAQSection from '../components/FaqSection';
 import { motion } from 'framer-motion';
 
 export default function ResultsPage() {
-    const { hash } = useLocation();
-
-    useEffect(() => {
-        if (hash) {
-            const element = document.getElementById(hash.replace('#', ''));
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, [hash]);
-
     return (
         <div className="pt-20">
             <SEO
@@ -37,10 +25,9 @@ export default function ResultsPage() {
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
                     Don't just take our word for it. See the transformations our community has achieved.
                 </p>
-
-                {/* Clinical Gallery Replaces old ResultsSection */}
-                <ClinicalGallery />
             </div>
+
+            <ResultsSection />
 
             <div className="bg-gray-50 py-12">
                 <SuccessStories />
