@@ -73,6 +73,10 @@ export default function Navbar() {
             Product
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
+          <Link to="/results" className="relative py-2 text-slate-700 hover:text-orange-600 transition-colors group">
+            Results
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+          </Link>
           <Link to="/contact" className="relative py-2 text-slate-700 hover:text-orange-600 transition-colors group">
             Contact Us
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
@@ -163,6 +167,13 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 Product
+              </Link>
+              <Link
+                to="/results"
+                className="flex items-center justify-between text-xl font-semibold text-slate-800 p-4 rounded-2xl hover:bg-slate-50 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Results
               </Link>
               <Link
                 to="/contact"

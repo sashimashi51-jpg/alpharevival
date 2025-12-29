@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLayoutEffect } from 'react';
 import LandingPage from './pages/LandingPage';
 import ProductPage from './pages/ProductPage';
+import ResultsPage from './pages/ResultsPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
 import ClinicalStudy from './pages/ClinicalStudy';
@@ -56,6 +57,7 @@ function AppContent() {
             <Route path="/journal/:slug" element={<BlogPost />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/success" element={<SuccessPage />} />
+            <Route path="/results" element={<ResultsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<LegalPage type="privacy" />} />
             <Route path="/terms" element={<LegalPage type="terms" />} />

@@ -280,6 +280,12 @@ export default function ClinicalStudy() {
                                         <span><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</span>
                                     </li>
                                 </ul>
+
+                                <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                                    <Link to="/results" className="inline-block bg-[#10b981] hover:bg-[#059669] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg" style={{ textDecoration: 'none' }}>
+                                        See Results
+                                    </Link>
+                                </div>
                             </div>
                             <div className="step-diagram">
                                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
