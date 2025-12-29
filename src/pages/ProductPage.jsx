@@ -110,12 +110,11 @@ export default function ProductPage() {
     const { addToCart } = useCart();
     const [showSuccess, setShowSuccess] = useState(false);
     const [isFading, setIsFading] = useState(false); // For buttery smooth transitions
-    const [mainImage, setMainImage] = useState(tierMainImages[1]); // Default to 3-month
+
 
     // Update main image when tier selection changes
     const handleOfferChange = (index) => {
         setSelectedOffer(index);
-        setMainImage(tierMainImages[index]);
         setActiveImage(0); // Reset to first image
     };
 
@@ -205,7 +204,7 @@ export default function ProductPage() {
                             style={{ cursor: 'zoom-in' }}
                         >
                             <img
-                                src={mainImage || tierMainImages[selectedOffer]}
+                                src={productImages[activeImage]}
                                 alt="AlphaRevival System"
                                 className="main-image"
                                 style={{ opacity: isFading ? 0 : 1 }}
