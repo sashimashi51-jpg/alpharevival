@@ -1,6 +1,6 @@
 import React from 'react';
 import SEO from '../components/SEO';
-import ResultsSection from '../components/ResultsSection';
+import ClinicalGallery from '../components/ClinicalGallery';
 import SuccessStories from '../components/SuccessStories';
 import FeaturedProduct from '../components/FeaturedProduct';
 import FAQSection from '../components/FaqSection';
@@ -22,12 +22,12 @@ export default function ResultsPage() {
                 >
                     Real Men. Real Regrowth.
                 </motion.h1>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">
                     Don't just take our word for it. See the transformations our community has achieved.
                 </p>
             </div>
 
-            <ResultsSection />
+            <ClinicalGallery />
 
             <div className="bg-gray-50 py-12">
                 <SuccessStories />
