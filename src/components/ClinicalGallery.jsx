@@ -14,7 +14,7 @@ const ClinicalGallery = () => {
         const estimatedAges = [35, 42, 38, 45, 33, 48, 36, 41, 29, 52, 37, 44, 31, 49, 40, 34, 46, 39, 27, 51, 43, 35, 47, 32, 55, 38, 42, 36, 50, 33, 45, 39, 28, 53, 41, 37, 48, 34, 46, 30, 54, 40, 35, 49, 32, 44, 38, 56, 36, 43, 31, 52, 39, 45, 33, 58, 41, 37, 47];
 
         // IDs to exclude due to duplicate images (verified manually)
-        const excludedIds = [4]; // David E., 45 - duplicate of Robert D., 38 (ID 3)
+        const excludedIds = [4, 55]; // 4: David E., 45 - duplicate of Robert D., 38 (ID 3) | 55: Nathan D., 33 - image not loading
 
         return Array.from({ length: 59 }, (_, i) => {
             const id = i + 1;
