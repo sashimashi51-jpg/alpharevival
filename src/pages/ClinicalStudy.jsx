@@ -285,7 +285,7 @@ export default function ClinicalStudy() {
                                     <p style={{ marginBottom: '1rem', fontStyle: 'italic', fontWeight: '500', color: '#374151' }}>
                                         "Science on paper means nothing without proof on the scalp."
                                     </p>
-                                    <Link to="/results" className="inline-block bg-[#10b981] hover:bg-[#059669] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg" style={{ textDecoration: 'none' }}>
+                                    <Link to="/results#gallery" className="inline-block bg-[#10b981] hover:bg-[#059669] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg" style={{ textDecoration: 'none' }}>
                                         See the Evidence by Week 10
                                     </Link>
                                 </div>

@@ -53,7 +53,7 @@ const ClinicalGallery = () => {
     };
 
     return (
-        <section className="py-12 bg-white">
+        <section id="gallery" className="py-12 bg-white">
             <div className="container mx-auto px-4 max-w-7xl">
 
                 {/* Filter Bar */}
@@ -63,8 +63,8 @@ const ClinicalGallery = () => {
                             key={filter}
                             onClick={() => setActiveFilter(filter)}
                             className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 border ${activeFilter === filter
-                                    ? 'bg-black text-white border-black'
-                                    : 'bg-white text-gray-600 border-gray-200 hover:border-black'
+                                ? 'bg-black text-white border-black'
+                                : 'bg-white text-gray-600 border-gray-200 hover:border-black'
                                 }`}
                         >
                             {filter}
