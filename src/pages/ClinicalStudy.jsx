@@ -549,23 +549,26 @@ export default function ClinicalStudy() {
                         style={{
                             display: 'block',
                             width: '280px',
-                            background: 'white',
-                            color: '#000',
+                            background: 'linear-gradient(to right, #16a34a, #15803d)',
+                            color: '#ffffff',
                             padding: '0.875rem 2rem',
                             borderRadius: '0.75rem',
                             fontWeight: '700',
                             fontSize: '1rem',
                             textAlign: 'center',
                             textDecoration: 'none',
-                            border: '2px solid #000',
+                            border: 'none',
                             transition: 'all 0.2s',
-                            cursor: 'pointer'
+                            cursor: 'pointer',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
                         }}
                         onMouseEnter={(e) => {
-                            e.target.style.background = '#f9fafb';
+                            e.target.style.background = 'linear-gradient(to right, #15803d, #166534)';
+                            e.target.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.15)';
                         }}
                         onMouseLeave={(e) => {
-                            e.target.style.background = 'white';
+                            e.target.style.background = 'linear-gradient(to right, #16a34a, #15803d)';
+                            e.target.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
                         }}
                     >
                         Check Availability
