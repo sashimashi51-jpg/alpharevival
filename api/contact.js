@@ -11,6 +11,21 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Email and message are required' });
     }
 
+    const escapeHtml = (text) => {
+        if (!text) return text;
+        return String(text)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    };
+
+    const safeFirstName = escapeHtml(firstName);
+    const safeLastName = escapeHtml(lastName);
+    const safeSubject = escapeHtml(subject);
+    const safeMessage = escapeHtml(message);
+
     // Configure transporter
     // Priority: Environment variables -> Gmail (easiest for testing)
     const transporter = nodemailer.createTransport({
@@ -28,7 +43,7 @@ export default async function handler(req, res) {
             from: `"AlphaRevive Contact Form" <${process.env.SMTP_USER}>`,
             to: process.env.CONTACT_EMAIL || 'support@alpharevive.shop',
             replyTo: email,
-            subject: `Contact Form: ${subject || 'New Message'}`,
+            subject: `Contact Form: ${safeSubject || 'New Message'}`,
             text: `
 Name: ${firstName} ${lastName}
 Email: ${email}
@@ -39,12 +54,12 @@ ${message}
             `,
             html: `
 <h3>New Contact Form Submission</h3>
-<p><strong>Name:</strong> ${firstName} ${lastName}</p>
-<p><strong>Email:</strong> ${email}</p>
-<p><strong>Subject:</strong> ${subject}</p>
+<p><strong>Name:</strong> ${safeFirstName} ${safeLastName}</p>
+<p><strong>Email:</strong> ${escapeHtml(email)}</p>
+<p><strong>Subject:</strong> ${safeSubject}</p>
 <br/>
 <p><strong>Message:</strong></p>
-<p>${message.replace(/\n/g, '<br/>')}</p>
+<p>${safeMessage.replace(/\n/g, '<br/>')}</p>
             `,
         });
 

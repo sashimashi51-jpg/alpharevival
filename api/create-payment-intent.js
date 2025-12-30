@@ -14,8 +14,6 @@ const calculateOrderAmount = (items) => {
 
             if (price > 0) {
                 total += price * item.quantity;
-            } else if (item.price) {
-                total += Math.round(item.price * 100) * item.quantity;
             }
         });
     }
@@ -34,8 +32,9 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { items, amount, email } = req.body;
-        const orderAmount = amount ? Math.round(amount * 100) : calculateOrderAmount(items);
+        const { items, email } = req.body;
+        // SERVER-SIDE SECURITY: Always calculate amount on server, ignore client 'amount'
+        const orderAmount = calculateOrderAmount(items);
 
         // Create PaymentIntent
         const paymentIntent = await stripe.paymentIntents.create({

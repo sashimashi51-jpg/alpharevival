@@ -26,7 +26,24 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.use(cors());
+const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    'http://localhost:5173',
+    'http://localhost:4173',
+    'http://localhost:3000'
+].filter(Boolean);
+
+app.use(cors({
+    origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 
 // Webhook requires raw body
 app.use((req, res, next) => {
@@ -49,8 +66,6 @@ const calculateOrderAmount = (items) => {
 
             if (price > 0) {
                 total += price * item.quantity;
-            } else if (item.price) {
-                total += Math.round(item.price * 100) * item.quantity;
             }
         });
     }
@@ -164,18 +179,32 @@ const sendEbookEmail = async (email) => {
 app.post('/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
+    const escapeHtml = (text) => {
+        if (!text) return text;
+        return String(text)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    };
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
+
     try {
         await transporter.sendMail({
             from: process.env.SMTP_USER || '"AlphaRevive Contact" <noreply@alpharevive.com>',
             to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
             replyTo: email,
-            subject: `New Contact Form Submission from ${name}`,
+            subject: `New Contact Form Submission from ${safeName}`,
             html: `
                 <h2>New Contact Form Submission</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Name:</strong> ${safeName}</p>
+                <p><strong>Email:</strong> ${safeEmail}</p>
                 <p><strong>Message:</strong></p>
-                <p>${message}</p>
+                <p>${safeMessage}</p>
             `
         });
 
@@ -279,8 +308,9 @@ app.post('/api/subscribe', async (req, res) => {
 
 
 app.post('/create-payment-intent', async (req, res) => {
-    const { items, amount, email } = req.body;
-    const orderAmount = amount ? Math.round(amount * 100) : calculateOrderAmount(items);
+    const { items, email } = req.body;
+    // SERVER-SIDE SECURITY: Always calculate amount on server, ignore client 'amount'
+    const orderAmount = calculateOrderAmount(items);
 
     try {
         const paymentIntent = await stripe.paymentIntents.create({

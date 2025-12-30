@@ -14,7 +14,24 @@ if (!process.env.STRIPE_SECRET_KEY) {
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    'http://localhost:5173',
+    'http://localhost:4173',
+    'http://localhost:3000'
+].filter(Boolean);
+
+app.use(cors({
+    origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 
 // Webhook requires raw body
 app.use((req, res, next) => {
@@ -42,8 +59,6 @@ const calculateOrderAmount = (items) => {
 
             if (price > 0) {
                 total += price * item.quantity;
-            } else if (item.price) {
-                total += Math.round(item.price * 100) * item.quantity;
             }
         });
     }
@@ -51,13 +66,12 @@ const calculateOrderAmount = (items) => {
 };
 
 app.post('/create-payment-intent', async (req, res) => {
-    const { items, amount, email } = req.body;
-    const orderAmount = amount ? Math.round(amount * 100) : calculateOrderAmount(items);
+    const { items, email } = req.body;
+    // SERVER-SIDE SECURITY: Always calculate amount on server, ignore client 'amount'
+    const orderAmount = calculateOrderAmount(items);
 
     try {
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: orderAmount,
-            currency: 'usd',
             amount: orderAmount,
             currency: 'usd',
             automatic_payment_methods: {
