@@ -88,7 +88,7 @@ export default function ClinicalStudy() {
                         margin: '2rem 0'
                     }}>
                         <img
-                            src="/assets/advertorial-photo.png"
+                            src="/assets/adv.png"
                             alt="Millions of men are treating the surface, ignoring the dormant life beneath"
                             style={{
                                 width: '100%',
@@ -96,7 +96,7 @@ export default function ClinicalStudy() {
                                 borderRadius: '8px',
                                 cursor: 'pointer'
                             }}
-                            onClick={() => handleImageClick('/assets/advertorial-photo.png', 'Millions of men are treating the surface, ignoring the dormant life beneath')}
+                            onClick={() => handleImageClick('/assets/adv.png', 'Millions of men are treating the surface, ignoring the dormant life beneath')}
                         />
                         <p style={{
                             color: '#666',
