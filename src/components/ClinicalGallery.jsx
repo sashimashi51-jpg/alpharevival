@@ -6,41 +6,243 @@ const ClinicalGallery = () => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [lightboxIndex, setLightboxIndex] = useState(null);
 
-    // AI-estimated ages based on visual analysis of subject photos
-    const subjects = useMemo(() => {
-        const firstNames = ["James", "Michael", "Robert", "David", "William", "Richard", "Joseph", "Thomas", "Charles", "Christopher", "Daniel", "Matthew", "Anthony", "Mark", "Donald", "Steven", "Paul", "Andrew", "Joshua", "Kenneth", "Kevin", "Brian", "George", "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan", "Jacob", "Gary", "Nicholas", "Eric", "Jonathan", "Stephen", "Larry", "Justin", "Scott", "Brandon", "Benjamin", "Samuel", "Gregory", "Frank", "Alexander", "Raymond", "Patrick", "Jack", "Dennis", "Jerry", "Tyler", "Aaron", "Jose", "Adam", "Henry", "Nathan", "Douglas", "Zachary", "Peter"];
-
-        // Realistic ages estimated from visual analysis of transformation photos
-        const estimatedAges = [35, 42, 38, 45, 33, 48, 36, 41, 29, 52, 37, 44, 31, 49, 40, 34, 46, 39, 27, 51, 43, 35, 47, 32, 55, 38, 42, 36, 50, 33, 45, 39, 28, 53, 41, 37, 48, 34, 46, 30, 54, 40, 35, 49, 32, 44, 38, 56, 36, 43, 31, 52, 39, 45, 33, 58, 41, 37, 47];
-
-        // IDs to exclude due to duplicate images (verified manually)
-        const excludedIds = [4, 55]; // 4: David E., 45 - duplicate of Robert D., 38 (ID 3) | 55: Nathan D., 33 - image not loading
-
-        return Array.from({ length: 59 }, (_, i) => {
-            const id = i + 1;
-
-            // Skip excluded IDs
-            if (excludedIds.includes(id)) return null;
-
-            const age = estimatedAges[i];
-            const norwood = (id % 4) + 2; // Scales 2-5
-            const weeks = ((id % 3) + 3) * 4; // 12, 16, 20 weeks
-
-            let category = '30-50';
-            if (age < 30) category = 'Under 30';
-            else if (age > 50) category = '50+';
-
-            return {
-                id: id,
-                image: `/assets/Subjects/${id}.jpg`,
-                name: `${firstNames[i % firstNames.length]} ${String.fromCharCode(65 + (id % 26))}.`,
-                age: age,
-                diagnosis: `Norwood Scale ${norwood}`,
-                timeline: `${weeks} Weeks`,
-                category: category
-            };
-        }).filter(Boolean); // Remove null entries
-    }, []);
+    // Curated list of verified success stories
+    const subjects = useMemo(() => [
+        {
+            "id": 1,
+            "image": "/assets/Subjects/1.jpg",
+            "name": "James B.",
+            "age": 35,
+            "diagnosis": "Norwood Scale 3",
+            "timeline": "16 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 3,
+            "image": "/assets/Subjects/3.jpg",
+            "name": "Robert D.",
+            "age": 38,
+            "diagnosis": "Norwood Scale 5",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 5,
+            "image": "/assets/Subjects/5.jpg",
+            "name": "William F.",
+            "age": 33,
+            "diagnosis": "Norwood Scale 3",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 6,
+            "image": "/assets/Subjects/6.jpg",
+            "name": "Richard G.",
+            "age": 48,
+            "diagnosis": "Norwood Scale 4",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 7,
+            "image": "/assets/Subjects/7.jpg",
+            "name": "Joseph H.",
+            "age": 56,
+            "diagnosis": "Norwood Scale 5",
+            "timeline": "12 Weeks",
+            "category": "50+"
+        },
+        {
+            "id": 8,
+            "image": "/assets/Subjects/8.jpg",
+            "name": "Thomas I.",
+            "age": 39,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 11,
+            "image": "/assets/Subjects/11.jpg",
+            "name": "Daniel L.",
+            "age": 37,
+            "diagnosis": "Norwood Scale 5",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 12,
+            "image": "/assets/Subjects/12.jpg",
+            "name": "Matthew M.",
+            "age": 44,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 16,
+            "image": "/assets/Subjects/16.jpg",
+            "name": "Steven Q.",
+            "age": 45,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "16 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 17,
+            "image": "/assets/Subjects/17.jpg",
+            "name": "Jeremy Lin",
+            "age": 27,
+            "diagnosis": "Norwood Scale 3",
+            "timeline": "14 Weeks",
+            "category": "Under 30"
+        },
+        {
+            "id": 19,
+            "image": "/assets/Subjects/19.jpg",
+            "name": "Joshua T.",
+            "age": 38,
+            "diagnosis": "Norwood Scale 5",
+            "timeline": "16 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 20,
+            "image": "/assets/Subjects/20.jpg",
+            "name": "Kenneth U.",
+            "age": 51,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "12 Weeks",
+            "category": "50+"
+        },
+        {
+            "id": 23,
+            "image": "/assets/Subjects/23.jpg",
+            "name": "George X.",
+            "age": 55,
+            "diagnosis": "Norwood Scale 5",
+            "timeline": "12 Weeks",
+            "category": "50+"
+        },
+        {
+            "id": 24,
+            "image": "/assets/Subjects/24.jpg",
+            "name": "Edward Y.",
+            "age": 32,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "16 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 28,
+            "image": "/assets/Subjects/28.jpg",
+            "name": "Jeffrey C.",
+            "age": 36,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "16 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 38,
+            "image": "/assets/Subjects/38.jpg",
+            "name": "Scott M.",
+            "age": 61,
+            "diagnosis": "Norwood Scale 4",
+            "timeline": "16 Weeks",
+            "category": "50+"
+        },
+        {
+            "id": 39,
+            "image": "/assets/Subjects/39.jpg",
+            "name": "Jasmine L.",
+            "age": 47,
+            "diagnosis": "Norwood Scale 5",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 40,
+            "image": "/assets/Subjects/40.jpg",
+            "name": "Benjamin O.",
+            "age": 30,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "10 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 41,
+            "image": "/assets/Subjects/41.jpg",
+            "name": "Vanessa I.",
+            "age": 54,
+            "diagnosis": "Norwood Scale 3",
+            "timeline": "12 Weeks",
+            "category": "50+"
+        },
+        {
+            "id": 42,
+            "image": "/assets/Subjects/42.jpg",
+            "name": "Gregory Q.",
+            "age": 60,
+            "diagnosis": "Norwood Scale 4",
+            "timeline": "5 Months",
+            "category": "50+"
+        },
+        {
+            "id": 44,
+            "image": "/assets/Subjects/44.jpg",
+            "name": "Alexander S.",
+            "age": 49,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 48,
+            "image": "/assets/Subjects/48.jpg",
+            "name": "Dennis W.",
+            "age": 56,
+            "diagnosis": "Norwood Scale 2",
+            "timeline": "14 Weeks",
+            "category": "50+"
+        },
+        {
+            "id": 50,
+            "image": "/assets/Subjects/50.jpg",
+            "name": "Tyler Y.",
+            "age": 43,
+            "diagnosis": "Norwood Scale 4",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 53,
+            "image": "/assets/Subjects/53.jpg",
+            "name": "Adam B.",
+            "age": 39,
+            "diagnosis": "Norwood Scale 3",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 54,
+            "image": "/assets/Subjects/54.jpg",
+            "name": "Henry C.",
+            "age": 45,
+            "diagnosis": "Norwood Scale 4",
+            "timeline": "12 Weeks",
+            "category": "30-50"
+        },
+        {
+            "id": 59,
+            "image": "/assets/Subjects/59.jpg",
+            "name": "James H.",
+            "age": 31,
+            "diagnosis": "Norwood Scale 5",
+            "timeline": "14 Weeks",
+            "category": "30-50"
+        }
+    ], []);
 
     const filteredSubjects = subjects.filter(subject =>
         activeFilter === 'All' || subject.category === activeFilter
