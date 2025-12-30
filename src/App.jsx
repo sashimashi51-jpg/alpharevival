@@ -30,6 +30,7 @@ import CartDrawer from './components/CartDrawer';
 
 import CheckoutPage from './pages/CheckoutPage';
 import SuccessPage from './pages/SuccessPage';
+import TrackingPage from './pages/TrackingPage';
 import Analytics from './components/Analytics';
 import LiveChat from './components/LiveChat';
 
@@ -63,7 +64,7 @@ function AppContent() {
             <Route path="/terms" element={<LegalPage type="terms" />} />
             <Route path="/shipping" element={<LegalPage type="shipping" />} />
             <Route path="/return-refund" element={<LegalPage type="return-refund" />} />
-            <Route path="/track" element={<LegalPage type="track" />} />
+            <Route path="/track" element={<TrackingPage />} />
           </Routes>
         </motion.div>
       </AnimatePresence>
