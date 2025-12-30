@@ -360,75 +360,6 @@
   }
 }
 
-/* Countdown Banner */
-.countdown-banner {
-  background: linear-gradient(135deg, var(--color-urgent), var(--color-brand-primary));
-  color: white;
-  padding: 0.5rem 0;
-  text-align: center;
-  position: fixed;
-  top: 80px;
-  /* Below Navbar */
-  left: 0;
-  width: 100%;
-  z-index: 998;
-  box-shadow: var(--shadow-md);
-}
-
-.countdown-banner .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.countdown-text {
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-}
-
-.countdown-timer {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.time-box {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  min-width: 60px;
-}
-
-.time-value {
-  font-size: 1.5rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.time-label {
-  font-size: 0.625rem;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.time-separator {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.countdown-cta {
-  font-weight: 700;
-  font-size: 0.875rem;
-  background: var(--color-brand-highlight);
-  color: var(--color-text-primary);
-  padding: 0.25rem 1rem;
-  border-radius: var(--radius-full);
-}
-
 /* Enhanced Comparison Table */
 .comparison-table-enhanced {
   background: white;
@@ -515,12 +446,6 @@
 }
 
 @media (min-width: 768px) {
-  .countdown-banner .container {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-
   .comparison-row {
     font-size: 1rem;
   }
@@ -628,22 +553,8 @@
     height: 60px !important;
   }
 
-  .countdown-banner {
-    top: 60px !important;
-  }
-
   .landing-page {
     padding-top: 140px;
-  }
-
-  /* Keep padding large enough for stacked banner content */
-  .time-box {
-    min-width: 50px;
-    padding: 0.25rem 0.5rem;
-  }
-
-  .time-value {
-    font-size: 1.2rem;
   }
 }
 
@@ -865,27 +776,6 @@
   }
 }
 
-/* Urgent Countdown Styles Red */
-.countdown-banner {
-  background-color: #ffe4e6 !important;
-  /* Very light red bg */
-  color: #dc2626 !important;
-  border-bottom: 1px solid #dc2626;
-}
-
-.countdown-text,
-.time-value,
-.time-label,
-.time-separator,
-.countdown-cta {
-  color: #dc2626 !important;
-  font-weight: 800 !important;
-}
-
-.time-box {
-  background: rgba(220, 38, 38, 0.1) !important;
-  border: 1px solid rgba(220, 38, 38, 0.2);
-}
 
 
 /* Trusted By Section */
