@@ -2,21 +2,51 @@ import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const calculateOrderAmount = (items) => {
-    let total = 0;
+const calculateOrderAmount = (items, shippingProtection) => {
+    let productTotal = 0;
+    let giftItem = null;
+
     if (items && Array.isArray(items)) {
         items.forEach(item => {
-            let price = 0;
-            if (item.id === '1-month') price = 6900;
-            else if (item.id === '3-month') price = 10900;
-            else if (item.id === '6-month') price = 18900;
-            else if (item.title === 'Priority Shipping Protection') price = 297;
+            if (item.id === 'free-gift-needle') {
+                giftItem = item;
+            } else {
+                let price = 0;
+                if (item.id === '1-month') price = 6900;
+                else if (item.id === '3-month') price = 10900;
+                else if (item.id === '6-month') price = 18900;
+                else if (item.id === 'ebook-upsell') price = 2000;
 
-            if (price > 0) {
-                total += price * item.quantity;
+                if (price > 0) {
+                    productTotal += price * item.quantity;
+                }
             }
         });
     }
+
+    let total = productTotal;
+
+    // Handle Gift: Free if subtotal >= $116 (11600 cents), else $15
+    if (giftItem) {
+        if (productTotal >= 11600) {
+            total += 0;
+        } else {
+            total += 1500 * giftItem.quantity;
+        }
+    }
+
+    // Shipping Logic: Free if total >= $80 (8000 cents)
+    // Note: Gift value doesn't count towards shipping threshold logic usually, but here 'total' includes paid gift if any.
+    // Assuming shipping threshold is based on paid subtotal.
+    if (total > 0 && total < 8000) {
+        total += 695;
+    }
+
+    // Shipping Protection Logic
+    if (shippingProtection) {
+        total += 297;
+    }
+
     return total > 0 ? total : 1400; // Fallback to safe minimum
 };
 
@@ -32,9 +62,9 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { items, email } = req.body;
+        const { items, email, shippingProtection } = req.body;
         // SERVER-SIDE SECURITY: Always calculate amount on server, ignore client 'amount'
-        const orderAmount = calculateOrderAmount(items);
+        const orderAmount = calculateOrderAmount(items, shippingProtection);
 
         // Create PaymentIntent
         const paymentIntent = await stripe.paymentIntents.create({
