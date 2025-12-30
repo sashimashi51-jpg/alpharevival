@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams, Link, useNavigate } from 'react-router-dom';
 import { Check, Package, Truck, Home, Mail, Download } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 export default function SuccessPage() {
     const [searchParams] = useSearchParams();
@@ -10,7 +12,7 @@ export default function SuccessPage() {
     const paymentIntent = searchParams.get('payment_intent');
     const redirectStatus = searchParams.get('redirect_status');
 
-    const { clearCart, cartItems, cartTotal, currencySymbol } = useCart();
+    const { clearCart, cartItems, cartTotal, currencySymbol, shippingProtection } = useCart();
 
     const [orderNumber, setOrderNumber] = useState('');
     const [orderDetails, setOrderDetails] = useState(null);
@@ -40,6 +42,7 @@ export default function SuccessPage() {
             const orderData = {
                 items: cartItems,
                 total: cartTotal,
+                shippingProtection: shippingProtection,
                 timestamp: new Date().toISOString()
             };
             sessionStorage.setItem('lastOrder', JSON.stringify(orderData));
@@ -73,7 +76,60 @@ export default function SuccessPage() {
     };
 
     const handleDownloadReceipt = () => {
-        alert('Receipt download functionality will be available soon.\n\nA copy has been sent to your email.');
+        if (!orderDetails) return;
+
+        const doc = new jsPDF();
+
+        // Add company logo or name
+        doc.setFontSize(20);
+        doc.text("Alpha Revival", 14, 22);
+
+        doc.setFontSize(11);
+        doc.text(`Order Number: ${orderNumber}`, 14, 30);
+        doc.text(`Date: ${new Date(orderDetails.timestamp).toLocaleDateString()}`, 14, 36);
+
+        const tableColumn = ["Item", "Quantity", "Price", "Total"];
+        const tableRows = [];
+
+        orderDetails.items.forEach(item => {
+            const itemData = [
+                item.title,
+                item.quantity,
+                `${currencySymbol}${item.price.toFixed(2)}`,
+                `${currencySymbol}${(item.price * item.quantity).toFixed(2)}`
+            ];
+            tableRows.push(itemData);
+        });
+
+        // Add Shipping Protection line item if applicable
+        if (orderDetails.shippingProtection) {
+             tableRows.push([
+                "Shipping Protection",
+                "1",
+                `${currencySymbol}2.97`,
+                `${currencySymbol}2.97`
+            ]);
+        }
+
+        autoTable(doc, {
+            head: [tableColumn],
+            body: tableRows,
+            startY: 40,
+        });
+
+        // Calculate totals
+        const subtotal = orderDetails.total;
+        const shipping = subtotal >= 80 ? 0 : 6.95; // Hardcoded shipping logic
+        const protectionCost = orderDetails.shippingProtection ? 2.97 : 0;
+        const total = subtotal + shipping + protectionCost;
+
+        const finalY = doc.lastAutoTable.finalY || 40;
+
+        doc.text(`Subtotal: ${currencySymbol}${subtotal.toFixed(2)}`, 14, finalY + 10);
+        doc.text(`Shipping: ${currencySymbol}${shipping.toFixed(2)}`, 14, finalY + 16);
+        doc.text(`Total: ${currencySymbol}${total.toFixed(2)}`, 14, finalY + 22);
+
+        doc.save(`receipt-${orderNumber}.pdf`);
     };
 
     if (isLoading) {
@@ -141,9 +197,15 @@ export default function SuccessPage() {
                                         </span>
                                     </div>
                                 ))}
+                                {orderDetails.shippingProtection && (
+                                    <div className="flex justify-between text-sm">
+                                        <span className="text-gray-700">Shipping Protection</span>
+                                        <span className="font-medium text-gray-900">{currencySymbol}2.97</span>
+                                    </div>
+                                )}
                                 <div className="border-t border-gray-300 pt-2 mt-2 flex justify-between font-bold">
                                     <span>Total</span>
-                                    <span>{currencySymbol}{orderDetails.total.toFixed(2)}</span>
+                                    <span>{currencySymbol}{(orderDetails.total + (orderDetails.total >= 80 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}</span>
                                 </div>
                             </div>
                         </div>
