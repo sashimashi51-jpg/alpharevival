@@ -169,9 +169,14 @@ export default function CheckoutPage() {
             setIsLoadingIntent(true);
             // If VITE_API_URL is set (e.g. locally), use it. Otherwise, assume same-origin (Vercel) relative path /api
             const apiUrl = import.meta.env.VITE_API_URL || '/api';
+            // Note: Sending the secret from the client is not fully secure as it can be inspected.
+            // For higher security, use a server-side proxy (e.g. Vercel API routes) to attach the secret.
             fetch(`${apiUrl}/create-payment-intent`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-render-secret": import.meta.env.VITE_RENDER_SECRET_KEY || ""
+                },
                 body: JSON.stringify({ items: cartItems, amount: totalAmount, shippingProtection }),
             })
                 .then((res) => res.json())
