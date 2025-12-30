@@ -63,8 +63,7 @@ export default function SuccessPage() {
     };
 
     const handleTrackOrder = () => {
-        // Navigate to a tracking page (you can create this later)
-        alert(`Track your order ${orderNumber}\n\nYou will receive a tracking number via email within 24-48 hours.`);
+        navigate(`/track?order=${orderNumber}`);
     };
 
     const handleContactSupport = (e) => {
