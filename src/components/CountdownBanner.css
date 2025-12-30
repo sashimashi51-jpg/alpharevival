@@ -97,3 +97,15 @@
         /* Prevent wrap */
     }
 }
+
+/* Urgent Variant (Preserved from LandingPage legacy styles) */
+.countdown-banner.urgent {
+    background-color: #ffe4e6 !important;
+    color: #dc2626 !important;
+    border-bottom: 1px solid #dc2626;
+}
+
+.countdown-banner.urgent .countdown-text,
+.countdown-banner.urgent .countdown-simple-time {
+    color: #dc2626 !important;
+}
