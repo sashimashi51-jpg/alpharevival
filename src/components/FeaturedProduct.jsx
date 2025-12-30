@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import './FeaturedProduct.css';
 
 const images = [
-    "/assets/goof.png",
-    "/assets/product_4.png",
-    "/assets/product_1.jpg",
-    "/assets/product_2.jpg",
-    "/assets/product_5.png",
-    "/assets/product_7.png"
+    "/assets/product_photos_final/first_photo.png",
+    "/assets/product_photos_final/second_photo.png",
+    "/assets/product_photos_final/third_photo.png",
+    "/assets/product_photos_final/fourth_photo.png",
+    "/assets/product_photos_final/fifth_photo.png",
+    "/assets/product_photos_final/sixth_photo.png"
 ];
 
 export default function FeaturedProduct() {
