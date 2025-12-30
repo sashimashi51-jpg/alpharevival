@@ -10,7 +10,7 @@ const ClinicalGallery = () => {
     const subjects = useMemo(() => [
         {
             "id": 1,
-            "image": "/assets/Subjects/1.jpg",
+            "image": "/assets/Subjects/1.jpg?v=2",
             "name": "James B.",
             "age": 35,
             "diagnosis": "Norwood Scale 3",
@@ -19,7 +19,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 3,
-            "image": "/assets/Subjects/3.jpg",
+            "image": "/assets/Subjects/3.jpg?v=2",
             "name": "Robert D.",
             "age": 38,
             "diagnosis": "Norwood Scale 5",
@@ -28,7 +28,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 5,
-            "image": "/assets/Subjects/5.jpg",
+            "image": "/assets/Subjects/5.jpg?v=2",
             "name": "William F.",
             "age": 33,
             "diagnosis": "Norwood Scale 3",
@@ -37,7 +37,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 6,
-            "image": "/assets/Subjects/6.jpg",
+            "image": "/assets/Subjects/6.jpg?v=2",
             "name": "Richard G.",
             "age": 48,
             "diagnosis": "Norwood Scale 4",
@@ -46,7 +46,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 7,
-            "image": "/assets/Subjects/7.jpg",
+            "image": "/assets/Subjects/7.jpg?v=2",
             "name": "Joseph H.",
             "age": 56,
             "diagnosis": "Norwood Scale 5",
@@ -55,7 +55,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 8,
-            "image": "/assets/Subjects/8.jpg",
+            "image": "/assets/Subjects/8.jpg?v=2",
             "name": "Thomas I.",
             "age": 39,
             "diagnosis": "Norwood Scale 2",
@@ -64,7 +64,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 11,
-            "image": "/assets/Subjects/11.jpg",
+            "image": "/assets/Subjects/11.jpg?v=2",
             "name": "Daniel L.",
             "age": 37,
             "diagnosis": "Norwood Scale 5",
@@ -73,7 +73,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 12,
-            "image": "/assets/Subjects/12.jpg",
+            "image": "/assets/Subjects/12.jpg?v=2",
             "name": "Matthew M.",
             "age": 44,
             "diagnosis": "Norwood Scale 2",
@@ -82,7 +82,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 16,
-            "image": "/assets/Subjects/16.jpg",
+            "image": "/assets/Subjects/16.jpg?v=2",
             "name": "Steven Q.",
             "age": 45,
             "diagnosis": "Norwood Scale 2",
@@ -91,7 +91,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 17,
-            "image": "/assets/Subjects/17.jpg",
+            "image": "/assets/Subjects/17.jpg?v=2",
             "name": "Jeremy Lin",
             "age": 27,
             "diagnosis": "Norwood Scale 3",
@@ -100,7 +100,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 19,
-            "image": "/assets/Subjects/19.jpg",
+            "image": "/assets/Subjects/19.jpg?v=2",
             "name": "Joshua T.",
             "age": 38,
             "diagnosis": "Norwood Scale 5",
@@ -109,7 +109,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 20,
-            "image": "/assets/Subjects/20.jpg",
+            "image": "/assets/Subjects/20.jpg?v=2",
             "name": "Kenneth U.",
             "age": 51,
             "diagnosis": "Norwood Scale 2",
@@ -118,7 +118,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 23,
-            "image": "/assets/Subjects/23.jpg",
+            "image": "/assets/Subjects/23.jpg?v=2",
             "name": "George X.",
             "age": 55,
             "diagnosis": "Norwood Scale 5",
@@ -127,7 +127,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 24,
-            "image": "/assets/Subjects/24.jpg",
+            "image": "/assets/Subjects/24.jpg?v=2",
             "name": "Edward Y.",
             "age": 32,
             "diagnosis": "Norwood Scale 2",
@@ -136,7 +136,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 28,
-            "image": "/assets/Subjects/28.jpg",
+            "image": "/assets/Subjects/28.jpg?v=2",
             "name": "Jeffrey C.",
             "age": 36,
             "diagnosis": "Norwood Scale 2",
@@ -145,7 +145,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 38,
-            "image": "/assets/Subjects/38.jpg",
+            "image": "/assets/Subjects/38.jpg?v=2",
             "name": "Scott M.",
             "age": 61,
             "diagnosis": "Norwood Scale 4",
@@ -154,7 +154,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 39,
-            "image": "/assets/Subjects/39.jpg",
+            "image": "/assets/Subjects/39.jpg?v=2",
             "name": "Jasmine L.",
             "age": 47,
             "diagnosis": "Norwood Scale 5",
@@ -163,7 +163,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 40,
-            "image": "/assets/Subjects/40.jpg",
+            "image": "/assets/Subjects/40.jpg?v=2",
             "name": "Benjamin O.",
             "age": 30,
             "diagnosis": "Norwood Scale 2",
@@ -172,7 +172,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 41,
-            "image": "/assets/Subjects/41.jpg",
+            "image": "/assets/Subjects/41.jpg?v=2",
             "name": "Vanessa I.",
             "age": 54,
             "diagnosis": "Norwood Scale 3",
@@ -181,7 +181,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 42,
-            "image": "/assets/Subjects/42.jpg",
+            "image": "/assets/Subjects/42.jpg?v=2",
             "name": "Gregory Q.",
             "age": 60,
             "diagnosis": "Norwood Scale 4",
@@ -190,7 +190,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 44,
-            "image": "/assets/Subjects/44.jpg",
+            "image": "/assets/Subjects/44.jpg?v=2",
             "name": "Alexander S.",
             "age": 49,
             "diagnosis": "Norwood Scale 2",
@@ -199,7 +199,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 48,
-            "image": "/assets/Subjects/48.jpg",
+            "image": "/assets/Subjects/48.jpg?v=2",
             "name": "Dennis W.",
             "age": 56,
             "diagnosis": "Norwood Scale 2",
@@ -208,7 +208,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 50,
-            "image": "/assets/Subjects/50.jpg",
+            "image": "/assets/Subjects/50.jpg?v=2",
             "name": "Tyler Y.",
             "age": 43,
             "diagnosis": "Norwood Scale 4",
@@ -217,7 +217,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 53,
-            "image": "/assets/Subjects/53.jpg",
+            "image": "/assets/Subjects/53.jpg?v=2",
             "name": "Adam B.",
             "age": 39,
             "diagnosis": "Norwood Scale 3",
@@ -226,7 +226,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 54,
-            "image": "/assets/Subjects/54.jpg",
+            "image": "/assets/Subjects/54.jpg?v=2",
             "name": "Henry C.",
             "age": 45,
             "diagnosis": "Norwood Scale 4",
@@ -235,7 +235,7 @@ const ClinicalGallery = () => {
         },
         {
             "id": 59,
-            "image": "/assets/Subjects/59.jpg",
+            "image": "/assets/Subjects/59.jpg?v=2",
             "name": "James H.",
             "age": 31,
             "diagnosis": "Norwood Scale 5",
