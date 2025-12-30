@@ -612,10 +612,3 @@
     margin-top: 3rem;
     margin-bottom: 2rem;
 }
-
-/* Mobile Sticky Ghost Button */
-@media (max-width: 768px) {
-    .mobile-sticky-cta {
-        display: block !important;
-    }
-}
