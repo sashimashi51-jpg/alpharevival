@@ -67,8 +67,7 @@ function AppContent() {
           </Routes>
         </motion.div>
       </AnimatePresence>
-      {/* Hide footer on checkout for cleaner flow? Or keep it. keeping for now */}
-      <FooterNew />
+      {location.pathname !== '/checkout' && <FooterNew />}
       <CartDrawer />
     </>
   );
