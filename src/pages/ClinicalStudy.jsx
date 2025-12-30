@@ -515,6 +515,46 @@ export default function ClinicalStudy() {
                 isOpen={isLightboxOpen}
                 onClose={closeLightbox}
             />
+
+            {/* Mobile Sticky Ghost Button */}
+            <div style={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: '1rem',
+                background: 'linear-gradient(to top, rgba(255,255,255,1) 70%, rgba(255,255,255,0))',
+                zIndex: 1000,
+                display: 'none'
+            }}
+                className="mobile-sticky-cta">
+                <Link
+                    to="/product"
+                    style={{
+                        display: 'block',
+                        width: '100%',
+                        background: 'transparent',
+                        color: '#000',
+                        padding: '1rem 2rem',
+                        borderRadius: '0.75rem',
+                        fontWeight: '700',
+                        fontSize: '1.125rem',
+                        textAlign: 'center',
+                        textDecoration: 'none',
+                        border: '2px solid #000',
+                        transition: 'all 0.2s',
+                        cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.target.style.background = '#f9fafb';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.background = 'transparent';
+                    }}
+                >
+                    Check Availability
+                </Link>
+            </div>
         </div>
     );
 }
