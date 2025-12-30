@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Undo2 } from 'lucide-react';
 import FeaturedProduct from '../components/FeaturedProduct';
@@ -13,6 +13,7 @@ export default function ClinicalStudy() {
     const [lightboxImage, setLightboxImage] = useState(null);
     const [lightboxAlt, setLightboxAlt] = useState('');
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const [showStickyButton, setShowStickyButton] = useState(false);
 
     const handleImageClick = (src, alt) => {
         setLightboxImage(src);
@@ -23,6 +24,16 @@ export default function ClinicalStudy() {
     const closeLightbox = () => {
         setIsLightboxOpen(false);
     };
+
+    // Show sticky button after scrolling 600px
+    useEffect(() => {
+        const handleScroll = () => {
+            setShowStickyButton(window.scrollY > 600);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <div className="clinical-study-page">
@@ -517,44 +528,49 @@ export default function ClinicalStudy() {
             />
 
             {/* Mobile Sticky Ghost Button */}
-            <div style={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                padding: '1rem',
-                background: 'linear-gradient(to top, rgba(255,255,255,1) 70%, rgba(255,255,255,0))',
-                zIndex: 1000,
-                display: 'none'
-            }}
-                className="mobile-sticky-cta">
-                <Link
-                    to="/product"
-                    style={{
-                        display: 'block',
-                        width: '100%',
-                        background: 'transparent',
-                        color: '#000',
-                        padding: '1rem 2rem',
-                        borderRadius: '0.75rem',
-                        fontWeight: '700',
-                        fontSize: '1.125rem',
-                        textAlign: 'center',
-                        textDecoration: 'none',
-                        border: '2px solid #000',
-                        transition: 'all 0.2s',
-                        cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => {
-                        e.target.style.background = '#f9fafb';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.target.style.background = 'transparent';
-                    }}
-                >
-                    Check Availability
-                </Link>
-            </div>
+            {showStickyButton && (
+                <div style={{
+                    position: 'fixed',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    padding: '1rem',
+                    background: 'white',
+                    borderTop: '1px solid #e5e7eb',
+                    boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.08)',
+                    zIndex: 1000
+                }}
+                    className="mobile-sticky-cta">
+                    <Link
+                        to="/product"
+                        style={{
+                            display: 'inline-block',
+                            maxWidth: '280px',
+                            background: 'white',
+                            color: '#000',
+                            padding: '0.875rem 2rem',
+                            borderRadius: '0.75rem',
+                            fontWeight: '700',
+                            fontSize: '1rem',
+                            textAlign: 'center',
+                            textDecoration: 'none',
+                            border: '2px solid #000',
+                            transition: 'all 0.2s',
+                            cursor: 'pointer'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.background = '#f9fafb';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.background = 'white';
+                        }}
+                    >
+                        Check Availability
+                    </Link>
+                </div>
+            )}
         </div>
     );
 }
