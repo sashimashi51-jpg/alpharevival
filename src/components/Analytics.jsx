@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 // Replace with your actual IDs
-const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA4_MEASUREMENT_ID = 'G-N7XMBLL113';
 const CLARITY_PROJECT_ID = 'xxxxxxxxx';
 
 const Analytics = () => {
