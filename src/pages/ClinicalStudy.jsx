@@ -535,6 +535,7 @@ export default function ClinicalStudy() {
                     left: 0,
                     right: 0,
                     display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'center',
                     padding: '1rem',
                     background: 'white',
@@ -546,8 +547,8 @@ export default function ClinicalStudy() {
                     <Link
                         to="/product"
                         style={{
-                            display: 'inline-block',
-                            maxWidth: '280px',
+                            display: 'block',
+                            width: '280px',
                             background: 'white',
                             color: '#000',
                             padding: '0.875rem 2rem',
