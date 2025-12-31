@@ -46,7 +46,7 @@ export const Contact2 = ({
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    "x-render-secret": import.meta.env.VITE_RENDER_SECRET_KEY || ""
+                    "x-render-secret": import.meta.env.VITE_PUBLIC_RENDER_SECRET || ""
                 },
                 body: JSON.stringify({
                     firstName: formData.firstName,

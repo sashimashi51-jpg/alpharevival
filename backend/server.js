@@ -3,6 +3,8 @@ dotenv.config({ path: './.env', override: true });
 import express from 'express';
 import Stripe from 'stripe';
 import cors from 'cors';
+import { createClient } from '@supabase/supabase-js';
+import helmet from 'helmet';
 
 // Validate Stripe Secret Key
 if (!process.env.STRIPE_SECRET_KEY) {
@@ -12,6 +14,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
 const app = express();
 
 const allowedOrigins = [
@@ -33,6 +36,9 @@ app.use(cors({
     }
 }));
 
+// Security Headers
+app.use(helmet());
+
 // Webhook requires raw body
 app.use((req, res, next) => {
     if (req.originalUrl === '/webhook') {
@@ -40,6 +46,26 @@ app.use((req, res, next) => {
     } else {
         express.json()(req, res, next);
     }
+});
+
+// Security Middleware (x-render-secret)
+app.use((req, res, next) => {
+    // Bypass for health check and webhook
+    if (req.path === '/health' || req.path === '/webhook') {
+        return next();
+    }
+
+    const secret = req.headers['x-render-secret'];
+    if (secret !== process.env.RENDER_SECRET_KEY) {
+        // Log attempt?
+        return res.status(403).json({ error: 'Forbidden: Invalid Secret' });
+    }
+    next();
+});
+
+// Health Check
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
 });
 
 // Root endpoint
@@ -111,6 +137,26 @@ app.post('/create-payment-intent', async (req, res) => {
             // Remove explicit payment_method_types to avoid 500 errors if methods aren't enabled in Stripe Dashboard
             // payment_method_types: [...] <--- Removed
         });
+
+        // Insert into Supabase Orders table
+        try {
+            const { error: dbError } = await supabase.from('orders').insert({
+                payment_intent_id: paymentIntent.id,
+                amount: orderAmount,
+                status: 'pending',
+                email: email || 'guest@alpharevive.com',
+                items: items || [], // Store full items array
+                created_at: new Date().toISOString()
+            });
+
+            if (dbError) {
+                console.error('Supabase DB Insert Error:', dbError);
+            } else {
+                console.log('✅ Order logged to Supabase:', paymentIntent.id);
+            }
+        } catch (dbErr) {
+            console.error('Supabase Exception:', dbErr);
+        }
 
         res.send({
             clientSecret: paymentIntent.client_secret,
