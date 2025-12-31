@@ -175,7 +175,7 @@ export default function CheckoutPage() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "x-render-secret": import.meta.env.VITE_RENDER_SECRET_KEY || ""
+                    "x-render-secret": import.meta.env.VITE_PUBLIC_RENDER_SECRET || ""
                 },
                 body: JSON.stringify({ items: cartItems, amount: totalAmount, shippingProtection }),
             })
