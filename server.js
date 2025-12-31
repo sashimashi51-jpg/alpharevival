@@ -45,6 +45,31 @@ app.use(cors({
     }
 }));
 
+// Health Check Endpoint (Public)
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
+// Security Middleware
+const securityMiddleware = (req, res, next) => {
+    // Skip for webhook (Stripe) and health check
+    if (req.path === '/webhook' || req.path === '/health') return next();
+
+    // In development, we might want to skip or warn
+    if (process.env.NODE_ENV !== 'production' && !process.env.RENDER_SECRET_KEY) {
+        return next();
+    }
+
+    const secret = req.headers['x-render-secret'];
+    // Allow if secret matches OR if the secret key is not set on the server (to avoid breaking dev if not configured)
+    if (process.env.RENDER_SECRET_KEY && secret !== process.env.RENDER_SECRET_KEY) {
+        console.warn(`Unauthorized access attempt from ${req.ip} to ${req.path}`);
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+    next();
+};
+app.use(securityMiddleware);
+
 // Webhook requires raw body
 app.use((req, res, next) => {
     if (req.originalUrl === '/webhook') {

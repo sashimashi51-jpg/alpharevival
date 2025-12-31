@@ -41,9 +41,13 @@ export const Contact2 = ({
 
         try {
             // Using /api relative path for Vercel
-            const response = await fetch('/api/contact', {
+            const apiUrl = import.meta.env.VITE_API_URL || '/api';
+            const response = await fetch(`${apiUrl}/contact`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    "x-render-secret": import.meta.env.VITE_RENDER_SECRET_KEY || ""
+                },
                 body: JSON.stringify({
                     firstName: formData.firstName,
                     lastName: formData.lastName,
