@@ -13,6 +13,8 @@ import { StaggerTestimonials } from '../components/StaggerTestimonials';
 import TrustBadges from '../components/TrustBadges';
 import EbookSection from '../components/EbookSection';
 import SEO from '../components/SEO';
+import ProductSchema from '../components/seo/ProductSchema';
+import FAQSchema from '../components/seo/FAQSchema';
 import './ProductPage.css';
 
 const productSchema = {
@@ -197,6 +199,8 @@ export default function ProductPage() {
                 description="Experience the breakthrough 3-phase hair recovery system. Reactivate dormant follicles in 90 days or get your money back."
                 schema={productSchema}
             />
+            <ProductSchema />
+            <FAQSchema />
             <div className="product-page">
                 <div className="container product-grid">
                     {/* Left Column: Gallery */}
