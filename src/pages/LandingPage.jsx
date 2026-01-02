@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Star, ShieldCheck, ArrowRight, Activity, Droplet, Zap, ChevronDown, ChevronUp } from 'lucide-react';
+import { Star, ShieldCheck, Activity, Droplet, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SalesPopup from '../components/SalesPopup';
-import TestimonialsColumns from '../components/TestimonialsColumns';
-import FaqSection from '../components/FaqSection';
 import { FlowButton } from '../components/FlowButton';
-import SuccessStories from '../components/SuccessStories';
-import FeaturedProduct from '../components/FeaturedProduct';
-import EbookSection from '../components/EbookSection';
 import { StarButton } from '../components/ui/StarButton';
 import SEO from '../components/SEO';
 import ShopByConcern from '../components/ShopByConcern';
 import WebSiteSchema from '../components/seo/WebSiteSchema';
-import FeaturedArticle from '../components/FeaturedArticle';
+import LazyVideo from '../components/LazyVideo';
 
 import './LandingPage.css';
+
+// Lazy load non-critical components
+const SalesPopup = lazy(() => import('../components/SalesPopup'));
+const TestimonialsColumns = lazy(() => import('../components/TestimonialsColumns'));
+const FaqSection = lazy(() => import('../components/FaqSection'));
+const SuccessStories = lazy(() => import('../components/SuccessStories'));
+const FeaturedProduct = lazy(() => import('../components/FeaturedProduct'));
+const EbookSection = lazy(() => import('../components/EbookSection'));
+const FeaturedArticle = lazy(() => import('../components/FeaturedArticle'));
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
 };
+
+// Component Loader
+const SectionLoader = () => (
+    <div className="py-12 flex justify-center">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-orange-600 rounded-full animate-spin"></div>
+    </div>
+);
 
 export default function LandingPage() {
     const [activeAccordion, setActiveAccordion] = React.useState(null);
@@ -29,9 +39,16 @@ export default function LandingPage() {
 
     // Scroll detection for sticky button
     React.useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setShowStickyButton(scrollPosition > 800);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollPosition = window.scrollY;
+                    setShowStickyButton(scrollPosition > 800);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -258,32 +275,32 @@ export default function LandingPage() {
                 <p className="text-center proof-bar-title">As seen in</p>
                 <div className="logo-carousel">
                     <div className="logo-track">
-                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
-                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
-                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
-                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" loading="lazy" />
                         {/* Duplicate 1 */}
-                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
-                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
-                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
-                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" loading="lazy" />
                         {/* Duplicate 2 */}
-                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
-                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
-                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
-                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" loading="lazy" />
                         {/* Duplicate 3 */}
-                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
-                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
-                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
-                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" loading="lazy" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" loading="lazy" />
                     </div>
                 </div>
             </section>
 
             {/* Large Banner Section - Text Overlay with Original Aspect Ratio */}
             <section className="risk-free-banner">
-                <img src="/assets/banner_1.webp" alt="Risk Free Banner" className="banner-bg" width="800" height="800" />
+                <img src="/assets/banner_1.webp" alt="Risk Free Banner" className="banner-bg" width="800" height="800" loading="lazy" />
                 <div className="risk-free-overlay">
                     <div className="risk-free-content">
                         <p className="risk-free-text">
@@ -334,11 +351,13 @@ export default function LandingPage() {
             </section>
 
             {/* Success Stories Slider */}
-            <SuccessStories />
+            <Suspense fallback={<SectionLoader />}>
+                <SuccessStories />
+            </Suspense>
 
             {/* Full Width Video Loop */}
             <section className="video-section" style={{ width: '100%', overflow: 'hidden', lineHeight: 0 }}>
-                <video
+                <LazyVideo
                     src="/assets/video.mp4"
                     autoPlay
                     loop
@@ -350,33 +369,45 @@ export default function LandingPage() {
             </section>
 
             {/* Testimonials Section (New Animated) */}
-            <TestimonialsColumns />
+            <Suspense fallback={<SectionLoader />}>
+                <TestimonialsColumns />
+            </Suspense>
 
             {/* Lead Magnet - Ebook Section */}
-            <EbookSection />
+            <Suspense fallback={<SectionLoader />}>
+                <EbookSection />
+            </Suspense>
 
             {/* Featured Article - Internal Link for SEO */}
-            <FeaturedArticle />
+            <Suspense fallback={null}>
+                <FeaturedArticle />
+            </Suspense>
 
             {/* Featured Product Section */}
-            <FeaturedProduct />
+            <Suspense fallback={<SectionLoader />}>
+                <FeaturedProduct />
+            </Suspense>
 
 
             {/* FAQs (New Animated) */}
-            <FaqSection
-                title="Your Questions, Answered"
-                description="Everything you need to know about starting your regrowth journey."
-                items={faqItems}
-                contactInfo={{
-                    title: "Still have questions?",
-                    description: "Our hair restoration experts are here to help.",
-                    buttonText: "Contact Support",
-                    onContact: () => window.location.href = "/contact"
-                }}
-            />
+            <Suspense fallback={<SectionLoader />}>
+                <FaqSection
+                    title="Your Questions, Answered"
+                    description="Everything you need to know about starting your regrowth journey."
+                    items={faqItems}
+                    contactInfo={{
+                        title: "Still have questions?",
+                        description: "Our hair restoration experts are here to help.",
+                        buttonText: "Contact Support",
+                        onContact: () => window.location.href = "/contact"
+                    }}
+                />
+            </Suspense>
 
 
-            <SalesPopup />
+            <Suspense fallback={null}>
+                <SalesPopup />
+            </Suspense>
             <div className="mobile-sticky-bar" data-visible={showStickyButton}>
                 <FlowButton to="/product" text="Shop Now" className="w-full" />
             </div>

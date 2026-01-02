@@ -20,6 +20,7 @@ const JournalTemplate = lazy(() => import('./pages/JournalTemplate'));
 const CheckoutPage = lazy(() => import('./pages/CheckoutPage'));
 const SuccessPage = lazy(() => import('./pages/SuccessPage'));
 const TrackingPage = lazy(() => import('./pages/TrackingPage'));
+const LiveChat = lazy(() => import('./components/LiveChat'));
 
 // Scroll to top wrapper
 const Wrapper = ({ children }) => {
@@ -34,7 +35,6 @@ import UspCarousel from './components/UspCarousel';
 import { CartProvider } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
 import Analytics from './components/Analytics';
-import LiveChat from './components/LiveChat';
 
 // Loading fallback
 const PageLoader = () => (
@@ -92,7 +92,9 @@ function App() {
       <BrowserRouter>
         <Wrapper>
           <Analytics />
-          <LiveChat />
+          <Suspense fallback={null}>
+            <LiveChat />
+          </Suspense>
           <AppContent />
         </Wrapper>
       </BrowserRouter>
