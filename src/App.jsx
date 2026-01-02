@@ -56,7 +56,7 @@ function AppContent() {
             <Route path="/product" element={<ProductPage />} />
             <Route path="/clinical-study" element={<ClinicalStudy />} />
             <Route path="/journal" element={<BlogIndex />} />
-            <Route path="/journal/follicle-activation-protocol" element={<JournalTemplate />} />
+            <Route path="/journal/microneedling-hair-regrowth-protocol" element={<JournalTemplate />} />
             <Route path="/journal/:slug" element={<BlogPost />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/success" element={<SuccessPage />} />

@@ -13,6 +13,7 @@ import { StarButton } from '../components/ui/StarButton';
 import SEO from '../components/SEO';
 import ShopByConcern from '../components/ShopByConcern';
 import WebSiteSchema from '../components/seo/WebSiteSchema';
+import FeaturedArticle from '../components/FeaturedArticle';
 
 import './LandingPage.css';
 
@@ -353,6 +354,9 @@ export default function LandingPage() {
 
             {/* Lead Magnet - Ebook Section */}
             <EbookSection />
+
+            {/* Featured Article - Internal Link for SEO */}
+            <FeaturedArticle />
 
             {/* Featured Product Section */}
             <FeaturedProduct />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, Clock, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import ArticleSchema from '../components/seo/ArticleSchema';
 import HowToSchema from '../components/seo/HowToSchema';
 import './JournalTemplate.css';
@@ -32,6 +33,10 @@ export default function JournalTemplate() {
 
     return (
         <>
+            <Helmet>
+                <title>Microneedling Hair Regrowth: The 2026 Protocol | AlphaRevive</title>
+                <meta name="description" content="Complete guide to microneedling for hair regrowth. Learn the innovative method combining microneedling with peptide therapy for hair restoration without surgery or drugs." />
+            </Helmet>
             <ArticleSchema />
             <HowToSchema />
 
