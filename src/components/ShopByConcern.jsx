@@ -48,29 +48,26 @@ export default function ShopByConcern() {
             <Link
               key={item.id}
               to={item.link}
-              className="group relative overflow-hidden rounded-2xl bg-[#F5F7FA] block h-64 md:h-80 transition-shadow hover:shadow-lg no-underline"
+              className="group rounded-2xl bg-[#F5F7FA] flex h-56 md:h-72 transition-shadow hover:shadow-lg no-underline overflow-hidden"
             >
-                {/* Image Background */}
-                <div className="absolute inset-0">
+                {/* Image Section - Left Side */}
+                <div className="w-1/2 relative overflow-hidden bg-gray-200">
                     <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover object-left opacity-100 transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover object-left transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => {
                             e.target.style.display = 'none';
-                            e.target.parentElement.style.backgroundColor = '#F5F7FA';
                         }}
                     />
-                    {/* Gradient Overlay for Text Readability - lighter on right/bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(245,247,250,0.4)] to-[#F5F7FA]"></div>
                 </div>
 
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-center items-end p-8 text-right z-10">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 max-w-[60%] leading-tight">
+                {/* Content Section - Right Side */}
+                <div className="w-1/2 flex flex-col justify-center items-end p-5 md:p-8 text-right">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 leading-tight">
                         {item.title}
                     </h3>
-                    <div className="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold text-sm shadow-sm transition-transform group-hover:-translate-y-1">
+                    <div className="bg-white text-gray-900 px-5 py-2 rounded-full font-semibold text-sm shadow-sm border border-gray-100 transition-transform group-hover:-translate-y-1 whitespace-nowrap">
                         Shop Now
                     </div>
                 </div>
