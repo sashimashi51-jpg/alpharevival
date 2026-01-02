@@ -82,13 +82,21 @@ export default function SuccessStories() {
                         '--slider-transform': `calc(-1 * ${currentIndex} * (25% + 0.375rem))`
                     }}
                 >
-                    {stories.map((story, index) => (
+                    {stories.map((story) => (
                         <div
-                            key={index}
+                            key={story.id}
                             className="story-card"
                         >
                             <div className="story-image-container">
-                                <img src={story.image} alt={`${story.name} results`} className="story-image" />
+                                <img
+                                    src={story.image}
+                                    alt={story.alt}
+                                    className="story-image"
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="800"
+                                    height="600"
+                                />
                             </div>
                             <div className="story-stars">
                                 {[...Array(5)].map((_, i) => (
