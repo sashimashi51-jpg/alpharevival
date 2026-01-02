@@ -310,6 +310,10 @@ export default function CartDrawer() {
                                     setIsCartOpen(false);
                                     navigate('/checkout');
                                 }}
+                                style={{
+                                    background: '#10b981',
+                                    color: '#ffffff'
+                                }}
                                 className="btn btn-primary btn-large w-full py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg transition-all flex items-center justify-center gap-2 group shadow-md"
                             >
                                 <ShieldCheck size={22} className="group-hover:scale-110 transition-transform" />
