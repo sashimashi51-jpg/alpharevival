@@ -169,9 +169,9 @@
 }
 
 .guarantee-text {
-    font-weight: 800;
+    font-weight: 800 !important;
     font-size: 0.9rem;
-    color: #000;
+    color: #000000 !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }

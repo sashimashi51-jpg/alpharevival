@@ -92,8 +92,8 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: #000000;
-  font-weight: 700;
+  color: #000000 !important;
+  font-weight: 700 !important;
 }
 
 .hero-social-proof {
