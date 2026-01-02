@@ -258,32 +258,32 @@ export default function LandingPage() {
                 <p className="text-center proof-bar-title">As seen in</p>
                 <div className="logo-carousel">
                     <div className="logo-track">
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
                         {/* Duplicate 1 */}
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
                         {/* Duplicate 2 */}
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
                         {/* Duplicate 3 */}
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" width="158" height="52" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" width="158" height="52" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" width="158" height="52" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" width="158" height="52" />
                     </div>
                 </div>
             </section>
 
             {/* Large Banner Section - Text Overlay with Original Aspect Ratio */}
             <section className="risk-free-banner">
-                <img src="/assets/banner_1.png" alt="Risk Free Banner" className="banner-bg" />
+                <img src="/assets/banner_1.webp" alt="Risk Free Banner" className="banner-bg" width="800" height="800" />
                 <div className="risk-free-overlay">
                     <div className="risk-free-content">
                         <p className="risk-free-text">
