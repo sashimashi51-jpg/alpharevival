@@ -11,6 +11,7 @@ import FeaturedProduct from '../components/FeaturedProduct';
 import EbookSection from '../components/EbookSection';
 import { StarButton } from '../components/ui/StarButton';
 import SEO from '../components/SEO';
+import ShopByConcern from '../components/ShopByConcern';
 
 import './LandingPage.css';
 
@@ -246,6 +247,8 @@ export default function LandingPage() {
                 </div>
             </section>
 
+            {/* Shop By Concern Section */}
+            <ShopByConcern />
 
             {/* Social Proof / Trusted By - Infinite Carousel */}
             <section className="proof-bar">
