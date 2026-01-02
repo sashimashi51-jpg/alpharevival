@@ -117,6 +117,7 @@ export default function LandingPage() {
                     ]
                 }}
             />
+            <WebSiteSchema />
 
             {/* Hero Section */}
             <div className="hero section" style={{ backgroundColor: '#ffffff', marginTop: 0 }}>
