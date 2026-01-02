@@ -60,17 +60,17 @@
     content="Clinically-proven hair regrowth system for men. Microneedling + peptide serum targets hair loss, thinning & bald spots. See results in 90 days. 120-day money-back guarantee." />
   <meta property="twitter:image" content="https://www.alpharevive.shop/assets/banner_1.png" />
 
-  <!-- Stripe Performance Optimization -->
+  <!-- Stripe - Load ONLY on checkout page via component -->
   <link rel="preconnect" href="https://js.stripe.com" />
   <link rel="dns-prefetch" href="https://js.stripe.com" />
   <link rel="preconnect" href="https://api.stripe.com" />
-  <!-- Stripe Performance Optimization -->
-  <script src="https://js.stripe.com/v3/" async></script>
 
-  <!-- Google Fonts with display=swap for performance -->
+  <!-- Google Fonts - Optimized Loading -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap">
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all'">
 
   <!-- Klaviyo Onsite Tracking - DEFERRED -->
   <script>
