@@ -48,7 +48,7 @@ export default function ShopByConcern() {
             <Link
               key={item.id}
               to={item.link}
-              className="group flex flex-row rounded-3xl bg-[#F5F7FA] overflow-hidden h-56 sm:h-64 md:h-80 transition-shadow hover:shadow-lg no-underline"
+              className="group flex flex-row rounded-3xl bg-[#F5F7FA] overflow-hidden h-64 sm:h-72 md:h-96 transition-shadow hover:shadow-lg no-underline"
             >
               {/* Image Section (Left) - Fixed width approx 40-45% */}
               <div className="w-[45%] relative overflow-hidden">
@@ -66,7 +66,7 @@ export default function ShopByConcern() {
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-6 leading-snug">
                   {item.title}
                 </h3>
-                <div className="bg-white text-gray-900 px-6 py-2 rounded-full font-bold text-sm shadow-sm transition-transform group-hover:-translate-y-1">
+                <div className="bg-black text-white px-6 py-2 rounded-full font-bold text-sm shadow-sm transition-transform group-hover:-translate-y-1">
                   Shop Now
                 </div>
               </div>
