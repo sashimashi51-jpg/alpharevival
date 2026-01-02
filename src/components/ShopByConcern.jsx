@@ -4,25 +4,25 @@ import { Link } from 'react-router-dom';
 const concerns = [
   {
     title: "Receding hairline and temple regrowth",
-    image: "/assets/hairline-temple.jpg",
+    image: "/assets/shopbyconcern/receding_hairline.png",
     link: "/product",
     id: "hairline"
   },
   {
     title: "Crown thinning and bald spots",
-    image: "/assets/crown-thinning.jpg",
+    image: "/assets/shopbyconcern/crown_thinning.png",
     link: "/product",
     id: "crown"
   },
   {
     title: "Poor scalp circulation and nutrient absorption",
-    image: "/assets/scalp-circulation.jpg",
+    image: "/assets/shopbyconcern/scalp_circulation.png",
     link: "/product",
     id: "circulation"
   },
   {
     title: "Overall thinning and lack of density",
-    image: "/assets/overall-density.jpg",
+    image: "/assets/shopbyconcern/overall_density.png",
     link: "/product",
     id: "density"
   }
@@ -48,32 +48,28 @@ export default function ShopByConcern() {
             <Link
               key={item.id}
               to={item.link}
-              className="group relative overflow-hidden rounded-2xl bg-[#F5F7FA] block h-64 md:h-80 transition-shadow hover:shadow-lg no-underline"
+              className="group flex flex-row rounded-3xl bg-[#F5F7FA] overflow-hidden h-56 sm:h-64 md:h-80 transition-shadow hover:shadow-lg no-underline"
             >
-                {/* Image Background */}
-                <div className="absolute inset-0">
-                    <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover object-left opacity-100 transition-transform duration-500 group-hover:scale-105"
-                        onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.parentElement.style.backgroundColor = '#F5F7FA';
-                        }}
-                    />
-                    {/* Gradient Overlay for Text Readability - lighter on right/bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(245,247,250,0.4)] to-[#F5F7FA]"></div>
-                </div>
+              {/* Image Section (Left) - Fixed width approx 40-45% */}
+              <div className="w-[45%] relative overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Fade to white gradient on right edge */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#F5F7FA]"></div>
+              </div>
 
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-center items-end p-8 text-right z-10">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 max-w-[60%] leading-tight">
-                        {item.title}
-                    </h3>
-                    <div className="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold text-sm shadow-sm transition-transform group-hover:-translate-y-1">
-                        Shop Now
-                    </div>
+              {/* Content Section (Right) - Right aligned */}
+              <div className="flex-1 p-6 flex flex-col justify-center items-end text-right">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-6 leading-snug">
+                  {item.title}
+                </h3>
+                <div className="bg-white text-gray-900 px-6 py-2 rounded-full font-bold text-sm shadow-sm transition-transform group-hover:-translate-y-1">
+                  Shop Now
                 </div>
+              </div>
             </Link>
           ))}
         </div>
