@@ -12,6 +12,7 @@ import EbookSection from '../components/EbookSection';
 import { StarButton } from '../components/ui/StarButton';
 import SEO from '../components/SEO';
 import ShopByConcern from '../components/ShopByConcern';
+import WebSiteSchema from '../components/seo/WebSiteSchema';
 
 import './LandingPage.css';
 
