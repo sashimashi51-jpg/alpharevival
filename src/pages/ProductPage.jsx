@@ -85,7 +85,7 @@ const offers = [
         price: '$79.99',
         pricePerDay: '$1.33/day',
         refPrice: '$119.99',
-        footer: 'INCLUDES: 2-Month Supply (+ 8 Serums)',
+        footer: 'INCLUDES: 2-Month Treatment Supply (+ 8 Serums)',
         popular: true,
         bestValue: false,
         hasGuarantee: false,
@@ -98,7 +98,7 @@ const offers = [
         price: '$129.99',
         pricePerDay: '$1.08/day',
         refPrice: '$219.99',
-        footer: 'INCLUDES: 4-Month Supply (+ 16 Serums)',
+        footer: 'INCLUDES: 4-Month Treatment Supply (+ 16 Serums)',
         popular: false,
         bestValue: true,
         hasGuarantee: true,
@@ -323,32 +323,18 @@ export default function ProductPage() {
                                         </div>
                                         {/* Footer - What's included */}
                                         <div className="offer-footer">
-                                            {offer.footer}
+                                            <div>{offer.footer}</div>
+                                            {offer.hasGuarantee && (
+                                                <div className="guarantee-badge">
+                                                    🛡️ Protected by the 120-Day Growth Guarantee
+                                                </div>
+                                            )}
+                                            {offer.bonusGuide && (
+                                                <div className="bonus-guide">
+                                                    + FREE "Hair CPR" Clinical Guide ($49 Value)
+                                                </div>
+                                            )}
                                         </div>
-
-                                        {/* 2-Month Tier: FREE Shipping + FREE Needle */}
-                                        {offer.id === '2-month' && (
-                                            <>
-                                                <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2.5 text-sm font-medium text-blue-900">
-                                                    ✓ FREE Shipping (Save $6.95)
-                                                </div>
-                                                <div className="mt-2 text-sm font-medium text-green-700">
-                                                    + FREE Sterile Needle Head ($90 Value)
-                                                </div>
-                                            </>
-                                        )}
-
-                                        {/* 4-Month Tier Bonus Features */}
-                                        {offer.hasGuarantee && (
-                                            <div className="mt-3 bg-green-50 border border-green-200 rounded-lg px-4 py-2.5 text-sm font-medium text-green-900">
-                                                🛡️ Protected by the 120-Day Growth Guarantee
-                                            </div>
-                                        )}
-                                        {offer.bonusGuide && (
-                                            <div className="mt-2 text-sm font-medium text-green-700">
-                                                + FREE "Hair CPR" Clinical Guide ($49 Value)
-                                            </div>
-                                        )}
                                     </div>
                                 </div>
                             ))}
