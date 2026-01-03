@@ -34,7 +34,7 @@ export default function ShopByConcern() {
               style={{ overflow: 'hidden' }}
             >
               {/* Image Section (Left) - 40% width */}
-              <div className="w-[40%] relative overflow-hidden">
+              <div className="w-[40%] relative overflow-hidden bg-[#E9EFF2]">
                 <img
                   src={item.image}
                   alt={item.title}
