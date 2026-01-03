@@ -75,7 +75,7 @@ const offers = [
         footer: 'INCLUDES: 1x Infusion system + 4 serums',
         popular: false,
         bestValue: false,
-        hasGuarantee: true,
+        hasGuarantee: false,
         bonusGuide: false,
         perks: []
     },
@@ -89,7 +89,7 @@ const offers = [
         footer: 'INCLUDES: 2-Month Treatment Supply (+ 8 Serums)',
         popular: true,
         bestValue: false,
-        hasGuarantee: true,
+        hasGuarantee: false,
         bonusGuide: false,
         perks: [
             { label: 'FREE Shipping', type: 'shipping' },
@@ -107,10 +107,11 @@ const offers = [
         popular: false,
         bestValue: true,
         hasGuarantee: true,
-        bonusGuide: true,
+        bonusGuide: false,
         perks: [
             { label: 'FREE Shipping', type: 'shipping' },
-            { label: 'FREE Sterile Needle', type: 'needle' }
+            { label: 'FREE Sterile Needle', type: 'needle' },
+            { label: 'FREE Gift', type: 'gift' }
         ]
     }
 ];

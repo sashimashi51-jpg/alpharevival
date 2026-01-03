@@ -427,10 +427,26 @@
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.04em;
-    background: #000000;
-    color: #ffffff;
-    border: none;
     text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.perk-badge.shipping {
+    background: #eff6ff;
+    color: #2563eb;
+    border-color: #dbeafe;
+}
+
+.perk-badge.needle {
+    background: #f0fdf4;
+    color: #16a34a;
+    border-color: #dcfce7;
+}
+
+.perk-badge.gift {
+    background: #fff7ed;
+    color: #c2410c;
+    border-color: #ffedd5;
 }
 
 /* Add to Cart Btn */
