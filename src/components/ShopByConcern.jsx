@@ -7,6 +7,12 @@ const concerns = [
     image: "/assets/shopbyconcern/scalp_circulation-removebg-preview.png",
     link: "/product",
     id: "circulation"
+  },
+  {
+    title: "Reclaim your full, thick hair",
+    image: "/assets/shopbyconcern/perfect_hair_man-removebg-preview.png",
+    link: "/product",
+    id: "fullhair"
   }
 ];
 
