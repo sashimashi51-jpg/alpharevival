@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const concerns = [
   {
     title: "Poor scalp circulation and nutrient absorption",
-    image: "/assets/shopbyconcern/scalp_circulation.png",
+    image: "/assets/shopbyconcern/scalp_circulation-removebg-preview.png",
     link: "/product",
     id: "circulation"
   }
