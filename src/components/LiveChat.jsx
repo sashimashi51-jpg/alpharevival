@@ -3,9 +3,37 @@ import { MessageCircle, X, Send, User, Bot } from 'lucide-react';
 
 const FakeLiveChat = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true); // Default to true
     const [messages, setMessages] = useState([]);
     const [isTyping, setIsTyping] = useState(false);
     const messagesEndRef = useRef(null);
+
+    // Visibility logic for PDP
+    useEffect(() => {
+        const isPDP = window.location.pathname === '/product';
+
+        if (isPDP) {
+            setIsVisible(false); // Start hidden on PDP
+
+            const handleScroll = () => {
+                const atcButton = document.querySelector('.add-to-cart-btn');
+                if (atcButton) {
+                    const rect = atcButton.getBoundingClientRect();
+                    // If the top of the button is above the viewport (scrolled past), show chat
+                    if (rect.top < 0) {
+                        setIsVisible(true);
+                    } else {
+                        setIsVisible(false);
+                    }
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+        } else {
+            setIsVisible(true); // Always visible on other pages
+        }
+    }, [window.location.pathname]);
 
     // Pre-written responses based on keywords
     const responses = {
@@ -108,10 +136,10 @@ const FakeLiveChat = () => {
     return (
         <>
             {/* Chat Button */}
-            {!isOpen && (
+            {isVisible && !isOpen && (
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="fixed bottom-32 right-6 md:bottom-6 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-50 group"
+                    className="fixed bottom-32 right-6 md:bottom-6 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-50 group animate-in fade-in slide-in-from-bottom-4"
                     style={{ width: '64px', height: '64px' }}
                 >
                     <MessageCircle size={32} className="group-hover:animate-bounce" />
@@ -120,8 +148,8 @@ const FakeLiveChat = () => {
             )}
 
             {/* Chat Window */}
-            {isOpen && (
-                <div className="fixed bottom-32 right-6 md:bottom-6 w-80 md:w-96 h-[500px] md:h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border border-gray-200">
+            {isVisible && isOpen && (
+                <div className="fixed bottom-32 right-6 md:bottom-6 w-80 md:w-96 h-[500px] md:h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border border-gray-200 animate-in fade-in slide-in-from-bottom-4">
                     {/* Header */}
                     <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-4 flex items-center justify-between">
                         <div className="flex items-center gap-3">
