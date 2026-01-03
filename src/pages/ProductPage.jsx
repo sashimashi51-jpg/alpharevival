@@ -296,7 +296,7 @@ export default function ProductPage() {
                             STOP FEEDING YOUR PILLOW, START FEEDING YOUR FOLLICLES
                         </div>
                         <p className="subheadline-text">
-                            The first micro-infusion system designed to bypass the scalp barrier and deliver serum 90% deeper than topical droppers.
+                            The first micro-infusion system designed to bypass the scalp barrier and deliver serum 300% deeper than topical droppers.
                         </p>
 
 
