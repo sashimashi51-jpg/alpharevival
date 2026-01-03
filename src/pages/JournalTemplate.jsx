@@ -230,7 +230,7 @@ export default function JournalTemplate() {
                                 <p>A: Yes, but this guide focuses on <strong>hair loss men microneedling</strong> for androgenetic alopecia. Women with female pattern baldness also respond well, though protocols may differ slightly.</p>
 
                                 <p><strong>Q: Does insurance cover microneedling hair loss treatment?</strong></p>
-                                <p>A: No. Since it's considered cosmetic, at-home <strong>microneedling for hair</strong> is out-of-pocket. Professional dermatologist sessions cost $300-500 per treatment; at-home systems like AlphaRevive cost a one-time $177 for 6 months of treatment.</p>
+                                <p>A: No. Since it's considered cosmetic, at-home <strong>microneedling for hair</strong> is out-of-pocket. Professional dermatologist sessions cost $300-500 per treatment; at-home systems like AlphaRevive cost a one-time $129.99 for 4 months of treatment.</p>
                             </section>
 
                             {/* 4. TIMELINE COMPONENT */}

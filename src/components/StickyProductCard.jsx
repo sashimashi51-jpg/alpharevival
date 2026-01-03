@@ -28,7 +28,7 @@ export default function StickyProductCard() {
 
                 {/* Price */}
                 <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-black text-gray-900">$109</span>
+                    <span className="text-3xl font-black text-gray-900">$79.99</span>
                     <span className="text-lg text-gray-400 line-through">$209</span>
                 </div>
 

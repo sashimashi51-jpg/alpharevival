@@ -155,7 +155,7 @@ export default function ProductPage() {
         },
         {
             question: "It’s too expensive – is it worth the money?",
-            answer: "Compared to a $10,000 transplant or $40/month pills for life ($5,000+ over 10 years), AlphaRevive at $189 is a steal. Plus, it's a one-time purchase for the tool."
+            answer: "Compared to a $10,000 transplant or $40/month pills for life ($5,000+ over 10 years), AlphaRevive at $129.99 is a steal. Plus, it's a one-time purchase for the tool."
         },
         {
             question: "Will I have to use this forever?",
