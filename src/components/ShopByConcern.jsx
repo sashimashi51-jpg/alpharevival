@@ -30,13 +30,13 @@ export default function ShopByConcern() {
           </p>
         </div>
 
-        {/* Single Card Layout - Centered */}
-        <div className="flex justify-center max-w-6xl mx-auto">
+        {/* Cards Stacked Vertically - Centered */}
+        <div className="flex flex-col items-center gap-6 max-w-2xl mx-auto">
           {concerns.map((item) => (
             <Link
               key={item.id}
               to={item.link}
-              className="group flex flex-row rounded-xl bg-[#E9EFF2] overflow-hidden h-[180px] transition-all hover:shadow-md no-underline w-full max-w-2xl"
+              className="group flex flex-row rounded-xl bg-[#E9EFF2] overflow-hidden h-[180px] transition-all hover:shadow-md no-underline w-full"
               style={{ overflow: 'hidden' }}
             >
               {/* Image Section (Left) - 40% width */}
