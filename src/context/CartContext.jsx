@@ -6,7 +6,7 @@ export const useCart = () => useContext(CartContext);
 
 // Thresholds in Dollars
 const THRESHOLDS = {
-    SHIPPING: 80, // Free shipping
+    SHIPPING: 75, // Free shipping threshold
     GIFT: 116    // Free gift
 };
 

@@ -103,7 +103,7 @@ export default function SuccessPage() {
 
         // Add Shipping Protection line item if applicable
         if (orderDetails.shippingProtection) {
-             tableRows.push([
+            tableRows.push([
                 "Shipping Protection",
                 "1",
                 `${currencySymbol}2.97`,
@@ -119,7 +119,7 @@ export default function SuccessPage() {
 
         // Calculate totals
         const subtotal = orderDetails.total;
-        const shipping = subtotal >= 80 ? 0 : 6.95; // Hardcoded shipping logic
+        const shipping = subtotal >= 75 ? 0 : 6.95; // Hardcoded shipping logic
         const protectionCost = orderDetails.shippingProtection ? 2.97 : 0;
         const total = subtotal + shipping + protectionCost;
 
@@ -205,7 +205,7 @@ export default function SuccessPage() {
                                 )}
                                 <div className="border-t border-gray-300 pt-2 mt-2 flex justify-between font-bold">
                                     <span>Total</span>
-                                    <span>{currencySymbol}{(orderDetails.total + (orderDetails.total >= 80 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}</span>
+                                    <span>{currencySymbol}{(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}</span>
                                 </div>
                             </div>
                         </div>
