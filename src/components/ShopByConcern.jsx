@@ -30,17 +30,17 @@ export default function ShopByConcern() {
           </p>
         </div>
 
-        {/* Cards Stacked Vertically - Premium Mobile-First Design */}
+        {/* Cards Stacked Vertically - Premium Design */}
         <div className="flex flex-col items-center gap-6 max-w-2xl mx-auto">
           {concerns.map((item) => (
             <Link
               key={item.id}
               to={item.link}
-              className="group flex flex-col md:flex-row rounded-2xl bg-gradient-to-br from-[#E9EFF2] to-[#D8E4EC] overflow-hidden transition-all hover:shadow-xl no-underline w-full"
+              className="group flex flex-row rounded-2xl bg-gradient-to-br from-[#E9EFF2] to-[#D8E4EC] overflow-hidden h-[180px] transition-all hover:shadow-xl no-underline w-full"
               style={{ overflow: 'hidden' }}
             >
-              {/* Image Section - Vertical on mobile, 40% on desktop */}
-              <div className="w-full md:w-[40%] h-[240px] md:h-[180px] relative overflow-hidden bg-gradient-to-br from-[#E9EFF2] to-[#D8E4EC]">
+              {/* Image Section (Left) - 40% width */}
+              <div className="w-[40%] relative overflow-hidden bg-gradient-to-br from-[#E9EFF2] to-[#D8E4EC]">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -49,12 +49,12 @@ export default function ShopByConcern() {
                 />
               </div>
 
-              {/* Content Section - Below image on mobile, 60% on desktop */}
-              <div className="w-full md:w-[60%] p-6 md:p-5 flex flex-col justify-center items-start">
-                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4 leading-snug">
+              {/* Content Section (Right) - 60% width, left-aligned */}
+              <div className="w-[60%] p-5 flex flex-col justify-center items-start">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-4 leading-snug">
                   {item.title}
                 </h3>
-                <div className="bg-gradient-to-r from-white to-gray-50 text-black px-8 py-3 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all group-hover:scale-105 border border-gray-200">
+                <div className="bg-gradient-to-r from-white to-gray-50 text-black px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all group-hover:scale-105 border border-gray-200">
                   Shop Now
                 </div>
               </div>
