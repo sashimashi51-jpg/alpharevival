@@ -24,13 +24,13 @@ export default function ShopByConcern() {
           </p>
         </div>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-6xl mx-auto justify-items-center">
+        {/* Single Card Layout - Centered */}
+        <div className="flex justify-center max-w-6xl mx-auto">
           {concerns.map((item) => (
             <Link
               key={item.id}
               to={item.link}
-              className="group flex flex-row rounded-xl bg-[#E9EFF2] overflow-hidden h-[180px] transition-all hover:shadow-md no-underline"
+              className="group flex flex-row rounded-xl bg-[#E9EFF2] overflow-hidden h-[180px] transition-all hover:shadow-md no-underline w-full max-w-2xl"
               style={{ overflow: 'hidden' }}
             >
               {/* Image Section (Left) - 40% width */}
