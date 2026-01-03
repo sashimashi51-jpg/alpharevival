@@ -224,60 +224,61 @@ export default function CartDrawer() {
                                 const headline = isCloseToShipping ? "Unlock Free Shipping!" : "Unlock your Free Gift!";
 
                                 return (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                            {/* Upsell: Ultimate Hair Growth Guide - ALWAYS SHOW */}
-                            {!cartItems.some(item => item.name === 'Ultimate Hair Growth Guide (eBook)') && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-200 rounded-xl p-4 flex items-center gap-3 mb-4"
-                                >
-                                    <div className="flex-shrink-0">
-                                        <img
-                                            src="/assets/product-upscaled.webp"
-                                            alt="Ultimate Hair Growth Guide"
-                                            className="w-16 h-16 object-cover rounded-lg shadow-sm"
-                                        />
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                        <p className="font-bold text-gray-900 text-sm mb-0.5">Ultimate Hair Growth Guide</p>
-                                        <p className="text-xs text-gray-600">Digital PDF Download</p>
-                                    </div>
-                                    <button
-                                        onClick={() => {
-                                            addToCart({
-                                                name: 'Ultimate Hair Growth Guide (eBook)',
-                                                title: 'Ultimate Hair Growth Guide',
-                                                subtitle: 'Digital PDF Download',
-                                                price: 20,
-                                                quantity: 1,
-                                                image: '/assets/product-upscaled.webp'
-                                            });
-                                        }}
-                                        className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
-                                    >
-                                        Add {currencySymbol}20
-                                    </button>
-                                </motion.div>
-                            )}
 
-                            {/* Modern Toggle Switch Shipping Protection */}
-                            <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setShippingProtection(!shippingProtection)}>
-                                <span className="text-sm font-medium text-gray-700">
-                                    Priority Shipping Protection
-                                </span>
-                                <div className="flex items-center gap-3">
-                                    <span className="text-sm font-semibold text-gray-900">{currencySymbol}2.97</span>
-                                    {/* Toggle Switch */}
-                                    <div className={`w-10 h-6 rounded-full transition-colors relative ${shippingProtection ? 'bg-green-500' : 'bg-gray-300'}`}>
-                                        <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${shippingProtection ? 'translate-x-4' : 'translate-x-0'}`} />
+                                    {/* Upsell: Ultimate Hair Growth Guide - ALWAYS SHOW */ }
+                            {
+                                    !cartItems.some(item => item.name === 'Ultimate Hair Growth Guide (eBook)') && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-200 rounded-xl p-4 flex items-center gap-3 mb-4"
+                                        >
+                                            <div className="flex-shrink-0">
+                                                <img
+                                                    src="/assets/product-upscaled.webp"
+                                                    alt="Ultimate Hair Growth Guide"
+                                                    className="w-16 h-16 object-cover rounded-lg shadow-sm"
+                                                />
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <p className="font-bold text-gray-900 text-sm mb-0.5">Ultimate Hair Growth Guide</p>
+                                                <p className="text-xs text-gray-600">Digital PDF Download</p>
+                                            </div>
+                                            <button
+                                                onClick={() => {
+                                                    addToCart({
+                                                        name: 'Ultimate Hair Growth Guide (eBook)',
+                                                        title: 'Ultimate Hair Growth Guide',
+                                                        subtitle: 'Digital PDF Download',
+                                                        price: 20,
+                                                        quantity: 1,
+                                                        image: '/assets/product-upscaled.webp'
+                                                    });
+                                                }}
+                                                className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
+                                            >
+                                                Add {currencySymbol}20
+                                            </button>
+                                        </motion.div>
+                                    )
+                                }
+
+
+                                {/* Modern Toggle Switch Shipping Protection */ }
+                                <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setShippingProtection(!shippingProtection)}>
+                                    <span className="text-sm font-medium text-gray-700">
+                                        Priority Shipping Protection
+                                    </span>
+                                    <div className="flex items-center gap-3">
+                                        <span className="text-sm font-semibold text-gray-900">{currencySymbol}2.97</span>
+                                        {/* Toggle Switch */}
+                                        <div className={`w-10 h-6 rounded-full transition-colors relative ${shippingProtection ? 'bg-green-500' : 'bg-gray-300'}`}>
+                                            <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${shippingProtection ? 'translate-x-4' : 'translate-x-0'}`} />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Shipping Cost */ }
+                                {/* Shipping Cost */ }
                                 <div className="flex justify-between items-center text-sm">
                                     <span className="text-gray-500">Shipping</span>
                                     <span className={`font-semibold ${cartTotal >= THRESHOLDS.SHIPPING ? 'text-green-600' : 'text-gray-900'}`}>
