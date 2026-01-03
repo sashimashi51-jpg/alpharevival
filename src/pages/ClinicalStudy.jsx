@@ -85,7 +85,7 @@ export default function ClinicalStudy() {
                 authorTitle="Medical Researcher"
                 publishDate="Dec 27, 2024"
                 readTime="10 Min Read"
-                authorImage="/assets/advertorial-reporter.png"
+                authorImage="/assets/advertorial-reporter.webp"
                 onImageClick={handleImageClick}
             />
 
@@ -99,7 +99,7 @@ export default function ClinicalStudy() {
                         margin: '2rem 0'
                     }}>
                         <img
-                            src="/assets/adv.png"
+                            src="/assets/adv.webp"
                             alt="Millions of men are treating the surface, ignoring the dormant life beneath"
                             style={{
                                 width: '100%',
@@ -107,7 +107,7 @@ export default function ClinicalStudy() {
                                 borderRadius: '8px',
                                 cursor: 'pointer'
                             }}
-                            onClick={() => handleImageClick('/assets/adv.png', 'Millions of men are treating the surface, ignoring the dormant life beneath')}
+                            onClick={() => handleImageClick('/assets/adv.webp', 'Millions of men are treating the surface, ignoring the dormant life beneath')}
                         />
                         <p style={{
                             color: '#666',
@@ -462,10 +462,10 @@ export default function ClinicalStudy() {
                     <div className="logo-track">
                         {[...Array(8)].map((_, setIndex) => (
                             <React.Fragment key={setIndex}>
-                                <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                                <img src="/assets/as_seen_in_style.png" alt="Style" />
-                                <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                                <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                                <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" />
+                                <img src="/assets/as_seen_in_style.webp" alt="Style" />
+                                <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" />
+                                <img src="/assets/as_seen_in_logo.webp" alt="Media" />
                             </React.Fragment>
                         ))}
                     </div>

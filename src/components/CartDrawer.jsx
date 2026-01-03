@@ -232,7 +232,7 @@ export default function CartDrawer() {
                                         {/* Left: eBook Thumbnail */}
                                         <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden border border-amber-300 shadow-sm">
                                             <img
-                                                src="/assets/product-upscaled.png"
+                                                src="/assets/product-upscaled.webp"
                                                 alt="eBook Cover"
                                                 className="w-full h-full object-cover"
                                                 onError={(e) => {
@@ -261,7 +261,7 @@ export default function CartDrawer() {
                                                     subtitle: 'Digital PDF Download',
                                                     price: 20,
                                                     quantity: 1,
-                                                    image: '/assets/product-upscaled.png'
+                                                    image: '/assets/product-upscaled.webp'
                                                 });
                                             }}
                                             className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"

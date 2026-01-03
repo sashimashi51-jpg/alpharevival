@@ -8,7 +8,7 @@ const EditorialHeader = ({
     authorTitle = "Senior Health Editor",
     publishDate = "Oct 24, 2025",
     readTime,
-    authorImage = "/assets/advertorial-reporter.png",
+    authorImage = "/assets/advertorial-reporter.webp",
     heroImage,
     heroImageAlt = "Article hero image",
     onImageClick

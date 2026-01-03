@@ -15,7 +15,7 @@ export default function StickyProductCard() {
             {/* Product Image */}
             <div className="bg-gray-50 rounded-xl p-4">
                 <img
-                    src="/assets/product-upscaled.png"
+                    src="/assets/product-upscaled.webp"
                     alt="AlphaRevival System"
                     className="w-full h-auto object-contain"
                 />

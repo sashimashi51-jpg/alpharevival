@@ -12,9 +12,9 @@ export default function BlogIndex() {
 
     // Author avatar mapping
     const authorAvatars = {
-        'Dr. Harry Ellison': '/assets/advertorial-reporter.png',
-        'James T.': '/assets/author-avatar-2.png',
-        'Editorial Team': '/assets/author-avatar-3.png'
+        'Dr. Harry Ellison': '/assets/advertorial-reporter.webp',
+        'James T.': '/assets/author-avatar-2.webp',
+        'Editorial Team': '/assets/author-avatar-3.webp'
     };
 
     // Verified Badge Component - Social Media Style
@@ -84,7 +84,7 @@ export default function BlogIndex() {
                             {/* Dynamic Featured Image - Centered and Responsive */}
                             <div className="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden flex items-center justify-center bg-gray-100">
                                 <img
-                                    src={activeCategory === 'ALL' ? '/assets/featured-banner.png' : featuredPost.image}
+                                    src={activeCategory === 'ALL' ? '/assets/featured-banner.webp' : featuredPost.image}
                                     alt={featuredPost.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />

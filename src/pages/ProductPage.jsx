@@ -46,22 +46,22 @@ const productSchema = {
 };
 
 const productImages = [
-    '/assets/product_photos_final/first_photo.png',
-    '/assets/product_photos_final/second_photo.png',
-    '/assets/product_photos_final/third_photo.png',
-    '/assets/product_photos_final/fourth_photo.png',
-    '/assets/product_photos_final/fifth_photo.png',
-    '/assets/product_photos_final/sixth_photo.png',
-    '/assets/product_photos_final/seventh_photo.png',
-    '/assets/product_photos_final/eighth_photo.png',
-    '/assets/product_photos_final/ninth_photo.png',
+    '/assets/product_photos_final/first_photo.webp',
+    '/assets/product_photos_final/second_photo.webp',
+    '/assets/product_photos_final/third_photo.webp',
+    '/assets/product_photos_final/fourth_photo.webp',
+    '/assets/product_photos_final/fifth_photo.webp',
+    '/assets/product_photos_final/sixth_photo.webp',
+    '/assets/product_photos_final/seventh_photo.webp',
+    '/assets/product_photos_final/eighth_photo.webp',
+    '/assets/product_photos_final/ninth_photo.webp',
 ];
 
 // Tier-specific main images for dynamic switching
 const tierMainImages = {
-    0: '/assets/product_photos_final/first_photo.png',  // 1-month: single kit
-    1: '/assets/product_photos_final/first_photo.png',  // 3-month: single kit
-    2: '/assets/product_photos_final/first_photo.png',  // 6-month: multiple boxes
+    0: '/assets/product_photos_final/first_photo.webp',  // 1-month: single kit
+    1: '/assets/product_photos_final/first_photo.webp',  // 3-month: single kit
+    2: '/assets/product_photos_final/first_photo.webp',  // 6-month: multiple boxes
 };
 
 const offers = [
@@ -286,7 +286,7 @@ export default function ProductPage() {
                         </ul>
 
                         <div className="feature-image-container">
-                            <img src="/assets/pdp.png" alt="Product Features" className="feature-image" />
+                            <img src="/assets/pdp.webp" alt="Product Features" className="feature-image" />
                         </div>
 
                         <div className="divider-section">
@@ -368,10 +368,10 @@ export default function ProductPage() {
                         <div className="logo-track">
                             {[...Array(8)].map((_, setIndex) => (
                                 <React.Fragment key={setIndex}>
-                                    <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                                    <img src="/assets/as_seen_in_style.png" alt="Style" />
-                                    <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                                    <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                                    <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" />
+                                    <img src="/assets/as_seen_in_style.webp" alt="Style" />
+                                    <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" />
+                                    <img src="/assets/as_seen_in_logo.webp" alt="Media" />
                                 </React.Fragment>
                             ))}
                         </div>

@@ -129,13 +129,13 @@ export default function BlogPost() {
                             <div className="flex justify-center mb-6">
                                 <div className="flex items-center -space-x-3">
                                     <div className="avatar-circle">
-                                        <img src="/assets/avatar-1.png" alt="User" className="w-12 h-12 rounded-full border-3 border-white object-cover" />
+                                        <img src="/assets/avatar-1.webp" alt="User" className="w-12 h-12 rounded-full border-3 border-white object-cover" />
                                     </div>
                                     <div className="avatar-circle">
-                                        <img src="/assets/avatar-2.png" alt="User" className="w-12 h-12 rounded-full border-3 border-white object-cover" />
+                                        <img src="/assets/avatar-2.webp" alt="User" className="w-12 h-12 rounded-full border-3 border-white object-cover" />
                                     </div>
                                     <div className="avatar-circle">
-                                        <img src="/assets/avatar-3.png" alt="User" className="w-12 h-12 rounded-full border-3 border-white object-cover" />
+                                        <img src="/assets/avatar-3.webp" alt="User" className="w-12 h-12 rounded-full border-3 border-white object-cover" />
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@ export default function BlogPost() {
                                 {/* Product Image */}
                                 <div className="bg-white p-6 rounded-xl border border-gray-200">
                                     <img
-                                        src="/assets/product-upscaled.png"
+                                        src="/assets/product-upscaled.webp"
                                         alt="AlphaRevival Clinical System"
                                         className="w-full h-auto object-contain"
                                     />

@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className="footer section">
             <div className="container footer-content">
                 <div className="footer-brand">
-                    <img src="/assets/logo_alpharevive.png" alt="AlphaRevive" className="footer-logo" />
+                    <img src="/assets/logo_alpharevive.webp" alt="AlphaRevive" className="footer-logo" />
                     <p>© 2025 AlphaRevive. All rights reserved.</p>
                 </div>
                 <div className="footer-links">

@@ -64,7 +64,7 @@ export default function Navbar() {
             }
           }}
         >
-          <img src="/assets/logo_alpharevive.png" alt="AlphaRevive" className="h-10 md:h-12 w-auto mt-2" />
+          <img src="/assets/logo_alpharevive.webp" alt="AlphaRevive" className="h-10 md:h-12 w-auto mt-2" />
         </Link>
 
         {/* Desktop Nav Links */}

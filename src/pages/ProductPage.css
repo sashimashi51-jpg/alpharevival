@@ -739,18 +739,10 @@
         /* Prevent horizontal scroll */
     }
 
-    /* 2. Full-width, edge-to-edge main image display - TRUE EDGE-TO-EDGE */
+    /* 2. Full-width main image display */
     .product-gallery {
-        width: 100vw;
-        /* Full viewport width */
-        position: relative;
-        left: 50%;
-        /* Move to center */
-        right: 50%;
-        margin-left: -50vw;
-        /* Pull back to left edge */
-        margin-right: -50vw;
-        /* Pull back to right edge */
+        width: 100%;
+        /* Use 100% instead of 100vw to stay within container */
         overflow-x: hidden;
         /* Prevent any horizontal scroll within gallery */
     }

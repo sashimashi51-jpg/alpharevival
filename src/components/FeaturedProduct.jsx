@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import './FeaturedProduct.css';
 
 const images = [
-    "/assets/product_photos_final/first_photo.png",
-    "/assets/product_photos_final/second_photo.png",
-    "/assets/product_photos_final/third_photo.png",
-    "/assets/product_photos_final/fourth_photo.png",
-    "/assets/product_photos_final/fifth_photo.png",
-    "/assets/product_photos_final/sixth_photo.png"
+    "/assets/product_photos_final/first_photo.webp",
+    "/assets/product_photos_final/second_photo.webp",
+    "/assets/product_photos_final/third_photo.webp",
+    "/assets/product_photos_final/fourth_photo.webp",
+    "/assets/product_photos_final/fifth_photo.webp",
+    "/assets/product_photos_final/sixth_photo.webp"
 ];
 
 export default function FeaturedProduct() {

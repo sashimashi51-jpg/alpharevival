@@ -258,32 +258,32 @@ export default function LandingPage() {
                 <p className="text-center proof-bar-title">As seen in</p>
                 <div className="logo-carousel">
                     <div className="logo-track">
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" />
                         {/* Duplicate 1 */}
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" />
                         {/* Duplicate 2 */}
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" />
                         {/* Duplicate 3 */}
-                        <img src="/assets/as_seen_in_menshealth.png" alt="Men's Health" />
-                        <img src="/assets/as_seen_in_style.png" alt="Style" />
-                        <img src="/assets/as_seen_in_cosmopolitan.png" alt="Cosmopolitan" />
-                        <img src="/assets/as_seen_in_logo.png" alt="Media" />
+                        <img src="/assets/as_seen_in_menshealth.webp" alt="Men's Health" />
+                        <img src="/assets/as_seen_in_style.webp" alt="Style" />
+                        <img src="/assets/as_seen_in_cosmopolitan.webp" alt="Cosmopolitan" />
+                        <img src="/assets/as_seen_in_logo.webp" alt="Media" />
                     </div>
                 </div>
             </section>
 
             {/* Large Banner Section - Text Overlay with Original Aspect Ratio */}
             <section className="risk-free-banner">
-                <img src="/assets/banner_1.png" alt="Risk Free Banner" className="banner-bg" />
+                <img src="/assets/banner_1.webp" alt="Risk Free Banner" className="banner-bg" />
                 <div className="risk-free-overlay">
                     <div className="risk-free-content">
                         <p className="risk-free-text">

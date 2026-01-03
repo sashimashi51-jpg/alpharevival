@@ -51,7 +51,7 @@ export default function EbookSection() {
                     {/* Left: Book Image */}
                     <div className={styles.ebookImageWrapper}>
                         <img
-                            src="/assets/product-upscaled.png"
+                            src="/assets/product-upscaled.webp"
                             alt="The CPR Protocol"
                             className={styles.ebookImage}
                         />

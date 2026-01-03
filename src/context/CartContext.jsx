@@ -19,7 +19,7 @@ const GIFT_ITEM = {
     price: 0,
     originalPrice: 15,
     quantity: 1,
-    image: '/assets/nial.png',
+    image: '/assets/nial.webp',
     isGift: true
 };
 
