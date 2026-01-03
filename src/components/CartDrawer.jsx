@@ -259,7 +259,7 @@ export default function CartDrawer() {
                                                     name: 'Ultimate Hair Growth Guide (eBook)',
                                                     title: 'Ultimate Hair Growth Guide',
                                                     subtitle: 'Digital PDF Download',
-                                                    price: 20,
+                                                    price: 90,
                                                     quantity: 1,
                                                     image: '/assets/product-upscaled.webp'
                                                 });

@@ -16,7 +16,7 @@ export default function ProductSchema() {
             "@type": "Offer",
             "url": "https://www.alpharevive.shop/product",
             "priceCurrency": "USD",
-            "price": "297.00",
+            "price": "129.99",
             "availability": "https://schema.org/InStock",
             "seller": {
                 "@type": "Organization",

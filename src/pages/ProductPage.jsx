@@ -31,8 +31,8 @@ const productSchema = {
         "@type": "AggregateOffer",
         "url": "https://www.alpharevive.shop/product",
         "priceCurrency": "USD",
-        "lowPrice": "69.00",
-        "highPrice": "189.00",
+        "lowPrice": "54.99",
+        "highPrice": "129.99",
         "offerCount": "3",
         "availability": "https://schema.org/InStock"
     },
@@ -60,8 +60,8 @@ const productImages = [
 // Tier-specific main images for dynamic switching
 const tierMainImages = {
     0: '/assets/product_photos_final/first_photo.webp',  // 1-month: single kit
-    1: '/assets/product_photos_final/first_photo.webp',  // 3-month: single kit
-    2: '/assets/product_photos_final/first_photo.webp',  // 6-month: multiple boxes
+    1: '/assets/product_photos_final/first_photo.webp',  // 2-month: single kit
+    2: '/assets/product_photos_final/first_photo.webp',  // 4-month: multiple boxes
 };
 
 const offers = [
@@ -69,8 +69,8 @@ const offers = [
         id: '1-month',
         title: '1-MONTH SUPPLY',
         badge: 'STARTUP',
-        price: '$69.00',
-        pricePerDay: '$2.30/day',
+        price: '$54.99',
+        pricePerDay: '$1.83/day',
         refPrice: '$99.00',
         footer: 'INCLUDES: 1x Infusion system + 4 serums',
         popular: false,
@@ -79,26 +79,26 @@ const offers = [
         bonusGuide: false,
     },
     {
-        id: '3-month',
-        title: '3-MONTH SUPPLY',
-        badge: 'SAVE $100',
-        price: '$109.00',
-        pricePerDay: '$1.21/day',
-        refPrice: '$209.00',
-        footer: 'INCLUDES: 3-Month Treatment Supply (+ 12 Serums)',
+        id: '2-month',
+        title: '2-MONTH SUPPLY',
+        badge: 'SAVE $40',
+        price: '$79.99',
+        pricePerDay: '$1.33/day',
+        refPrice: '$119.99',
+        footer: 'INCLUDES: 2-Month Treatment Supply (+ 8 Serums)',
         popular: true,
         bestValue: false,
         hasGuarantee: false,
         bonusGuide: false,
     },
     {
-        id: '6-month',
-        title: '6-MONTH SUPPLY',
-        badge: 'SAVE $212',
-        price: '$177.00',
-        pricePerDay: '$0.98/day',
-        refPrice: '$389.00',
-        footer: 'INCLUDES: 6-Month Treatment Supply (+ 24 Serums)',
+        id: '4-month',
+        title: '4-MONTH SUPPLY',
+        badge: 'SAVE $90',
+        price: '$129.99',
+        pricePerDay: '$1.08/day',
+        refPrice: '$219.99',
+        footer: 'INCLUDES: 4-Month Treatment Supply (+ 16 Serums)',
         popular: false,
         bestValue: true,
         hasGuarantee: true,

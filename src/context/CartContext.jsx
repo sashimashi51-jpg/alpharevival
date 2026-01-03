@@ -17,7 +17,7 @@ const GIFT_ITEM = {
     title: 'Sterile Needle Head',
     subtitle: 'Free Gift',
     price: 0,
-    originalPrice: 15,
+    originalPrice: 90,
     quantity: 1,
     image: '/assets/nial.webp',
     isGift: true

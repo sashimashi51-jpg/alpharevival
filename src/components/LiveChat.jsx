@@ -11,7 +11,7 @@ const FakeLiveChat = () => {
     const responses = {
         greeting: "Hi! 👋 I'm here to help you with any questions about AlphaRevive. What would you like to know?",
 
-        price: "Great question! Our most popular package is the 3-Month Supply at $109 (saves $100). We also have 1-month ($69) and 6-month ($189) options. All include FREE shipping and our 120-Day Money-Back Guarantee!",
+        price: "Great question! Our most popular package is the 2-Month Supply at $79.99 (saves $40). We also have 1-month ($54.99) and 4-month ($129.99) options. All include FREE shipping and our 120-Day Money-Back Guarantee!",
 
         works: "AlphaRevive uses microneedling + peptide serums to reactivate dormant hair follicles. Most men see baby hairs within 8 weeks, and noticeable thickening by month 4. It's backed by clinical studies and a 120-day guarantee!",
 
