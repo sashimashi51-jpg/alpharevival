@@ -227,50 +227,41 @@ export default function CartDrawer() {
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300"
+                            {/* Upsell: Ultimate Hair Growth Guide - ALWAYS SHOW */}
+                            {!cartItems.some(item => item.name === 'Ultimate Hair Growth Guide (eBook)') && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-200 rounded-xl p-4 flex items-center gap-3 mb-4"
+                                >
+                                    <div className="flex-shrink-0">
+                                        <img
+                                            src="/assets/product-upscaled.webp"
+                                            alt="Ultimate Hair Growth Guide"
+                                            className="w-16 h-16 object-cover rounded-lg shadow-sm"
+                                        />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <p className="font-bold text-gray-900 text-sm mb-0.5">Ultimate Hair Growth Guide</p>
+                                        <p className="text-xs text-gray-600">Digital PDF Download</p>
+                                    </div>
+                                    <button
+                                        onClick={() => {
+                                            addToCart({
+                                                name: 'Ultimate Hair Growth Guide (eBook)',
+                                                title: 'Ultimate Hair Growth Guide',
+                                                subtitle: 'Digital PDF Download',
+                                                price: 20,
+                                                quantity: 1,
+                                                image: '/assets/product-upscaled.webp'
+                                            });
+                                        }}
+                                        className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
                                     >
-                                        {/* Left: eBook Thumbnail */}
-                                        <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden border border-amber-300 shadow-sm">
-                                            <img
-                                                src="/assets/product-upscaled.webp"
-                                                alt="eBook Cover"
-                                                className="w-full h-full object-cover"
-                                                onError={(e) => {
-                                                    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Crect fill="%23f59e0b" width="64" height="64"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="24" fill="white"%3E📖%3C/text%3E%3C/svg%3E';
-                                                }}
-                                            />
-                                        </div>
-
-                                        {/* Center: Text Content */}
-                                        <div className="flex-1 min-w-0">
-                                            <h4 className="font-bold text-sm text-gray-900 leading-tight">
-                                                {headline}
-                                            </h4>
-                                            <p className="text-xs text-[#333333] mt-0.5">
-                                                Add the Ultimate Hair Guide ({currencySymbol}20)
-                                            </p>
-                                        </div>
-
-                                        {/* Right: Compact Button */}
-                                        <button
-                                            onClick={() => {
-                                                addToCart({
-                                                    id: 'ebook-upsell',
-                                                    name: 'Ultimate Hair Growth Guide (eBook)',
-                                                    title: 'Ultimate Hair Growth Guide',
-                                                    subtitle: 'Digital PDF Download',
-                                                    price: 20,
-                                                    quantity: 1,
-                                                    image: '/assets/product-upscaled.webp'
-                                                });
-                                            }}
-                                            className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
-                                        >
-                                            Add {currencySymbol}20
-                                        </button>
-                                    </motion.div>
-                                );
-                            })()}
+                                        Add {currencySymbol}20
+                                    </button>
+                                </motion.div>
+                            )}
 
                             {/* Modern Toggle Switch Shipping Protection */}
                             <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setShippingProtection(!shippingProtection)}>
@@ -286,40 +277,40 @@ export default function CartDrawer() {
                                 </div>
                             </div>
 
-                            {/* Shipping Cost */}
-                            <div className="flex justify-between items-center text-sm">
-                                <span className="text-gray-500">Shipping</span>
-                                <span className={`font-semibold ${cartTotal >= THRESHOLDS.SHIPPING ? 'text-green-600' : 'text-gray-900'}`}>
-                                    {cartTotal >= THRESHOLDS.SHIPPING ? 'FREE' : `${currencySymbol}${SHIPPING_COST.toFixed(2)}`}
-                                </span>
-                            </div>
-
-                            {/* Subtotal Row */}
-                            <div className="flex justify-between items-end border-t border-gray-100 pt-4">
-                                <span className="text-base text-gray-500 font-medium">Subtotal</span>
-                                <div className="text-right">
-                                    <span className="text-2xl font-black text-gray-900">
-                                        {currencySymbol}{(cartTotal + (shippingProtection ? 2.97 : 0) + (cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST)).toFixed(2)}
+                            {/* Shipping Cost */ }
+                                <div className="flex justify-between items-center text-sm">
+                                    <span className="text-gray-500">Shipping</span>
+                                    <span className={`font-semibold ${cartTotal >= THRESHOLDS.SHIPPING ? 'text-green-600' : 'text-gray-900'}`}>
+                                        {cartTotal >= THRESHOLDS.SHIPPING ? 'FREE' : `${currencySymbol}${SHIPPING_COST.toFixed(2)}`}
                                     </span>
                                 </div>
-                            </div>
 
-                            {/* Dominant Checkout Button */}
-                            <button
-                                onClick={() => {
-                                    setIsCartOpen(false);
-                                    navigate('/checkout');
-                                }}
-                                style={{
-                                    background: '#10b981',
-                                    color: '#ffffff'
-                                }}
-                                className="btn btn-primary btn-large w-full py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg transition-all flex items-center justify-center gap-2 group shadow-md"
-                            >
-                                <ShieldCheck size={22} className="group-hover:scale-110 transition-transform" />
-                                <span className="group-hover:translate-x-[-2px] transition-transform">SECURE CHECKOUT</span>
-                                <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
+                                {/* Subtotal Row */ }
+                                <div className="flex justify-between items-end border-t border-gray-100 pt-4">
+                                    <span className="text-base text-gray-500 font-medium">Subtotal</span>
+                                    <div className="text-right">
+                                        <span className="text-2xl font-black text-gray-900">
+                                            {currencySymbol}{(cartTotal + (shippingProtection ? 2.97 : 0) + (cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST)).toFixed(2)}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Dominant Checkout Button */ }
+                                <button
+                                    onClick={() => {
+                                        setIsCartOpen(false);
+                                        navigate('/checkout');
+                                    }}
+                                    style={{
+                                        background: '#10b981',
+                                        color: '#ffffff'
+                                    }}
+                                    className="btn btn-primary btn-large w-full py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg transition-all flex items-center justify-center gap-2 group shadow-md"
+                                >
+                                    <ShieldCheck size={22} className="group-hover:scale-110 transition-transform" />
+                                    <span className="group-hover:translate-x-[-2px] transition-transform">SECURE CHECKOUT</span>
+                                    <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                                </button>
 
                         </div>
 
