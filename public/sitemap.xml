@@ -8,15 +8,15 @@
     <!-- Homepage -->
     <url>
         <loc>https://www.alpharevive.shop/</loc>
-        <lastmod>2024-12-29</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
     <!-- Product Page -->
     <url>
         <loc>https://www.alpharevive.shop/product</loc>
-        <lastmod>2024-12-29</lastmod>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -24,68 +24,101 @@
     <!-- Clinical Study Page -->
     <url>
         <loc>https://www.alpharevive.shop/clinical-study</loc>
-        <lastmod>2024-12-29</lastmod>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
-    <!-- Results/Gallery Page -->
+    <!-- Results & Gallery -->
     <url>
         <loc>https://www.alpharevive.shop/results</loc>
-        <lastmod>2024-12-29</lastmod>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
-    <!-- Checkout Page -->
+    <!-- Journal Index -->
     <url>
-        <loc>https://www.alpharevive.shop/checkout</loc>
-        <lastmod>2024-12-29</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://www.alpharevive.shop/journal</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
-    
-    <!-- Contact Page -->
+
+    <!-- Journal Articles -->
     <url>
-        <loc>https://www.alpharevive.shop/contact</loc>
-        <lastmod>2024-12-29</lastmod>
+        <loc>https://www.alpharevive.shop/journal/microneedling-hair-regrowth-protocol</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.alpharevive.shop/journal/microneedling-hair-growth-timeline-2025</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.alpharevive.shop/journal/derma-roller-vs-pen-hair-loss</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.alpharevive.shop/journal/minoxidil-after-microneedling-rule</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.alpharevive.shop/journal/5-common-microneedling-mistakes</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.alpharevive.shop/journal/science-of-micro-channeling</loc>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     
-    <!-- Journal/Blog Page -->
+    <!-- Support & Utility -->
     <url>
-        <loc>https://www.alpharevive.shop/journal</loc>
-        <lastmod>2024-12-29</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
+        <loc>https://www.alpharevive.shop/contact</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.alpharevive.shop/track</loc>
+        <lastmod>2026-01-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
     
-    <!-- Policy Pages -->
+    <!-- Policy Pages (Corrected to actual routes) -->
     <url>
-        <loc>https://www.alpharevive.shop/privacy-policy</loc>
-        <lastmod>2024-12-29</lastmod>
+        <loc>https://www.alpharevive.shop/privacy</loc>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
-    
     <url>
-        <loc>https://www.alpharevive.shop/terms-conditions</loc>
-        <lastmod>2024-12-29</lastmod>
+        <loc>https://www.alpharevive.shop/terms</loc>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
-    
     <url>
         <loc>https://www.alpharevive.shop/return-refund</loc>
-        <lastmod>2024-12-29</lastmod>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.4</priority>
+        <priority>0.3</priority>
     </url>
-    
     <url>
-        <loc>https://www.alpharevive.shop/shipping-policy</loc>
-        <lastmod>2024-12-29</lastmod>
+        <loc>https://www.alpharevive.shop/shipping</loc>
+        <lastmod>2026-01-03</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
