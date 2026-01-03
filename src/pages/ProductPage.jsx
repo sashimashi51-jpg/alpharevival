@@ -75,7 +75,7 @@ const offers = [
         footer: 'INCLUDES: 1x Infusion system + 4 serums',
         popular: false,
         bestValue: false,
-        hasGuarantee: false,
+        hasGuarantee: true,
         bonusGuide: false,
         perks: []
     },
@@ -89,7 +89,7 @@ const offers = [
         footer: 'INCLUDES: 2-Month Treatment Supply (+ 8 Serums)',
         popular: true,
         bestValue: false,
-        hasGuarantee: false,
+        hasGuarantee: true,
         bonusGuide: false,
         perks: [
             { label: 'FREE Shipping', type: 'shipping' },
