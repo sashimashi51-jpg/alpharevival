@@ -15,6 +15,7 @@ import EbookSection from '../components/EbookSection';
 import SEO from '../components/SEO';
 import ProductSchema from '../components/seo/ProductSchema';
 import FAQSchema from '../components/seo/FAQSchema';
+import ImageLightbox from '../components/ImageLightbox';
 import './ProductPage.css';
 
 const productSchema = {
@@ -122,9 +123,17 @@ export default function ProductPage() {
     const [activeImage, setActiveImage] = useState(0);
     const [selectedOffer, setSelectedOffer] = useState(1);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const [lightboxImage, setLightboxImage] = useState(null);
+    const [lightboxAlt, setLightboxAlt] = useState('');
     const { addToCart } = useCart();
     const [showSuccess, setShowSuccess] = useState(false);
     const [isFading, setIsFading] = useState(false); // For buttery smooth transitions
+
+    const handleImageClick = (src, alt) => {
+        setLightboxImage(src);
+        setLightboxAlt(alt);
+        setIsLightboxOpen(true);
+    };
 
 
     // Update main image when tier selection changes
@@ -217,7 +226,7 @@ export default function ProductPage() {
                     <div className="product-gallery">
                         <div
                             className="main-image-wrapper"
-                            onClick={() => setIsLightboxOpen(true)}
+                            onClick={() => handleImageClick(productImages[activeImage], "AlphaRevive System")}
                             style={{ cursor: 'zoom-in' }}
                         >
                             <img
@@ -298,11 +307,11 @@ export default function ProductPage() {
                             <li><Check size={20} className="check-icon" /><span>100% secure checkout</span></li>
                         </ul>
 
-                        <div className="infographic-container">
+                        <div className="infographic-container" onClick={() => handleImageClick("/assets/hiw-infographic.webp", "How it works infographic")} style={{ cursor: 'zoom-in' }}>
                             <img src="/assets/hiw-infographic.webp" alt="How it works infographic" className="infographic-image" />
                         </div>
 
-                        <div className="feature-image-container">
+                        <div className="feature-image-container" onClick={() => handleImageClick("/assets/pdp.webp", "Product Features")} style={{ cursor: 'zoom-in' }}>
                             <img src="/assets/pdp.webp" alt="Product Features" className="feature-image" />
                         </div>
 
@@ -416,11 +425,14 @@ export default function ProductPage() {
                             <h2>OUR UNIQUE MECHANISM</h2>
                         </div>
 
-                        <div className="mechanism-video-wrapper" style={{
-                            textAlign: 'center',
-                            margin: '0 auto 3rem',
-                            maxWidth: '800px'
-                        }}>
+                        <div className="mechanism-video-wrapper"
+                            onClick={() => handleImageClick("/assets/hero-gif.mp4", "Mechanism behind follicle restoration")}
+                            style={{
+                                textAlign: 'center',
+                                margin: '0 auto 3rem',
+                                maxWidth: '800px',
+                                cursor: 'zoom-in'
+                            }}>
                             <video
                                 src="/assets/hero-gif.mp4"
                                 autoPlay
@@ -522,7 +534,7 @@ export default function ProductPage() {
                                 Penetration achieved → Energy reactivated → Growth factors delivered
                             </p>
 
-                            <div className="mechanism-final-image" style={{ margin: '3rem 0' }}>
+                            <div className="mechanism-final-image" onClick={() => handleImageClick("/assets/advertorial-concept.webp", "AlphaRevive concept")} style={{ margin: '3rem 0', cursor: 'zoom-in' }}>
                                 <img
                                     src="/assets/advertorial-concept.webp"
                                     alt="AlphaRevive concept"
@@ -580,33 +592,12 @@ export default function ProductPage() {
 
 
                 {/* Lightbox Modal */}
-                {isLightboxOpen && (
-                    <div className="lightbox-overlay" onClick={() => setIsLightboxOpen(false)}>
-                        <button className="lightbox-close" onClick={() => setIsLightboxOpen(false)}>
-                            <X size={32} color="white" />
-                        </button>
-
-                        <button className="lightbox-nav prev" onClick={prevImage}>
-                            <ChevronLeft size={48} color="white" />
-                        </button>
-
-                        <div className="lightbox-content" onClick={e => e.stopPropagation()}>
-                            <img
-                                src={productImages[activeImage]}
-                                alt={`Product View ${activeImage + 1}`}
-                                className="lightbox-image"
-                            />
-                        </div>
-
-                        <button className="lightbox-nav next" onClick={nextImage}>
-                            <ChevronRight size={48} color="white" />
-                        </button>
-
-                        <div className="lightbox-counter">
-                            {activeImage + 1} / {productImages.length}
-                        </div>
-                    </div>
-                )}
+                <ImageLightbox
+                    imageSrc={lightboxImage}
+                    imageAlt={lightboxAlt}
+                    isOpen={isLightboxOpen}
+                    onClose={() => setIsLightboxOpen(false)}
+                />
             </div>
         </>
     );
