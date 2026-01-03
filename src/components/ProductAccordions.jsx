@@ -64,7 +64,7 @@ export default function ProductAccordions() {
                         </blockquote>
 
                         <p className="cs-text">
-                            Micro-Infusion Technology creates tiny scalp channels, boosting absorption by up to 300%. This delivers 10-15x more active ingredients where they’re needed most.
+                            Unlock the potential of your scalp with the next generation of microneedling hair regrowth technology. Unlike traditional rollers that tear the skin, the AlphaRevive system uses a vertical stamping action to create precise, safe micro-channels. This innovative method for hair regrowth does more than just boost absorption; it triggers 'Wound-Induced Hair Follicle Neogenesis,' a natural repair process that wakes up dormant stem cells. By combining this mechanical stimulation with your topical treatments, you are using a hair regrowth new method that targets the root cause of thinning, not just the symptoms. Experience the difference of clinical-grade microneedling hair therapy at home and turn thin vellus strands into thick, terminal growth. It is time to stop hiding your hair and start activating it.
                         </p>
 
                         <h4 className="cs-subhead">Independently tested. Scientifically proven</h4>
