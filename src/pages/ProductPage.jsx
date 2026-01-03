@@ -110,8 +110,7 @@ const offers = [
         bonusGuide: true,
         perks: [
             { label: 'FREE Shipping', type: 'shipping' },
-            { label: 'FREE Sterile Needle', type: 'needle' },
-            { label: 'FREE Gift', type: 'gift' }
+            { label: 'FREE Sterile Needle', type: 'needle' }
         ]
     }
 ];
