@@ -40,7 +40,7 @@ const stories = [
     }
 ];
 
-export default function SuccessStories() {
+export default function SuccessStories({ onImageClick }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Desktop: Show 4 cards. Max Index = Total - 4.
@@ -63,7 +63,7 @@ export default function SuccessStories() {
     return (
         <section className="stories-section">
             <div className="container stories-header">
-                <h2>SUCCESS STORIES</h2>
+                <h2>RESULTS YOU WILL SEE WITH YOUR OWN EYES</h2>
                 <p>Real results from verified customers</p>
             </div>
 
@@ -91,6 +91,8 @@ export default function SuccessStories() {
                         <div
                             key={story.id}
                             className="story-card"
+                            onClick={() => onImageClick && onImageClick(story.image, story.alt)}
+                            style={{ cursor: 'zoom-in' }}
                         >
                             <div className="story-image-container">
                                 <img

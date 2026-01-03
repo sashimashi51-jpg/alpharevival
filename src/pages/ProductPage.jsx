@@ -301,10 +301,10 @@ export default function ProductPage() {
 
 
                         <ul className="checklist">
-                            <li><Check size={20} className="check-icon" /><span>Perfect for all hair types and hair loss areas</span></li>
-                            <li><Check size={20} className="check-icon" /><span>Painless, quick and simple</span></li>
-                            <li><Check size={20} className="check-icon" /><span>100% Hormone-Free. Keep Your Hair & Your Edge</span></li>
-                            <li><Check size={20} className="check-icon" /><span>100% secure checkout</span></li>
+                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>Perfect for all hair types and hair loss areas</span></li>
+                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>Painless, quick and simple</span></li>
+                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>100% Hormone-Free. Keep Your Hair & Your Edge</span></li>
+                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>100% secure checkout</span></li>
                         </ul>
 
                         <div className="infographic-container" onClick={() => handleImageClick("/assets/hiw-infographic.webp", "How it works infographic")} style={{ cursor: 'zoom-in' }}>
@@ -358,7 +358,8 @@ export default function ProductPage() {
                                             <div className="perks-list">
                                                 {offer.perks.map((perk, i) => (
                                                     <span key={i} className={`perk-badge ${perk.type}`}>
-                                                        ✓ {perk.label}
+                                                        <Check size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
+                                                        <strong>{perk.label}</strong>
                                                     </span>
                                                 ))}
                                             </div>
@@ -501,15 +502,15 @@ export default function ProductPage() {
                                         <ul style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
                                             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
                                                 <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
-                                                <span><strong>Copper peptides (GHK-Cu):</strong> Signal dormant follicles to enter the growth phase</span>
+                                                <span><strong>Copper peptides (GHK-Cu): Signal dormant follicles to enter the growth phase</strong></span>
                                             </li>
                                             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
                                                 <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
-                                                <span><strong>Vasodilators:</strong> Restore blood flow locally to bring oxygen back to your follicles</span>
+                                                <span><strong>Vasodilators: Restore blood flow locally to bring oxygen back to your follicles</strong></span>
                                             </li>
                                             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
                                                 <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
-                                                <span><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</span>
+                                                <span><strong>Bioactive peptides: Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</strong></span>
                                             </li>
                                         </ul>
                                         <p>Most men report a distinct 'tingling' sensation during the first week of application. This isn't irritation—it's perfusion. It's the physical sensation of blood rushing back into capillaries that haven't seen proper flow in years, feeding the follicle the first meal it's had in a decade.</p>
@@ -546,7 +547,7 @@ export default function ProductPage() {
                 </section>
 
                 <ProductAccordions />
-                <SuccessStories />
+                <SuccessStories onImageClick={handleImageClick} />
 
                 {/* Free Guide Lead Magnet */}
                 <EbookSection />

@@ -91,7 +91,10 @@ const ImageLightbox = ({ imageSrc, imageAlt, isOpen, onClose }) => {
             {isVideo ? (
                 <video
                     src={imageSrc}
-                    style={styles.media}
+                    style={{
+                        ...styles.media,
+                        animation: 'scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                    }}
                     onClick={(e) => e.stopPropagation()}
                     controls
                     autoPlay
@@ -104,19 +107,22 @@ const ImageLightbox = ({ imageSrc, imageAlt, isOpen, onClose }) => {
                 <img
                     src={imageSrc}
                     alt={imageAlt}
-                    style={styles.media}
+                    style={{
+                        ...styles.media,
+                        animation: 'scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                    }}
                     onClick={(e) => e.stopPropagation()}
                 />
             )}
 
             <style>{`
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes scaleUp {
+          from { transform: scale(0.8); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
         }
       `}</style>
         </div>
