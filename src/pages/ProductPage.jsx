@@ -284,16 +284,23 @@ export default function ProductPage() {
                         </div>
 
                         <div className="guarantee-text">
-                            REGROW YOUR HAIR IN 120 DAYS OR GET YOUR MONEY BACK
+                            STOP FEEDING YOUR PILLOW, START FEEDING YOUR FOLLICLES
                         </div>
+                        <p className="subheadline-text">
+                            The first micro-infusion system designed to bypass the scalp barrier and deliver serum 90% deeper than topical droppers.
+                        </p>
 
 
                         <ul className="checklist">
                             <li><Check size={20} className="check-icon" /><span>Perfect for all hair types and hair loss areas</span></li>
                             <li><Check size={20} className="check-icon" /><span>Painless, quick and simple</span></li>
-                            <li><Check size={20} className="check-icon" /><span>No side effects, no marks or scars. No costly surgery</span></li>
+                            <li><Check size={20} className="check-icon" /><span>100% Hormone-Free. Keep Your Hair & Your Edge</span></li>
                             <li><Check size={20} className="check-icon" /><span>100% secure checkout</span></li>
                         </ul>
+
+                        <div className="infographic-container">
+                            <img src="/assets/infographic.webp" alt="How it works infographic" className="infographic-image" />
+                        </div>
 
                         <div className="feature-image-container">
                             <img src="/assets/pdp.webp" alt="Product Features" className="feature-image" />
