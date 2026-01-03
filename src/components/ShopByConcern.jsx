@@ -36,11 +36,11 @@ export default function ShopByConcern() {
             <Link
               key={item.id}
               to={item.link}
-              className="group flex flex-row rounded-2xl bg-gradient-to-br from-[#E9EFF2] to-[#D8E4EC] overflow-hidden h-[180px] transition-all hover:shadow-xl no-underline w-full"
+              className="group flex flex-row rounded-2xl bg-gradient-to-r from-[#EDF2F6] via-[#E9EFF2] to-[#D1DBE3] overflow-hidden h-[180px] transition-all hover:shadow-xl no-underline w-full"
               style={{ overflow: 'hidden' }}
             >
-              {/* Image Section (Left) - 40% width */}
-              <div className="w-[40%] relative overflow-hidden bg-gradient-to-br from-[#E9EFF2] to-[#D8E4EC]">
+              {/* Image Section (Left) - 40% width - Lighter side */}
+              <div className="w-[40%] relative overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -49,7 +49,7 @@ export default function ShopByConcern() {
                 />
               </div>
 
-              {/* Content Section (Right) - 60% width, left-aligned */}
+              {/* Content Section (Right) - 60% width - Darker side */}
               <div className="w-[60%] p-5 flex flex-col justify-center items-start">
                 <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-4 leading-snug">
                   {item.title}
