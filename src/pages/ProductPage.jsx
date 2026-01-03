@@ -299,7 +299,7 @@ export default function ProductPage() {
                         </ul>
 
                         <div className="infographic-container">
-                            <img src="/assets/infographic.webp" alt="How it works infographic" className="infographic-image" />
+                            <img src="/assets/hiw-infographic.webp" alt="How it works infographic" className="infographic-image" />
                         </div>
 
                         <div className="feature-image-container">
