@@ -4,25 +4,25 @@ import { Link } from 'react-router-dom';
 const concerns = [
   {
     title: "Receding hairline and temple regrowth",
-    image: "/assets/shopbyconcern/receding_hairline.webp",
+    image: "/assets/shopbyconcern/receding_hairline.png",
     link: "/product",
     id: "hairline"
   },
   {
     title: "Crown thinning and bald spots",
-    image: "/assets/shopbyconcern/crown_thinning.webp",
+    image: "/assets/shopbyconcern/crown_thinning.png",
     link: "/product",
     id: "crown"
   },
   {
     title: "Poor scalp circulation and nutrient absorption",
-    image: "/assets/shopbyconcern/scalp_circulation.webp",
+    image: "/assets/shopbyconcern/scalp_circulation.png",
     link: "/product",
     id: "circulation"
   },
   {
     title: "Overall thinning and lack of density",
-    image: "/assets/shopbyconcern/overall_density.webp",
+    image: "/assets/shopbyconcern/overall_density.png",
     link: "/product",
     id: "density"
   }
