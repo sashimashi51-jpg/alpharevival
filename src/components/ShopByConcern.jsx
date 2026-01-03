@@ -54,7 +54,7 @@ export default function ShopByConcern() {
                 <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-4 leading-snug">
                   {item.title}
                 </h3>
-                <div className="bg-gradient-to-r from-white to-gray-50 text-black px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all group-hover:scale-105 border border-gray-200">
+                <div className="bg-gradient-to-r from-white to-gray-50 text-black px-6 py-2.5 md:px-10 md:py-4 rounded-full font-bold text-sm md:text-base shadow-md hover:shadow-xl transition-all duration-300 group-hover:scale-110 hover:-translate-y-1 border border-gray-200 cursor-pointer">
                   Shop Now
                 </div>
               </div>
