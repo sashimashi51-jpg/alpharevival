@@ -409,6 +409,130 @@ export default function ProductPage() {
                     </div>
                 </div>
 
+                {/* Our Unique Mechanism Section */}
+                <section className="mechanism-section">
+                    <div className="container">
+                        <div className="stories-header">
+                            <h2>OUR UNIQUE MECHANISM</h2>
+                        </div>
+
+                        <div className="mechanism-video-wrapper" style={{
+                            textAlign: 'center',
+                            margin: '0 auto 3rem',
+                            maxWidth: '800px'
+                        }}>
+                            <video
+                                src="/assets/hero-gif.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    borderRadius: '12px',
+                                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
+                                }}
+                            />
+                        </div>
+
+                        <div className="mechanism-content-wrapper" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
+                            <div className="mechanism-steps">
+                                <div className="step-box">
+                                    <div className="step-number">1</div>
+                                    <div className="step-content">
+                                        <h4>Phase 1: Create Direct Pathways to Your Follicles</h4>
+                                        <p>Medical-grade microneedling creates thousands of microscopic channels in your scalp. Each channel is precisely 0.5mm deep—the exact depth that reaches your follicles without causing damage.</p>
+                                        <p>This isn't about "better absorption." This is about bypassing the skin barrier entirely. Creating direct highways to your dormant follicles so that growth factors can finally reach them at 60-80% efficiency instead of 2-5%. The barrier that's been blocking every treatment you've tried? Gone.</p>
+                                    </div>
+                                    <div className="step-diagram">
+                                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="10" y1="45" x2="90" y2="45" stroke="#000" strokeWidth="2" />
+                                            <line x1="10" y1="55" x2="90" y2="55" stroke="#000" strokeWidth="1.5" />
+                                            <line x1="30" y1="20" x2="30" y2="50" stroke="#000" strokeWidth="1.5" />
+                                            <line x1="50" y1="15" x2="50" y2="50" stroke="#000" strokeWidth="1.5" />
+                                            <line x1="70" y1="22" x2="70" y2="50" stroke="#000" strokeWidth="1.5" />
+                                            <circle cx="30" cy="50" r="2" stroke="#000" strokeWidth="1" fill="none" />
+                                            <circle cx="50" cy="50" r="2" stroke="#000" strokeWidth="1" fill="none" />
+                                            <circle cx="70" cy="50" r="2" stroke="#000" strokeWidth="1" fill="none" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div className="step-box">
+                                    <div className="step-number">2</div>
+                                    <div className="step-content">
+                                        <h4>Phase 2: Wake Up Your Follicles' Energy Production</h4>
+                                        <p>The system uses targeted red light therapy at 650 nanometers wavelength. That specific frequency penetrates to the follicle level and activates the mitochondria—your follicles' energy factories.</p>
+                                        <p>At 650nm, light literally flips the switch on dormant mitochondria. Follicles that have been asleep for years restart their growth cycle.</p>
+                                        <p>Not from chemicals, and not from some hormones. But from light activating your own cellular machinery at the exact frequency that turns it back on.</p>
+                                    </div>
+                                    <div className="step-diagram">
+                                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <ellipse cx="50" cy="70" rx="18" ry="22" stroke="#000" strokeWidth="1.5" fill="none" />
+                                            <line x1="50" y1="30" x2="50" y2="48" stroke="#000" strokeWidth="2" />
+                                            <circle cx="35" cy="20" r="2.5" stroke="#000" strokeWidth="1" fill="none" />
+                                            <circle cx="50" cy="15" r="2.5" stroke="#000" strokeWidth="1" fill="none" />
+                                            <circle cx="65" cy="22" r="2.5" stroke="#000" strokeWidth="1" fill="none" />
+                                            <line x1="35" y1="25" x2="40" y2="48" stroke="#000" strokeWidth="1" strokeDasharray="2,2" />
+                                            <line x1="50" y1="20" x2="50" y2="45" stroke="#000" strokeWidth="1" strokeDasharray="2,2" />
+                                            <line x1="65" y1="27" x2="60" y2="48" stroke="#000" strokeWidth="1" strokeDasharray="2,2" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div className="step-box">
+                                    <div className="step-number">3</div>
+                                    <div className="step-content">
+                                        <h4>Phase 3: Deliver Growth Factors Directly Where They're Needed</h4>
+                                        <p>With channels open and energy restored, the system delivers a serum containing:</p>
+                                        <ul style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
+                                            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                                                <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
+                                                <span><strong>Copper peptides (GHK-Cu):</strong> Signal dormant follicles to enter the growth phase</span>
+                                            </li>
+                                            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                                                <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
+                                                <span><strong>Vasodilators:</strong> Restore blood flow locally to bring oxygen back to your follicles</span>
+                                            </li>
+                                            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                                                <Check size={20} style={{ color: '#10b981', flexShrink: 0, marginTop: '0.15rem' }} />
+                                                <span><strong>Bioactive peptides:</strong> Provide the building blocks your follicles need to produce keratin—the protein that hair is made of</span>
+                                            </li>
+                                        </ul>
+                                        <p>Most men report a distinct 'tingling' sensation during the first week of application. This isn't irritation—it's perfusion. It's the physical sensation of blood rushing back into capillaries that haven't seen proper flow in years, feeding the follicle the first meal it's had in a decade.</p>
+                                    </div>
+                                    <div className="step-diagram">
+                                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="50" y1="25" x2="50" y2="70" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+                                            <ellipse cx="50" cy="72" rx="14" ry="16" stroke="#000" strokeWidth="1.5" fill="none" />
+                                            <circle cx="50" cy="75" r="7" stroke="#000" strokeWidth="1" fill="none" />
+                                            <path d="M32 75 Q 40 68, 45 72" stroke="#000" strokeWidth="1" fill="none" />
+                                            <path d="M68 75 Q 60 68, 55 72" stroke="#000" strokeWidth="1" fill="none" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p className="advertorial-p">
+                                These travel through the channels you created, reaching follicles with reactivated energy, in concentrations that actually matter.
+                            </p>
+                            <p className="advertorial-p" style={{ fontWeight: '600' }}>
+                                For the first time, all three barriers are solved:<br />
+                                Penetration achieved → Energy reactivated → Growth factors delivered
+                            </p>
+
+                            <div className="mechanism-final-image" style={{ margin: '3rem 0' }}>
+                                <img
+                                    src="/assets/advertorial-concept.webp"
+                                    alt="AlphaRevive concept"
+                                    style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <ProductAccordions />
                 <SuccessStories />
 
