@@ -43,30 +43,30 @@ export default function ShopByConcern() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-6xl mx-auto">
           {concerns.map((item) => (
             <Link
               key={item.id}
               to={item.link}
-              className="group flex flex-row rounded-3xl bg-[#F5F7FA] overflow-hidden h-64 sm:h-72 md:h-96 transition-shadow hover:shadow-lg no-underline"
+              className="group flex flex-row rounded-xl bg-[#E9EFF2] overflow-hidden h-[180px] transition-all hover:shadow-md no-underline"
+              style={{ overflow: 'hidden' }}
             >
-              {/* Image Section (Left) - Fixed width approx 40-45% */}
-              <div className="w-[45%] relative overflow-hidden">
+              {/* Image Section (Left) - 40% width */}
+              <div className="w-[40%] relative overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center-bottom"
+                  style={{ objectPosition: 'center bottom' }}
                 />
-                {/* Fade to white gradient on right edge */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#F5F7FA]"></div>
               </div>
 
-              {/* Content Section (Right) - Right aligned */}
-              <div className="flex-1 p-6 flex flex-col justify-center items-end text-right">
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-6 leading-snug">
+              {/* Content Section (Right) - 60% width, left-aligned */}
+              <div className="w-[60%] p-5 flex flex-col justify-center items-start">
+                <h3 className="text-base md:text-lg font-medium text-gray-900 mb-4 leading-snug">
                   {item.title}
                 </h3>
-                <div className="bg-black text-white px-6 py-2 rounded-full font-bold text-sm shadow-sm transition-transform group-hover:-translate-y-1">
+                <div className="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm shadow-sm transition-transform group-hover:scale-105">
                   Shop Now
                 </div>
               </div>
