@@ -321,20 +321,21 @@ export default function ProductPage() {
                                             <div className="price-per-day">{offer.pricePerDay}</div>
                                             <div className="price-ref">{offer.refPrice}</div>
                                         </div>
-                                        {/* Footer - What's included */}
-                                        <div className="offer-footer">
-                                            <div>{offer.footer}</div>
-                                            {offer.hasGuarantee && (
-                                                <div className="guarantee-badge">
-                                                    🛡️ Protected by the 120-Day Growth Guarantee
-                                                </div>
-                                            )}
-                                            {offer.bonusGuide && (
-                                                <div className="bonus-guide">
-                                                    + FREE "Hair CPR" Clinical Guide ($49 Value)
-                                                </div>
-                                            )}
-                                        </div>
+                                    </div>
+
+                                    {/* Footer - What's included */}
+                                    <div className="offer-footer">
+                                        <div>{offer.footer}</div>
+                                        {offer.hasGuarantee && (
+                                            <div className="guarantee-badge">
+                                                🛡️ Protected by the 120-Day Growth Guarantee
+                                            </div>
+                                        )}
+                                        {offer.bonusGuide && (
+                                            <div className="bonus-guide">
+                                                + FREE "Hair CPR" Clinical Guide ($49 Value)
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}
