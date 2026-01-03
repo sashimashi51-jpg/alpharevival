@@ -77,6 +77,7 @@ const offers = [
         bestValue: false,
         hasGuarantee: false,
         bonusGuide: false,
+        perks: []
     },
     {
         id: '2-month',
@@ -90,6 +91,10 @@ const offers = [
         bestValue: false,
         hasGuarantee: false,
         bonusGuide: false,
+        perks: [
+            { label: 'FREE Shipping', type: 'shipping' },
+            { label: 'FREE Sterile Needle', type: 'needle' }
+        ]
     },
     {
         id: '4-month',
@@ -103,6 +108,11 @@ const offers = [
         bestValue: true,
         hasGuarantee: true,
         bonusGuide: true,
+        perks: [
+            { label: 'FREE Shipping', type: 'shipping' },
+            { label: 'FREE Sterile Needle', type: 'needle' },
+            { label: 'FREE Gift', type: 'gift' }
+        ]
     }
 ];
 
@@ -325,7 +335,19 @@ export default function ProductPage() {
 
                                     {/* Footer - What's included */}
                                     <div className="offer-footer">
-                                        <div>{offer.footer}</div>
+                                        <div className="footer-base-text">{offer.footer}</div>
+
+                                        {/* Simplified Perks Badges */}
+                                        {offer.perks && offer.perks.length > 0 && (
+                                            <div className="perks-list">
+                                                {offer.perks.map((perk, i) => (
+                                                    <span key={i} className={`perk-badge ${perk.type}`}>
+                                                        ✓ {perk.label}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+
                                         {offer.hasGuarantee && (
                                             <div className="guarantee-badge">
                                                 🛡️ Protected by the 120-Day Growth Guarantee
