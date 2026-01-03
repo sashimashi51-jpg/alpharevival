@@ -87,6 +87,8 @@
     overflow-x: auto;
     padding-bottom: 5px;
     /* Spacing for scrollbar */
+    max-width: 100%;
+    /* Prevent overflow */
     /* Custom Scrollbar styling if desired, or hidden */
     -ms-overflow-style: none;
     scrollbar-width: none;
