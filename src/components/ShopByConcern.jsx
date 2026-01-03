@@ -25,7 +25,7 @@ export default function ShopByConcern() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-6xl mx-auto justify-items-center">
           {concerns.map((item) => (
             <Link
               key={item.id}
