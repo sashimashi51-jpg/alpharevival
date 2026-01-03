@@ -63,9 +63,25 @@ export default function ProductAccordions() {
                             <footer>– Blane Schilling, a world-renowned trichologist specializing in hair loss research.</footer>
                         </blockquote>
 
-                        <p className="cs-text">
-                            Unlock the potential of your scalp with the next generation of microneedling hair regrowth technology. Unlike traditional rollers that tear the skin, the AlphaRevive system uses a vertical stamping action to create precise, safe micro-channels. This innovative method for hair regrowth does more than just boost absorption; it triggers 'Wound-Induced Hair Follicle Neogenesis,' a natural repair process that wakes up dormant stem cells. By combining this mechanical stimulation with your topical treatments, you are using a hair regrowth new method that targets the root cause of thinning, not just the symptoms. Experience the difference of clinical-grade microneedling hair therapy at home and turn thin vellus strands into thick, terminal growth. It is time to stop hiding your hair and start activating it.
-                        </p>
+                        <div className="cs-text-section">
+                            <p className="cs-text">
+                                Unlock the potential of your scalp with the next generation of microneedling hair regrowth technology. Unlike <strong>traditional rollers that tear the skin</strong>, the AlphaRevive system uses a <strong>vertical stamping action</strong> to create precise, safe <strong>micro-channels</strong>.
+                            </p>
+
+                            <ul className="cs-bullets">
+                                <li><strong>Vertical Stamping:</strong> Prevents the microscopic skin tearing associated with outdated rollers.</li>
+                                <li><strong>Micro-Channel Delivery:</strong> Creates direct, clinical-grade pathways for active ingredients to reach follicles.</li>
+                                <li><strong>Waking Dormant Cells:</strong> Triggers biological signals to restart growth in stagnant areas.</li>
+                            </ul>
+
+                            <p className="cs-text">
+                                This innovative method for hair regrowth does more than just boost absorption; it triggers <strong>'Wound-Induced Hair Follicle Neogenesis'</strong>—a natural repair process that <strong>wakes up dormant stem cells</strong>. By combining this mechanical stimulation with your topical treatments, you target the <strong>root cause of thinning</strong>, not just the symptoms.
+                            </p>
+
+                            <p className="cs-text">
+                                Experience the difference of <strong>clinical-grade microneedling hair therapy</strong> at home and turn thin vellus strands into <strong>thick, terminal growth</strong>. It is time to stop hiding your hair and start <strong>activating it</strong>.
+                            </p>
+                        </div>
 
                         <h4 className="cs-subhead">Independently tested. Scientifically proven</h4>
 
