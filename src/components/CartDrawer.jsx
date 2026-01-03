@@ -214,104 +214,92 @@ export default function CartDrawer() {
                                 </div>
                             )}
 
-                            {/* COMPACT GAP-FILLER UPSELL - Horizontal Layout */}
-                            {(() => {
-                                const isCloseToShipping = cartTotal < THRESHOLDS.SHIPPING && (THRESHOLDS.SHIPPING - cartTotal) <= 20;
-                                const isCloseToGift = cartTotal < THRESHOLDS.GIFT && (THRESHOLDS.GIFT - cartTotal) >= 5 && (THRESHOLDS.GIFT - cartTotal) <= 25;
-
-                                if (!isCloseToShipping && !isCloseToGift) return null;
-
-                                const headline = isCloseToShipping ? "Unlock Free Shipping!" : "Unlock your Free Gift!";
-
-                                return (
-
-                                    {/* Upsell: Ultimate Hair Growth Guide - ALWAYS SHOW */ }
-                            {
-                                    !cartItems.some(item => item.name === 'Ultimate Hair Growth Guide (eBook)') && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: -10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            className="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-200 rounded-xl p-4 flex items-center gap-3 mb-4"
-                                        >
-                                            <div className="flex-shrink-0">
-                                                <img
-                                                    src="/assets/product-upscaled.webp"
-                                                    alt="Ultimate Hair Growth Guide"
-                                                    className="w-16 h-16 object-cover rounded-lg shadow-sm"
-                                                />
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <p className="font-bold text-gray-900 text-sm mb-0.5">Ultimate Hair Growth Guide</p>
-                                                <p className="text-xs text-gray-600">Digital PDF Download</p>
-                                            </div>
-                                            <button
-                                                onClick={() => {
-                                                    addToCart({
-                                                        name: 'Ultimate Hair Growth Guide (eBook)',
-                                                        title: 'Ultimate Hair Growth Guide',
-                                                        subtitle: 'Digital PDF Download',
-                                                        price: 20,
-                                                        quantity: 1,
-                                                        image: '/assets/product-upscaled.webp'
-                                                    });
-                                                }}
-                                                className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
-                                            >
-                                                Add {currencySymbol}20
-                                            </button>
-                                        </motion.div>
-                                    )
-                                }
-
-
-                                {/* Modern Toggle Switch Shipping Protection */ }
-                                <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setShippingProtection(!shippingProtection)}>
-                                    <span className="text-sm font-medium text-gray-700">
-                                        Priority Shipping Protection
-                                    </span>
-                                    <div className="flex items-center gap-3">
-                                        <span className="text-sm font-semibold text-gray-900">{currencySymbol}2.97</span>
-                                        {/* Toggle Switch */}
-                                        <div className={`w-10 h-6 rounded-full transition-colors relative ${shippingProtection ? 'bg-green-500' : 'bg-gray-300'}`}>
-                                            <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${shippingProtection ? 'translate-x-4' : 'translate-x-0'}`} />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Shipping Cost */ }
-                                <div className="flex justify-between items-center text-sm">
-                                    <span className="text-gray-500">Shipping</span>
-                                    <span className={`font-semibold ${cartTotal >= THRESHOLDS.SHIPPING ? 'text-green-600' : 'text-gray-900'}`}>
-                                        {cartTotal >= THRESHOLDS.SHIPPING ? 'FREE' : `${currencySymbol}${SHIPPING_COST.toFixed(2)}`}
-                                    </span>
-                                </div>
-
-                                {/* Subtotal Row */ }
-                                <div className="flex justify-between items-end border-t border-gray-100 pt-4">
-                                    <span className="text-base text-gray-500 font-medium">Subtotal</span>
-                                    <div className="text-right">
-                                        <span className="text-2xl font-black text-gray-900">
-                                            {currencySymbol}{(cartTotal + (shippingProtection ? 2.97 : 0) + (cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST)).toFixed(2)}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Dominant Checkout Button */ }
-                                <button
-                                    onClick={() => {
-                                        setIsCartOpen(false);
-                                        navigate('/checkout');
-                                    }}
-                                    style={{
-                                        background: '#10b981',
-                                        color: '#ffffff'
-                                    }}
-                                    className="btn btn-primary btn-large w-full py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg transition-all flex items-center justify-center gap-2 group shadow-md"
+                            {/* Upsell: Ultimate Hair Growth Guide - ALWAYS SHOW */}
+                            {!cartItems.some(item => item.name === 'Ultimate Hair Growth Guide (eBook)') && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-200 rounded-xl p-4 flex items-center gap-3 mb-6"
                                 >
-                                    <ShieldCheck size={22} className="group-hover:scale-110 transition-transform" />
-                                    <span className="group-hover:translate-x-[-2px] transition-transform">SECURE CHECKOUT</span>
-                                    <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                    <div className="flex-shrink-0">
+                                        <img
+                                            src="/assets/product-upscaled.webp"
+                                            alt="Ultimate Hair Growth Guide"
+                                            className="w-16 h-16 object-cover rounded-lg shadow-sm"
+                                        />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <p className="font-bold text-gray-900 text-sm mb-0.5">Ultimate Hair Growth Guide</p>
+                                        <p className="text-xs text-gray-600">Digital PDF Download</p>
+                                    </div>
+                                    <button
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            addToCart({
+                                                name: 'Ultimate Hair Growth Guide (eBook)',
+                                                title: 'Ultimate Hair Growth Guide',
+                                                subtitle: 'Digital PDF Download',
+                                                price: 20,
+                                                quantity: 1,
+                                                image: '/assets/product-upscaled.webp'
+                                            });
+                                        }}
+                                        className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:from-orange-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
+                                    >
+                                        Add {currencySymbol}20
+                                    </button>
+                                </motion.div>
+                            )}
+
+
+                            {/* Modern Toggle Switch Shipping Protection */}
+                            <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setShippingProtection(!shippingProtection)}>
+                                <span className="text-sm font-medium text-gray-700">
+                                    Priority Shipping Protection
+                                </span>
+                                <div className="flex items-center gap-3">
+                                    <span className="text-sm font-semibold text-gray-900">{currencySymbol}2.97</span>
+                                    {/* Toggle Switch */}
+                                    <div className={`w-10 h-6 rounded-full transition-colors relative ${shippingProtection ? 'bg-green-500' : 'bg-gray-300'}`}>
+                                        <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${shippingProtection ? 'translate-x-4' : 'translate-x-0'}`} />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Shipping Cost */}
+                            <div className="flex justify-between items-center text-sm">
+                                <span className="text-gray-500">Shipping</span>
+                                <span className={`font-semibold ${cartTotal >= THRESHOLDS.SHIPPING ? 'text-green-600' : 'text-gray-900'}`}>
+                                    {cartTotal >= THRESHOLDS.SHIPPING ? 'FREE' : `${currencySymbol}${SHIPPING_COST.toFixed(2)}`}
+                                </span>
+                            </div>
+
+                            {/* Subtotal Row */}
+                            <div className="flex justify-between items-end border-t border-gray-100 pt-4">
+                                <span className="text-base text-gray-500 font-medium">Subtotal</span>
+                                <div className="text-right">
+                                    <span className="text-2xl font-black text-gray-900">
+                                        {currencySymbol}{(cartTotal + (shippingProtection ? 2.97 : 0) + (cartTotal >= THRESHOLDS.SHIPPING ? 0 : SHIPPING_COST)).toFixed(2)}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Dominant Checkout Button */}
+                            <button
+                                onClick={() => {
+                                    setIsCartOpen(false);
+                                    navigate('/checkout');
+                                }}
+                                style={{
+                                    background: '#10b981',
+                                    color: '#ffffff'
+                                }}
+                                className="btn btn-primary btn-large w-full py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg transition-all flex items-center justify-center gap-2 group shadow-md"
+                            >
+                                <ShieldCheck size={22} className="group-hover:scale-110 transition-transform" />
+                                <span className="group-hover:translate-x-[-2px] transition-transform">SECURE CHECKOUT</span>
+                                <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                            </button>
 
                         </div>
 
