@@ -418,10 +418,7 @@ export default function ClinicalStudy() {
                         Because of the precision required for the 0.5mm cartridges and the 650nm diodes, we can only manufacture limited monthly batches.
                     </p>
                     <p className="advertorial-p">
-                        Typically, there is a 3-week waitlist. However, because you are reading this clinical report, we have reserved a portion of this month's allocation specifically for this page.
-                    </p>
-                    <p className="advertorial-p">
-                        <strong>If you can see the "Check Availability" button below, it means there is still stock reserved for readers of this article. If the button is grey, the allocation is gone.</strong>
+                        We maintain limited monthly production batches due to the precision required for the 0.5mm cartridges and the 650nm diodes.
                     </p>
                     <p className="advertorial-p">
                         But here's what matters:

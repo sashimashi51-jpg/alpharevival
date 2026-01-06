@@ -12,7 +12,8 @@ import BlogPost from './pages/BlogPost';
 import JournalTemplate from './pages/JournalTemplate';
 import Navbar from './components/Navbar';
 import FooterNew from './components/FooterNew';
-import TimerBanner from './components/TimerBanner';
+import RealSaleBanner from './components/RealSaleBanner';
+
 
 // Scroll to top wrapper
 const Wrapper = ({ children }) => {
@@ -23,7 +24,7 @@ const Wrapper = ({ children }) => {
   return children;
 }
 
-import CountdownBanner from './components/CountdownBanner';
+
 import UspCarousel from './components/UspCarousel';
 import { CartProvider } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
@@ -40,7 +41,7 @@ function AppContent() {
 
   return (
     <>
-      <TimerBanner />
+      <RealSaleBanner />
       <UspCarousel />
       <Navbar />
       <AnimatePresence mode="wait">

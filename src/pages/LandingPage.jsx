@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Star, ShieldCheck, ArrowRight, Activity, Droplet, Zap, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SalesPopup from '../components/SalesPopup';
+
 import TestimonialsColumns from '../components/TestimonialsColumns';
 import FaqSection from '../components/FaqSection';
 import { FlowButton } from '../components/FlowButton';
@@ -24,7 +24,6 @@ const fadeInUp = {
 
 export default function LandingPage() {
     const [activeAccordion, setActiveAccordion] = React.useState(null);
-    const [timeLeft, setTimeLeft] = React.useState({ hours: 0, minutes: 0, seconds: 0 });
     const [showStickyButton, setShowStickyButton] = React.useState(false);
 
     // Scroll detection for sticky button
@@ -38,27 +37,7 @@ export default function LandingPage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Countdown Timer
-    React.useEffect(() => {
-        const deadline = new Date('2025-12-25T23:59:59').getTime();
 
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = deadline - now;
-
-            if (distance > 0) {
-                setTimeLeft({
-                    hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-                    minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-                    seconds: Math.floor((distance % (1000 * 60)) / 1000)
-                });
-            }
-        };
-
-        updateTimer();
-        const interval = setInterval(updateTimer, 1000);
-        return () => clearInterval(interval);
-    }, []);
 
     const toggleAccordion = (index) => {
         setActiveAccordion(activeAccordion === index ? null : index);
@@ -144,12 +123,6 @@ export default function LandingPage() {
                             The first at-home system to combine clinical-strength microneedling with peptide therapy. See visible, thicker regrowth in as little as 90 days—without prescriptions or side effects.
                         </p>
                         <div className="hero-cta-group">
-                            <div className="scarcity-bar-container">
-                                <p className="scarcity-text" style={{ color: '#dc2626', fontWeight: '800' }}>
-                                    <span className="blink-red"></span> LOW STOCK: Only 12 Kits Left!
-                                </p>
-                                <div className="progress-bar"><div className="progress-fill" style={{ width: '96%', background: '#dc2626' }}></div></div>
-                            </div>
                             {/* Solid Green CTA Button */}
                             <Link
                                 to="/product"
@@ -376,7 +349,6 @@ export default function LandingPage() {
             />
 
 
-            <SalesPopup />
             <div className="mobile-sticky-bar" data-visible={showStickyButton}>
                 <FlowButton to="/product" text="Shop Now" className="w-full" />
             </div>
