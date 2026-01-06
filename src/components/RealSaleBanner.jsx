@@ -36,24 +36,20 @@ const RealSaleBanner = () => {
         <div style={{
             background: 'linear-gradient(to right, #dc2626, #b91c1c)',
             color: 'white',
-            padding: '0.75rem 1rem',
+            padding: '0.5rem 1rem',
             textAlign: 'center',
-            fontSize: '0.9rem',
+            fontSize: 'clamp(0.75rem, 2vw, 0.9rem)',
             fontWeight: '600',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '1rem',
-            flexWrap: 'wrap'
+            gap: '0.5rem'
         }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ fontSize: '1.1rem' }}>🔥</span>
-                <span>NEW YEAR SALE</span>
-            </span>
+            <span>Sale:</span>
             <span style={{
                 display: 'flex',
-                gap: '0.5rem',
-                fontSize: '1rem'
+                gap: '0.3rem',
+                alignItems: 'center'
             }}>
                 {timeLeft.days > 0 && <span>{timeLeft.days}d</span>}
                 <span>{String(timeLeft.hours).padStart(2, '0')}h</span>
@@ -61,9 +57,6 @@ const RealSaleBanner = () => {
                 <span>{String(timeLeft.minutes).padStart(2, '0')}m</span>
                 <span>:</span>
                 <span>{String(timeLeft.seconds).padStart(2, '0')}s</span>
-            </span>
-            <span style={{ fontSize: '0.85rem', opacity: 0.95 }}>
-                Ends January 13th!
             </span>
         </div>
     );
