@@ -307,9 +307,9 @@ export default function ProductPage() {
                             <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>100% secure checkout</span></li>
                         </ul>
 
-                        <div className="infographic-container" onClick={() => handleImageClick("/assets/hiw-infographic.webp", "How it works infographic")} style={{ cursor: 'zoom-in' }}>
-                            <img src="/assets/hiw-infographic.webp" alt="How it works infographic" className="infographic-image" />
-                        </div>
+
+                        {/* Infographic removed per user request */}
+
 
                         <div className="feature-image-container" onClick={() => handleImageClick("/assets/pdp.webp", "Product Features")} style={{ cursor: 'zoom-in' }}>
                             <img src="/assets/pdp.webp" alt="Product Features" className="feature-image" />
