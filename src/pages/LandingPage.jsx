@@ -278,32 +278,8 @@ export default function LandingPage() {
             </section>
 
 
+            {/* CPR section removed per user request */}
 
-            {/* Mechanism / Big Idea */}
-            <section className="section bg-secondary" id="how-it-works">
-                <div className="container text-center">
-                    <h2 className="section-title">CPR for Your Hair Follicles</h2>
-                    <p className="section-subtitle">A 3-Phase System to "Flip the Switch" on Growth</p>
-
-                    <div className="grid-3 features">
-                        <div className="feature-card">
-                            <div className="icon-box"><Activity size={32} /></div>
-                            <h3>Phase 1: Micro-Stimulation</h3>
-                            <p>The dermal stimulator creates channels to wake dormant follicles and boost blood flow.</p>
-                        </div>
-                        <div className="feature-card">
-                            <div className="icon-box"><Droplet size={32} /></div>
-                            <h3>Phase 2: Peptide Infusion</h3>
-                            <p>Special peptides penetrate the scalp barrier through micro-channels to fuel growth.</p>
-                        </div>
-                        <div className="feature-card">
-                            <div className="icon-box"><Zap size={32} /></div>
-                            <h3>Phase 3: Activation Mist</h3>
-                            <p>Nutrient-rich mist seals the scalp and ensures 24/7 nourishment.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Success Stories Slider */}
             <SuccessStories />
