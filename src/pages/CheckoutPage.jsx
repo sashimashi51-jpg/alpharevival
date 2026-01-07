@@ -213,13 +213,23 @@ export default function CheckoutPage() {
                 },
                 body: JSON.stringify({ items: cartItems, amount: totalAmount, shippingProtection }),
             })
-                .then((res) => res.json())
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error(`API returned ${res.status}`);
+                    }
+                    return res.json();
+                })
                 .then((data) => {
+                    console.log('✅ Payment intent created:', data);
+                    if (!data.clientSecret) {
+                        throw new Error('No clientSecret in response');
+                    }
                     setClientSecret(data.clientSecret);
                     setIsLoadingIntent(false);
                 })
                 .catch((err) => {
-                    console.error("Payment intent error:", err);
+                    console.error("❌ Payment intent error:", err);
+                    setMessage(`Failed to initialize payment: ${err.message}. Please refresh and try again.`);
                     setIsLoadingIntent(false);
                 });
         }
