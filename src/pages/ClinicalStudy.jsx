@@ -242,31 +242,8 @@ export default function ClinicalStudy() {
                     </p>
 
                     {/* Mechanism Video */}
-                    <div className="mechanism-video-wrapper" style={{
-                        textAlign: 'center',
-                        margin: '3rem 0'
-                    }}>
-                        <video
-                            src="/assets/hero-gif.mp4"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                                borderRadius: '8px'
-                            }}
-                        />
-                        <p style={{
-                            color: '#666',
-                            fontSize: '0.85rem',
-                            marginTop: '0.75rem',
-                            fontStyle: 'italic'
-                        }}>
-                            The mechanism behind the follicle restoration
-                        </p>
-                    </div>
+                    {/* Video removed per user request */}
+
                 </div>
 
                 {/* SECTION 4: How It Works (The 3 Phases) */}

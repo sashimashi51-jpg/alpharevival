@@ -426,28 +426,8 @@ export default function ProductPage() {
                             <h2>OUR UNIQUE MECHANISM</h2>
                         </div>
 
-                        <div className="mechanism-video-wrapper"
-                            onClick={() => handleImageClick("/assets/hero-gif.mp4", "Mechanism behind follicle restoration")}
-                            style={{
-                                textAlign: 'center',
-                                margin: '0 auto 3rem',
-                                maxWidth: '800px',
-                                cursor: 'zoom-in'
-                            }}>
-                            <video
-                                src="/assets/hero-gif.mp4"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                style={{
-                                    width: '100%',
-                                    height: 'auto',
-                                    borderRadius: '12px',
-                                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
-                                }}
-                            />
-                        </div>
+                        {/* Video removed per user request */}
+
 
                         <div className="mechanism-content-wrapper" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
                             <div className="mechanism-steps">

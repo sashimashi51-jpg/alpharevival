@@ -157,22 +157,8 @@ export default function LandingPage() {
                             </div>
                         </div>
                     </motion.div>
-                    <motion.div
-                        className="hero-image"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <video
-                            src="/assets/hero-gif.mp4"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }}
-                            alt="AlphaRevive Results"
-                        />
-                    </motion.div>
+                    {/* Hero video removed per user request */}
+
                 </div>
             </div>
 
