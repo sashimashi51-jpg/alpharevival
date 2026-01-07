@@ -205,7 +205,10 @@ export default function SuccessPage() {
                                 )}
                                 <div className="border-t border-gray-300 pt-2 mt-2 flex justify-between font-bold">
                                     <span>Total</span>
-                                    <span data-order-total={(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}>
+                                    <span
+                                        id="order-total-value"
+                                        data-order-total={(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}
+                                    >
                                         {currencySymbol}{(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}
                                     </span>
                                 </div>
