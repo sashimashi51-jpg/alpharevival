@@ -12,10 +12,15 @@ const calculateOrderAmount = (items, shippingProtection) => {
                 giftItem = item;
             } else {
                 let price = 0;
-                if (item.id === '1-month') price = 6900;
-                else if (item.id === '3-month') price = 10900;
-                else if (item.id === '6-month') price = 18900;
-                else if (item.id === 'ebook-upsell') price = 2000;
+                // Match the actual product IDs from ProductPage.jsx
+                if (item.id === '1-month') price = 5499; // $54.99
+                else if (item.id === '2-month') price = 7999; // $79.99
+                else if (item.id === '4-month') price = 12999; // $129.99
+                else if (item.id === 'ebook-upsell') price = 2000; // $20.00
+                // Fallback: use item.price from cart if ID not recognized
+                else if (item.price) {
+                    price = Math.round(item.price * 100); // Convert dollars to cents
+                }
 
                 if (price > 0) {
                     productTotal += price * item.quantity;
@@ -36,8 +41,6 @@ const calculateOrderAmount = (items, shippingProtection) => {
     }
 
     // Shipping Logic: Free if total >= $80 (8000 cents)
-    // Note: Gift value doesn't count towards shipping threshold logic usually, but here 'total' includes paid gift if any.
-    // Assuming shipping threshold is based on paid subtotal.
     if (total > 0 && total < 8000) {
         total += 695;
     }
