@@ -412,8 +412,8 @@ export default function CheckoutPage() {
                                 <h2 className="text-xl font-bold text-gray-900">Payment Method</h2>
                             </div>
 
-                            {/* Stripe Payment Element - Mounts instantly with Deferred Intent */}
-                            {stripePromise ? (
+                            {/* Stripe Payment Element - Only render when clientSecret is ready */}
+                            {clientSecret ? (
                                 <Elements options={options} stripe={stripePromise}>
                                     <CheckoutForm
                                         clientSecret={clientSecret}
