@@ -40,8 +40,8 @@ const calculateOrderAmount = (items, shippingProtection) => {
         }
     }
 
-    // Shipping Logic: Free if total >= $80 (8000 cents)
-    if (total > 0 && total < 8000) {
+    // Shipping Logic: Free if total >= $75 (7500 cents)
+    if (total > 0 && total < 7500) {
         total += 695;
     }
 
