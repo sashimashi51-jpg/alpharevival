@@ -11,7 +11,7 @@ import TimelineDemo from '../components/TimelineDemo';
 import FaqSection from '../components/FaqSection';
 import { StaggerTestimonials } from '../components/StaggerTestimonials';
 import TrustBadges from '../components/TrustBadges';
-import EbookSection from '../components/EbookSection';
+
 import SEO from '../components/SEO';
 import ProductSchema from '../components/seo/ProductSchema';
 import FAQSchema from '../components/seo/FAQSchema';
@@ -549,8 +549,6 @@ export default function ProductPage() {
                 <ProductAccordions />
                 <SuccessStories onImageClick={handleImageClick} />
 
-                {/* Free Guide Lead Magnet */}
-                <EbookSection />
 
                 <ResultsSection />
                 <AllySection />
