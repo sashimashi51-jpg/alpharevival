@@ -182,6 +182,19 @@ export default function SuccessPage() {
                         </div>
                     </div>
 
+                    {/* Order Total - ALWAYS VISIBLE for Meta Pixel */}
+                    <div className="mb-8 bg-green-50 border-2 border-green-200 rounded-lg p-6 text-center">
+                        <p className="text-sm text-gray-600 mb-2">Order Total</p>
+                        <p
+                            id="order-total-value"
+                            data-order-total={orderDetails ? (orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2) : '0.00'}
+                            className="text-4xl font-black text-gray-900"
+                        >
+                            {currencySymbol}{orderDetails ? (orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2) : 'Processing...'}
+                        </p>
+                        <p className="text-xs text-gray-500 mt-2">Includes shipping & fees</p>
+                    </div>
+
                     {/* Order Summary */}
                     {orderDetails && orderDetails.items && orderDetails.items.length > 0 && (
                         <div className="mb-8 bg-gray-50 rounded-lg p-4 border border-gray-200">
