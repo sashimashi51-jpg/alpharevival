@@ -32,6 +32,16 @@ const CheckoutForm = ({ clientSecret, email }) => {
         console.log('Starting payment submission...');
         setIsLoading(true);
 
+        // SAVE ORDER DATA BEFORE PAYMENT - Critical for success page
+        const orderData = {
+            items: cartItems,
+            total: totalAmount,
+            shippingProtection: shippingProtection,
+            timestamp: new Date().toISOString()
+        };
+        sessionStorage.setItem('lastOrder', JSON.stringify(orderData));
+        console.log('Order data saved:', orderData);
+
         // CRITICAL: Submit elements first (Stripe requirement)
         console.log('Submitting payment elements...');
         const { error: submitError } = await elements.submit();
