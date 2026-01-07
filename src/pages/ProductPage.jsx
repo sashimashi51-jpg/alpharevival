@@ -535,9 +535,9 @@ export default function ProductPage() {
                                 Penetration achieved → Energy reactivated → Growth factors delivered
                             </p>
 
-                            <div className="mechanism-final-image" onClick={() => handleImageClick("/assets/advertorial-concept.webp", "AlphaRevive concept")} style={{ margin: '3rem 0', cursor: 'zoom-in' }}>
+                            <div className="mechanism-final-image" onClick={() => handleImageClick("/assets/niko11.webp", "AlphaRevive concept")} style={{ margin: '3rem 0', cursor: 'zoom-in' }}>
                                 <img
-                                    src="/assets/advertorial-concept.webp"
+                                    src="/assets/niko11.webp"
                                     alt="AlphaRevive concept"
                                     style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
                                 />
