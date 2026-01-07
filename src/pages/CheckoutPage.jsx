@@ -287,11 +287,9 @@ export default function CheckoutPage() {
         }
     };
 
-    // Use Deferred Intent (mode: 'payment') for instant loading
+    // Use clientSecret from created PaymentIntent
     const options = {
-        mode: 'payment',
-        amount: amountInCents,
-        currency: 'usd',
+        clientSecret,
         appearance,
     };
 
