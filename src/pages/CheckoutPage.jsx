@@ -17,16 +17,25 @@ const CheckoutForm = ({ clientSecret, email }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!stripe || !elements) return;
+        if (!stripe || !elements) {
+            return;
+        }
 
         setIsLoading(true);
+
+        // CRITICAL: Submit elements first (Stripe requirement)
+        const { error: submitError } = await elements.submit();
+        if (submitError) {
+            setMessage(submitError.message);
+            setIsLoading(false);
+            return;
+        }
 
         const { error } = await stripe.confirmPayment({
             elements,
             clientSecret,
             confirmParams: {
                 return_url: `${window.location.origin}/success`,
-                receipt_email: email,
             },
         });
 
