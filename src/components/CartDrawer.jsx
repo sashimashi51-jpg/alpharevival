@@ -291,7 +291,7 @@ export default function CartDrawer() {
                                     navigate('/checkout');
                                 }}
                                 style={{
-                                    background: '#D32F2F',
+                                    background: '#16a34a',
                                     color: '#ffffff'
                                 }}
                                 className="btn btn-primary btn-large w-full py-5 rounded-xl font-bold text-lg tracking-wide hover:shadow-lg transition-all flex items-center justify-center gap-2 group shadow-md"

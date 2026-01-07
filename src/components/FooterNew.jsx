@@ -58,7 +58,6 @@ export default function FooterNew() {
                         <address className="footer-address">
                             <p>AlphaRevive HQ</p>
                             <p>452 Saratoga Ave #103, San Jose, CA, United States, California</p>
-                            <p>Email-us: support@alpharevive.shop</p>
                         </address>
                     </div>
 

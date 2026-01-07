@@ -71,8 +71,8 @@ export default function SuccessPage() {
 
     const handleContactSupport = (e) => {
         e.preventDefault();
-        // Navigate to contact page or open email
-        window.location.href = 'mailto:support@alpharevive.shop?subject=Order ' + orderNumber;
+        // Navigate to contact page
+        navigate('/contact');
     };
 
     const handleDownloadReceipt = () => {
@@ -205,7 +205,9 @@ export default function SuccessPage() {
                                 )}
                                 <div className="border-t border-gray-300 pt-2 mt-2 flex justify-between font-bold">
                                     <span>Total</span>
-                                    <span>{currencySymbol}{(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}</span>
+                                    <span data-order-total={(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}>
+                                        {currencySymbol}{(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}
+                                    </span>
                                 </div>
                             </div>
                         </div>

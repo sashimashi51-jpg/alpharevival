@@ -18,8 +18,8 @@ export default function OrganizationSchema() {
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "email": "support@alpharevive.shop",
-            "contactType": "Customer Service"
+            "contactType": "Customer Service",
+            "url": "https://www.alpharevive.shop/contact"
         },
         "sameAs": [
             "https://www.facebook.com/alpharevive",
