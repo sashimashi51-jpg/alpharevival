@@ -74,9 +74,8 @@ export default function SuccessPage() {
             if (storedOrder) {
                 const orderData = JSON.parse(storedOrder);
                 setOrderDetails(orderData);
-                // Calculate total from stored data
-                const calculatedTotal = orderData.total + (orderData.total >= 75 ? 0 : 6.95) + (orderData.shippingProtection ? 2.97 : 0);
-                setActualTotal(calculatedTotal.toFixed(2));
+                // The stored total already includes shipping and protection from CheckoutPage.jsx
+                setActualTotal(orderData.total.toFixed(2));
             }
         } finally {
             setIsLoading(false);
@@ -238,9 +237,9 @@ export default function SuccessPage() {
                                     <span>Total</span>
                                     <span
                                         id="order-total-value"
-                                        data-order-total={(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}
+                                        data-order-total={orderDetails.total.toFixed(2)}
                                     >
-                                        {currencySymbol}{(orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2)}
+                                        {currencySymbol}{orderDetails.total.toFixed(2)}
                                     </span>
                                 </div>
                             </div>
