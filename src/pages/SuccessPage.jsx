@@ -17,6 +17,7 @@ export default function SuccessPage() {
     const [orderNumber, setOrderNumber] = useState('');
     const [orderDetails, setOrderDetails] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [actualTotal, setActualTotal] = useState(null); // Actual amount charged by Stripe
 
     useEffect(() => {
         // Generate or retrieve order number
@@ -52,14 +53,31 @@ export default function SuccessPage() {
 
     const fetchPaymentDetails = async (piId) => {
         try {
-            // In a real app, you'd fetch from your backend
-            // For now, retrieve from session storage
+            // Fetch from Stripe via our API to get actual amount
+            const apiUrl = import.meta.env.VITE_API_URL || '/api';
+            const response = await fetch(`${apiUrl}/get-payment-intent?payment_intent=${piId}`);
+            if (response.ok) {
+                const data = await response.json();
+                // Amount is in cents, convert to dollars
+                setActualTotal((data.amount / 100).toFixed(2));
+            }
+
+            // Also retrieve from session storage for item details
             const storedOrder = sessionStorage.getItem('lastOrder');
             if (storedOrder) {
                 setOrderDetails(JSON.parse(storedOrder));
             }
         } catch (error) {
             console.error('Error fetching payment details:', error);
+            // Fallback to sessionStorage
+            const storedOrder = sessionStorage.getItem('lastOrder');
+            if (storedOrder) {
+                const orderData = JSON.parse(storedOrder);
+                setOrderDetails(orderData);
+                // Calculate total from stored data
+                const calculatedTotal = orderData.total + (orderData.total >= 75 ? 0 : 6.95) + (orderData.shippingProtection ? 2.97 : 0);
+                setActualTotal(calculatedTotal.toFixed(2));
+            }
         } finally {
             setIsLoading(false);
         }
@@ -187,10 +205,10 @@ export default function SuccessPage() {
                         <p className="text-sm text-gray-600 mb-2">Order Total</p>
                         <p
                             id="order-total-value"
-                            data-order-total={orderDetails ? (orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2) : '0.00'}
+                            data-order-total={actualTotal || '0.00'}
                             className="text-4xl font-black text-gray-900"
                         >
-                            {currencySymbol}{orderDetails ? (orderDetails.total + (orderDetails.total >= 75 ? 0 : 6.95) + (orderDetails.shippingProtection ? 2.97 : 0)).toFixed(2) : 'Processing...'}
+                            {currencySymbol}{actualTotal || 'Processing...'}
                         </p>
                         <p className="text-xs text-gray-500 mt-2">Includes shipping & fees</p>
                     </div>
