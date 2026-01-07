@@ -5,7 +5,7 @@ import { Check, ShieldCheck, Lock, CreditCard, Smartphone, Wallet } from 'lucide
 import { useCart } from '../context/CartContext';
 import './CheckoutPage.css';
 
-const CheckoutForm = ({ clientSecret, email }) => {
+const CheckoutForm = ({ clientSecret, email, cartItems, totalAmount, shippingProtection }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [message, setMessage] = useState(null);
@@ -417,7 +417,13 @@ export default function CheckoutPage() {
                             {/* Stripe Payment Element - Mounts instantly with Deferred Intent */}
                             {stripePromise ? (
                                 <Elements options={options} stripe={stripePromise}>
-                                    <CheckoutForm clientSecret={clientSecret} email={email} />
+                                    <CheckoutForm
+                                        clientSecret={clientSecret}
+                                        email={email}
+                                        cartItems={cartItems}
+                                        totalAmount={totalAmount}
+                                        shippingProtection={shippingProtection}
+                                    />
                                 </Elements>
                             ) : (
                                 <div className="p-8 text-center bg-gray-50 rounded-xl border-2 border-gray-200">
