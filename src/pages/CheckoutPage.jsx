@@ -199,12 +199,21 @@ export default function CheckoutPage() {
 
     // Create payment intent immediately on mount
     useEffect(() => {
+        console.log('🔍 Payment intent check:', {
+            totalAmount,
+            hasClientSecret: !!clientSecret,
+            isLoadingIntent,
+            cartItemsCount: cartItems.length
+        });
+
         if (totalAmount > 0 && !clientSecret && !isLoadingIntent) {
+            console.log('🚀 Creating payment intent...');
             setIsLoadingIntent(true);
-            // If VITE_API_URL is set (e.g. locally), use it. Otherwise, assume same-origin (Vercel) relative path /api
             const apiUrl = import.meta.env.VITE_API_URL || '/api';
-            // Note: Sending the secret from the client is not fully secure as it can be inspected.
-            // For higher security, use a server-side proxy (e.g. Vercel API routes) to attach the secret.
+
+            console.log('📡 API URL:', apiUrl);
+            console.log('📦 Request data:', { items: cartItems, amount: totalAmount, shippingProtection });
+
             fetch(`${apiUrl}/create-payment-intent`, {
                 method: "POST",
                 headers: {
@@ -214,6 +223,7 @@ export default function CheckoutPage() {
                 body: JSON.stringify({ items: cartItems, amount: totalAmount, shippingProtection }),
             })
                 .then((res) => {
+                    console.log('📥 Response status:', res.status);
                     if (!res.ok) {
                         throw new Error(`API returned ${res.status}`);
                     }
