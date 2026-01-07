@@ -57,7 +57,6 @@ const CheckoutForm = ({ clientSecret, email }) => {
         console.log('Confirming payment with Stripe...');
         const { error } = await stripe.confirmPayment({
             elements,
-            clientSecret,
             confirmParams: {
                 return_url: `${window.location.origin}/success`,
             },
