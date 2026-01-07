@@ -171,15 +171,6 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 export default function CheckoutPage() {
     const { cartItems, cartTotal, shippingProtection, currencySymbol, THRESHOLDS, SHIPPING_COST } = useCart();
 
-    // Load Stripe ONLY on checkout page
-    useEffect(() => {
-        if (!window.Stripe) {
-            const script = document.createElement('script');
-            script.src = 'https://js.stripe.com/v3/';
-            script.async = true;
-            document.head.appendChild(script);
-        }
-    }, []);
     const [clientSecret, setClientSecret] = useState("");
     const [isLoadingIntent, setIsLoadingIntent] = useState(false);
     const [email, setEmail] = useState("");
