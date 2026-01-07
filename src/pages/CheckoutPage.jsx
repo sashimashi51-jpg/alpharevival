@@ -18,19 +18,33 @@ const CheckoutForm = ({ clientSecret, email }) => {
         e.preventDefault();
 
         if (!stripe || !elements) {
+            console.error('Stripe or Elements not loaded');
+            setMessage('Payment system not ready. Please refresh the page.');
             return;
         }
 
+        if (!clientSecret) {
+            console.error('No client secret available');
+            setMessage('Payment not initialized. Please refresh the page.');
+            return;
+        }
+
+        console.log('Starting payment submission...');
         setIsLoading(true);
 
         // CRITICAL: Submit elements first (Stripe requirement)
+        console.log('Submitting payment elements...');
         const { error: submitError } = await elements.submit();
         if (submitError) {
+            console.error('Elements submit error:', submitError);
             setMessage(submitError.message);
             setIsLoading(false);
             return;
         }
+        console.log('Elements submitted successfully');
 
+        // Confirm the payment
+        console.log('Confirming payment with Stripe...');
         const { error } = await stripe.confirmPayment({
             elements,
             clientSecret,
@@ -39,7 +53,9 @@ const CheckoutForm = ({ clientSecret, email }) => {
             },
         });
 
+        // This code only runs if payment FAILS (success redirects automatically)
         if (error) {
+            console.error('Payment confirmation error:', error);
             if (error.type === "card_error" || error.type === "validation_error") {
                 setMessage(error.message);
             } else {
