@@ -5,10 +5,9 @@ import { Check, ShieldCheck, Lock, CreditCard, Smartphone, Wallet } from 'lucide
 import { useCart } from '../context/CartContext';
 import './CheckoutPage.css';
 
-const CheckoutForm = ({ clientSecret, email, cartItems, totalAmount, shippingProtection }) => {
+const CheckoutForm = ({ clientSecret, email, cartItems, totalAmount, shippingProtection, message, setMessage }) => {
     const stripe = useStripe();
     const elements = useElements();
-    const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [showExpressCheckout, setShowExpressCheckout] = useState(true);
 
@@ -55,21 +54,46 @@ const CheckoutForm = ({ clientSecret, email, cartItems, totalAmount, shippingPro
 
         // Confirm the payment
         console.log('Confirming payment with Stripe...');
-        const { error } = await stripe.confirmPayment({
-            elements,
-            confirmParams: {
-                return_url: `${window.location.origin}/success`,
-            },
-        });
 
-        // This code only runs if payment FAILS (success redirects automatically)
-        if (error) {
-            console.error('Payment confirmation error:', error);
-            if (error.type === "card_error" || error.type === "validation_error") {
-                setMessage(error.message);
-            } else {
-                setMessage("An unexpected error occurred.");
+        // When using Deferred Intent, we fetch the clientSecret only NOW
+        const apiUrl = import.meta.env.VITE_API_URL || '/api';
+        try {
+            const response = await fetch(`${apiUrl}/create-payment-intent`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-render-secret": import.meta.env.VITE_PUBLIC_RENDER_SECRET || ""
+                },
+                body: JSON.stringify({ items: cartItems, amount: totalAmount, shippingProtection }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || `API error ${response.status}`);
             }
+
+            const { clientSecret: newClientSecret } = await response.json();
+
+            const { error } = await stripe.confirmPayment({
+                elements,
+                clientSecret: newClientSecret,
+                confirmParams: {
+                    return_url: `${window.location.origin}/success`,
+                },
+            });
+
+            // This code only runs if payment FAILS (success redirects automatically)
+            if (error) {
+                console.error('Payment confirmation error:', error);
+                if (error.type === "card_error" || error.type === "validation_error") {
+                    setMessage(error.message);
+                } else {
+                    setMessage("An unexpected error occurred.");
+                }
+            }
+        } catch (err) {
+            console.error('Setup error:', err);
+            setMessage(err.message);
         }
 
         setIsLoading(false);
@@ -181,6 +205,7 @@ export default function CheckoutPage() {
 
     const [clientSecret, setClientSecret] = useState("");
     const [isLoadingIntent, setIsLoadingIntent] = useState(false);
+    const [message, setMessage] = useState(null);
     const [email, setEmail] = useState("");
     const paymentSectionRef = useRef(null);
 
@@ -197,52 +222,12 @@ export default function CheckoutPage() {
         return acc;
     }, 0);
 
-    // Create payment intent immediately on mount
+    // Simplified useEffect as we now fetch on submit
     useEffect(() => {
-        console.log('🔍 Payment intent check:', {
+        console.log('🔍 Checkout Page Mounted with:', {
             totalAmount,
-            hasClientSecret: !!clientSecret,
-            isLoadingIntent,
             cartItemsCount: cartItems.length
         });
-
-        if (totalAmount > 0 && !clientSecret && !isLoadingIntent) {
-            console.log('🚀 Creating payment intent...');
-            setIsLoadingIntent(true);
-            const apiUrl = import.meta.env.VITE_API_URL || '/api';
-
-            console.log('📡 API URL:', apiUrl);
-            console.log('📦 Request data:', { items: cartItems, amount: totalAmount, shippingProtection });
-
-            fetch(`${apiUrl}/create-payment-intent`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-render-secret": import.meta.env.VITE_PUBLIC_RENDER_SECRET || ""
-                },
-                body: JSON.stringify({ items: cartItems, amount: totalAmount, shippingProtection }),
-            })
-                .then((res) => {
-                    console.log('📥 Response status:', res.status);
-                    if (!res.ok) {
-                        throw new Error(`API returned ${res.status}`);
-                    }
-                    return res.json();
-                })
-                .then((data) => {
-                    console.log('✅ Payment intent created:', data);
-                    if (!data.clientSecret) {
-                        throw new Error('No clientSecret in response');
-                    }
-                    setClientSecret(data.clientSecret);
-                    setIsLoadingIntent(false);
-                })
-                .catch((err) => {
-                    console.error("❌ Payment intent error:", err);
-                    setMessage(`Failed to initialize payment: ${err.message}. Please refresh and try again.`);
-                    setIsLoadingIntent(false);
-                });
-        }
     }, [totalAmount]);
 
     const appearance = {
@@ -287,9 +272,11 @@ export default function CheckoutPage() {
         }
     };
 
-    // Use clientSecret from created PaymentIntent
+    // Use Deferred Intent (mode: 'payment') for instant loading of fields
     const options = {
-        clientSecret,
+        mode: 'payment',
+        amount: amountInCents,
+        currency: 'usd',
         appearance,
     };
 
@@ -301,6 +288,12 @@ export default function CheckoutPage() {
                 <div className="text-center mb-8 lg:mb-12">
                     <h1 className="text-3xl lg:text-4xl font-black text-gray-900 mb-2">Secure Checkout</h1>
                     <p className="text-gray-600">Complete your order in just a few steps</p>
+
+                    {message && !clientSecret && (
+                        <div className="mt-4 p-4 bg-red-50 border-2 border-red-200 text-red-700 rounded-xl max-w-2xl mx-auto">
+                            {message}
+                        </div>
+                    )}
                 </div>
 
                 <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12">
@@ -412,15 +405,16 @@ export default function CheckoutPage() {
                                 <h2 className="text-xl font-bold text-gray-900">Payment Method</h2>
                             </div>
 
-                            {/* Stripe Payment Element - Only render when clientSecret is ready */}
-                            {clientSecret ? (
+                            {/* Stripe Payment Element - Mounts instantly with Deferred Intent */}
+                            {stripePromise ? (
                                 <Elements options={options} stripe={stripePromise}>
                                     <CheckoutForm
-                                        clientSecret={clientSecret}
                                         email={email}
                                         cartItems={cartItems}
                                         totalAmount={totalAmount}
                                         shippingProtection={shippingProtection}
+                                        message={message}
+                                        setMessage={setMessage}
                                     />
                                 </Elements>
                             ) : (
@@ -431,13 +425,9 @@ export default function CheckoutPage() {
                                             <div className="h-4 bg-gray-300 rounded w-3/4 mx-auto"></div>
                                             <div className="h-4 bg-gray-300 rounded w-1/2 mx-auto"></div>
                                         </div>
-                                        <div className="mt-4 space-y-3 w-full">
-                                            <div className="h-12 bg-gray-200 rounded-xl w-full"></div>
-                                            <div className="h-12 bg-gray-200 rounded-xl w-full"></div>
-                                        </div>
                                     </div>
                                     <p className="text-sm text-gray-500 mt-4">
-                                        Initializing secure payment...
+                                        Loading payment system...
                                     </p>
                                 </div>
                             )}
