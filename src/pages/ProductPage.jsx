@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Check, Undo2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Check, Undo2, X, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ProductAccordions from '../components/ProductAccordions';
@@ -162,31 +162,31 @@ export default function ProductPage() {
     const faqItems = [
         {
             question: "Will it make things worse (initial shedding or damage)?",
-            answer: "No. Unlike Minoxidil that shocks follicles causing a 'dread shed', our peptides nourish roots immediately. Microneedling is damage-free at 0.5mm."
+            answer: "No. Unlike Minoxidil that shocks follicles causing a 'dread shed', our peptides nourish roots immediately. Microneedling is damage-free at 0.5mm. You're not risking—you're reclaiming."
         },
         {
             question: "Is this safe? Any side effects?",
-            answer: "100% safe. The 0.5mm needles stay in the epidermis (safe zone) and our serum is drug-free. No dizziness, no heart palpitations, no sexual side effects."
+            answer: "100% safe. The 0.5mm titanium needles stay in the epidermis (safe zone) and our serum is drug-free. No dizziness, no brain fog, no sexual side effects. Keep your edge while getting your hair back."
         },
         {
-            question: "I’m not sure I can stick with it – what if it’s too much hassle?",
-            answer: "It takes 2 minutes, twice a week. That's less time than brushing your teeth. Can you spare 4 minutes a week to save your hair?"
+            question: "I'm not sure I can stick with it – what if it's too much hassle?",
+            answer: "2 minutes, twice a week. That's 4 minutes to feel like yourself again. Less time than you spend worrying about how you look in photos."
         },
         {
-            question: "It’s too expensive – is it worth the money?",
-            answer: "Compared to a $10,000 transplant or $40/month pills for life ($5,000+ over 10 years), AlphaRevive at $129.99 is a steal. Plus, it's a one-time purchase for the tool."
+            question: "It's too expensive – is it worth the money?",
+            answer: "What's the cost of avoiding mirrors? $10,000 transplant or $40/month pills for life ($5,000+ over 10 years). AlphaRevive at $129.99 gives you back the confidence you've been missing."
         },
         {
             question: "Will I have to use this forever?",
-            answer: "Ideally, yes, for maintenance. But once follicles reactivate, you can often reduce frequency to once a week. It's hair care, like brushing your teeth."
+            answer: "Once your confidence returns, you'll want to maintain it. But after results, most men reduce to once a week. Small ritual, lasting transformation."
         },
         {
-            question: "I’ve seen scams – how do I know this is legit?",
-            answer: "We offer a 120-Day Money-Back Guarantee. If you show us you used it and didn't see results, we refund you. We take all the risk."
+            question: "I've seen scams – how do I know this is legit?",
+            answer: "We offer a 120-Day Money-Back Guarantee. Use it, see the difference in how you carry yourself, or get a full refund. We take all the risk because we know it works."
         },
         {
-            question: "I want to see actual hair regrowth – even a little.",
-            answer: "Most men see 'vellus' hairs (baby hairs) by week 8. Thickening happens by month 4. Check our Reviews section for real photos."
+            question: "When will I start feeling different?",
+            answer: "Most men notice 'vellus' hairs (baby hairs) by week 8. But the confidence shift often happens sooner—when you stop avoiding your reflection. Thickening happens by month 4."
         }
     ];
 
@@ -251,18 +251,6 @@ export default function ProductPage() {
                             >
                                 <ChevronRight size={24} />
                             </button>
-
-                            {/* Mobile Navigation - Dots */}
-                            <div className="mobile-gallery-nav">
-                                {productImages.map((_, idx) => (
-                                    <button
-                                        key={idx}
-                                        className={`gallery-dot ${activeImage === idx ? 'active' : ''}`}
-                                        onClick={(e) => { e.stopPropagation(); changeImage(idx); }}
-                                        aria-label={`View image ${idx + 1}`}
-                                    />
-                                ))}
-                            </div>
                         </div>
                         {/* Thumbnail Gallery Navigation */}
                         <div className="gallery-thumbnails">
@@ -281,7 +269,7 @@ export default function ProductPage() {
                     {/* Right Column: Content */}
                     <div className="product-content">
                         <div className="header-section">
-                            <h1>AlphaRevive™ Hair Regrowth System</h1>
+                            <h1>AlphaRevive™ Hair Regrowth System | Reclaim Your Identity</h1>
                             <div className="reviews-row">
                                 <div className="stars">
                                     {[...Array(5)].map((_, i) => (
@@ -293,18 +281,17 @@ export default function ProductPage() {
                         </div>
 
                         <div className="guarantee-text">
-                            STOP FEEDING YOUR PILLOW, START FEEDING YOUR FOLLICLES
+                            THE BARRIER BREAKTHROUGH FOR NON RESPONDERS
                         </div>
                         <p className="subheadline-text">
-                            The first micro-infusion system designed to bypass the scalp barrier and deliver serum 300% deeper than topical droppers.
+                            You aren't "losing your hair"—it's just dormant behind a barrier. The Micro-Infusion System creates thousands of channels to bypass the "Scalp Barrier," delivering serum 3x deeper than topicals. Stop hiding. Start growing.
                         </p>
 
 
                         <ul className="checklist">
-                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>Perfect for all hair types and hair loss areas</span></li>
-                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>Painless, quick and simple</span></li>
-                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>100% Hormone-Free. Keep Your Hair & Your Edge</span></li>
-                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>100% secure checkout</span></li>
+                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>Bypasses the "Barrier" (No greasy flakes)</span></li>
+                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>Wakes Dormant Follicles (Clinically designed)</span></li>
+                            <li><Check size={20} className="check-icon" /><span style={{ fontWeight: '700' }}>Painless & Safe (0.5mm Titanium Needles)</span></li>
                         </ul>
 
 
@@ -389,16 +376,6 @@ export default function ProductPage() {
 
                         <TrustBadges />
 
-                        <div className="guarantee-box">
-                            <div className="guarantee-header">
-                                <Undo2 size={20} color="#1A1A1A" strokeWidth={2} />
-                                <span className="guarantee-title">120-Day Money Back Guarantee</span>
-                            </div>
-                            <p className="guarantee-body">
-                                Our 120-day money-back guarantee is designed to cover the full results period. So, if it somehow doesn’t work, you get a full refund.
-                            </p>
-                            <a href="/return-refund" className="guarantee-link">More Details</a>
-                        </div>
                     </div>
                 </div>
 
@@ -418,6 +395,8 @@ export default function ProductPage() {
                         </div>
                     </div>
                 </div>
+
+                <ProductAccordions />
 
                 {/* Our Unique Mechanism Section */}
                 <section className="mechanism-section">
@@ -475,10 +454,10 @@ export default function ProductPage() {
                                 <div className="step-box">
                                     <div className="step-number">2</div>
                                     <div className="step-content">
-                                        <h4>Phase 2: Wake Up Your Follicles' Energy Production</h4>
-                                        <p>The system uses targeted red light therapy at 650 nanometers wavelength. That specific frequency penetrates to the follicle level and activates the mitochondria—your follicles' energy factories.</p>
-                                        <p>At 650nm, light literally flips the switch on dormant mitochondria. Follicles that have been asleep for years restart their growth cycle.</p>
-                                        <p>Not from chemicals, and not from some hormones. But from light activating your own cellular machinery at the exact frequency that turns it back on.</p>
+                                        <h4>Phase 2: Wake Up Your Follicles' Natural Response</h4>
+                                        <p>The 0.5mm titanium microneedles do more than create channels—they trigger your body's natural healing cascade. Each micro-puncture signals your scalp to rush blood, oxygen, and growth factors to the area.</p>
+                                        <p>This controlled micro-trauma activates dormant follicles that have been starved for years. It's not damage—it's a wake-up call.</p>
+                                        <p>No chemicals. No hormones. Just your body's own regenerative machinery, finally switched back on.</p>
                                     </div>
                                     <div className="step-diagram">
                                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -546,7 +525,6 @@ export default function ProductPage() {
                     </div>
                 </section>
 
-                <ProductAccordions />
                 <SuccessStories onImageClick={handleImageClick} />
 
 
@@ -597,7 +575,7 @@ export default function ProductPage() {
                     isOpen={isLightboxOpen}
                     onClose={() => setIsLightboxOpen(false)}
                 />
-            </div>
+            </div >
         </>
     );
 }

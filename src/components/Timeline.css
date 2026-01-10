@@ -1,17 +1,12 @@
 /* Timeline.css */
-.timeline-container {
-    width: 100%;
-    background-color: #ffffff;
-    /* dark:bg-neutral-950 */
-    font-family: 'Inter', sans-serif;
-    padding: 4rem 1rem;
+padding: 4rem 1rem;
+overflow: hidden;
 }
 
 .timeline-wrapper {
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
-    padding-bottom: 5rem;
 }
 
 .timeline-row {

@@ -89,15 +89,10 @@ export default function ProductAccordions() {
                             <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>73% of users report visible improvement within the first month</strong></div>
                             <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>94.7% satisfaction rate from verified customer testing</strong></div>
                             <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>Micro-infusion delivers 10x better absorption than topical treatments alone</strong></div>
-                            <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>Zero side effects reported in safety testing</strong></div>
+
                         </div>
 
-                        <div className="cs-ticks-secondary">
-                            <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>Revolutionary micro-infusion technology transforming hair loss treatment</strong></div>
-                            <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>Proven multiple times more effective than traditional treatments</strong></div>
-                            <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>Safe and effective with no side effects</strong></div>
-                            <div className="tick-row"><Check size={18} className="tick-icon" /> <strong>Published in peer-reviewed dermatology research</strong></div>
-                        </div>
+
                     </div>
                 </AccordionItem>
 

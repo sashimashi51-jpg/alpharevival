@@ -41,15 +41,15 @@ const CircularProgress = ({ value }) => {
 
 const ResultsSection = () => {
     const data = [
-        { percentage: 97, text: "Experienced visible hair regrowth and restored fullness." },
-        { percentage: 92, text: "Felt more confident and youthful when dating, at the office, and in everyday life." },
-        { percentage: 87, text: "Would recommend AlphaFuse over shampoos, supplements, and other solutions." }
+        { percentage: 97, text: "Stopped avoiding mirrors and started recognizing themselves again." },
+        { percentage: 92, text: "Felt a renewed sense of confidence—at work, on dates, and in photos." },
+        { percentage: 87, text: "Said AlphaRevive gave them back something pills and shampoos never could: their identity." }
     ];
 
     return (
         <section className="results-section">
             <div className="container results-container">
-                <h2 className="results-title">In 30 Days, See the Difference</h2>
+                <h2 className="results-title">In 30 Days, Reclaim Your Reflection</h2>
 
                 <div className="results-list">
                     {data.map((item, index) => (

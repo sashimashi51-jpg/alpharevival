@@ -5,13 +5,13 @@ const AllySection = () => {
     return (
         <section className="ally-section">
             <div className="ally-container">
-                <h2 className="ally-heading">Your Ally in Fighting Hair Loss</h2>
+                <h2 className="ally-heading">Stop Hiding. Start Living.</h2>
                 <div className="ally-content">
                     <p>
-                        AlphaRevival delivers powerful hair-regrowth ingredients <strong>directly to your scalp</strong> using advanced <strong>micro-infusion technology</strong>. It promotes thicker, fuller hair by stimulating follicles and improving scalp health.
+                        You haven't lost yourself—you've just been locked out. AlphaRevive's <strong>micro-infusion technology</strong> bypasses the barrier that's been keeping growth compounds from reaching your dormant follicles.
                     </p>
                     <p>
-                        With <strong>just a few minutes of use</strong>, you can achieve noticeable hair regrowth—no expensive clinic visits, no invasive procedures, and <strong>no harsh chemicals needed</strong>.
+                        <strong>4 minutes a week.</strong> That's all it takes to reclaim the reflection you recognize. No clinics. No pills. No compromises. Just you—unfiltered, unedited, unapologetic.
                     </p>
                 </div>
             </div>

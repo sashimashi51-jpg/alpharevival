@@ -9,6 +9,7 @@ import LegalPage from './pages/LegalPage';
 import ClinicalStudy from './pages/ClinicalStudy';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
+import AdvertorialBfcm from './pages/AdvertorialBfcm';
 import JournalTemplate from './pages/JournalTemplate';
 import Navbar from './components/Navbar';
 import FooterNew from './components/FooterNew';
@@ -38,6 +39,20 @@ import LiveChat from './components/LiveChat';
 
 function AppContent() {
   const location = useLocation();
+
+  // Check if we're on an advertorial page (no main layout)
+  const isAdvertorialPage = location.pathname === '/bfcm-high-ticket-presell';
+
+  // For advertorial pages, render without main site navigation
+  if (isAdvertorialPage) {
+    return (
+      <>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/bfcm-high-ticket-presell" element={<AdvertorialBfcm />} />
+        </Routes>
+      </>
+    );
+  }
 
   return (
     <>

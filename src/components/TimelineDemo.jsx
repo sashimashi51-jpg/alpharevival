@@ -13,19 +13,19 @@ export default function TimelineDemo() {
                         The Awakening Phase
                     </h4>
                     <p className="timeline-item-desc">
-                        This is where the habit begins. Micro-channels open, blood flow increases,
-                        and peptides penetrate deep into the root.
+                        This is where the shift begins. Micro-channels open, blood flow increases,
+                        and peptides reach follicles that haven't been fed in years.
                     </p>
 
                     <div className="timeline-card">
                         <h5 className="timeline-card-title">
                             <Droplets className="icon-blue" size={18} />
-                            What you might see:
+                            What you'll notice:
                         </h5>
                         <ul className="timeline-list">
-                            <li><strong>Healthier Scalp:</strong> Less dryness as the serum hydrates.</li>
-                            <li><strong>The "Shedding" Shift:</strong> A positive sign that weak strands are being pushed out.</li>
-                            <li><strong>Texture Change:</strong> Existing hair may feel thicker at the root.</li>
+                            <li><strong>Healthier Scalp:</strong> Less dryness, more vitality.</li>
+                            <li><strong>The "Shedding" Shift:</strong> Weak strands clear the way for stronger growth.</li>
+                            <li><strong>First Glimmers of Hope:</strong> That tingling sensation—blood rushing back to dormant follicles.</li>
                         </ul>
                     </div>
                 </div>
@@ -39,19 +39,19 @@ export default function TimelineDemo() {
                         The Stabilization Phase
                     </h4>
                     <p className="timeline-item-desc">
-                        The routine becomes second nature. Shedding typically stops, and your scalp
-                        environment is fully primed for growth.
+                        The routine becomes ritual. Shedding stops, your scalp environment is primed,
+                        and you start catching yourself checking the mirror—expecting change instead of dreading it.
                     </p>
 
                     <div className="timeline-card">
                         <h5 className="timeline-card-title">
                             <Sparkles className="icon-yellow" size={18} />
-                            What you might see:
+                            What you'll notice:
                         </h5>
                         <ul className="timeline-list">
-                            <li><strong>Thicker Roots:</strong> The base of hair shafts feels stronger and more rigid.</li>
-                            <li><strong>"Peach Fuzz":</strong> Fine, colorless hairs begin to poke through thinning areas.</li>
-                            <li><strong>Less Visibility:</strong> Your scalp becomes less visible under bright lights.</li>
+                            <li><strong>Thicker Roots:</strong> Hair feels stronger, more anchored.</li>
+                            <li><strong>"Peach Fuzz":</strong> Fine hairs appear where there was only scalp.</li>
+                            <li><strong>A Shift in Posture:</strong> You stop tilting your head to hide. You just… look.</li>
                         </ul>
                     </div>
                 </div>
@@ -65,19 +65,19 @@ export default function TimelineDemo() {
                         The Transformation Phase
                     </h4>
                     <p className="timeline-item-desc">
-                        The biological switch has been flipped. Dormant follicles are reactivated,
-                        and visible density begins to return.
+                        This is where it clicks. Dormant follicles reactivate. Visibility returns.
+                        And somewhere along the way, you stop avoiding photos—you start asking for them.
                     </p>
 
                     <div className="timeline-card">
                         <h5 className="timeline-card-title">
                             <TrendingUp className="icon-green" size={18} />
-                            What you might see:
+                            What you'll notice:
                         </h5>
                         <ul className="timeline-list">
-                            <li><strong>Darkening Growth:</strong> "Peach fuzz" turns into thick, terminal hairs.</li>
-                            <li><strong>Filling Gaps:</strong> Temples and crown areas visually start to fill in.</li>
-                            <li><strong>Style Confidence:</strong> You need less product to hold your hair's shape.</li>
+                            <li><strong>Darkening Growth:</strong> "Peach fuzz" becomes real, visible hair.</li>
+                            <li><strong>Filling Gaps:</strong> Temples and crown areas visually restore.</li>
+                            <li><strong>Confidence Restored:</strong> You recognize the man in the mirror again.</li>
                         </ul>
                     </div>
                 </div>
