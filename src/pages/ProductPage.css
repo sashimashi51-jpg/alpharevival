@@ -476,23 +476,24 @@
 
 /* Add to Cart Btn */
 .add-to-cart-btn {
-    background: #D32F2F !important;
-    color: white !important;
-    border-radius: 6px !important;
-    padding: 1rem !important;
-    font-size: 1.1rem !important;
-    font-weight: 800 !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    font-family: 'Inter', sans-serif !important;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
     width: 100%;
     margin-top: 1rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.1s;
     border: none;
 }
 
 .add-to-cart-btn:hover {
-    background: #B71C1C !important;
-    /* darker red */
+    background: #1a1a1a !important;
     transform: translateY(-1px);
 }
 
@@ -530,11 +531,14 @@
 }
 
 .compact-btn {
-    background: #D32F2F !important;
-    color: white;
-    padding: 0.75rem 1.5rem !important;
-    font-weight: 700;
-    border-radius: 6px !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    padding: 0.7rem 1.25rem !important;
+    font-weight: 700 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.5px;
+    border-radius: 4px !important;
 }
 
 @media (min-width: 768px) {
@@ -789,8 +793,78 @@
 
 /* Hide mobile gallery navigation on desktop */
 .mobile-gallery-nav,
+.mobile-gallery-dots {
+    display: none;
+}
+
+/* Gallery Arrow Buttons */
 .gallery-arrow {
     display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-arrow.prev {
+    left: 10px;
+}
+
+.gallery-arrow.next {
+    right: 10px;
+}
+
+.gallery-arrow:hover {
+    background: #fff;
+}
+
+/* Mobile Gallery Dots */
+.mobile-gallery-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    gap: 8px;
+    z-index: 10;
+}
+
+.gallery-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.gallery-dot.active {
+    background: #000;
+    transform: scale(1.2);
+}
+
+/* Show mobile elements on mobile */
+@media (max-width: 767px) {
+    .gallery-arrow {
+        display: flex;
+    }
+
+    .mobile-gallery-dots {
+        display: flex;
+    }
+
+    .gallery-thumbnails {
+        display: none;
+    }
 }
 
 /* --- MOBILE FIXES --- */

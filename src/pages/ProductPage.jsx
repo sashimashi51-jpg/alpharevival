@@ -226,15 +226,37 @@ export default function ProductPage() {
                     <div className="product-gallery">
                         <div
                             className="main-image-wrapper"
-                            onClick={() => handleImageClick(productImages[activeImage], "AlphaRevive System")}
-                            style={{ cursor: 'zoom-in' }}
+                            style={{ cursor: 'zoom-in', position: 'relative', overflow: 'hidden' }}
                         >
-                            <img
-                                src={productImages[activeImage]}
-                                alt="AlphaRevive System"
-                                className="main-image"
-                                style={{ opacity: isFading ? 0 : 1 }}
-                            />
+                            <AnimatePresence mode="wait">
+                                <motion.img
+                                    key={activeImage}
+                                    src={productImages[activeImage]}
+                                    alt="AlphaRevive System"
+                                    className="main-image"
+                                    initial={{ opacity: 0, x: 30 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -30 }}
+                                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                                    onClick={() => handleImageClick(productImages[activeImage], "AlphaRevive System")}
+                                    drag="x"
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={0.15}
+                                    onDragEnd={(e, { offset, velocity }) => {
+                                        const swipeThreshold = 50;
+                                        if (offset.x > swipeThreshold) {
+                                            prevImage(e);
+                                        } else if (offset.x < -swipeThreshold) {
+                                            nextImage(e);
+                                        }
+                                    }}
+                                    style={{
+                                        touchAction: 'pan-y',
+                                        width: '100%',
+                                        height: 'auto',
+                                    }}
+                                />
+                            </AnimatePresence>
 
                             {/* Mobile Navigation - Arrows */}
                             <button
@@ -251,6 +273,17 @@ export default function ProductPage() {
                             >
                                 <ChevronRight size={24} />
                             </button>
+
+                            {/* Mobile Dot Navigation */}
+                            <div className="mobile-gallery-dots">
+                                {productImages.map((_, idx) => (
+                                    <span
+                                        key={idx}
+                                        className={`gallery-dot ${activeImage === idx ? 'active' : ''}`}
+                                        onClick={(e) => { e.stopPropagation(); setActiveImage(idx); }}
+                                    />
+                                ))}
+                            </div>
                         </div>
                         {/* Thumbnail Gallery Navigation */}
                         <div className="gallery-thumbnails">
@@ -563,7 +596,7 @@ export default function ProductPage() {
                         <span className="sticky-title">{offers[selectedOffer].title}</span>
                         <span className="sticky-price">{offers[selectedOffer].price}</span>
                     </div>
-                    <button className="btn btn-primary compact-btn" onClick={handleAddToCart}>Add to Cart</button>
+                    <button className="btn btn-primary compact-btn" onClick={handleAddToCart}>ADD TO CART</button>
                 </div>
 
 
@@ -575,7 +608,7 @@ export default function ProductPage() {
                     isOpen={isLightboxOpen}
                     onClose={() => setIsLightboxOpen(false)}
                 />
-            </div >
+            </div>
         </>
     );
 }
