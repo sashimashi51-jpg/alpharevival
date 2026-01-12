@@ -47,11 +47,11 @@ const productSchema = {
 };
 
 const productImages = [
-    '/assets/product_photos_final/first_photo.webp',
-    '/assets/product_photos_final/second_photo.webp',
-    '/assets/product_photos_final/third_photo.webp',
-    '/assets/product_photos_final/fourth_photo.webp',
-    '/assets/product_photos_final/fifth_photo.webp',
+    '/assets/product_photos_final/1.png',
+    '/assets/product_photos_final/2.png',
+    '/assets/product_photos_final/3.png',
+    '/assets/product_photos_final/4.png',
+    '/assets/product_photos_final/5.png',
     '/assets/product_photos_final/sixth_photo.webp',
     '/assets/product_photos_final/seventh_photo.webp',
     '/assets/product_photos_final/eighth_photo.webp',
