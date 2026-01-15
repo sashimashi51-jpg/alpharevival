@@ -1,0 +1,691 @@
+/* TeeestPage.css - QureSkincare Structure Replica */
+
+/* ============================================
+   DESIGN TOKENS (Color Palette & Typography)
+   ============================================ */
+:root {
+    --qure-dark: #212428;
+    --qure-light: #F6F6F7;
+    --qure-white: #FFFFFF;
+    --qure-accent: #E96A4B;
+    --qure-gray: #6B7280;
+
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================
+   GLOBAL PAGE STYLES
+   ============================================ */
+.teeest-page {
+    font-family: var(--font-sans);
+    color: var(--qure-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.teeest-page * {
+    box-sizing: border-box;
+}
+
+.teeest-container {
+    max-width: 1232px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ============================================
+   ANNOUNCEMENT BAR
+   ============================================ */
+.teeest-announcement-bar {
+    background: var(--qure-dark);
+    color: var(--qure-white);
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.teeest-announcement-bar a {
+    color: var(--qure-white);
+    text-decoration: underline;
+    margin-left: 8px;
+}
+
+/* ============================================
+   HEADER / NAVBAR
+   ============================================ */
+.teeest-header {
+    background: var(--qure-white);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    position: sticky;
+    top: 30px;
+    z-index: 999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.teeest-header-left,
+.teeest-header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.teeest-header-nav {
+    display: flex;
+    gap: 24px;
+}
+
+.teeest-header-nav a {
+    color: var(--qure-dark);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.teeest-header-nav a:hover {
+    opacity: 0.7;
+}
+
+.teeest-logo {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--qure-dark);
+    text-decoration: none;
+}
+
+.teeest-header-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.teeest-header-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+/* Mobile hamburger menu */
+.teeest-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.teeest-hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--qure-dark);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.teeest-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 711px;
+    background: var(--qure-light);
+}
+
+.teeest-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+}
+
+.teeest-hero-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--qure-gray);
+    margin-bottom: 16px;
+}
+
+.teeest-hero-title {
+    font-family: var(--font-serif);
+    font-size: 46px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--qure-dark);
+    margin: 0 0 24px 0;
+}
+
+.teeest-hero-subtitle {
+    font-size: 16px;
+    color: var(--qure-gray);
+    margin-bottom: 32px;
+    max-width: 400px;
+}
+
+.teeest-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teeest-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.teeest-btn-primary {
+    background: var(--qure-dark);
+    color: var(--qure-white);
+}
+
+.teeest-btn-primary:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+.teeest-btn-secondary {
+    background: var(--qure-white);
+    color: var(--qure-dark);
+    border: 2px solid var(--qure-dark);
+}
+
+.teeest-btn-secondary:hover {
+    background: var(--qure-dark);
+    color: var(--qure-white);
+}
+
+/* ============================================
+   PRODUCT CATEGORIES SECTION
+   ============================================ */
+.teeest-categories {
+    padding: 80px 0;
+    background: var(--qure-white);
+}
+
+.teeest-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+}
+
+.teeest-category-card {
+    text-align: center;
+    text-decoration: none;
+    color: var(--qure-dark);
+    transition: transform 0.3s ease;
+}
+
+.teeest-category-card:hover {
+    transform: translateY(-8px);
+}
+
+.teeest-category-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.teeest-category-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ============================================
+   FEATURED IN / LOGOS SECTION
+   ============================================ */
+.teeest-featured-in {
+    padding: 60px 0;
+    background: var(--qure-light);
+    text-align: center;
+}
+
+.teeest-featured-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--qure-gray);
+    margin-bottom: 32px;
+}
+
+.teeest-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.teeest-logo-img {
+    height: 32px;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity 0.3s;
+}
+
+.teeest-logo-img:hover {
+    opacity: 1;
+}
+
+/* ============================================
+   BEFORE/AFTER SECTION
+   ============================================ */
+.teeest-results {
+    padding: 100px 0;
+    background: var(--qure-white);
+}
+
+.teeest-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.teeest-section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--qure-gray);
+    margin-bottom: 16px;
+}
+
+.teeest-section-title {
+    font-family: var(--font-serif);
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--qure-dark);
+    margin: 0;
+}
+
+.teeest-results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.teeest-result-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.teeest-result-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   ADVISORS SECTION
+   ============================================ */
+.teeest-advisors {
+    padding: 100px 0;
+    background: var(--qure-light);
+}
+
+.teeest-advisors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.teeest-advisor-card {
+    text-align: center;
+}
+
+.teeest-advisor-image {
+    width: 100%;
+    aspect-ratio: 0.9;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.teeest-advisor-name {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 8px 0;
+}
+
+.teeest-advisor-title {
+    font-size: 14px;
+    color: var(--qure-gray);
+}
+
+/* ============================================
+   TESTIMONIALS / VIDEO SECTION
+   ============================================ */
+.teeest-testimonials {
+    padding: 100px 0;
+    background: var(--qure-white);
+}
+
+.teeest-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.teeest-testimonial-card {
+    aspect-ratio: 9/16;
+    background: var(--qure-light);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.teeest-testimonial-placeholder {
+    font-size: 48px;
+    color: var(--qure-gray);
+    opacity: 0.3;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.teeest-footer {
+    background: var(--qure-dark);
+    color: var(--qure-white);
+    padding: 80px 0 40px;
+}
+
+.teeest-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 60px;
+}
+
+.teeest-footer-brand h3 {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0 0 16px 0;
+}
+
+.teeest-footer-brand p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 24px 0;
+}
+
+.teeest-newsletter-form {
+    display: flex;
+    gap: 12px;
+}
+
+.teeest-newsletter-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: var(--qure-white);
+    border-radius: 50px;
+    font-size: 14px;
+}
+
+.teeest-newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.teeest-footer-column h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+
+.teeest-footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.teeest-footer-column li {
+    margin-bottom: 12px;
+}
+
+.teeest-footer-column a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.teeest-footer-column a:hover {
+    color: var(--qure-white);
+}
+
+.teeest-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.teeest-social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.teeest-social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s;
+}
+
+.teeest-social-links a:hover {
+    color: var(--qure-white);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet (768px) */
+@media (max-width: 992px) {
+    .teeest-header-nav {
+        display: none;
+    }
+
+    .teeest-hamburger {
+        display: flex;
+    }
+
+    .teeest-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .teeest-hero-content {
+        padding: 40px 24px;
+        order: 2;
+    }
+
+    .teeest-hero-image-wrapper {
+        order: 1;
+    }
+
+    .teeest-hero-title {
+        font-size: 36px;
+    }
+
+    .teeest-categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .teeest-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teeest-advisors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teeest-testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teeest-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+}
+
+/* Mobile (375px) */
+@media (max-width: 768px) {
+    .teeest-announcement-bar {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+
+    .teeest-header {
+        height: 56px;
+        padding: 0 16px;
+        top: 26px;
+    }
+
+    .teeest-logo {
+        font-size: 22px;
+    }
+
+    .teeest-hero-content {
+        padding: 32px 16px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .teeest-hero-title {
+        font-size: 28px;
+    }
+
+    .teeest-hero-subtitle {
+        font-size: 14px;
+    }
+
+    .teeest-categories {
+        padding: 48px 0;
+    }
+
+    .teeest-categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .teeest-category-title {
+        font-size: 12px;
+    }
+
+    .teeest-featured-in {
+        padding: 40px 0;
+    }
+
+    .teeest-logos {
+        gap: 24px;
+    }
+
+    .teeest-logo-img {
+        height: 24px;
+    }
+
+    .teeest-results,
+    .teeest-advisors,
+    .teeest-testimonials {
+        padding: 60px 0;
+    }
+
+    .teeest-section-title {
+        font-size: 28px;
+    }
+
+    .teeest-results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teeest-advisors-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .teeest-advisor-name {
+        font-size: 16px;
+    }
+
+    .teeest-testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .teeest-footer {
+        padding: 48px 0 24px;
+    }
+
+    .teeest-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .teeest-footer-column h4 {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .teeest-footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .teeest-btn {
+        padding: 14px 28px;
+        font-size: 13px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 375px) {
+    .teeest-hero-title {
+        font-size: 24px;
+    }
+
+    .teeest-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

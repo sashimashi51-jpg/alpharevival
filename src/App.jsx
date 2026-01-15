@@ -10,6 +10,7 @@ import ClinicalStudy from './pages/ClinicalStudy';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
 import AdvertorialBfcm from './pages/AdvertorialBfcm';
+import TeeestPage from './pages/TeeestPage';
 import JournalTemplate from './pages/JournalTemplate';
 import Navbar from './components/Navbar';
 import FooterNew from './components/FooterNew';
@@ -41,7 +42,7 @@ function AppContent() {
   const location = useLocation();
 
   // Check if we're on an advertorial page (no main layout)
-  const isAdvertorialPage = location.pathname === '/bfcm-high-ticket-presell';
+  const isAdvertorialPage = location.pathname === '/bfcm-high-ticket-presell' || location.pathname === '/teeest';
 
   // For advertorial pages, render without main site navigation
   if (isAdvertorialPage) {
@@ -49,6 +50,7 @@ function AppContent() {
       <>
         <Routes location={location} key={location.pathname}>
           <Route path="/bfcm-high-ticket-presell" element={<AdvertorialBfcm />} />
+          <Route path="/teeest" element={<TeeestPage />} />
         </Routes>
       </>
     );
